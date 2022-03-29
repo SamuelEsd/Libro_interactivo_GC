@@ -1,5 +1,6 @@
 function convexHullJM(points){
     // Let's start the hull with the leftmost point
+    points = Array.from(points)
     points.sort((a,b) => { return a.x - b.x});
     let hull = [];
     let start = points[0];

@@ -259,30 +259,54 @@
         <h1 class="chap_name" id="introduccion">Introducción <b class="chap_num">1</b></h1>
 
         <p>
-          Es común que en el estudio de la Geometría computacional, se aborden conjuntos de puntos en un espacio euclidiano. 
-          Para estos, se suele representar cada punto como un vector de coordenadas de la dimensión adecuada. 
-          Los objetos geométricos que se estudian no necesitan consistir de un número finito de puntos, pero sí es necesario que tengan una especificación finita. 
-          Es por eso que, además de considerar puntos individuales, se consideran elementos más complejos, tales como, las líneas rectas, 
-          los segmentos de líneas rectas, los planos, los polígonos, etcétera.
+          El objetivo de esta sección será refrescar o introducir, 
+          los conceptos que se consideran básicos o necesarios, 
+          para que el lector pueda comprender con mayor facilidad los temas que se abordarán en el resto del libro, 
+          además de adoptar una notación para los mismos.
           <br>
-          Adicionalmente, para el uso de algoritmos geométricos es necesario manipular objetos que no son manejados a nivel de lenguaje de máquina. 
+          Es por ello que, solamente formarán parte de esta sección las definiciones básicas, 
+          futuras definiciones que puedan ser más complejas se irán viendo en los capítulos correspondientes.
+          <br><br>
+
+          Ya que es bastante común que en el estudio de la <i>Geometría computacional</i>, 
+          se aborden temas que hagan uso de conjuntos de puntos en un espacio euclidiano, 
+          es necesario saber representar a estos puntos, a estos mismos,
+          se les suele representar como un vector de coordenadas, con el número de entradas, 
+          dependiendo de la dimensión del espacio en el que se encuentren <i>(un vector con coordenadas (x,y) para R2, un
+          vector con coordenadas (x,y,z) para R3, etc.)</i>. 
+          <br>
+          Los objetos geométricos que se estudian o de los que se hace uso 
+          para estudiar la <i>Geometría computacional</i>, no necesitan consistir de un número finito de puntos, 
+          sin embargo, es necesario que tengan una especificación finita. 
+          <br>
+          Es por eso que, además de considerar <i>puntos</i> individuales, 
+          se consideran elementos más complejos, tales como, las <i>líneas rectas</i>, 
+          los <i>segmentos de líneas rectas</i>, los <i>planos</i>, los <i>polígonos</i>, etcétera, 
+          cuyas definiciones y/o conceptos básicos serán resentados en la primer parte del
+          capitulo actual.
+          
+      </div>
+
+      <div class="page">
+
+        <br><br>
+          Adicionalmente, para el uso de algoritmos geométricos es necesario manipular 
+          estructuras que no son manejadas a nivel de lenguaje de máquina. 
           Por lo que es necesario implementar y/o utilizar diversas estructuras de datos, 
           de las cuales las más comúnmente utilizadas son los conjuntos y los conjuntos ordenados, 
-          pero resulta claro comprender que no son estas las únicas utilizadas.
-          <br><br> 
-          El objetivo de esta sección será refrescar o introducir, los conceptos que se consideran básicos o necesarios, 
-          para que el lector pueda comprender con mayor facilidad los temas que se abordarán en el resto del libro, además de adoptar una notación para los mismos.
-        </p>
+          pero resulta claro comprender que estas no son las únicas utilizadas.
+          Sin embargo en este capítulo solo se mencionarán las que se consideran necesarias,
+          teniendo en cuenta que el lector ya cuenta con conocimientos de las
+          estructuras de datos más básicas.
+                  
+        </p>          
       </div>
 
       <div class="page">
         <h2 id="cap1_definiciones_generales">Definiciones generales.</h2>
         <p>
-          Solo formarán parte de esta sección definiciones básicas, 
-          futuras definiciones que puedan ser más complejas se irán viendo en los capítulos correspondientes.
-          <br><br>
-          Para comenzar, denotaremos como $E^d$ al espacio euclídeo d-dimensional,
-          esto es, el espacio de d-tuplas $(x_1 , \dots , x_d)$ de numeros reales $\ x_i, \ i = 1, … , d\ $ 
+          Para comenzar, denotaremos como $\mathbb{R}^d$ al espacio euclídeo d-dimensional,
+          esto es, el espacio de d-vectores $(x_1 , \dots , x_d)$ de numeros reales $\ x_i, \ i = 1, … , d\ $ 
           con métrica $( \sum^{d}_{i=1} x^{2}_{i})^{1/2}$.
           <br>
           (nota de pie de página https://en.wikipedia.org/wiki/Metric_(mathematics))
@@ -290,22 +314,33 @@
           Dada esta definición podemos continuar con las que resultan más indispensables para el estudio de la geometría computacional.
           <br><br>
           $Punto. $  <br>
-          Una d-tupla $(x_1 , \dots , x_d)$ denota un punto $p$ en $E^d$; 
-          este punto también puede ser interpretado como un vector con $d$ componentes aplicado en el origen de $E^d$.
+          Un vector con $d$ componentes $(x_1 , \dots , x_d)$ 
+          aplicado en el origen de $\mathbb{R}^d$ denota un punto $p$ en $\mathbb{R}^d$.
+          <br><br>
+          Este concepto es bastante simple, pero aún así a continuación se muestra un
+          interactivo en el cual se representa un espacio en $\mathbb{R}^d$ y al
+          dar clic sobre el se puede ver la representación de un punto en la posición del cursor.
         </p>
+        <div class="interactive" width="780" height="385"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_punto.html"></div>
       </div>
       <div class="page">
         <p>
           $Línea. $ <br>
-          Dados dos puntos distintos $q_1$ y $q_2$ en $E^d$, la combinación lineal
+
+
+          Dados dos puntos distintos $p_1$ y $p_2$ en $\mathbb{R}^d$, 
+          el conjunto de todos los puntos $r$ que satisfacen
           \[
-            q_1 + \alpha (q_2 - q_1) \qquad (\alpha_j \in \mathbb{R})
+            r  = \alpha \ p_1 + (1 -\alpha ) p_2 \qquad 
           \]
-        </p>
-        <p>
+          para algún $ \alpha \in \mathbb{R} $, 
           es una línea en $E^d$.
-        </p>
-        
+          <br>
+          A pesar de que un solo par de puntos distintos define una línea,
+          una línea en $\mathbb{R}^d$ contiene un número infinitos de puntos.
+        </p>        
+
+        <div class="interactive" width="600" height="550"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_linea.html"></div>
       </div>
       <div class="page">
         <p>
@@ -370,6 +405,8 @@
           INSERTAR AQUÍ EJEMPLOS DE AMBOS POLIGONOS
         </p>
       </div>
+
+
 
       <div class="page">
         <p>
@@ -478,8 +515,16 @@ the set.
 
       <div class="page">  
 
-        <h2 id="cap2_cota_minima">Cota mínima</h2>
+        <h2 id="cap2_cota_minima">Cota mínima</h2>      
+      </div>
+
+      <div class="page">  
         <h2 id="cap2_algorithmo_grahan">Algoritmo de Graham</h2>
+
+        <div class="interactive" width="810" height="800"  window-size="false"  src="./Interactivos/capitulo_2/graham_scan.html"></div>
+      </div>
+
+      <div class="page">  
         <h2 id="cap2_algoritmo_jarvis">Algoritmo de Jarvis</h2>
         <h2 id="cap2_algoritmos_divide_venceras">Algoritmos usando divide y vencerás</h2>
         <h2 id="cap2_algoritmos_dinamicos">Algoritmos dinámicos</h2>

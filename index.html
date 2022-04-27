@@ -334,9 +334,9 @@
             r  = \alpha \ p_1 + (1 -\alpha ) p_2 \qquad 
           \]
           para algún $ \alpha \in \mathbb{R} $, 
-          es una línea en $E^d$.
+          describe una línea en $\mathbb{R}^d$.
           <br>
-          A pesar de que un solo par de puntos distintos define una línea,
+          A pesar de que un solo par de puntos distintos definen perfectamente una línea,
           una línea en $\mathbb{R}^d$ contiene un número infinitos de puntos.
         </p>        
 
@@ -345,20 +345,23 @@
       <div class="page">
         <p>
           $Segmento \ de \ línea.$ <br>
-          Dados dos puntos distintos $q_1$ y q$_2$ en $E^d$, 
-          si en la expreción $ \ q_1 + \alpha (q_2 - q_1) \ $ agregamos la condición 
+          Dados dos puntos distintos  $p_1$ y $p_2$ en $\mathbb{R}^d$, 
+          si a la definición anterior agregamos la condición 
           $ \ 0 \leq \alpha \leq 1 \ $, esto es
           \[
-            q_1 + \alpha (q_2 - q_1) \qquad ( 0 \leq \alpha \leq 1 )
+          r  = \alpha \ p_1 + (1 -\alpha ) p_2 \qquad  ( 0 \leq \alpha \leq 1 )
           \]
-          Esta combinación describe el segmento de linea recta que une los dos puntos $ \ q_1 \ $ y $ \ q_2 \ $.
-          Normalmente este segmento se denota como $ \ \overline{ q_1 q_2}$.          
+          el conjunto de todos los puntos que satisfacen dicha definición,
+          describe el segmento de linea recta que une los 
+          dos puntos $ \ q_1 \ $ y $ \ q_2 \ $ en $\mathbb{R}^d$.
+          Normalmente este segmento se denota como $ \ \overline{ p_1 p_2}$.          
         </p>
+        <div class="interactive" width="600" height="550"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_segmento.html"></div>
       </div>
       <div class="page">
         <p>
           $Poligono. $ <br>
-          En $E^2$ un poligono es una región plana delimitada por una colección finita 
+          En $\mathbb{R}^d$ un poligono es una región plana delimitada por una colección finita 
           de segmentos de línea formando una curva cerrada simple. Ya que puede ser complejo
           explicar el significado de "curva cerrada simple", podemos abordar la definición de la sigiemte manera.
 
@@ -384,11 +387,13 @@
           </li>
         </ol> 
         <p>
-          Entonces, la razón por la cual estos segmentos se definen como
+          Dada esta definición, podemos explicar por qué, un poligono es
+          una curva cerrada simple. <br>
+          La razón por la cual estos segmentos se definen como
           una <emp>curva</emp> es porque estan conectados por los extremos;
           la razón por la cual esta curva es cerrada es porque 
-          forma un ciclo; y la razón por la que la curva cerrada es 
-          además simple es porque los segmentos no adyacentes no se
+          forma un ciclo; y la razón por la que la curva cerrada, es 
+          además simple, es porque los segmentos no adyacentes no se
           intersectan.
           <br><br>
           Dada esta notación podemos definir a los segmentos que 

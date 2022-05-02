@@ -361,22 +361,27 @@
       <div class="page">
         <p>
           $Poligono. $ <br>
-          En $\mathbb{R}^d$ un poligono es una región plana delimitada por una colección finita 
-          de segmentos de línea formando una curva cerrada simple. Ya que puede ser complejo
-          explicar el significado de "curva cerrada simple", podemos abordar la definición de la sigiemte manera.
+          En $\mathbb{R}^d$ un poligono $P$, es la región cerrada del plano,
+          acotada por una colección finita 
+          de segmentos de línea, formando una $curva \ cerrada \ simple$. 
+          <br>
+          Ya que puede ser complejo
+          explicar el significado de "$curva \ cerrada \ simple$", 
+          podemos abordar la definición de la siguiente manera, 
+          para poderlo explicar de una forma más sencilla.
 
           <br> <br>
-          Sean $v_0, v_1, v_2,\dots, v_{n-1}$ puntos en el plano.
+          Sean $v_0, v_1, v_2,\dots, v_{n-1}$ $n$ puntos en el plano.
           Sean $ e_0 = \overline{v_0 v_1}, e_1 = \overline{v_1 v_2},
-          \dots, e_i = \overline{v_{i} v_{i+1}},\dots, 
-          e_{n-1} = \overline{v_{n-1} v_{0}} \ $ $n$ 
+          \dots, e_i = \overline{v_{i} v_{i+1}}, \ \dots \ , 
+          e_{n-1} = \overline{v_{n-1} v_{0}}  $ $n - 1$ 
           segmentos conectando los puntos, estos segmentos delimitan un poligono
           si y solo si:
         </p>
         <ol>
           <li>
-            La intersección de cada par de sermentos adyacentes en 
-            el ciclo ordenado es el unico punto que comparten entre ellos:
+            La intersección de cada par de segmentos adyacentes en 
+            el ciclo ordenado es el único punto que comparten entre ellos:
             <br>
             $ e_i \cap e_{i+1} = v_{i+1, \ }$ para todo $i = 0, \dots, n - 1$.
           </li>
@@ -386,45 +391,64 @@
             $ e_i \cap e_{j} = \emptyset, \ $ para todo $j \neq i - 1$.
           </li>
         </ol> 
-        <p>
-          Dada esta definición, podemos explicar por qué, un poligono es
-          una curva cerrada simple. <br>
-          La razón por la cual estos segmentos se definen como
-          una <emp>curva</emp> es porque estan conectados por los extremos;
-          la razón por la cual esta curva es cerrada es porque 
-          forma un ciclo; y la razón por la que la curva cerrada, es 
-          además simple, es porque los segmentos no adyacentes no se
-          intersectan.
-          <br><br>
-          Dada esta notación podemos definir a los segmentos que 
-          cumplen solo la primer condición como <emp>poligonos no simples</emp>,
-          si cumplen también la segunda los llamaremos 
-          <emp>poligonos simples</emp>, otra forma más simple de definirlo
-          es que un poligono es simple si no se cruza a sí mismo.
-          <br>
-          Ya que prácticamente solo se hará uso de los 
-          <emp>poligonos no simples</emp>, por simplicidad solo los llamaremos
-          <emp>poligonos</emp>.
-          <br><br>
-
-          INSERTAR AQUÍ EJEMPLOS DE AMBOS POLIGONOS
-        </p>
+        
+        <div class="interactive" width="600" height="310"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div>
       </div>
 
 
 
       <div class="page">
         <p>
-          En un poligono, los puntos $v_i$ son llamados 
-          <emp>vertices</emp>, y los segmentos $e_i$
-          son llamados <emp>aristas</emp> (se usa la notación $e$
-          ya que la traducción de arista al inglés es edge, y es bastante
-          común usar $e$ como notación por esa razón).
+          En la $figura ???$ tenemos un ejemplo de un 
+          conjunto de segmentos de línea que no cumplen
+          ambas condiciones.  
+          <br>
+          Podemos observar como las aristas $e_1$ y $e_2$ 
+          (azúl y roja, respectivamente)  no cumplen la segunda condición,  
+          y a su vez las aristas $e_3$ y $e_4$ 
+          (negra y verde, respectivamente)  no cumplen la primer condición.
+          <br><br>
+          Dada esta definición, podemos explicar de una forma 
+          más simple, qué es una $curva \ cerrada \ simple$. <br>
+          La razón por la cual estos segmentos de línea se definen como
+          una $curva$ es porque estan conectados por los extremos;
+          la razón por la cual esta curva es cerrada es porque 
+          forma un ciclo; y la razón por la que la curva cerrada, es 
+          además simple, es porque los segmentos no adyacentes no se
+          intersectan.
+          <br><br>
+          Podemos definir a los objetos que 
+          cumplen solo la primer condición como $poligonos \ no \ simples$,
+          si cumplen también la segunda (los segmentos no adyacentes no se
+          intersectan) los llamaremos 
+          $poligonos \ simples$, otra forma más simple de definirlo
+          es que un poligono es simple si no se cruza a sí mismo.
+          <br>
+          Ya que prácticamente solo se hará uso de los 
+          $poligonos \ simples$, por simplicidad solo los llamaremos
+          $poligonos$.
           <br><br>
         </p>
         <p>
-          Un poligono, encierra una región del plano, nos referiremos
-          a esta como el <emp>interior</emp> del poligono. 
+          En un poligono, los segmentos $e_i$
+          son llamados $aristas$ (se usa la notación $e$
+          ya que la traducción de arista al inglés es edge, y es bastante
+          común encontrar dicha notación en la literatura,
+          utilizaremos dicha notación por esa razón), y los puntos $v_i$ 
+          (puntos donde se intersectan los segmentos de línea adyacentes)
+          son llamados $vertices$.
+          <br><br>
+        </p>
+      </div>
+
+
+
+      <div class="page">
+
+        <p>
+          Un poligono, con sus aristas y vertices,
+          encierra una región del plano, nos referiremos
+          a esta región como el <emp>interior</emp> del poligono. 
           La región no delimitada que rodea al poligono forma
           el <emp>exterior</emp> del poligono.
           El conjunto de vertices y aristas de un poligono $P$ 
@@ -436,15 +460,27 @@
           su interior. Lo que significa que si mencionamos un 
           punto en un poligono este se puede encontrar 
           ya sea en el interior o en su perimetro.
+          <br><br>
         </p>
 
-        Algorithms often need to break polygons into pieces for processing. A
-natural decomposition of a polygon P into simpler pieces is achieved by
-drawing diagonals. A diagonal of a polygon is a line segment connecting
-two vertices of P and lying in the interior of P, not touching ∂P except
-at its endpoints. Two diagonals are noncrossing if they share no interior
-points. Figure 1.2 shows (a) a polygon, (b) a diagonal, (c) a line segment
+        <p>
+          Existen algoritmos que necesitan dividir a los poligonos
+          en varias partes para procesarlos.
+          Una forma natural de dividir a los poligonos en 
+          partes más simples se logra dibujando <emp>diagonales</emp>.
+          <br>
+          Una <emp>diagonal</emp> de un poligono $P$, es un segmento de 
+          línea que conecta dos vertices de $P$ y que 
+          yace en el interior de $P$, este segmento no toca a $ \partial P$
+          excpeto en su punto inicial y su punto final.
+          <br>
+          Dos diagonales no se cruzan si no comparten puntos interiores, 
+          esto es, si comparten a los más alguno de sus puntos de 
+          inicio o fin.
+        </p>
+        Figure 1.2 shows (a) a polygon, (b) a diagonal, (c) a line segment
 that is not a diagonal, and (d) two crossing diagonals.
+<br><br>
 Definition. A triangulation of a polygon P is a decomposition of P into
 triangles by a maximal set of noncrossing diagonals.
 Here maximal means that no further diagonal may be added to the

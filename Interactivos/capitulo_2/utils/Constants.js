@@ -1,6 +1,6 @@
 
 // Constants for drawing stuff
-let POINT_SIZE = 20
+let POINT_SIZE = 15
 let LINE_SIZE = 5
 
 // Constants used to define window borders and size.

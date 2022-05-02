@@ -412,9 +412,9 @@
           más simple, qué es una $curva \ cerrada \ simple$. <br>
           La razón por la cual estos segmentos de línea se definen como
           una $curva$ es porque estan conectados por los extremos;
-          la razón por la cual esta curva es cerrada es porque 
+          la razón por la cual esta curva es $cerrada$ es porque 
           forma un ciclo; y la razón por la que la curva cerrada, es 
-          además simple, es porque los segmentos no adyacentes no se
+          además $simple$, es porque los segmentos no adyacentes no se
           intersectan.
           <br><br>
           Podemos definir a los objetos que 
@@ -427,7 +427,7 @@
           Ya que prácticamente solo se hará uso de los 
           $poligonos \ simples$, por simplicidad solo los llamaremos
           $poligonos$.
-          <br><br>
+          <br>
         </p>
         <p>
           En un poligono, los segmentos $e_i$
@@ -448,9 +448,9 @@
         <p>
           Un poligono, con sus aristas y vertices,
           encierra una región del plano, nos referiremos
-          a esta región como el <emp>interior</emp> del poligono. 
+          a esta región como el $interior$ del poligono. 
           La región no delimitada que rodea al poligono forma
-          el <emp>exterior</emp> del poligono.
+          el $exterior$ del poligono.
           El conjunto de vertices y aristas de un poligono $P$ 
           (el poligono sin su interior) es llamado perimetro,
           y es denotado como $ \partial P$.
@@ -467,25 +467,31 @@
           Existen algoritmos que necesitan dividir a los poligonos
           en varias partes para procesarlos.
           Una forma natural de dividir a los poligonos en 
-          partes más simples se logra dibujando <emp>diagonales</emp>.
+          partes más simples se logra dibujando $diagonales$.
           <br>
-          Una <emp>diagonal</emp> de un poligono $P$, es un segmento de 
+          Una $diagonal$ de un poligono $P$, es un segmento de 
           línea que conecta dos vertices de $P$ y que 
           yace en el interior de $P$, este segmento no toca a $ \partial P$
           excpeto en su punto inicial y su punto final.
           <br>
           Dos diagonales no se cruzan si no comparten puntos interiores, 
-          esto es, si comparten a los más alguno de sus puntos de 
+          esto es, si comparten a lo más alguno de sus puntos de 
           inicio o fin.
         </p>
+
+      </div>
+
+      <div class="page">  
+        <img src="/images/capitulo01/Diagonales_from_Devad_discrete_and_computational_geo.jpg" width="90%" >
+        <br>
         Figure 1.2 shows (a) a polygon, (b) a diagonal, (c) a line segment
-that is not a diagonal, and (d) two crossing diagonals.
-<br><br>
-Definition. A triangulation of a polygon P is a decomposition of P into
-triangles by a maximal set of noncrossing diagonals.
-Here maximal means that no further diagonal may be added to the
-set without crossing (sharing an interior point with) one already in
-the set. 
+        that is not a diagonal, and (d) two crossing diagonals.
+        <br><br>
+        Definition. A triangulation of a polygon P is a decomposition of P into
+        triangles by a maximal set of noncrossing diagonals.
+        Here maximal means that no further diagonal may be added to the
+        set without crossing (sharing an interior point with) one already in
+        the set. 
       </div>
 
       <!-- REPASO DE ESTRUCTURAS DE DATOS -->
@@ -524,12 +530,19 @@ the set.
           El siguiente recurso interactivo nos muestra esta idea,
           donde los circulos representan los puntos en $S$ y las líneas
           verdes la liga que los encierra.
-
-          <div class="interactive" width="810" height="400"  window-size="false"  src="./Interactivos/capitulo_1/cierre_convexo.html"></div>
+          <br>
+          Puedes hacer click en cualquiera de los circulos blancos
+          que representan a los puntos en $S$ para poder moverlo
+          en la dirección que muevas el cursos, y
+          a su vez puedes dar de nuevo click para dejarlo fijo
+          en la nueva posición de cursor y ver como se modifica el 
+          cierre convexo.
         </p>
       </div>
 
       <div class="page"> 
+        <div class="interactive" width="810" height="500"  window-size="false"  src="./Interactivos/capitulo_1/cierre_convexo.html"></div>
+        <br>
         Ahora que tenemos esta definición que 
         nos sirve para tener más clara la idea geometrica,
         podemos avanzar más facilmente y comenzar con
@@ -538,6 +551,10 @@ the set.
         A continuación definiremos una <b><i>región convexa</i></b>
         para después poder definir lo que es un <i>cierre convexo</i>.
         <br>
+
+      </div>
+
+      <div class="page">  
         Una <i>región convexa</i> es 
         una región tal que para cualesquiera dos puntos en esta,
         el semento de línea entre ambos puntos se encuentra

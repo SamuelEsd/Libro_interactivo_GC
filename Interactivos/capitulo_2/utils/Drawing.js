@@ -28,10 +28,10 @@ function drawArrow(start, end, myColor) {
  * @param {Array} points - List of vectors representing
  * the points to draw.
  */
-function drawPoints(points) {
+function drawPoints(points,color) {
     strokeWeight(POINT_SIZE);
     for (i = 0; i < points.length; i++) {
-        stroke(256);
+        stroke(color);
         point(points[i].x, points[i].y);
     }
 }
@@ -67,11 +67,15 @@ function drawPointsWithSelection(points, selectedPoint) {
  * @param {Array} points - Clockwise sorted point list of
  * vectors representing the points on the coonvex hull.
  */
-function drawCH(points) {
+function drawArrows(points,isClosed) {
     let size = points.length;
     strokeWeight(LINE_SIZE);
     stroke("green");
-    for (i = 0; i < points.length; i++) {
+    last = points.length
+    if(! isClosed){
+        last--;
+    }
+    for (i = 0; i < last; i++) {
         let v0 = createVector(points[i].x, points[i].y);
         let v1 = createVector(points[(i + 1) % size].x, points[(i + 1) % size].y);
         drawArrow(v0, v1, "green");

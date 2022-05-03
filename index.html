@@ -257,24 +257,22 @@
       <!--  -->
       <div class="page">
         <h1 class="chap_name" id="introduccion">Introducción <b class="chap_num">1</b></h1>
-
         <p>
           El objetivo de esta sección será refrescar o introducir, 
           los conceptos que se consideran básicos o necesarios, 
-          para que el lector pueda comprender con mayor facilidad los temas que se abordarán en el resto del libro, 
+          para que el lector pueda comprender con mayor facilidad 
+          los temas que se abordarán en el resto del libro, 
           además de adoptar una notación para los mismos.
-          <br>
-          Es por ello que, solamente formarán parte de esta sección las definiciones básicas, 
-          futuras definiciones que puedan ser más complejas se irán viendo en los capítulos correspondientes.
           <br><br>
-
-          Ya que es bastante común que en el estudio de la <i>Geometría computacional</i>, 
-          se aborden temas que hagan uso de conjuntos de puntos en un espacio euclidiano, 
-          es necesario saber representar a estos puntos, a estos mismos,
-          se les suele representar como un vector de coordenadas, con el número de entradas, 
-          dependiendo de la dimensión del espacio en el que se encuentren <i>(un vector con coordenadas (x,y) para R2, un
-          vector con coordenadas (x,y,z) para R3, etc.)</i>. 
-          <br>
+          Es por ello que, solamente formarán parte de esta 
+          sección las definiciones básicas, 
+          futuras definiciones que puedan ser más complejas 
+          se irán viendo en los capítulos correspondientes.
+          <br><br>          
+          Ya que es bastante común que en el estudio 
+          de la <b><i>Geometría computacional</i></b>, 
+          se aborden temas que hacen uso de conjuntos de puntos en un espacio euclidiano, 
+          es necesario saber representar a estos puntos.<br>
           Los objetos geométricos que se estudian o de los que se hace uso 
           para estudiar la <i>Geometría computacional</i>, no necesitan consistir de un número finito de puntos, 
           sin embargo, es necesario que tengan una especificación finita. 
@@ -284,10 +282,13 @@
           los <i>segmentos de líneas rectas</i>, los <i>planos</i>, los <i>polígonos</i>, etcétera, 
           cuyas definiciones y/o conceptos básicos serán resentados en la primer parte del
           capitulo actual.
-          
+        </p>
       </div>
 
       <div class="page">
+        
+        
+        
 
         <br><br>
           Adicionalmente, para el uso de algoritmos geométricos es necesario manipular 
@@ -520,7 +521,7 @@
           un <b><i>cierre convexo</i></b>, antes de definirlo 
           formalmente, podemos tomarnos la libertad
           de definirlo de una forma más intuitiva.
-          <br>
+          <br><br>
           Esto es, dado un conjunto finito 
           de puntos $S$ en el plano, si 
           vemos a cada punto de $S$ como un clavo colocado en el plano 
@@ -548,25 +549,36 @@
         podemos avanzar más facilmente y comenzar con
         definiciones adicionales que sean más formales.
         <br><br>
-        A continuación definiremos una <b><i>región convexa</i></b>
+        A continuación definiremos una <b><i>conjunto convexo</i></b>
         para después poder definir lo que es un <i>cierre convexo</i>.
         <br>
 
       </div>
 
       <div class="page">  
-        Una <i>región convexa</i> es 
-        una región tal que para cualesquiera dos puntos en esta,
-        el semento de línea entre ambos puntos se encuentra
-        dentro de la misma región.
+        $Conjunto \ convexo.$ <br>
+        Dados $k$ puntos 
+        $p_0, p_1, p_2,\dots, p_{k}$ en $\mathbb{R}^d$,
+        el conjunto de puntos:
+        \[
+          r  = \alpha_1 p_1 + \alpha_2  p_2 + \dots + \alpha_k p_k \  
+          ( \alpha_i \in \mathbb{R}, \alpha_i \leq 0, \alpha_1 + \dots + \alpha_k  = 1 )
+        \]
+        es el $conjunto \ convexo$ generado por  $p_0, p_1, p_2,\dots, p_{k}$,
+        y $p$ es una combinación convexa de $p_0, p_1, p_2,\dots, p_{k}$.
+        <br><br>
+
         <br><br>
         EJEMPLO
         <br><br>
-        Ahora podemos proceder a definir al <i>cierre convexo</i>
-        de un conjunto de puntos $S$ denotado por $conv(S)$, 
-        como la intersección de todas las <i>regiones convexas</i>
+        $Cierre \ convexo.$ <br>
+        Dado un subconjunto arbitrario $S$ de puntos en $\mathbb{R}^d$,
+        el <b><i>cierre convexo</i></b> de $S$, denotado por $conv(S)$,
+        es la intersección de todos los <b><i>conjuntos convexos</i></b>
+        que contienen a $S$.
         <br><br>
         EJEMPLO
+
         <br>
 
       </div>

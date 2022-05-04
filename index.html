@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -15,49 +17,51 @@
 
   <!-- configuración del libro -->
   <script>
-  window.book_config = {
-    // parámetro que indica si los capítulos, secciones y figura se auto numeran
-    // para que los capítulos se auto numeren deben utilizar la etiqueta <h1>
-    // para que las secciones se auto numeren deben utilizar la etiqueta <h2>
-    auto_numerate_sections_and_figures: true, 
-    remember_last_page: true,
-  }
+    window.book_config = {
+      // parámetro que indica si los capítulos, secciones y figura se auto numeran
+      // para que los capítulos se auto numeren deben utilizar la etiqueta <h1>
+      // para que las secciones se auto numeren deben utilizar la etiqueta <h2>
+      auto_numerate_sections_and_figures: true,
+      remember_last_page: true,
+    }
   </script>
 
   <!-- núcleo del libro interactivo -->
   <link rel="stylesheet" href="book/css/style.css" type="text/css">
   <script type="text/javascript" src="book/js/book.js" charset="utf-8"></script>
-  
+
   <!-- personalización del usuario -->
   <link rel="stylesheet" href="extra/fonts.css" type="text/css">
   <link rel="stylesheet" href="extra/style.css" type="text/css">
-  
+
   <!-- Bibliotecas para interactivos p5js -->
   <script src="libraries/p5.min.js"></script>
   <script src="libraries/p5.sound.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
 
   <!-- inclusión de la biblioteca KaTex -->
-  <link rel="stylesheet" type="text/css" href="extra/katex/katex.min.css"/>
+  <link rel="stylesheet" type="text/css" href="extra/katex/katex.min.css" />
   <script src="extra/katex/katex.min.js"></script>
   <script src="extra/katex/auto-render.min.js"></script>
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-      delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}, {left: "\\[", right: "\\]", display: true}, {left: "\\(", right: "\\)", display: false} ]
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [{ left: "$$", right: "$$", display: true }, { left: "$", right: "$", display: false }, { left: "\\[", right: "\\]", display: true }, { left: "\\(", right: "\\)", display: false }]
+      });
     });
-  });
   </script>
 </head>
 
 <body>
-  <div id="book_loader_container"><div id="book_loader"></div></div>
+  <div id="book_loader_container">
+    <div id="book_loader"></div>
+  </div>
 
   <div id="book_container">
     <div id="btn_back_page"></div>
     <div id="btn_next_page"></div>
     <button id="go_to_table_of_content"></button>
-    
+
     <button id="btn_config"></button>
     <div id="config_options">
       <div id="dark_light_mode"></div>
@@ -71,7 +75,8 @@
       <div class="page" style="background-color:transparent;"></div>
 
       <!-- Portada -->
-      <div class="page invertcolor" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada.svg);">
+      <div class="page invertcolor"
+        style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada.svg);">
         <div class="cover_title">Notas para el curso</div>
         <div class="cover_subtitle">Geometría Computacional</div>
       </div>
@@ -102,24 +107,26 @@
       <div class="page" num="">
         <p>
           Título de la obra:
-          <br> 
+          <br>
           Notas para el curso Geometría Computacional
         </p>
         <br>
 
         <p>
           Autores:
-          <br> 
+          <br>
           Edgar Samuel Perea Domínguez
         </p>
         <br><br>
 
         <p>
-          Código JavaScript para el libro: <a href="https://github.com/jlongi/libro_interactivo" target="_blank">Joel Espinosa Longi</a>, <a href="https://www.matem.unam.mx/" target="_blank">IMATE</a>, UNAM.
-          <br> 
+          Código JavaScript para el libro: <a href="https://github.com/jlongi/libro_interactivo" target="_blank">Joel
+            Espinosa Longi</a>, <a href="https://www.matem.unam.mx/" target="_blank">IMATE</a>, UNAM.
+          <br>
           Recursos interactivos: <a href="http://descartes.matem.unam.mx/" target="_blank">DescartesJS</a>
-          <br> 
-          Fuentes: <a href="https://fonts.google.com/specimen/Lato" target="_blank">Lato</a> y <a href="https://fonts.google.com/specimen/Ubuntu+Mono" target="_blank">UbuntuMono</a>
+          <br>
+          Fuentes: <a href="https://fonts.google.com/specimen/Lato" target="_blank">Lato</a> y <a
+            href="https://fonts.google.com/specimen/Ubuntu+Mono" target="_blank">UbuntuMono</a>
         </p>
         <br>
 
@@ -129,9 +136,12 @@
         <br><br>
 
         <p>
-          <p>LICENCIA</p>
-          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank"><img src="images/general/by-nc-sa.svg" style="height:1.75em; margin-right:0.75em;"></a>
-          <p>El contendido de esta obra esta bajo una licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank">Creative Commons (Atribución-NoComercial-CompartirIgual)</a>.</p>
+        <p>LICENCIA</p>
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank"><img
+            src="images/general/by-nc-sa.svg" style="height:1.75em; margin-right:0.75em;"></a>
+        <p>El contendido de esta obra esta bajo una licencia <a
+            href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank">Creative Commons
+            (Atribución-NoComercial-CompartirIgual)</a>.</p>
         </p>
       </div>
 
@@ -143,7 +153,7 @@
         href="#prefacio" indica una referencia a una elemento html con 
         el parámetro id="prefacio", automáticamente se busca está referencia
         y se agrega el título correspondiente y la página donde se encuentra -->
-          
+
         <div class="toc_link" href="#prefacio"></div>
 
         <!-- Capitulo 1 -->
@@ -176,7 +186,7 @@
         <div class="toc_link" href="#cap4_dividiendo_poligono"></div>
         <div class="toc_link" href="#cap4_triangulando_poligono"></div>
         <div class="toc_link" href="#cap4_calcular_grafica_divisibilidad"></div>
-    
+
       </div>
 
       <div class="page">
@@ -258,57 +268,57 @@
       <div class="page">
         <h1 class="chap_name" id="introduccion">Introducción <b class="chap_num">1</b></h1>
         <p>
-          El objetivo de esta sección será refrescar o introducir, 
-          los conceptos que se consideran básicos o necesarios, 
-          para que el lector pueda comprender con mayor facilidad 
-          los temas que se abordarán en el resto del libro, 
+          El objetivo de esta sección será refrescar o introducir,
+          los conceptos que se consideran básicos o necesarios,
+          para que el lector pueda comprender con mayor facilidad
+          los temas que se abordarán en el resto del libro,
           además de adoptar una notación para los mismos.
           <br><br>
-          Es por ello que, solamente formarán parte de esta 
-          sección las definiciones básicas, 
-          las definiciones que puedan ser más complejas 
+          Es por ello que, solamente formarán parte de esta
+          sección las definiciones básicas,
+          las definiciones que puedan ser más complejas
           serán presentadas en los capítulos correspondientes.
-          <br><br>          
-          Ya que es bastante común que en el estudio 
-          de la <b><i>Geometría computacional</i></b>, 
-          se aborden temas que hacen uso de conjuntos 
-          de puntos en un espacio euclidiano, 
+          <br><br>
+          Ya que es bastante común que en el estudio
+          de la <b><i>Geometría computacional</i></b>,
+          se aborden temas que hacen uso de conjuntos
+          de puntos en un espacio euclidiano,
           es necesario saber representar a estos puntos.<br>
           Sin embargo, resulta claro que no es suficiente con solo saber
-          representar puntos, pues, los objetos geométricos que se 
-          estudian o de los que se hace uso 
-          para estudiar la <b><i>Geometría computacional</b></i>, 
-          a pesar de no que necesitan consistir de un número finito de puntos, 
-          sí resulta necesario que tengan una especificación finita. 
+          representar puntos, pues, los objetos geométricos que se
+          estudian o de los que se hace uso
+          para estudiar la <b><i>Geometría computacional</b></i>,
+          a pesar de no que necesitan consistir de un número finito de puntos,
+          sí resulta necesario que tengan una especificación finita.
           <br>
-          Es por eso que, además de considerar <b><i>puntos</b></i> individuales, 
-          se consideran elementos más complejos, tales como, 
-          <b><i>líneas rectas</b></i>, <b><i>segmentos de líneas rectas</b></i>, 
-          <b><i>planos</b></i>, <b><i>polígonos</b></i>, etcétera, 
-          cuyas definiciones y/o conceptos básicos serán resentados 
+          Es por eso que, además de considerar <b><i>puntos</b></i> individuales,
+          se consideran elementos más complejos, tales como,
+          <b><i>líneas rectas</b></i>, <b><i>segmentos de líneas rectas</b></i>,
+          <b><i>planos</b></i>, <b><i>polígonos</b></i>, etcétera,
+          cuyas definiciones y/o conceptos básicos serán resentados
           en la primer parte del capitulo actual.
         </p>
       </div>
 
       <div class="page">
         <p>
-          Adicionalmente, para el uso de algoritmos 
-          geométricos es necesario manipular 
-          estructuras que no son manejadas a nivel 
-          de lenguaje de máquina. 
-          Por lo que es necesario implementar y/o 
-          utilizar diversas estructuras de datos, 
-          de las cuales las más comúnmente utilizadas 
-          son los conjuntos y los conjuntos ordenados, 
-          pero resulta claro comprender que estas 
+          Adicionalmente, para el uso de algoritmos
+          geométricos es necesario manipular
+          estructuras que no son manejadas a nivel
+          de lenguaje de máquina.
+          Por lo que es necesario implementar y/o
+          utilizar diversas estructuras de datos,
+          de las cuales las más comúnmente utilizadas
+          son los conjuntos y los conjuntos ordenados,
+          pero resulta claro comprender que estas
           no son las únicas utilizadas.
-          Sin embargo en este capítulo solo se 
+          Sin embargo en este capítulo solo se
           mencionarán las que se consideran necesarias,
-          teniendo en cuenta que el lector ya 
+          teniendo en cuenta que el lector ya
           cuenta con conocimientos de las
           estructuras de datos más básicas.
-                  
-        </p>          
+
+        </p>
       </div>
       <!--  -->
       <!-- CAPITULO 1: INTRODUCCION -->
@@ -317,175 +327,179 @@
       <div class="page">
         <h2 id="cap1_definiciones_generales">Definiciones generales.</h2>
         <p>
-          Para comenzar, denotaremos como $\mathbb{R}^d$ 
+          Para comenzar, denotaremos como $\mathbb{R}^d$
           al espacio euclídeo d-dimensional,
-          esto es, el espacio de d-vectores $(x_1 , \dots , x_d)$ 
-          de numeros reales $\ x_i, \ i = 1, … , d\ $ con 
-          <a href="https://en.wikipedia.org/wiki/Metric_(mathematics)">métrica</a> 
+          esto es, el espacio de d-vectores $(x_1 , \dots , x_d)$
+          de numeros reales $\ x_i, \ i = 1, … , d\ $ con
+          <a href="https://en.wikipedia.org/wiki/Metric_(mathematics)">métrica</a>
           $( \sum^{d}_{i=1} x^{2}_{i})^{1/2}$.
           <br><br>
-          Dada esta definición podemos continuar con las que resultan 
+          Dada esta definición podemos continuar con las que resultan
           más indispensables para el estudio de la geometría computacional.
         </p>
-          <!-- PUNTO -->
-          <h4><b><i>Punto.</i></b></h4>
+        <!-- PUNTO -->
+        <h4><b><i>Punto.</i></b></h4>
         <p>
-          Un vector con $d$ componentes $(x_1 , \dots , x_d)$ 
-          aplicado en el origen de $\mathbb{R}^d$ denota un 
+          Un vector con $d$ componentes $(x_1 , \dots , x_d)$
+          aplicado en el origen de $\mathbb{R}^d$ denota un
           <b><i>punto</i></b> $p$ en $\mathbb{R}^d$.
           <br><br>
-          Este concepto es bastante simple, pero aún así a 
-          continuación se muestra un interactivo en el 
-          cual se representa un espacio en $\mathbb{R}^2$ 
-          y al dar clic sobre el se puede ver la 
+          Este concepto es bastante simple, pero aún así a
+          continuación se muestra un interactivo en el
+          cual se representa un espacio en $\mathbb{R}^2$
+          y al dar clic sobre el se puede ver la
           representación de un punto en la posición del cursor.
         </p>
-        <div class="interactive" width="780" height="385"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_punto.html"></div>
+        <div class="interactive" width="780" height="385" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_punto.html"></div>
       </div>
 
       <div class="page">
         <!-- LINEA -->
         <h4><b><i>Línea.</i></b></h4>
         <p>
-          Dados dos puntos distintos $p_1$ y $p_2$ en 
-          $\mathbb{R}^d$, el conjunto de todos los 
+          Dados dos puntos distintos $p_1$ y $p_2$ en
+          $\mathbb{R}^d$, el conjunto de todos los
           puntos $r$ que satisfacen
           \[
-            r  = \alpha \ p_1 + (1 -\alpha ) p_2 
-            \qquad  ( \alpha \in \mathbb{R} )
+          r = \alpha \ p_1 + (1 -\alpha ) p_2
+          \qquad ( \alpha \in \mathbb{R} )
           \]
           describe una <b><i>línea</i></b> en $\mathbb{R}^d$.
           <br>
-          A pesar de que un solo par de puntos 
+          A pesar de que un solo par de puntos
           distintos definen perfectamente una línea,
-          una línea en $\mathbb{R}^d$ contiene un 
+          una línea en $\mathbb{R}^d$ contiene un
           número infinitos de puntos.
-        </p>        
+        </p>
 
-        <div class="interactive" width="600" height="550"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_linea.html"></div>
+        <div class="interactive" width="600" height="550" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_linea.html"></div>
       </div>
       <div class="page">
         <!-- Segmento de línea-->
         <h4><b><i>Segmento de línea.</i></b></h4>
         <p>
-          Dados dos puntos distintos  $p_1$ y $p_2$ 
-          en $\mathbb{R}^d$, si a la definición 
-          anterior agregamos la condición 
+          Dados dos puntos distintos $p_1$ y $p_2$
+          en $\mathbb{R}^d$, si a la definición
+          anterior agregamos la condición
           $ \ 0 \leq \alpha \leq 1 \ $, esto es
           \[
-          r  = \alpha \ p_1 + (1 -\alpha ) p_2 
-          \qquad  ( 0 \leq \alpha \leq 1 )
+          r = \alpha \ p_1 + (1 -\alpha ) p_2
+          \qquad ( 0 \leq \alpha \leq 1 )
           \]
-          el conjunto de todos los puntos que 
+          el conjunto de todos los puntos que
           satisfacen dicha definición,
           describe el <b><i>segmento de linea</i></b>
-          recta que une los dos puntos 
+          recta que une los dos puntos
           $ \ q_1 \ $ y $ \ q_2 \ $ en $\mathbb{R}^d$.
           Normalmente este <b><i>segmento de linea</i></b>
-          se denota como $ \ \overline{ p_1 p_2}$.          
+          se denota como $ \ \overline{ p_1 p_2}$.
         </p>
-        <div class="interactive" width="600" height="550"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_segmento.html"></div>
+        <div class="interactive" width="600" height="550" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_segmento.html"></div>
       </div>
       <div class="page">
         <!-- Poligono-->
         <h4><b><i>Poligono.</i></b></h4>
         <p>
-          En $\mathbb{R}^d$ un 
-          <b><i>poligono</i></b> $P$, 
+          En $\mathbb{R}^d$ un
+          <b><i>poligono</i></b> $P$,
           es la región cerrada del plano,
-          acotada por una colección finita 
-          de segmentos de línea, formando 
-          una 
+          acotada por una colección finita
+          de segmentos de línea, formando
+          una
           <br>
           Ya que puede ser complejo
-          explicar el significado de 
-          <b><i>curva cerrada simple</i></b>, 
-          podemos abordar la definición 
-          de la siguiente manera, 
-          para poderlo explicar de una 
+          explicar el significado de
+          <b><i>curva cerrada simple</i></b>,
+          podemos abordar la definición
+          de la siguiente manera,
+          para poderlo explicar de una
           forma más sencilla.
 
           <br> <br>
-          Sean $v_0, v_1, v_2,\dots, v_{n-1}$ 
+          Sean $v_0, v_1, v_2,\dots, v_{n-1}$
           $n$ puntos en el plano.
-          Sean $ e_0 = \overline{v_0 v_1}, 
+          Sean $ e_0 = \overline{v_0 v_1},
           e_1 = \overline{v_1 v_2},
-          \dots, e_i = \overline{v_{i} v_{i+1}}, \ \dots \ , 
-          e_{n-1} = \overline{v_{n-1} v_{0}}  
-          $ $n - 1$ segmentos conectando los puntos, 
+          \dots, e_i = \overline{v_{i} v_{i+1}}, \ \dots \ ,
+          e_{n-1} = \overline{v_{n-1} v_{0}}
+          $ $n - 1$ segmentos conectando los puntos,
           estos segmentos delimitan un <b><i>poligono</i></b>
           si y solo si:
         </p>
         <ol>
           <li>
-            La intersección de cada par de segmentos adyacentes en 
+            La intersección de cada par de segmentos adyacentes en
             el ciclo ordenado es el único punto que comparten entre ellos:
             <br>
             $ e_i \cap e_{i+1} = v_{i+1, \ }$ para todo $i = 0, \dots, n - 1$.
           </li>
-          <li> 
+          <li>
             Los segmentos no adyacentes no se intersectan:
             <br>
             $ e_i \cap e_{j} = \emptyset, \ $ para todo $j \neq i - 1$.
           </li>
-        </ol> 
-        
-        <div class="interactive" width="600" height="310"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div>
+        </ol>
+
+        <div class="interactive" width="600" height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div>
       </div>
 
 
 
       <div class="page">
         <p>
-          En la $figura ???$ tenemos un ejemplo de un 
+          En la $figura ???$ tenemos un ejemplo de un
           conjunto de segmentos de línea que no cumplen
-          ambas condiciones.  
+          ambas condiciones.
           <br>
-          Podemos observar como las aristas $e_1$ y $e_2$ 
-          (azúl y roja, respectivamente)  
-          no cumplen la segunda condición,  
-          y a su vez las aristas $e_3$ y $e_4$ 
-          (negra y verde, respectivamente)  
+          Podemos observar como las aristas $e_1$ y $e_2$
+          (azúl y roja, respectivamente)
+          no cumplen la segunda condición,
+          y a su vez las aristas $e_3$ y $e_4$
+          (negra y verde, respectivamente)
           no cumplen la primer condición.
           <br><br>
-          Dada esta definición, podemos explicar de una 
-          forma más simple, qué es una 
+          Dada esta definición, podemos explicar de una
+          forma más simple, qué es una
           <b><i>curva cerrada simple</i></b> <br>
           La razón por la cual estos segmentos de línea
-          se definen como una <b><i>curva</i></b> es 
+          se definen como una <b><i>curva</i></b> es
           porque estan conectados por los extremos;
-          la razón por la cual esta curva es 
-          <b><i>cerrada</i></b> es porque 
-          forma un ciclo; y la razón por la que 
-          la curva cerrada, es además <b><i>simple</i></b>, 
+          la razón por la cual esta curva es
+          <b><i>cerrada</i></b> es porque
+          forma un ciclo; y la razón por la que
+          la curva cerrada, es además <b><i>simple</i></b>,
           es porque los segmentos no adyacentes no se
           intersectan.
           <br><br>
-          Podemos definir a los objetos que cumplen 
-          solo la primer condición como 
+          Podemos definir a los objetos que cumplen
+          solo la primer condición como
           <b><i>poligonos no simples</i></b>,
-          si cumplen también la segunda (los segmentos 
-          no adyacentes no se intersectan) los llamaremos 
-          <b><i>poligonos simples</i></b>, otra forma más 
-          simple de definirlo es que un poligono es simple 
+          si cumplen también la segunda (los segmentos
+          no adyacentes no se intersectan) los llamaremos
+          <b><i>poligonos simples</i></b>, otra forma más
+          simple de definirlo es que un poligono es simple
           si no se cruza a sí mismo.
           <br>
-          Ya que prácticamente solo se hará uso de los 
-          <b><i>poligonos no simples</i></b>, por simplicidad 
+          Ya que prácticamente solo se hará uso de los
+          <b><i>poligonos no simples</i></b>, por simplicidad
           solo los llamaremos
           <b><i>poligonos</i></b>.
           <br>
         </p>
         <p>
           En un poligono, los segmentos $e_i$
-          son llamados <b><i>aristas</i></b> 
+          son llamados <b><i>aristas</i></b>
           (se usa la notación
-          $e$ ya que la traducción de arista al inglés 
-          es edge, y es bastante común encontrar dicha 
-          notación en la literatura, utilizaremos dicha 
-          notación por esa razón), y los puntos $v_i$ 
-          (puntos donde se intersectan los segmentos de 
-          línea adyacentes) son llamados 
+          $e$ ya que la traducción de arista al inglés
+          es edge, y es bastante común encontrar dicha
+          notación en la literatura, utilizaremos dicha
+          notación por esa razón), y los puntos $v_i$
+          (puntos donde se intersectan los segmentos de
+          línea adyacentes) son llamados
           <b><i>vertices</i></b>.
           <br><br>
         </p>
@@ -498,18 +512,18 @@
         <p>
           Un poligono, con sus aristas y vertices,
           encierra una región del plano, nos referiremos
-          a esta región como el <b><i>interior del poligono</i></b>. 
+          a esta región como el <b><i>interior del poligono</i></b>.
           La región no delimitada que rodea al poligono forma
           el <b><i>exterior del poligono</i></b>.
           <br><br>
-          El conjunto de vertices y aristas de un poligono $P$ 
+          El conjunto de vertices y aristas de un poligono $P$
           (el poligono sin su interior) es llamado perimetro,
           y es denotado como $ \partial P$.
           <br>
           A lo largo del libro cuando nos refiramos a un
-          poligono nos referiremos a la unión de su perimetro y 
-          su interior. Lo que significa que si mencionamos un 
-          punto en un poligono este se puede encontrar 
+          poligono nos referiremos a la unión de su perimetro y
+          su interior. Lo que significa que si mencionamos un
+          punto en un poligono este se puede encontrar
           ya sea en el interior o en su perimetro.
           <br><br>
         </p>
@@ -517,23 +531,23 @@
         <p>
           Existen algoritmos que necesitan dividir a los poligonos
           en varias partes para procesarlos.
-          Una forma natural de dividir a los poligonos en 
+          Una forma natural de dividir a los poligonos en
           partes más simples se logra dibujando <b><i>diagonales</i></b>.
           <br>
-          Una <b><i>diagonal</i></b> de un poligono $P$, es un segmento de 
-          línea que conecta dos vertices de $P$ y que 
+          Una <b><i>diagonal</i></b> de un poligono $P$, es un segmento de
+          línea que conecta dos vertices de $P$ y que
           yace en el interior de $P$, este segmento no toca a $ \partial P$
           excpeto en su punto inicial y su punto final.
           <br><br>
-          Dos diagonales no se cruzan si no comparten puntos interiores, 
-          esto es, si comparten a lo más alguno de sus puntos de 
+          Dos diagonales no se cruzan si no comparten puntos interiores,
+          esto es, si comparten a lo más alguno de sus puntos de
           inicio o fin.
         </p>
 
       </div>
 
-      <div class="page">  
-        <img src="/images/capitulo01/Diagonales_from_Devad_discrete_and_computational_geo.jpg" width="90%" >
+      <div class="page">
+        <img src="/images/capitulo01/Diagonales_from_Devad_discrete_and_computational_geo.jpg" width="90%">
         <br>
         Figure 1.2 shows (a) a polygon, (b) a diagonal, (c) a line segment
         that is not a diagonal, and (d) two crossing diagonals.
@@ -542,22 +556,22 @@
         triangles by a maximal set of noncrossing diagonals.
         Here maximal means that no further diagonal may be added to the
         set without crossing (sharing an interior point with) one already in
-        the set. 
+        the set.
       </div>
 
       <!-- REPASO DE ESTRUCTURAS DE DATOS -->
       <div class="page">
         <h2 id="cap1_repaso_estructuras_datos">Repaso de estructuras de datos</h2>
         <p>
-          Como ya se mencionó al inicio de este capítulo las 
-          estructuras de datos resultan una herramienta 
-          fundamental para el uso de los algoritmos geométricos. 
-          Muchas de estas estructuras de datos son muy bien 
-          descritas en el curso referente a estructuras de datos, 
-          y dado que no es la intención de este libro volver 
-          a describir dichas estructuras de datos, 
-          a continuación serán descritas únicamente las que 
-          resulten indispensables por no formar parte del 
+          Como ya se mencionó al inicio de este capítulo las
+          estructuras de datos resultan una herramienta
+          fundamental para el uso de los algoritmos geométricos.
+          Muchas de estas estructuras de datos son muy bien
+          descritas en el curso referente a estructuras de datos,
+          y dado que no es la intención de este libro volver
+          a describir dichas estructuras de datos,
+          a continuación serán descritas únicamente las que
+          resulten indispensables por no formar parte del
           temario oficial de dicho curso.
           <br><br>
         </p>
@@ -574,14 +588,14 @@
         </h1>
         <p>
           Antes de comenzar este capitulo, necesitamos saber que es
-          un <b><i>cierre convexo</i></b>, antes de definirlo 
+          un <b><i>cierre convexo</i></b>, antes de definirlo
           formalmente, podemos tomarnos la libertad
           de definirlo de una forma más intuitiva.
           <br><br>
-          Esto es, dado un conjunto finito 
-          de puntos $S$ en el plano, si 
-          vemos a cada punto de $S$ como un clavo colocado en el plano 
-          podemos ver al <i>cierre convexo</i> de $S$ como la región interior
+          Esto es, dado un conjunto finito
+          de puntos $S$ en el plano, si
+          vemos a cada punto de $S$ como un clavo colocado en el plano
+          podemos ver al <b><i>cierre convexo</i></b> de $S$ como la región interior
           delimitada por una liga estirada al rededor de todos los clavos.
           <br><br>
           El siguiente recurso interactivo nos muestra esta idea,
@@ -592,65 +606,103 @@
           que representan a los puntos en $S$ para poder moverlo
           en la dirección que muevas el cursos, y
           a su vez puedes dar de nuevo click para dejarlo fijo
-          en la nueva posición de cursor y ver como se modifica el 
+          en la nueva posición de cursor y ver como se modifica el
           cierre convexo.
         </p>
       </div>
 
-      <div class="page"> 
-        <div class="interactive" width="810" height="500"  window-size="false"  src="./Interactivos/capitulo_1/cierre_convexo.html"></div>
+      <div class="page">
+        <div class="interactive" width="810" height="500" window-size="false"
+          src="./Interactivos/capitulo_1/cierre_convexo.html"></div>
         <br>
-        Ahora que tenemos esta definición que 
+        Ahora que tenemos esta definición que
         nos sirve para tener más clara la idea geometrica,
         podemos avanzar más facilmente y comenzar con
         definiciones adicionales que sean más formales.
         <br><br>
         A continuación definiremos una <b><i>conjunto convexo</i></b>
-        para después poder definir lo que es un <i>cierre convexo</i>.
+        para después poder definir lo que es un <b><i>cierre convexo</i></b>.
         <br>
 
       </div>
 
-      <div class="page">  
-        $Conjunto \ convexo.$ <br>
-        Dados $k$ puntos 
+      <div class="page">
+        <!-- Cierre convexo.-->
+        <h4><b><i>Conjunto convexo.</i></b></h4>
+        Dados $k$ puntos
         $p_0, p_1, p_2,\dots, p_{k}$ en $\mathbb{R}^d$,
         el conjunto de puntos:
         \[
-          r  = \alpha_1 p_1 + \alpha_2  p_2 + \dots + \alpha_k p_k \  
-          ( \alpha_i \in \mathbb{R}, \alpha_i \leq 0, \alpha_1 + \dots + \alpha_k  = 1 )
+        r = \alpha_1 p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k 
         \]
-        es el $conjunto \ convexo$ generado por  $p_0, p_1, p_2,\dots, p_{k}$,
+        \[
+        ( \alpha_i \in \mathbb{R}, 0 \leq \alpha_i \leq 1, \alpha_1 + \dots + \alpha_k = 1 )
+        \]
+        es el $conjunto \ convexo$ generado por $p_0, p_1, p_2,\dots, p_{k}$,
         y $p$ es una combinación convexa de $p_0, p_1, p_2,\dots, p_{k}$.
         <br><br>
+        <div class="interactive" width="600" height="580" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_conjunto_convexo.html"></div>
+      </div>
 
-        <br><br>
-        EJEMPLO
-        <br><br>
-        $Cierre \ convexo.$ <br>
+      <div class="page">
+        <!-- Cierre convexo.-->
+        <h4><b><i>Cierre convexo.</i></b></h4>
         Dado un subconjunto arbitrario $S$ de puntos en $\mathbb{R}^d$,
         el <b><i>cierre convexo</i></b> de $S$, denotado por $conv(S)$,
         es la intersección de todos los <b><i>conjuntos convexos</i></b>
         que contienen a $S$.
         <br><br>
-        EJEMPLO
-
+        Ahora que podemos comprender que es el cierre convexo,
+        podríamos preguntarnos, ¿cómo podemos representar al cierre
+        convexo de un conjunto de puntos $S$? y ¿qué significa
+        calcular el cierre convexo un conjunto de puntos $S$?
+        <br><br>
+        Recordando la idea intuitiva de la liga que rodea a los clavos,
+        el area que encierra esta liga es el cierre convexo de $S$.<br>
+        Esto nos lleva a una definición alternativa del cierre convexo
+        de un conjunto finito $S$ de puntos en el plano: el
+        cierre convexo es el único poligono convexo cuyos vertices
+        son puntos de $S$ y que contienen todos los puntos de $S$.
+        <br><br>
+        Ya que el objetivo de este libro no es ser totalmente formales,
+        se pasan por alto muchas de las pruebas, incluida la
+        última afirmación con respecto a la definición del cierre convexo
+        como un poligono, pero se invita al lector a buscar en la
+        bibliografía en caso de requerir más formalidad.
+        <br><br>
+        Ahora que sabemos que podemos representar al cierre convexo
+        de un conjunto de puntos $S$ como un poligono, resulta
+        escencial saber como representar a este poligono.
         <br>
+        Una forma natural de hacerlo es listando los vertices de dicho
+        poligono en orden de las manecillas del reloj, comenzando
+        desde algún punto arbitrario.
+      </div>
+
+      <div class="page">
+        <!-- TO DO:  -->
+        So the problem we want to solve is this: given a set
+        P = {p1, p2,..., pn} of points in the plane, compute a list that contains those
+        points from P that are the vertices of CH(P), listed in clockwise order.
+        <br>
+        <img src="/images/capitulo01/CH_decripcion_computationl_geo_and_aplications.jpg" width="90%">
 
       </div>
 
-      <div class="page">  
+      <div class="page">
 
-        <h2 id="cap2_cota_minima">Cota mínima</h2>      
+        <h2 id="cap2_cota_minima">Cota mínima</h2>
       </div>
 
-      <div class="page">  
+      <div class="page">
         <h2 id="cap2_algorithmo_grahan">Algoritmo de Graham</h2>
 
-        <div class="interactive" width="810" height="800"  window-size="false"  src="./Interactivos/capitulo_2/graham_scan.html"></div>
+        <div class="interactive" width="810" height="800" window-size="false"
+          src="./Interactivos/capitulo_2/graham_scan.html"></div>
       </div>
 
-      <div class="page">  
+      <div class="page">
         <h2 id="cap2_algoritmo_jarvis">Algoritmo de Jarvis</h2>
         <h2 id="cap2_algoritmos_divide_venceras">Algoritmos usando divide y vencerás</h2>
         <h2 id="cap2_algoritmos_dinamicos">Algoritmos dinámicos</h2>
@@ -661,7 +713,8 @@
       <!-- CAPITULO 3: INTERSECCION DE SEGMENTOS -->
       <!--  -->
       <div class="page">
-        <h1 class="chap_name" id="intersecciones_segmentos">Intersecciones entre segmentos de rectas<b class="chap_num">3</b></h1>
+        <h1 class="chap_name" id="intersecciones_segmentos">Intersecciones entre segmentos de rectas<b
+            class="chap_num">3</b></h1>
         <h2 id="cap3_deteccion">Detección</h2>
         <h2 id="cap3_algoritmos">Algoritmos</h2>
         <h2 id="cap3_lista_doblemente_ligada">Lista doblemente conexa de aristas</h2>
@@ -675,13 +728,14 @@
       <!-- CAPITULO 4: TRIANGULACION Y VISIVILIDAD -->
       <!--  -->
       <div class="page">
-        <h1 class="chap_name" style="font-size: 200%;" id="triangulacion_divisibilidad">Triangulación de polígonos y visibilidad<b class="chap_num">4</b></h1>
+        <h1 class="chap_name" style="font-size: 200%;" id="triangulacion_divisibilidad">Triangulación de polígonos y
+          visibilidad<b class="chap_num">4</b></h1>
 
         <h2 id="cap4_vigilancia_triangulaciones">Vigilancia y triangulaciones</h2>
         <h2 id="cap4_dividiendo_poligono">Dividiendo un polígono en piezas monótonas</h2>
         <h2 id="cap4_triangulando_poligono">Triangulando un polígono monótono</h2>
         <h2 id="cap4_calcular_grafica_divisibilidad">Calcular la gráfica de visibilidad</h2>
- 
+
       </div>
 
       <!--  -->
@@ -766,7 +820,8 @@
       <!-- CAPITULO 11: ESTRUCTURAS DE DATOS GEOMETRICAS -->
       <!--  -->
       <div class="page">
-        <h1 class="chap_name" id="estructuras_datos_geometricas">Algunas estructuras de datos geométricas<b class="chap_num">11</b></h1>
+        <h1 class="chap_name" id="estructuras_datos_geometricas">Algunas estructuras de datos geométricas<b
+            class="chap_num">11</b></h1>
 
         <h2 id="cap11_arboles_intervalos">Árboles de intervalos</h2>
         <h2 id="cap11_arboles_prioridades_busqueda">Árboles de prioridades y búsqueda</h2>
@@ -779,27 +834,31 @@
       <!--  -->
       <div class="page" num=""></div>
 
-      
-      <!--  -->
-      <div class="page">
-        <iframe src="https://developer.spotify.com/documentation/widgets/guides/adding-a-spotify-play-button/" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width:100%;height:400px"></iframe>
-      </div>
 
       <!--  -->
       <div class="page">
+        <iframe src="https://developer.spotify.com/documentation/widgets/guides/adding-a-spotify-play-button/"
+          frameborder="0" allowtransparency="true" allow="encrypted-media" style="width:100%;height:400px"></iframe>
+      </div>
+
+      <!--  -->
+      <div class="page">
 
       </div>
 
       <!--  -->
-      <div class="page invertcolor" num="" style="background-image: radial-gradient(white, #ecf0f1, #e3e5e7); display:flex; align-items:center; justify-content:center;">
-          <a style="width:50%" target="_blank" href="http://descartes.matem.unam.mx/"><img src="images/general/logo_descartes.svg" width="100%"></a>
-        </div>
+      <div class="page invertcolor" num=""
+        style="background-image: radial-gradient(white, #ecf0f1, #e3e5e7); display:flex; align-items:center; justify-content:center;">
+        <a style="width:50%" target="_blank" href="http://descartes.matem.unam.mx/"><img
+            src="images/general/logo_descartes.svg" width="100%"></a>
       </div>
+    </div>
 
     <!-- [cierra] pages_container -->
-    </div>
+  </div>
   <!-- [cierra] book_container -->
   </div>
 
 </body>
+
 </html>

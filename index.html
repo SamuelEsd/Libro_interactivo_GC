@@ -266,117 +266,154 @@
           <br><br>
           Es por ello que, solamente formarán parte de esta 
           sección las definiciones básicas, 
-          futuras definiciones que puedan ser más complejas 
-          se irán viendo en los capítulos correspondientes.
+          las definiciones que puedan ser más complejas 
+          serán presentadas en los capítulos correspondientes.
           <br><br>          
           Ya que es bastante común que en el estudio 
           de la <b><i>Geometría computacional</i></b>, 
-          se aborden temas que hacen uso de conjuntos de puntos en un espacio euclidiano, 
+          se aborden temas que hacen uso de conjuntos 
+          de puntos en un espacio euclidiano, 
           es necesario saber representar a estos puntos.<br>
-          Los objetos geométricos que se estudian o de los que se hace uso 
-          para estudiar la <i>Geometría computacional</i>, no necesitan consistir de un número finito de puntos, 
-          sin embargo, es necesario que tengan una especificación finita. 
+          Sin embargo, resulta claro que no es suficiente con solo saber
+          representar puntos, pues, los objetos geométricos que se 
+          estudian o de los que se hace uso 
+          para estudiar la <b><i>Geometría computacional</b></i>, 
+          a pesar de no que necesitan consistir de un número finito de puntos, 
+          sí resulta necesario que tengan una especificación finita. 
           <br>
-          Es por eso que, además de considerar <i>puntos</i> individuales, 
-          se consideran elementos más complejos, tales como, las <i>líneas rectas</i>, 
-          los <i>segmentos de líneas rectas</i>, los <i>planos</i>, los <i>polígonos</i>, etcétera, 
-          cuyas definiciones y/o conceptos básicos serán resentados en la primer parte del
-          capitulo actual.
+          Es por eso que, además de considerar <b><i>puntos</b></i> individuales, 
+          se consideran elementos más complejos, tales como, 
+          <b><i>líneas rectas</b></i>, <b><i>segmentos de líneas rectas</b></i>, 
+          <b><i>planos</b></i>, <b><i>polígonos</b></i>, etcétera, 
+          cuyas definiciones y/o conceptos básicos serán resentados 
+          en la primer parte del capitulo actual.
         </p>
       </div>
 
       <div class="page">
-        
-        
-        
-
-        <br><br>
-          Adicionalmente, para el uso de algoritmos geométricos es necesario manipular 
-          estructuras que no son manejadas a nivel de lenguaje de máquina. 
-          Por lo que es necesario implementar y/o utilizar diversas estructuras de datos, 
-          de las cuales las más comúnmente utilizadas son los conjuntos y los conjuntos ordenados, 
-          pero resulta claro comprender que estas no son las únicas utilizadas.
-          Sin embargo en este capítulo solo se mencionarán las que se consideran necesarias,
-          teniendo en cuenta que el lector ya cuenta con conocimientos de las
+        <p>
+          Adicionalmente, para el uso de algoritmos 
+          geométricos es necesario manipular 
+          estructuras que no son manejadas a nivel 
+          de lenguaje de máquina. 
+          Por lo que es necesario implementar y/o 
+          utilizar diversas estructuras de datos, 
+          de las cuales las más comúnmente utilizadas 
+          son los conjuntos y los conjuntos ordenados, 
+          pero resulta claro comprender que estas 
+          no son las únicas utilizadas.
+          Sin embargo en este capítulo solo se 
+          mencionarán las que se consideran necesarias,
+          teniendo en cuenta que el lector ya 
+          cuenta con conocimientos de las
           estructuras de datos más básicas.
                   
         </p>          
       </div>
-
+      <!--  -->
+      <!-- CAPITULO 1: INTRODUCCION -->
+      <!-- Parte 1: Definiciones generales -->
+      <!--  -->
       <div class="page">
         <h2 id="cap1_definiciones_generales">Definiciones generales.</h2>
         <p>
-          Para comenzar, denotaremos como $\mathbb{R}^d$ al espacio euclídeo d-dimensional,
-          esto es, el espacio de d-vectores $(x_1 , \dots , x_d)$ de numeros reales $\ x_i, \ i = 1, … , d\ $ 
-          con métrica $( \sum^{d}_{i=1} x^{2}_{i})^{1/2}$.
-          <br>
-          (nota de pie de página https://en.wikipedia.org/wiki/Metric_(mathematics))
+          Para comenzar, denotaremos como $\mathbb{R}^d$ 
+          al espacio euclídeo d-dimensional,
+          esto es, el espacio de d-vectores $(x_1 , \dots , x_d)$ 
+          de numeros reales $\ x_i, \ i = 1, … , d\ $ con 
+          <a href="https://en.wikipedia.org/wiki/Metric_(mathematics)">métrica</a> 
+          $( \sum^{d}_{i=1} x^{2}_{i})^{1/2}$.
           <br><br>
-          Dada esta definición podemos continuar con las que resultan más indispensables para el estudio de la geometría computacional.
-          <br><br>
-          $Punto. $  <br>
+          Dada esta definición podemos continuar con las que resultan 
+          más indispensables para el estudio de la geometría computacional.
+        </p>
+          <!-- PUNTO -->
+          <h4><b><i>Punto.</i></b></h4>
+        <p>
           Un vector con $d$ componentes $(x_1 , \dots , x_d)$ 
-          aplicado en el origen de $\mathbb{R}^d$ denota un punto $p$ en $\mathbb{R}^d$.
+          aplicado en el origen de $\mathbb{R}^d$ denota un 
+          <b><i>punto</i></b> $p$ en $\mathbb{R}^d$.
           <br><br>
-          Este concepto es bastante simple, pero aún así a continuación se muestra un
-          interactivo en el cual se representa un espacio en $\mathbb{R}^d$ y al
-          dar clic sobre el se puede ver la representación de un punto en la posición del cursor.
+          Este concepto es bastante simple, pero aún así a 
+          continuación se muestra un interactivo en el 
+          cual se representa un espacio en $\mathbb{R}^2$ 
+          y al dar clic sobre el se puede ver la 
+          representación de un punto en la posición del cursor.
         </p>
         <div class="interactive" width="780" height="385"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_punto.html"></div>
       </div>
+
       <div class="page">
+        <!-- LINEA -->
+        <h4><b><i>Línea.</i></b></h4>
         <p>
-          $Línea. $ <br>
-
-
-          Dados dos puntos distintos $p_1$ y $p_2$ en $\mathbb{R}^d$, 
-          el conjunto de todos los puntos $r$ que satisfacen
+          Dados dos puntos distintos $p_1$ y $p_2$ en 
+          $\mathbb{R}^d$, el conjunto de todos los 
+          puntos $r$ que satisfacen
           \[
-            r  = \alpha \ p_1 + (1 -\alpha ) p_2 \qquad 
+            r  = \alpha \ p_1 + (1 -\alpha ) p_2 
+            \qquad  ( \alpha \in \mathbb{R} )
           \]
-          para algún $ \alpha \in \mathbb{R} $, 
-          describe una línea en $\mathbb{R}^d$.
+          describe una <b><i>línea</i></b> en $\mathbb{R}^d$.
           <br>
-          A pesar de que un solo par de puntos distintos definen perfectamente una línea,
-          una línea en $\mathbb{R}^d$ contiene un número infinitos de puntos.
+          A pesar de que un solo par de puntos 
+          distintos definen perfectamente una línea,
+          una línea en $\mathbb{R}^d$ contiene un 
+          número infinitos de puntos.
         </p>        
 
         <div class="interactive" width="600" height="550"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_linea.html"></div>
       </div>
       <div class="page">
+        <!-- Segmento de línea-->
+        <h4><b><i>Segmento de línea.</i></b></h4>
         <p>
-          $Segmento \ de \ línea.$ <br>
-          Dados dos puntos distintos  $p_1$ y $p_2$ en $\mathbb{R}^d$, 
-          si a la definición anterior agregamos la condición 
+          Dados dos puntos distintos  $p_1$ y $p_2$ 
+          en $\mathbb{R}^d$, si a la definición 
+          anterior agregamos la condición 
           $ \ 0 \leq \alpha \leq 1 \ $, esto es
           \[
-          r  = \alpha \ p_1 + (1 -\alpha ) p_2 \qquad  ( 0 \leq \alpha \leq 1 )
+          r  = \alpha \ p_1 + (1 -\alpha ) p_2 
+          \qquad  ( 0 \leq \alpha \leq 1 )
           \]
-          el conjunto de todos los puntos que satisfacen dicha definición,
-          describe el segmento de linea recta que une los 
-          dos puntos $ \ q_1 \ $ y $ \ q_2 \ $ en $\mathbb{R}^d$.
-          Normalmente este segmento se denota como $ \ \overline{ p_1 p_2}$.          
+          el conjunto de todos los puntos que 
+          satisfacen dicha definición,
+          describe el <b><i>segmento de linea</i></b>
+          recta que une los dos puntos 
+          $ \ q_1 \ $ y $ \ q_2 \ $ en $\mathbb{R}^d$.
+          Normalmente este <b><i>segmento de linea</i></b>
+          se denota como $ \ \overline{ p_1 p_2}$.          
         </p>
         <div class="interactive" width="600" height="550"  window-size="false"  src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_segmento.html"></div>
       </div>
       <div class="page">
+        <!-- Poligono-->
+        <h4><b><i>Poligono.</i></b></h4>
         <p>
-          $Poligono. $ <br>
-          En $\mathbb{R}^d$ un poligono $P$, es la región cerrada del plano,
+          En $\mathbb{R}^d$ un 
+          <b><i>poligono</i></b> $P$, 
+          es la región cerrada del plano,
           acotada por una colección finita 
-          de segmentos de línea, formando una $curva \ cerrada \ simple$. 
+          de segmentos de línea, formando 
+          una 
           <br>
           Ya que puede ser complejo
-          explicar el significado de "$curva \ cerrada \ simple$", 
-          podemos abordar la definición de la siguiente manera, 
-          para poderlo explicar de una forma más sencilla.
+          explicar el significado de 
+          <b><i>curva cerrada simple</i></b>, 
+          podemos abordar la definición 
+          de la siguiente manera, 
+          para poderlo explicar de una 
+          forma más sencilla.
 
           <br> <br>
-          Sean $v_0, v_1, v_2,\dots, v_{n-1}$ $n$ puntos en el plano.
-          Sean $ e_0 = \overline{v_0 v_1}, e_1 = \overline{v_1 v_2},
+          Sean $v_0, v_1, v_2,\dots, v_{n-1}$ 
+          $n$ puntos en el plano.
+          Sean $ e_0 = \overline{v_0 v_1}, 
+          e_1 = \overline{v_1 v_2},
           \dots, e_i = \overline{v_{i} v_{i+1}}, \ \dots \ , 
-          e_{n-1} = \overline{v_{n-1} v_{0}}  $ $n - 1$ 
-          segmentos conectando los puntos, estos segmentos delimitan un poligono
+          e_{n-1} = \overline{v_{n-1} v_{0}}  
+          $ $n - 1$ segmentos conectando los puntos, 
+          estos segmentos delimitan un <b><i>poligono</i></b>
           si y solo si:
         </p>
         <ol>
@@ -405,39 +442,51 @@
           ambas condiciones.  
           <br>
           Podemos observar como las aristas $e_1$ y $e_2$ 
-          (azúl y roja, respectivamente)  no cumplen la segunda condición,  
+          (azúl y roja, respectivamente)  
+          no cumplen la segunda condición,  
           y a su vez las aristas $e_3$ y $e_4$ 
-          (negra y verde, respectivamente)  no cumplen la primer condición.
+          (negra y verde, respectivamente)  
+          no cumplen la primer condición.
           <br><br>
-          Dada esta definición, podemos explicar de una forma 
-          más simple, qué es una $curva \ cerrada \ simple$. <br>
-          La razón por la cual estos segmentos de línea se definen como
-          una $curva$ es porque estan conectados por los extremos;
-          la razón por la cual esta curva es $cerrada$ es porque 
-          forma un ciclo; y la razón por la que la curva cerrada, es 
-          además $simple$, es porque los segmentos no adyacentes no se
+          Dada esta definición, podemos explicar de una 
+          forma más simple, qué es una 
+          <b><i>curva cerrada simple</i></b> <br>
+          La razón por la cual estos segmentos de línea
+          se definen como una <b><i>curva</i></b> es 
+          porque estan conectados por los extremos;
+          la razón por la cual esta curva es 
+          <b><i>cerrada</i></b> es porque 
+          forma un ciclo; y la razón por la que 
+          la curva cerrada, es además <b><i>simple</i></b>, 
+          es porque los segmentos no adyacentes no se
           intersectan.
           <br><br>
-          Podemos definir a los objetos que 
-          cumplen solo la primer condición como $poligonos \ no \ simples$,
-          si cumplen también la segunda (los segmentos no adyacentes no se
-          intersectan) los llamaremos 
-          $poligonos \ simples$, otra forma más simple de definirlo
-          es que un poligono es simple si no se cruza a sí mismo.
+          Podemos definir a los objetos que cumplen 
+          solo la primer condición como 
+          <b><i>poligonos no simples</i></b>,
+          si cumplen también la segunda (los segmentos 
+          no adyacentes no se intersectan) los llamaremos 
+          <b><i>poligonos simples</i></b>, otra forma más 
+          simple de definirlo es que un poligono es simple 
+          si no se cruza a sí mismo.
           <br>
           Ya que prácticamente solo se hará uso de los 
-          $poligonos \ simples$, por simplicidad solo los llamaremos
-          $poligonos$.
+          <b><i>poligonos no simples</i></b>, por simplicidad 
+          solo los llamaremos
+          <b><i>poligonos</i></b>.
           <br>
         </p>
         <p>
           En un poligono, los segmentos $e_i$
-          son llamados $aristas$ (se usa la notación $e$
-          ya que la traducción de arista al inglés es edge, y es bastante
-          común encontrar dicha notación en la literatura,
-          utilizaremos dicha notación por esa razón), y los puntos $v_i$ 
-          (puntos donde se intersectan los segmentos de línea adyacentes)
-          son llamados $vertices$.
+          son llamados <b><i>aristas</i></b> 
+          (se usa la notación
+          $e$ ya que la traducción de arista al inglés 
+          es edge, y es bastante común encontrar dicha 
+          notación en la literatura, utilizaremos dicha 
+          notación por esa razón), y los puntos $v_i$ 
+          (puntos donde se intersectan los segmentos de 
+          línea adyacentes) son llamados 
+          <b><i>vertices</i></b>.
           <br><br>
         </p>
       </div>
@@ -449,9 +498,10 @@
         <p>
           Un poligono, con sus aristas y vertices,
           encierra una región del plano, nos referiremos
-          a esta región como el $interior$ del poligono. 
+          a esta región como el <b><i>interior del poligono</i></b>. 
           La región no delimitada que rodea al poligono forma
-          el $exterior$ del poligono.
+          el <b><i>exterior del poligono</i></b>.
+          <br><br>
           El conjunto de vertices y aristas de un poligono $P$ 
           (el poligono sin su interior) es llamado perimetro,
           y es denotado como $ \partial P$.
@@ -468,13 +518,13 @@
           Existen algoritmos que necesitan dividir a los poligonos
           en varias partes para procesarlos.
           Una forma natural de dividir a los poligonos en 
-          partes más simples se logra dibujando $diagonales$.
+          partes más simples se logra dibujando <b><i>diagonales</i></b>.
           <br>
-          Una $diagonal$ de un poligono $P$, es un segmento de 
+          Una <b><i>diagonal</i></b> de un poligono $P$, es un segmento de 
           línea que conecta dos vertices de $P$ y que 
           yace en el interior de $P$, este segmento no toca a $ \partial P$
           excpeto en su punto inicial y su punto final.
-          <br>
+          <br><br>
           Dos diagonales no se cruzan si no comparten puntos interiores, 
           esto es, si comparten a lo más alguno de sus puntos de 
           inicio o fin.
@@ -499,10 +549,16 @@
       <div class="page">
         <h2 id="cap1_repaso_estructuras_datos">Repaso de estructuras de datos</h2>
         <p>
-          Como ya se mencionó al inicio de este capítulo las estructuras de datos resultan una herramienta fundamental para el uso de los algoritmos geométricos. 
-          Muchas de estas estructuras de datos son muy bien descritas en el curso referente a estructuras de datos, 
-          y dado que no es la intención de este libro volver a describir dichas estructuras de datos, 
-          a continuación serán descritas únicamente las que resulten indispensables por no formar parte del temario oficial de dicho curso.
+          Como ya se mencionó al inicio de este capítulo las 
+          estructuras de datos resultan una herramienta 
+          fundamental para el uso de los algoritmos geométricos. 
+          Muchas de estas estructuras de datos son muy bien 
+          descritas en el curso referente a estructuras de datos, 
+          y dado que no es la intención de este libro volver 
+          a describir dichas estructuras de datos, 
+          a continuación serán descritas únicamente las que 
+          resulten indispensables por no formar parte del 
+          temario oficial de dicho curso.
           <br><br>
         </p>
 

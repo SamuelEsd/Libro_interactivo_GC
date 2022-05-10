@@ -681,13 +681,33 @@
       </div>
 
       <div class="page">
-        <!-- TO DO:  -->
-        So the problem we want to solve is this: given a set
-        P = {p1, p2,..., pn} of points in the plane, compute a list that contains those
-        points from P that are the vertices of CH(P), listed in clockwise order.
+        Por lo tanto podemos describir el problema de encontrar el 
+        conjunto convexo de un conjunto de puntos como: dado un 
+        conjunto de puntos $S = p_0, p_1, p_2,\dots, p_{n}$
+        en el plano, calcular una lista qe contenga a todos 
+        los puntos de $S$ que son vertices del $conv(S)$ 
+        listados en e orden de las manecillas del reloj.
         <br>
-        <img src="/images/capitulo01/CH_decripcion_computationl_geo_and_aplications.jpg" width="90%">
-
+        <br>
+        Por ejemplo:
+        \[
+        Entrada = conjunto \ de \ puntos: \\
+        p_1, p_2, p_3, p_4, p_5, p_6, p_7, p_8
+        \]
+        \[
+        Salida = representación \ del \ cierre \ convexo: \\
+        p_2, p_9, p_4, p_5, p_8
+        \]
+        <div class="interactive" width="380" height="200" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_ch_problema.html"></div>
+        <br>
+        Es imprtante recordar que los puntos 
+        $p_2, p_9, p_4, p_5, p_8$ no son el
+        cierre convexo de $S$, son solo la representación 
+        de cierre convexo pues el cierre convexo sería
+        el poligono (interior y perimetro) formado 
+        con estos puntos, lo que en el ejemplo 
+        se representa con el area color morado.
       </div>
 
       <div class="page">

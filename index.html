@@ -711,12 +711,84 @@
       </div>
 
       <div class="page">
-
-        <h2 id="cap2_cota_minima">Cota mínima</h2>
+        Ahora que sabemos qué es un cierre convexo,
+        y además sabemos como describir el problema
+        dada una cierta entrada para obtener
+        una cierta salida, podemos empezar a indagar 
+        de que manera podremos solucionar estos problemas.
       </div>
 
       <div class="page">
         <h2 id="cap2_algorithmo_grahan">Algoritmo de Graham</h2>
+        
+        Contexto, envoltura de regalo.
+
+        One approach is to wrap a string
+        around the entire point set, where the string catches and turns at each
+        of the hull points. This method is appropriately called the gift-wrapping
+        algorithm, first suggested by Donald Chand and Sham Kapur in 1970
+        (primarily for hulls in higher dimensions). Figure 2.7 shows this algorithm
+        in action.
+
+        Let’s look at the details. Let S be a point set in general position, with
+        no three points collinear. Consider the bottommost point; if there are
+        ties, choose the rightmost. This point will be the anchor from which we
+        wind our string around S. From this point, draw a line segment to all
+        other points in S. Choose the next anchor point on our wrapping of S to
+        be the point that makes the largest angle with the horizontal line. Now
+        that we have started our wrapping, we continue as follows. From the
+        new anchor, draw a line segment to all other points in S, and choose
+        the next anchor forming the largest angle with the last constructed hull
+        edge. This is repeated until the algorithm ends, winding around the entire
+        hull.
+        
+        graham
+
+        At Bell Laboratories in the late 1960s, Ron Graham needed an
+        algorithm to compute the convex hull of about 10, 000 points in the
+        plane. The O(n2)-time algorithm was too slow for this practical use on
+        the processors of that period, so Graham developed a simple algorithm
+        to meet this need. His 1972 paper is arguably the first publication in
+        computational geometry. Instead of calculating the angle at each point on
+        the hull, Graham’s insight was to initially sort the points based on these
+        angles. Then, with only a little additional work, he was able to eliminate
+        any extraneous points and focus on just the hull points. We now describe
+        this Graham scan algorithm, tracking the example in Figure 2.8.
+
+          Graham, in one 
+          of the first papers specifically concerned with finding an efficient geometric 
+          algorithm [Graham (1972)] showed that performing the sorting step first 
+          enables the extreme points to be found in linear time. The method he uses 
+          turns out to be a very powerful tool in computational geometry.
+
+            Perhaps the honor of the first paper published in the field of computational geometry
+            should be accorded to Graham's algorithm for finding the hull ofpoints in two dimensions
+            in 0 (n log n) time (Graham 1972).5 In the late 1960s an application at Bell Laboratories
+            required the hull of n 10,000 points, and they found the O(n2 ) algorithm in use too
+            slow. Graham developed his simple algorithm in response to this need (personal comm.,
+            1992).
+
+        For a point set S in general position, just as in the gift-wrapping
+        algorithm, choose the rightmost bottom point. Sort the remaining points
+        of S by the angle they form with the horizontal line, from the largest angle
+        to the smallest. From here on, the points are processed in this angularly
+        sorted order. For each point c, a calculation is made to determine whether
+        the two endpoints of the last constructed hull edge ab and c form a left
+        turn or a right turn. If abc is a right turn, this means that b is not part
+        of the hull and so should be removed from consideration (such as points
+        a = 3, b = 4, and c = 5 in Figure 2.8). This discarding continues as long
+        as the last three points form a right turn. We move to the next point in
+        our list once abc is a left turn. This continues until we eventually return
+        to the starting point, which completes the hull.
+
+        hat is the time complexity of the Graham scan algorithm? As mentioned in 
+        Section 2.3, sorting the points has time complexity O(n log n).
+        As we walk through the algorithm, we see that each point is considered
+        at most twice, once when added and once if it forms an illegal right
+        turn. Since right-turn discarded points are never revisited, the search
+        for hull points executes O(n) iterations. So the overall complexity is
+        O(n log n), dominated not by the hull search but by the initial sorting
+        of the points.
 
         <div class="interactive" width="810" height="800" window-size="false"
           src="./Interactivos/capitulo_2/graham_scan.html"></div>
@@ -727,6 +799,83 @@
         <h2 id="cap2_algoritmos_divide_venceras">Algoritmos usando divide y vencerás</h2>
         <h2 id="cap2_algoritmos_dinamicos">Algoritmos dinámicos</h2>
         <h2 id="cap2_extensiones_variantes">Extensiones y variantes</h2>
+      </div>
+      <div class="page">
+
+        <h2 id="cap2_cota_minima">Cota mínima</h2>
+        So far, we have described three algorithms for constructing the convex
+        hull, each superior to the previous in terms of time complexity,
+        both of which run in O(n log n) time. A natural
+        question to consider is whether we can do better. 
+        It seems at least feasible that 0 (n) might be possible. We show in
+        this section that this is in fact not possible: n log n is a "lower bound" on the complexity
+        of any algorithm that finds the hull.
+        The short answer is “no” (assuming a model of
+        computation based on binary comparisons).
+        We show in
+        this section that this is in fact not possible: n log n is a "lower bound" on the complexity
+        of any algorithm that finds the hull.
+        
+        Researchers in computer science have found it fiendishly difficult to establish no 
+        trivial lower bounds for problems. The difficulty is that the lower bound must hold
+        for any conceivable algorithm, and it is hard to capture all algorithms in a proof.
+        Nevertheless, this has been accomplished for a few key problems, notably sorting:
+        Q(n log n) is a lower bound for sorting n elements. 
+        https://www.youtube.com/watch?v=eK6Ual_3ezA
+        Once a lower bound for one problem has been established, lower bounds for other problems can be proved via "problem
+        reduction."
+        this is the typical approach to establishing a lower bound
+        on all algorithms that solve a particular problem: reduce the problem
+        to another whose lower bound had been previously established.
+
+        Suppose problem A is known to have some particular lower bound. One can view
+        this as knowing that problem A is "hard" to the degree exhibited by the lower bound.
+        So if A has a lower bound of n(n4 ), it is a rather hard problem. Now suppose problem
+        A can be reduced to problem B, in the sense that an algorithm for solving problem B
+        can be used to solve problem A (with little additional work). A has been reduced to B
+        in the sense that if we can solve B quickly, we can solve A quickly. This often leads
+        to a lower bound on B, since if we could solve B too quickly, the known lower bound
+        on A would be violated.
+  
+        This is how we will establish a lower bound on constructing the hull: we will show that it
+        is possible to reduce the sorting problem to the convex hull problem in linear time. This implies that
+        any O(f(n))-time algorithm for the convex hull problem implies an O(n + f(n))-time algorithm for
+        sorting. Clearly, f(n) cannot be smaller than Ω(n log n) for otherwise we would obtain an immediate
+        contradiction to the lower bound on sorting.
+
+        The reduction works by projecting the points onto a convex curve. In particular, let X = {x1, . . . , xn}
+        be the n values that we wish to sort. Suppose we “lift” each of these points onto a parabola y = x^2
+        , by mapping x-i to the point p-i = (x_i, x^2_i). 
+        Let P denote the resulting set of points (see Fig. 18(a)). Note
+        that all the points of P lie on its convex hull.
+
+        Next, compute the convex hull of P by whatever algorithm we like in O(f(n)) time, which we assume
+        to be given as a counter-clockwise cyclic enumeration of its vertices (see Fig. 18(b)). In O(n) time
+        we can find the leftmost vertex of this cyclic order, and then read out the rest of the points in O(n)
+        time (see Fig. 18(c)). Whenever we encounter some point pi
+        in this order, we output its x-coordinate.
+        Clearly, the points appear on the hull in left-to-right order, and therefore the final output is the sorted
+        order of X, as desired. Except for the f(n) time to compute the convex hull, all the other steps can
+        be performed in O(n) time. Thus, any super-linear lower bound on the sorting problem must apply to
+        the function f(n) as well.
+
+        This reduction leaves open two questions:
+          • What if we don’t require that the points be enumerated in cyclic order, just that they all be
+          identified? It remained an open problem for several years to determine if finding extreme
+          points was easier, but the work of several researchers finally established that O (n logn)
+          is a lower bound on this problem also. Solo nos quedaremos con esto,
+          no se ahondará más en la demostración, pero recomendamos a los lectores más
+          aventurados a saber más de esto a mirar See Preparata & Shamos (1985, pp. 101-3).
+          
+          • What if the all the points of P do not lie on the convex hull? The above reduction only suggests
+          that the vertices of the hull need to sorted. This suggests that we might do better, if we know
+          that the output size is significantly smaller than n. An algorithm whose running time is expressed
+          as a function of both its input size and output size is called output sensitive. In this lecture we
+          will discuss two output sensitive convex hull algorithms.
+
+
+        ¿Es este el mejor lugar para poner esta parte del temario?
+        
       </div>
 
       <!--  -->

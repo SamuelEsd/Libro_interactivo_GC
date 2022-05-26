@@ -2,5 +2,8 @@
   "dependencies": {
     "http-server": "^14.1.0",
     "katex": "^0.15.2"
+  },
+  "scripts": {
+    "start": "http-server"
   }
 }

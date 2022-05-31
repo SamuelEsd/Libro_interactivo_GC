@@ -365,15 +365,14 @@
           <b><i>punto</i></b> $p$ en $\mathbb{R}^d$.
         </p>
         <p>
-          Este concepto es bastante simple, pero aún
-          así a continuación se muestra un interactivo
-          en el cual se representa un espacio en
-          $\mathbb{R}^2$ y al dar clic sobre el se
-          puede ver la representación de un punto en la
-          posición del cursor.
+          A continuación se muestra un interactivo
+          en el cual se representa un punto en el
+          espacio en $\mathbb{R}^2$, al cual podemos
+          cambiar sus valores en cada uno de sus
+          componentes.
         </p>
-        <div class="interactive" width="780"
-        height="385" window-size="false"
+        <div class="interactive" width="400"
+        height="240" 
         src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_punto.html"></div>
       </div>
 
@@ -391,15 +390,26 @@
 
           describe una
           <b><i>línea</i></b> en $\mathbb{R}^d$.
-          <br>
+        </p>
+        <p>
           A pesar de que un solo par de puntos
           distintos definen perfectamente una línea,
           una línea en $\mathbb{R}^d$ contiene un
-          número infinitos de puntos.
+          número infinito de puntos. <br> Lo cual puede
+          apreciarse en el siguiente interactivo, en el
+          cual las flechas azul y verde, representan la
+          partes respectivas que aportan los puntos
+          $p_2$ y $p_1$ al nuevo punto $r$
+          respectivamente. <br> De esta manera, al
+          cambiar el valor de $\alpha$ podemos obtener
+          cualquier punto sobre la línea roja,
+          apreciando como va cambiando la "cantidad" de
+          cada punto $p_1$ $p_2$ que es "necesaria"
+          para formar el nuevo punto $r$.
         </p>
 
-        <div class="interactive" width="600"
-        height="550" window-size="false"
+        <div class="interactive" width="500"
+        height="270" window-size="false"
         src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_linea.html"></div>
       </div>
       <div class="page">
@@ -419,8 +429,19 @@
           <b><i>segmento de linea</i></b>
           se denota como $ \ \overline{ p_1 p_2}$.
         </p>
-        <div class="interactive" width="600"
-        height="550" window-size="false"
+        <p>
+          El siguiente interactivo funciona de la misma
+          manera que el interactivo anterior, el cual
+          muestra la definición de línea, sin embargo
+          se puede notar como en este recurso el valor
+          de $\alpha$ cumple la condición $( 0 \leq
+          \alpha \leq 1 )$, lo cual nos limita a solo
+          poder representar puntos que están sobre la
+          línea y a su vez entre los puntos $ p_1 p_2
+          $.
+        </p>
+        <div class="interactive" width="500"
+        height="280" window-size="false"
         src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_segmento.html"></div>
       </div>
       <div class="page">
@@ -471,7 +492,7 @@
 
         <div class="interactive" width="600"
         height="310" window-size="false"
-        src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_polígono.html"></div>
+        src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div>
       </div>
 
 

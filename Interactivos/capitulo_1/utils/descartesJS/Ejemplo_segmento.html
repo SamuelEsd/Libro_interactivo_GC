@@ -9,25 +9,27 @@
 <body style="padding:0; margin:0; background:#eff0f1;">
 
   <div align="center">
-    <ajs name="Descartes" code="Descartes" width="500" height="465">
-      <param name="tamaño" value="500x465">
+    <ajs name="Descartes" code="Descartes" width="500" height="280">
+      <param name="tamaño" value="500x280">
       <param name="decimal_symbol" value=".">
+      <param name="expand" value="fit">
       <param name="nombre" value="">
       <param name="Versión" value="5.5">
       <param name="editable" value="no">
       <param name="Idioma" value="español">
       <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
-      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' escala='35' O.x='-100' O.y='150' ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' escala='30' O.x='-100' O.y='50' ">
       <param name="C_01" value="id='pulsador_alpha' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='Valor de alpha' expresión='(0,0,150,40)' incr='0.05' min='0' max='1' discreto='sí' visible='sí' ">
       <param name="A_01" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' hacer='p1_x = 1;p1_y = 3;p2_x = 4;p2_y = 1;;' ">
       <param name="A_02" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' hacer='m = (p2_y - p1_y) / (p2_x - p1_x);;alpha = pulsador_alpha;;new_p1_x = p1_x * alpha;new_p1_y = p1_y * alpha;new_p2_x = p2_x * (1- alpha);new_p2_y = p2_y * (1- alpha)' ">
       <param name="G_01" value="espacio='E1' tipo='ecuación' color='ff0000' coord_abs='no' expresión='y= m*(x-p1_x) + p1_y' ancho='2' info='linea generada' ">
-      <param name="G_02" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p1_x,p1_y)' tamaño='7' info='p1' ">
-      <param name="G_03" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p2_x,p2_y)' tamaño='7' info='p2' ">
+      <param name="G_02" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p1_x,p1_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 \i{\*\mjaformula\i p\i0{\subix\i 1\i0}}\i0    }' tamaño='7' info='p1' ">
+      <param name="G_03" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p2_x,p2_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 \i{\*\mjaformula\i p\i0{\subix\i 2\i0}}\i0 }' tamaño='7' info='p2' ">
       <param name="G_04" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(new_p1_x,new_p1_y)(new_p1_x+new_p2_x,new_p1_y+new_p2_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 (1-α) p\i{\*\mjaformula\i 2\i0{\subix}}\i0 }' ancho='5' punta='8' flecha='0000ff' info='(1-alpha)p2' ">
-      <param name="G_05" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(0,0)(new_p1_x,new_p1_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 α p\i{\*\mjaformula\i 1\i0{\subix}}\i0 }' ancho='5' punta='8' flecha='00ff00' info='alpha p1' ">
-      <param name="G_06" value="espacio='E1' tipo='punto' color='00ffff' coord_abs='no' expresión='(new_p1_x+new_p2_x,new_p1_y+new_p2_y)' texto='r' tamaño='5' info='r' ">
-      <param name="G_07" value="espacio='E1' tipo='texto' fondo='sí' color='20303a' coord_abs='sí' expresión='(20,20)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 Aquí se puede apreciar el punto r = α p{\*\mjaformula\i 1\i0{\subix}} + (1 - α) p{\*\mjaformula\i 2\i0{\subix}} \par\f0\fs40 en color turquesa y modificar el valor de α para tener más\par\f0\fs40 clara la idea de la definición, al ver cada componente\par\f0\fs40 como una flecha.}' ancho='1' negrita='sí' align='a_left' anchor='a_top_left' ">
+      <param name="G_05" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(0,0)(new_p1_x,new_p1_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40   α\i{\*\mjaformula\i p\i0{\subix\i 1\i0}}\i0 }' ancho='5' punta='8' flecha='00ff00' info='alpha p1' ">
+      <param name="G_06" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(new_p1_x+new_p2_x,new_p1_y+new_p2_y)' texto='r' decimales='3' tamaño='7' fuente puntos='23' info='r' ">
+      <param name="G_07" value="espacio='E1' tipo='punto' color='00ffff' coord_abs='no' expresión='(new_p1_x+new_p2_x,new_p1_y+new_p2_y)' tamaño='5' info='r' ">
+      <param name="G_08" value="espacio='E1' tipo='texto' fondo='sí' color='20303a' dibujar-si='0' coord_abs='sí' expresión='(20,20)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 Aquí se puede apreciar el punto r = α p{\*\mjaformula\i 1\i0{\subix}} + (1 - α) p{\*\mjaformula\i 2\i0{\subix}} \par\f0\fs40 en color turquesa y modificar el valor de α para tener más\par\f0\fs40 clara la idea de la definición, al ver cada componente\par\f0\fs40 como una flecha.}' ancho='1' negrita='sí' align='a_left' anchor='a_top_left' ">
     </ajs>
   </div>
 

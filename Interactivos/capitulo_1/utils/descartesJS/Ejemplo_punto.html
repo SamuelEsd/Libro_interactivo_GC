@@ -9,17 +9,22 @@
 <body style="padding:0; margin:0; background:#eff0f1;">
 
   <div align="center">
-    <ajs name="Descartes" code="Descartes" width="400" height="250">
-      <param name="tamaño" value="400x250">
+    <ajs name="Descartes" code="Descartes" width="400" height="240">
+      <param name="tamaño" value="400x240">
       <param name="decimal_symbol" value=".">
+      <param name="expand" value="fit">
       <param name="nombre" value="">
       <param name="Versión" value="5.5">
       <param name="editable" value="no">
       <param name="Idioma" value="español">
-      <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
-      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' texto='000000' números='sí' ">
+      <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=35 ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' escala='10' texto='000000' números='sí' ">
+      <param name="C_01" value="id='x_val' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='x' expresión='(0,0,150,40)' visible='sí' btn_pos='v_right' ">
+      <param name="C_02" value="id='y_val' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='y' expresión='(0,0,150,40)' visible='sí' ">
       <param name="A_01" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' ">
       <param name="A_02" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' ">
+      <param name="G_01" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(x_val,y_val)' tamaño='12' ">
+      <param name="G_02" value="espacio='E1' tipo='punto' color='ff0000' coord_abs='no' expresión='(x_val,y_val)' texto='   P' tamaño='10' ">
     </ajs>
   </div>
 

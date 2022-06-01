@@ -42,10 +42,10 @@ function drawPoints(points,color) {
  * point.
  * @param {Array} points - List of vectors representing
  * the points to draw.
- * @param {Point} points - Vector representing
+ * @param {Point} selectedPoint - Vector representing
  * the selected point to move.
  */
-function drawPointsWithSelection(points, selectedPoint) {
+function drawPointsWithSelection(points, selectedPoint, pointsColor=256, selectedColor="red") {
     strokeWeight(POINT_SIZE);
     for (i = 0; i < points.length; i++) {
         if (selectedPoint == i) {
@@ -65,7 +65,10 @@ function drawPointsWithSelection(points, selectedPoint) {
  * where i = (j+1)%size with size equals the number of
  * points in the list.
  * @param {Array} points - Clockwise sorted point list of
- * vectors representing the points on the coonvex hull.
+ * vectors representing the points on the convex hull.
+ * @param {Boolean} isClosed - Add an arrow from the last
+ * point in the array to the first point in the array, 
+ * closing the cycle.
  */
 function drawArrows(points,isClosed) {
     let size = points.length;
@@ -81,3 +84,22 @@ function drawArrows(points,isClosed) {
         drawArrow(v0, v1, "green");
     }
 }
+
+/**
+ * Given a clockwise sorted point list of all points in
+ * the convex hull draw a line from pi to pj
+ * where i = (j+1)%size with size equals the number of
+ * points in the list.
+ * @param {Array} points - Clockwise sorted point list of
+ * vectors representing the points on the convex hull.
+ * @param {Color} color - Color value for the lines 
+ * that will be drawn
+ */
+function drawLines(points,color){
+    let size = points.length
+    strokeWeight(LINE_SIZE);
+    stroke(color);
+    for(i = 0; i < points.length; i++){
+      line(points[i].x, points[i].y,points[(i+1)%size].x, points[(i+1)%size].y);
+    }
+  }

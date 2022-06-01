@@ -37,7 +37,7 @@ async function step() {
   }
   // alg steps
   if (!completed) {
-    // add fisrt point
+    // add first point
     if (convexHull.length == 0) {
       let minXPoint = points[0];
       for (let point of points) {

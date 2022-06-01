@@ -365,15 +365,18 @@
           <b><i>punto</i></b> $p$ en $\mathbb{R}^d$.
         </p>
         <p>
-          A continuación se muestra un interactivo
+          En la <ref ref_id="ejemplo_punto"></ref> se muestra un interactivo
           en el cual se representa un punto en el
           espacio en $\mathbb{R}^2$, al cual podemos
           cambiar sus valores en cada uno de sus
           componentes.
         </p>
-        <div class="interactive" width="400"
-        height="240" 
-        src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_punto.html"></div>
+        <figure id="ejemplo_punto">
+          <div class="interactive" width="400"
+            height="200" 
+            src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_punto.html"></div>
+          <figcaption>Ejemplo de punto en $\mathbb{R}^2$.</figcaption>
+        </figure>
       </div>
 
       <div class="page">
@@ -489,17 +492,23 @@
             $j \neq i - 1$.
           </li>
         </ol>
-
-        <div class="interactive" width="600"
-        height="310" window-size="false"
-        src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div>
+        
+        <figure id="poligono_condiciones">
+          <!-- <div class="interactive" width="600"
+          height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
+          <img src="./images/capitulo_01/Ejemplo_condiciones_poligono.png">
+          <figcaption>Ejemplo condiciones del
+          polígono.</figcaption>
+        </figure>
+        
       </div>
 
 
 
       <div class="page">
         <p>
-          En la $figura ???$ tenemos un ejemplo de un
+          En la <ref ref_id="poligono_condiciones"></ref> tenemos un ejemplo de un
           conjunto de segmentos de línea que no cumplen
           ambas condiciones.
           <br>
@@ -639,43 +648,57 @@
           Cierre convexo de un conjunto de puntos
         </h1>
         <p>
-          Antes de comenzar este capitulo, necesitamos saber que es
-          un <b><i>cierre convexo</i></b>, antes de definirlo
-          formalmente, podemos tomarnos la libertad
-          de definirlo de una forma más intuitiva.
-          <br><br>
-          Esto es, dado un conjunto finito
-          de puntos $S$ en el plano, si
-          vemos a cada punto de $S$ como un clavo colocado en el plano
-          podemos ver al <b><i>cierre convexo</i></b> de $S$ como la región interior
-          delimitada por una liga estirada al rededor de todos los clavos.
-          <br><br>
-          El siguiente recurso interactivo nos muestra esta idea,
-          donde los círculos representan los puntos en $S$ y las líneas
-          verdes la liga que los encierra.
+          Antes de comenzar este capitulo, necesitamos
+          saber que es un <b><i>cierre convexo</i></b>,
+          antes de definirlo formalmente, podemos
+          tomarnos la libertad de definirlo de una
+          forma más intuitiva.
+        </p>
+        <p>
+          Esto es, dado un conjunto finito de puntos
+          $S$ en el plano, si vemos a cada punto de $S$
+          como un clavo colocado en el plano podemos
+          ver al <b><i>cierre convexo</i></b> de $S$
+          como la región interior delimitada por una
+          liga estirada al rededor de todos los clavos.
+        </p>
+        <p>
+          La siguiente figura, <ref
+          ref_id="cierre-convexo"></ref>, contiene un
+          recurso interactivo que nos muestra esta
+          idea, donde los círculos representan los
+          "clavos" (puntos en $S$) y las líneas verdes
+          la "liga" que los encierra.
           <br>
-          Puedes hacer click en cualquiera de los círculos blancos
-          que representan a los puntos en $S$ para poder moverlo
-          en la dirección que muevas el cursos, y
-          a su vez puedes dar de nuevo click para dejarlo fijo
-          en la nueva posición de cursor y ver como se modifica el
+          Puedes hacer click en cualquiera de los
+          círculos blancos que representan a los puntos
+          en $S$ para poder moverlo en la dirección que
+          muevas el cursos, y a su vez puedes dar de
+          nuevo click para dejarlo fijo en la nueva
+          posición de cursor y ver como se modifica el
           cierre convexo.
         </p>
       </div>
 
       <div class="page">
+        
+      <figure id="cierre-convexo">
         <div class="interactive" width="810" height="500" window-size="false"
           src="./Interactivos/capitulo_1/cierre_convexo.html"></div>
         <br>
-        Ahora que tenemos esta definición que
-        nos sirve para tener más clara la idea geométrica,
+        <figcaption>Ejemplo de la idea intuitiva de un cierre convexo.</figcaption>
+      </figure>
+        
+        Ahora que tenemos esta definición que nos sirve
+        para tener más clara la idea geométrica,
         podemos avanzar más fácilmente y comenzar con
         definiciones adicionales que sean más formales.
-        <br><br>
+      </p>
+      <p>
         A continuación definiremos una <b><i>conjunto convexo</i></b>
         para después poder definir lo que es un <b><i>cierre convexo</i></b>.
         <br>
-
+      </p>
       </div>
 
       <div class="page">
@@ -692,55 +715,75 @@
         \]
         es el $conjunto \ convexo$ generado por $p_0, p_1, p_2,\dots, p_{k}$,
         y $p$ es una combinación convexa de $p_0, p_1, p_2,\dots, p_{k}$.
-        <br><br>
+      </p>
+      <p>
         <div class="interactive" width="600" height="580" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_conjunto_convexo.html"></div>
       </div>
 
       <div class="page">
         <!-- Cierre convexo.-->
+      <p>
         <h4><b><i>Cierre convexo.</i></b></h4>
-        Dado un subconjunto arbitrario $S$ de puntos en $\mathbb{R}^d$,
-        el <b><i>cierre convexo</i></b> de $S$, denotado por $conv(S)$,
-        es la intersección de todos los <b><i>conjuntos convexos</i></b>
+        Dado un subconjunto arbitrario $S$ de puntos en
+        $\mathbb{R}^d$, el <b><i>cierre convexo</i></b>
+        de $S$, denotado por $conv(S)$, es la
+        intersección de todos los <b><i>conjuntos
+        convexos</i></b>
         que contienen a $S$.
-        <br><br>
-        Ahora que podemos comprender que es el cierre convexo,
-        podríamos preguntarnos, ¿cómo podemos representar al cierre
-        convexo de un conjunto de puntos $S$? y ¿qué significa
-        calcular el cierre convexo un conjunto de puntos $S$?
-        <br><br>
-        Recordando la idea intuitiva de la liga que rodea a los clavos,
-        el area que encierra esta liga es el cierre convexo de $S$.<br>
-        Esto nos lleva a una definición alternativa del cierre convexo
-        de un conjunto finito $S$ de puntos en el plano: el
-        cierre convexo es el único polígono convexo cuyos vertices
-        son puntos de $S$ y que contienen todos los puntos de $S$.
-        <br><br>
-        Ya que el objetivo de este libro no es ser totalmente formales,
-        se pasan por alto muchas de las pruebas, incluida la
-        última afirmación con respecto a la definición del cierre convexo
-        como un polígono, pero se invita al lector a buscar en la
-        bibliografía en caso de requerir más formalidad.
-        <br><br>
-        Ahora que sabemos que podemos representar al cierre convexo
-        de un conjunto de puntos $S$ como un polígono, resulta
-        esencial saber como representar a este polígono.
+      </p>
+      <p>
+        Ahora que podemos comprender que es el cierre
+        convexo, podríamos preguntarnos, ¿cómo podemos
+        representar al cierre convexo de un conjunto de
+        puntos $S$? y ¿qué significa calcular el cierre
+        convexo un conjunto de puntos $S$?
+      </p>
+      <p>
+        Recordando la idea intuitiva de la liga que
+        rodea a los clavos, el area que encierra esta
+        liga es el cierre convexo de $S$.<br>
+        Esto nos lleva a una definición alternativa del
+        cierre convexo de un conjunto finito $S$ de
+        puntos en el plano: el cierre convexo es el
+        único polígono convexo cuyos vertices son
+        puntos de $S$ y que contienen todos los puntos
+        de $S$.
+      </p>
+      <p>
+        Ya que el objetivo de este libro no es ser
+        totalmente formales, se pasan por alto muchas
+        de las pruebas, incluida la última afirmación
+        con respecto a la definición del cierre convexo
+        como un polígono, pero se invita al lector a
+        buscar en la bibliografía en caso de requerir
+        más formalidad.
+      </p>
+      <p>
+        Ahora que sabemos que podemos representar al
+        cierre convexo de un conjunto de puntos $S$
+        como un polígono, resulta esencial saber como
+        representar a este polígono.
         <br>
-        Una forma natural de hacerlo es listando los vertices de dicho
-        polígono en orden de las manecillas del reloj, comenzando
-        desde algún punto arbitrario.
+        Una forma natural de hacerlo es listando los
+        vertices de dicho polígono en orden de las
+        manecillas del reloj, comenzando desde algún
+        punto arbitrario.
+      </p>
       </div>
 
       <div class="page">
-        Por lo tanto podemos describir el problema de encontrar el 
-        conjunto convexo de un conjunto de puntos como: dado un 
-        conjunto de puntos $S = p_0, p_1, p_2,\dots, p_{n}$
-        en el plano, calcular una lista qe contenga a todos 
-        los puntos de $S$ que son vertices del $conv(S)$ 
-        listados en e orden de las manecillas del reloj.
-        <br>
-        <br>
+      <p>
+        Por lo tanto podemos describir el problema de
+        encontrar el conjunto convexo de un conjunto de
+        puntos como: dado un conjunto de puntos $S =
+        p_0, p_1, p_2,\dots, p_{n}$ en el plano,
+        calcular una lista qe contenga a todos los
+        puntos de $S$ que son vertices del $conv(S)$
+        listados en e orden de las manecillas del
+        reloj.
+      </p>
+      <p>
         Por ejemplo:
         \[
         Entrada = conjunto \ de \ puntos: \\
@@ -753,21 +796,24 @@
         <div class="interactive" width="380" height="200" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_ch_problema.html"></div>
         <br>
-        Es importante recordar que los puntos 
-        $p_2, p_9, p_4, p_5, p_8$ no son el
-        cierre convexo de $S$, son solo la representación 
-        de cierre convexo pues el cierre convexo sería
-        el polígono (interior y perímetro) formado 
-        con estos puntos, lo que en el ejemplo 
-        se representa con el area color morado.
+        Es importante recordar que los puntos $p_2,
+        p_9, p_4, p_5, p_8$ no son el cierre convexo de
+        $S$, son solo la representación de cierre
+        convexo pues el cierre convexo sería el
+        polígono (interior y perímetro) formado con
+        estos puntos, lo que en el ejemplo se
+        representa con el area color morado.
       </div>
 
       <div class="page">
-        Ahora que sabemos qué es un cierre convexo,
-        y además sabemos como describir el problema
-        dada una cierta entrada para obtener
-        una cierta salida, podemos empezar a indagar 
-        de que manera podremos solucionar estos problemas.
+        <p>
+          Ahora que sabemos qué es un cierre convexo, y
+          además sabemos como describir el problema
+          dada una cierta entrada para obtener una
+          cierta salida, podemos empezar a indagar de
+          que manera podremos solucionar estos
+          problemas.
+        </p>
       </div>
 
       <div class="page">

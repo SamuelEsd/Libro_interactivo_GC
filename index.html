@@ -657,10 +657,12 @@
         <p>
           Esto es, dado un conjunto finito de puntos
           $S$ en el plano, si vemos a cada punto de $S$
-          como un clavo colocado en el plano podemos
-          ver al <b><i>cierre convexo</i></b> de $S$
-          como la región interior delimitada por una
-          liga estirada al rededor de todos los clavos.
+          como un clavo colocado en una superficie plana, 
+          una madera por ejemplo, y tomamos una liga para estirarla
+          al rededor de todos los clavos y la soltamos,
+          podemos ver al <b><i>cierre convexo</i></b> de $S$
+          como la región que queda encerrada por la
+          liga al rededor de todos los clavos.
         </p>
         <p>
           La siguiente figura, <ref
@@ -682,41 +684,49 @@
 
       <div class="page">
         
-      <figure id="cierre-convexo">
-        <div class="interactive" width="810" height="500" window-size="false"
-          src="./Interactivos/capitulo_1/cierre_convexo.html"></div>
-        <br>
-        <figcaption>Ejemplo de la idea intuitiva de un cierre convexo.</figcaption>
-      </figure>
-        
-        Ahora que tenemos esta definición que nos sirve
-        para tener más clara la idea geométrica,
-        podemos avanzar más fácilmente y comenzar con
-        definiciones adicionales que sean más formales.
-      </p>
-      <p>
-        A continuación definiremos una <b><i>conjunto convexo</i></b>
-        para después poder definir lo que es un <b><i>cierre convexo</i></b>.
-        <br>
-      </p>
+        <figure id="cierre-convexo">
+          <div class="interactive" width="810" height="500" window-size="false"
+            src="./Interactivos/capitulo_1/cierre_convexo.html"></div>
+          <figcaption>Ejemplo de la idea intuitiva de un cierre convexo.</figcaption>
+        </figure>
+          
+          Ahora que tenemos esta definición que nos sirve
+          para tener más clara la idea geométrica,
+          podemos avanzar más fácilmente y comenzar con
+          definiciones adicionales que sean más formales.
+        </p>
+        <p>
+          A continuación definiremos una <b><i>conjunto convexo</i></b>
+          para después poder definir lo que es un <b><i>cierre convexo</i></b>.
+          <br>
+        </p>
+
+        <p>
+          <!-- Cierre convexo.-->
+          <h4><b><i>Conjunto convexo.</i></b></h4>
+          Dados $k$ puntos
+          $p_0, p_1, p_2,\dots, p_{k}$ en $\mathbb{R}^d$,
+          el conjunto de puntos:
+          \[
+          r = \alpha_1 p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k 
+          \]
+          \[
+          ( \alpha_i \in \mathbb{R}, 0 \leq \alpha_i \leq 1, \alpha_1 + \dots + \alpha_k = 1 )
+          \]
+          es el $conjunto \ convexo$ generado por $p_0, p_1, p_2,\dots, p_{k}$,
+          y $p$ es una combinación convexa de $p_0, p_1, p_2,\dots, p_{k}$.
+        </p>
       </div>
 
       <div class="page">
-        <!-- Cierre convexo.-->
-        <h4><b><i>Conjunto convexo.</i></b></h4>
-        Dados $k$ puntos
-        $p_0, p_1, p_2,\dots, p_{k}$ en $\mathbb{R}^d$,
-        el conjunto de puntos:
-        \[
-        r = \alpha_1 p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k 
-        \]
-        \[
-        ( \alpha_i \in \mathbb{R}, 0 \leq \alpha_i \leq 1, \alpha_1 + \dots + \alpha_k = 1 )
-        \]
-        es el $conjunto \ convexo$ generado por $p_0, p_1, p_2,\dots, p_{k}$,
-        y $p$ es una combinación convexa de $p_0, p_1, p_2,\dots, p_{k}$.
-      </p>
-      <p>
+        <p>
+          Si prestamos atención, podemos ver como la definición de 
+          <b><i>segmento de línea</i></b> cumple con la definición de 
+          <b><i>conjunto convexo</i>, por lo que podemos ver como
+          un segmento de línea no es más que un caso particular del 
+          conjunto convexo donde solo tenemos 2 puntos, o todos 
+          nuestros puntos son colineales.
+        </p>
         <div class="interactive" width="600" height="580" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_conjunto_convexo.html"></div>
       </div>
@@ -815,11 +825,66 @@
           problemas.
         </p>
       </div>
-
+      
+        <!-- Algoritmo de Graham.-->
       <div class="page">
         <h2 id="cap2_algorithmo_grahan">Algoritmo de Graham</h2>
         
-        Contexto, envoltura de regalo.
+        <h4><b><i>Contexto</i></b></h4>
+        <p>
+          El algoritmo que se abordará en esta sección,
+          surgió a finales de la década de 1960, en los 
+          laboratorios Bell, de la necesidad de su creador 
+          Ron Graham, por calcular el cierre convexo de una gran cantidad
+          de puntos en el plano. Una complejidad de $O(n^2)$ en tiempo no 
+          le resultaba practica, lo que lo llevó a describir un 
+          algoritmo con una complejidad de $O(n log n)$ en tiempo,
+          el cual pasó a ser el posiblemente primer articulo
+          publicado en el campo de la geometría Computacional
+          en 1972, año en que fue publicado.
+          <br>
+          En esta publicación Graham mostró que al realizar
+          un ordenamiento de los puntos, al inicio del algoritmo,
+          podía encontrar los puntos externos que describen al
+          cierre convexo con una complejidad de $O(n)$ en tiempo.
+        </p>
+        <h4><b><i>Algoritmo</i></b></h4>
+        <p>
+
+        </p>
+
+        For a point set S in general position, just as in the gift-wrapping
+        algorithm, choose the rightmost bottom point. Sort the remaining points
+        of S by the angle they form with the horizontal line, from the largest angle
+        to the smallest. From here on, the points are processed in this angularly
+        sorted order. For each point c, a calculation is made to determine whether
+        the two endpoints of the last constructed hull edge ab and c form a left
+        turn or a right turn. If abc is a right turn, this means that b is not part
+        of the hull and so should be removed from consideration (such as points
+        a = 3, b = 4, and c = 5 in Figure 2.8). This discarding continues as long
+        as the last three points form a right turn. We move to the next point in
+        our list once abc is a left turn. This continues until we eventually return
+        to the starting point, which completes the hull.
+
+        The scan begins at the point labelled START, which may be taken as the 
+rightmost smallest-ordinate point of the given set and hence is certainly a 
+hull vertex. We repeatedly examine triples of consecutive points in counterclockwise order to determine whether or not they define a reflex angle (one 
+that is >_ it). If internal anglepIP2P3 is reflex, then pip2P3 is said to be a "right 
+turn," otherwise it is a "left turn." T
+
+        hat is the time complexity of the Graham scan algorithm? As mentioned in 
+        Section 2.3, sorting the points has time complexity O(n log n).
+        As we walk through the algorithm, we see that each point is considered
+        at most twice, once when added and once if it forms an illegal right
+        turn. Since right-turn discarded points are never revisited, the search
+        for hull points executes O(n) iterations. So the overall complexity is
+        O(n log n), dominated not by the hull search but by the initial sorting
+        of the points.
+
+  <!-- Fuentes: Discrete%20and%20computational%20geometry%20by%20Devadoss%20S.,%20ORourke%20J.%20(z-lib.org).pdf -->
+  <!-- Computational_Geometry_An_Introduction_by_Franco_P_Preparata,_Michael. -->
+  <!-- Computational%20Geometry%20in%20C%20by%20Joseph%20ORourke%20(z-lib.org).pdf -->
+        <!-- Contexto, envoltura de regalo.
 
         One approach is to wrap a string
         around the entire point set, where the string catches and turns at each
@@ -838,55 +903,7 @@
         new anchor, draw a line segment to all other points in S, and choose
         the next anchor forming the largest angle with the last constructed hull
         edge. This is repeated until the algorithm ends, winding around the entire
-        hull.
-        
-        graham
-
-        At Bell Laboratories in the late 1960s, Ron Graham needed an
-        algorithm to compute the convex hull of about 10, 000 points in the
-        plane. The O(n2)-time algorithm was too slow for this practical use on
-        the processors of that period, so Graham developed a simple algorithm
-        to meet this need. His 1972 paper is arguably the first publication in
-        computational geometry. Instead of calculating the angle at each point on
-        the hull, Graham’s insight was to initially sort the points based on these
-        angles. Then, with only a little additional work, he was able to eliminate
-        any extraneous points and focus on just the hull points. We now describe
-        this Graham scan algorithm, tracking the example in Figure 2.8.
-
-          Graham, in one 
-          of the first papers specifically concerned with finding an efficient geometric 
-          algorithm [Graham (1972)] showed that performing the sorting step first 
-          enables the extreme points to be found in linear time. The method he uses 
-          turns out to be a very powerful tool in computational geometry.
-
-            Perhaps the honor of the first paper published in the field of computational geometry
-            should be accorded to Graham's algorithm for finding the hull ofpoints in two dimensions
-            in 0 (n log n) time (Graham 1972).5 In the late 1960s an application at Bell Laboratories
-            required the hull of n 10,000 points, and they found the O(n2 ) algorithm in use too
-            slow. Graham developed his simple algorithm in response to this need (personal comm.,
-            1992).
-
-        For a point set S in general position, just as in the gift-wrapping
-        algorithm, choose the rightmost bottom point. Sort the remaining points
-        of S by the angle they form with the horizontal line, from the largest angle
-        to the smallest. From here on, the points are processed in this angularly
-        sorted order. For each point c, a calculation is made to determine whether
-        the two endpoints of the last constructed hull edge ab and c form a left
-        turn or a right turn. If abc is a right turn, this means that b is not part
-        of the hull and so should be removed from consideration (such as points
-        a = 3, b = 4, and c = 5 in Figure 2.8). This discarding continues as long
-        as the last three points form a right turn. We move to the next point in
-        our list once abc is a left turn. This continues until we eventually return
-        to the starting point, which completes the hull.
-
-        hat is the time complexity of the Graham scan algorithm? As mentioned in 
-        Section 2.3, sorting the points has time complexity O(n log n).
-        As we walk through the algorithm, we see that each point is considered
-        at most twice, once when added and once if it forms an illegal right
-        turn. Since right-turn discarded points are never revisited, the search
-        for hull points executes O(n) iterations. So the overall complexity is
-        O(n log n), dominated not by the hull search but by the initial sorting
-        of the points.
+        hull. -->
 
         <div class="interactive" width="810" height="800" window-size="false"
           src="./Interactivos/capitulo_2/graham_scan.html"></div>

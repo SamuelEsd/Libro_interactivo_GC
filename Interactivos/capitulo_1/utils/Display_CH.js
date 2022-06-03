@@ -31,8 +31,6 @@ function mouseDragged() {
       }
     }
   }
-  // prevent default
-  return false;
 }
 
 function mouseReleased() {

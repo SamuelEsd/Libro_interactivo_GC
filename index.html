@@ -399,21 +399,29 @@
           distintos definen perfectamente una línea,
           una línea en $\mathbb{R}^d$ contiene un
           número infinito de puntos. <br> Lo cual puede
-          apreciarse en el siguiente interactivo, en el
-          cual las flechas azul y verde, representan la
-          partes respectivas que aportan los puntos
-          $p_2$ y $p_1$ al nuevo punto $r$
-          respectivamente. <br> De esta manera, al
-          cambiar el valor de $\alpha$ podemos obtener
-          cualquier punto sobre la línea roja,
-          apreciando como va cambiando la "cantidad" de
-          cada punto $p_1$ $p_2$ que es "necesaria"
-          para formar el nuevo punto $r$.
+          apreciarse en la siguiente figura(<ref
+          ref_id="linea"></ref> ), en el cual las
+          flechas azul y verde, representan la partes
+          respectivas que aportan los puntos $p_2$ y
+          $p_1$ al nuevo punto $r$ respectivamente.
+          <br> De esta manera, al cambiar el valor de
+          $\alpha$ podemos obtener cualquier punto
+          sobre la línea roja, apreciando como va
+          cambiando la "cantidad" de cada punto $p_1$
+          $p_2$ que es "necesaria" para formar el nuevo
+          punto $r$.
         </p>
 
-        <div class="interactive" width="500"
-        height="270" window-size="false"
-        src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_linea.html"></div>
+        <figure id="linea">
+          <div class="interactive" width="500"
+          height="270" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_linea.html"></div>
+          <figcaption>
+            Ejemplo de definición de
+            línea.
+          </figcaption>
+        </figure>
+        
       </div>
       <div class="page">
         <!-- Segmento de línea-->
@@ -433,19 +441,27 @@
           se denota como $ \ \overline{ p_1 p_2}$.
         </p>
         <p>
-          El siguiente interactivo funciona de la misma
-          manera que el interactivo anterior, el cual
-          muestra la definición de línea, sin embargo
-          se puede notar como en este recurso el valor
-          de $\alpha$ cumple la condición $( 0 \leq
-          \alpha \leq 1 )$, lo cual nos limita a solo
-          poder representar puntos que están sobre la
-          línea y a su vez entre los puntos $ p_1 p_2
-          $.
+          La siguiente figura(<ref
+          ref_id="segmento_de_linea"></ref>) muestra un
+          interactivo que funciona de la misma manera
+          al presente en la figura anterior(<ref
+          ref_id="linea"></ref>), el cual muestra la
+          definición de línea, sin embargo se puede
+          notar como en este recurso el valor de
+          $\alpha$ cumple la condición $( 0 \leq \alpha
+          \leq 1 )$, lo cual nos limita a solo poder
+          representar puntos que están sobre la línea y
+          a su vez entre los puntos $ p_1 p_2 $.
         </p>
-        <div class="interactive" width="500"
-        height="280" window-size="false"
-        src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_segmento.html"></div>
+        <figure id="segmento_de_linea">
+          <div class="interactive" width="500"
+          height="280" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_segmento.html"></div>
+          <figcaption>
+            Ejemplo de definición de segmento
+            de línea.
+          </figcaption>
+        </figure>
       </div>
       <div class="page">
         <!-- Polígono-->
@@ -696,39 +712,66 @@
           definiciones adicionales que sean más formales.
         </p>
         <p>
-          A continuación definiremos una <b><i>conjunto convexo</i></b>
-          para después poder definir lo que es un <b><i>cierre convexo</i></b>.
+          A continuación definiremos una <b><i>combinación convexa</i></b>
+          para después poder definir lo que es un <b><i>cierre convexo</i></b>
+          a partir de la primera.
           <br>
         </p>
 
         <p>
-          <!-- Cierre convexo.-->
-          <h4><b><i>Conjunto convexo.</i></b></h4>
-          Dados $k$ puntos
+          <!-- Conjunto convexo.-->
+
+
+          <h4><b><i>Combinación convexa.</i></b></h4>
+          Dado un número finito $k$ de puntos
           $p_0, p_1, p_2,\dots, p_{k}$ en $\mathbb{R}^d$,
-          el conjunto de puntos:
+          una combinación convexa de dicho conjunto de puntos es
+          un punto de la forma:
           \[
           r = \alpha_1 p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k 
           \]
+          donde $\alpha_i$ satisfacen las siguientes condiciones:
           \[
-          ( \alpha_i \in \mathbb{R}, 0 \leq \alpha_i \leq 1, \alpha_1 + \dots + \alpha_k = 1 )
+          ( \alpha_i \in \mathbb{R}, \ \ 0 \leq \alpha_i \leq 1,\ \ \alpha_1 + \dots + \alpha_k = 1 )
           \]
-          es el $conjunto \ convexo$ generado por $p_0, p_1, p_2,\dots, p_{k}$,
-          y $p$ es una combinación convexa de $p_0, p_1, p_2,\dots, p_{k}$.
+          
         </p>
+        <!-- Fuente: COMPUTATIONAL
+GEOMETRY IN C
+SECOND EDITION
+JOSEPH O'ROURK -->
+
       </div>
 
       <div class="page">
         <p>
-          Si prestamos atención, podemos ver como la definición de 
-          <b><i>segmento de línea</i></b> cumple con la definición de 
-          <b><i>conjunto convexo</i>, por lo que podemos ver como
-          un segmento de línea no es más que un caso particular del 
-          conjunto convexo donde solo tenemos 2 puntos, o todos 
-          nuestros puntos son colineales.
+          Si prestamos atención, podemos notar que un
+          <b><i>segmento de línea</i></b> consta de
+          todas las combinaciones convexas de sus
+          puntos extremos. Lo cual puede ser visto
+          claramente en la <ref
+          ref_id="segmento_de_linea"></ref>. <br>
+          De manera similar podemos notar como un
+          triangulo consiste de todas las combinaciones
+          convexas de 3 puntos (no colineales). Lo cual
+          puede ser visto en la siguiente <ref
+          ref_id="combinacion-convexa"></ref>, en la
+          cual podemos generar una combinación convexa
+          aleatoria de los tres puntos que forman al
+          triangulo al presionar el botón.
         </p>
-        <div class="interactive" width="600" height="580" window-size="false"
+        <figure id="combinacion-convexa">
+          <div class="interactive" width="600" height="580" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_conjunto_convexo.html"></div>
+          <figcaption>Ejemplo de combinaciones convexas generadas por los puntos de un triangulo.</figcaption>
+        </figure>
+      </div>
+      <div class="page">
+        <figure id="combinacion-convexa-2">
+          <div class="interactive" width="600" height="580" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_combinacion_convexa_2.html"></div>
+          <figcaption>Ejemplo de combinaciones convexas generadas por 5 puntos.</figcaption>
+        </figure>
       </div>
 
       <div class="page">

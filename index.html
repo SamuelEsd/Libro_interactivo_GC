@@ -747,43 +747,82 @@ JOSEPH O'ROURK -->
         <p>
           Si prestamos atención, podemos notar que un
           <b><i>segmento de línea</i></b> consta de
-          todas las combinaciones convexas de sus
-          puntos extremos. Lo cual puede ser visto
-          claramente en la <ref
-          ref_id="segmento_de_linea"></ref>. <br>
+          todas las combinaciones convexas que pueden
+          ser generadas de sus puntos extremos que lo
+          definen. Lo cual puede ser visto claramente
+          en la <ref ref_id="segmento_de_linea"></ref>
+          (agregar vinculo a la definición).
+        </p>
+        <p>
           De manera similar podemos notar como un
           triangulo consiste de todas las combinaciones
-          convexas de 3 puntos (no colineales). Lo cual
-          puede ser visto en la siguiente <ref
+          convexas de los 3 puntos (no colineales) que
+          lo definen. Lo cual puede ser visto en la
+          siguiente <ref
           ref_id="combinacion-convexa"></ref>, en la
-          cual podemos generar una combinación convexa
-          aleatoria de los tres puntos que forman al
-          triangulo al presionar el botón.
+          cual, al presionar el botón en la parte
+          inferior, podemos generar una combinación
+          convexa aleatoria a partir de los tres puntos
+          que forman al triangulo. En la parte superior
+          podemos apreciar como se define al punto r
+          siguiendo la definición de combinación
+          convexa, tomando cada uno de los puntos que
+          definen al triangulo ($p_1 = (1,5)$, $p_2 =
+          (8,1)$ y $p_3 = (8,8)$) multiplicándolos  por
+          una $\alpha_i$ aleatoria, de tal manera que
+          la suma de las $\alpha_i$s suman 1.
         </p>
         <figure id="combinacion-convexa">
-          <div class="interactive" width="600" height="580" window-size="false"
+          <div class="interactive" width="500" height="295" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_conjunto_convexo.html"></div>
-          <figcaption>Ejemplo de combinaciones convexas generadas por los puntos de un triangulo.</figcaption>
+          <figcaption>Ejemplo de una combinación convexa generada por los puntos que definen un triangulo.</figcaption>
         </figure>
       </div>
       <div class="page">
+        <p>
+          Una vez vistos los ejemplos anteriores
+          podemos ver un ejemplo más, esta vez con 5
+          puntos, $p_1 = (1,5)$, $p_2 = (8,1)$ y $p_3 =
+          (8,8)$, $p_4 = (4,6)$ y $p_5 = (7,6)$. <br>
+          En la
+          <ref ref_id="combinacion-convexa-2"></ref>
+          podemos dar valores entre cero y uno a cada
+          $\alpha_i$ (cada $\alpha$ tiene al mismo
+          color del punto al cual multiplica), y en el
+          caso que cumplan la condición $ \alpha_1 +
+          \dots + \alpha_k = 1 $ el punto $r$ será una
+          combinación convexa generada con los 5
+          puntos, justo como en los ejemplos anteriores
+          y en la definición. 
+          
+        </p>
         <figure id="combinacion-convexa-2">
-          <div class="interactive" width="600" height="580" window-size="false"
+          <div class="interactive" width="600" height="380" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_combinacion_convexa_2.html"></div>
-          <figcaption>Ejemplo de combinaciones convexas generadas por 5 puntos.</figcaption>
+          <figcaption>Ejemplo de combinación convexa generada por 5 puntos.</figcaption>
         </figure>
+        
+
       </div>
 
       <div class="page">
+        <p>
+          Con este ejemplo podemos apreciar como los
+          puntos no deben ser precisamente aristas de
+          la figura que forman, para que con ellos se
+          pueda generar una combinación convexa.
+  
+          Podemos notar como 3 de los puntos forman al 
+            triangulo que 
+        </p>
         <!-- Cierre convexo.-->
       <p>
         <h4><b><i>Cierre convexo.</i></b></h4>
-        Dado un subconjunto arbitrario $S$ de puntos en
+        Dado un conjunto finito $S$ de puntos en
         $\mathbb{R}^d$, el <b><i>cierre convexo</i></b>
-        de $S$, denotado por $conv(S)$, es la
-        intersección de todos los <b><i>conjuntos
-        convexos</i></b>
-        que contienen a $S$.
+        de $S$, denotado por $conv(S)$, es el conjunto 
+        de todas las combinaciones convexas generadas por los 
+        puntos en $S$.
       </p>
       <p>
         Ahora que podemos comprender que es el cierre

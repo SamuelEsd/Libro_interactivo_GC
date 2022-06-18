@@ -9,31 +9,33 @@
 <body style="padding:0; margin:0; background:#eff0f1;">
 
   <div align="center">
-    <ajs name="Descartes" code="Descartes" width="500" height="465">
-      <param name="tamaño" value="500x465">
+    <ajs name="Descartes" code="Descartes" width="500" height="295">
+      <param name="tamaño" value="500x295">
       <param name="decimal_symbol" value=".">
+      <param name="expand" value="fit">
       <param name="nombre" value="">
       <param name="Versión" value="5.5">
       <param name="editable" value="no">
       <param name="Idioma" value="español">
       <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
-      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' escala='35' O.x='-100' O.y='150' ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' escala='22' O.x='-100' O.y='80' ">
       <param name="C_01" value="id='b2' interfaz='botón' tipo='numérico' región='sur' espacio='E1' nombre='Generar combinación convexa' expresión='(0,0,150,40)' color='222222' color-int='f0f8ff' fuente puntos='19' acción='calcular' parámetro='aleatorio_1 = rnd;aleatorio_2 = rnd' ">
-      <param name="C_02" value="id='r' tipo='numérico' interfaz='campo de texto' solo_texto='sí' región='norte' espacio='E1' nombre='r = [alpha_1] ([p1_x],[p1_y]) + [alpha_2] ([p2_x],[p2_y]) + [alpha_3] ([p3_x],[p3_y]) = ([point_3_x],[point_3_y])' expresión='(0,0,150,40)' visible='sí' acción='inicio' info='r' ">
+      <param name="C_02" value="id='n3' interfaz='botón' tipo='numérico' región='norte' espacio='E1' nombre='r = [alpha_1] ([p1_x],[p1_y]) + [alpha_2] ([p2_x],[p2_y]) + [alpha_3] ([p3_x],[p3_y]) = [alpha_sum]([point_3_x],[point_3_y])' expresión='(0,0,150,40)' color='222222' color-int='f0f8ff' fuente puntos='19' ">
       <param name="A_01" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' hacer='p1_x = 1;p1_y = 5;;p2_x = 8;p2_y = 1;;p3_x = 8;p3_y = 8;;aleatorio_1 = rnd;aleatorio_2 = rnd;;' ">
       <param name="A_02" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' hacer='alpha_1 = aleatorio_1;alpha_2 = (1-alpha_1)*aleatorio_2;alpha_3 = 1-(alpha_2+alpha_1);alpha_sum = alpha_1 + alpha_2 + alpha_3;;new_p1_x = p1_x * alpha_1;new_p1_y = p1_y * alpha_1;;new_p2_x = p2_x * alpha_2;new_p2_y = p2_y * alpha_2;;new_p3_x = p3_x * alpha_3;new_p3_y = p3_y * alpha_3;;point_1_x = new_p1_x;point_1_y = new_p1_y;;point_2_x = point_1_x + new_p2_x;point_2_y = point_1_y + new_p2_y;;point_3_x = point_2_x + new_p3_x;point_3_y = point_2_y + new_p3_y' ">
       <param name="G_01" value="espacio='E1' tipo='polígono' color='000000' coord_abs='no' expresión='(p1_x,p1_y)(p2_x,p2_y)(p3_x,p3_y)' relleno='66ae73ff' ancho='1' info='Area del poligono' ">
-      <param name="G_02" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p1_x,p1_y)' tamaño='7' info='p1' ">
+      <param name="G_02" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p1_x,p1_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 \i{\*\mjaformula\i p\i0{\subix\i 1\i0}}\i0 }' tamaño='7' info='p1' ">
       <param name="G_03" value="espacio='E1' tipo='segmento' color='20303a' coord_abs='no' expresión='(p1_x,p1_y)(p2_x,p2_y)' tamaño='2' ancho='1' info='p1 p2' ">
-      <param name="G_04" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p2_x,p2_y)' tamaño='7' info='p2' ">
+      <param name="G_04" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p2_x,p2_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 \i{\*\mjaformula\i p\i0{\subix\i 2\i0}}\i0 }' tamaño='7' info='p2' ">
       <param name="G_05" value="espacio='E1' tipo='segmento' color='20303a' coord_abs='no' expresión='(p2_x,p2_y)(p3_x,p3_y)' tamaño='2' ancho='1' info='p2 p3' ">
-      <param name="G_06" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p3_x,p3_y)' tamaño='7' info='p3' ">
+      <param name="G_06" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p3_x,p3_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40  {\*\mjaformula\i p\i0{\subix\i 3\i0}}}' tamaño='7' info='p3' ">
       <param name="G_07" value="espacio='E1' tipo='segmento' color='20303a' coord_abs='no' expresión='(p3_x,p3_y)(p1_x,p1_y)' tamaño='2' ancho='1' info='p3 p1' ">
       <param name="G_08" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(0,0)(point_1_x,point_1_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 {\*\mjaformula\i α\i0{\subix\i 1\i0}}{\*\mjaformula\i p\i0{\subix 1}}}' ancho='5' punta='8' flecha='00ff00' fuente puntos='1818' info='alpha p1' ">
       <param name="G_09" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(point_1_x,point_1_y)(point_2_x,point_2_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 {\*\mjaformula\i α\i0{\subix\i 2\i0}}{\*\mjaformula\i p\i0{\subix\i 2\i0}}}' ancho='5' punta='8' flecha='0000ff' info='alpha p2' ">
-      <param name="G_10" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(point_2_x,point_2_y)(point_3_x,point_3_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 {\*\mjaformula\i α\i0{\subix\i 3\i0}}{\*\mjaformula\i p\i0{\subix 3}}}' ancho='5' punta='8' flecha='ff0000' info='alpha p3' ">
-      <param name="G_11" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(point_3_x,point_3_y)' texto='r' tamaño='5' fuente puntos='25' info='r' ">
-      <param name="G_12" value="espacio='E1' tipo='texto' fondo='sí' color='20303a' dibujar-si='0' coord_abs='sí' expresión='(20,20)' texto='r = [alpha_1] ([p1_x],[p1_y]) + [alpha_2] ([p2_x],[p2_y]) + [alpha_3] ([p3_x],[p3_y]) = ([point_3_x],[point_3_y])' ancho='1' negrita='sí' fuente puntos='15' align='a_left' anchor='a_top_left' ">
+      <param name="G_10" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(point_3_x,point_3_y)' texto='r' tamaño='7' fuente puntos='25' info='r' ">
+      <param name="G_11" value="espacio='E1' tipo='punto' color='ff0000' coord_abs='no' expresión='(point_3_x,point_3_y)' texto='r' tamaño='5' fuente puntos='25' info='r' ">
+      <param name="G_12" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(point_2_x,point_2_y)(point_3_x,point_3_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 {\*\mjaformula\i α\i0{\subix\i 3\i0}}{\*\mjaformula\i p\i0{\subix 3}}}' ancho='5' punta='8' flecha='ff0000' info='alpha p3' ">
+      <param name="G_13" value="espacio='E1' tipo='texto' fondo='sí' color='20303a' dibujar-si='0' coord_abs='sí' expresión='(20,20)' texto='r = [alpha_1] ([p1_x],[p1_y]) + [alpha_2] ([p2_x],[p2_y]) + [alpha_3] ([p3_x],[p3_y]) = ([point_3_x],[point_3_y])' ancho='1' negrita='sí' fuente puntos='15' align='a_left' anchor='a_top_left' ">
     </ajs>
   </div>
 

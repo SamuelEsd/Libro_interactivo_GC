@@ -19,7 +19,7 @@ function initializePoints(num_of_points) {
   points = getRandomPointsInArea(num_of_points, startingP, endingP);
 }
 
-function mouseDragged() {
+function touchMoved() {
   for(i = 0; i < points.length; i++){
     mouseVector = createVector(mouseX,mouseY)
     if (mouseIsPressed == true) {
@@ -33,7 +33,7 @@ function mouseDragged() {
   }
 }
 
-function mouseReleased() {
+function touchEnded() {
   selectedPoint = -1
 }
 

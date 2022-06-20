@@ -681,12 +681,13 @@
           liga al rededor de todos los clavos.
         </p>
         <p>
-          La siguiente figura, <ref
-          ref_id="cierre-convexo"></ref>, contiene un
-          recurso interactivo que nos muestra esta
-          idea, donde los círculos representan los
-          "clavos" (puntos en $S$) y las líneas verdes
-          la "liga" que los encierra.
+          La siguiente figura, <pageref
+          ref_id="cierre-convexo"><ref
+          ref_id="cierre-convexo"></ref></pageref>,
+          contiene un recurso interactivo que nos
+          muestra esta idea, donde los círculos
+          representan los "clavos" (puntos en $S$) y
+          las líneas verdes la "liga" que los encierra.
           <br>
           Puedes hacer click en cualquiera de los
           círculos blancos que representan a los puntos
@@ -734,12 +735,13 @@
           \[
           ( \alpha_i \in \mathbb{R}, \ \ 0 \leq \alpha_i \leq 1,\ \ \alpha_1 + \dots + \alpha_k = 1 )
           \]
-          
+          <bibref ref_id="CG_in_C"></bibref>
         </p>
-        <!-- Fuente: COMPUTATIONAL
-GEOMETRY IN C
-SECOND EDITION
-JOSEPH O'ROURK -->
+
+        <bibitem id="CG_in_C">
+          O'Rourke, Joseph. <b>Computational Geometry In C.
+          </b> Cambridge University Press, February 15, 2001.
+        </bibitem>
 
       </div>
 
@@ -750,8 +752,9 @@ JOSEPH O'ROURK -->
           todas las combinaciones convexas que pueden
           ser generadas de sus puntos extremos que lo
           definen. Lo cual puede ser visto claramente
-          en la <ref ref_id="segmento_de_linea"></ref>
-          (agregar vinculo a la definición).
+          en la <pageref
+          ref_id="segmento_de_linea"><ref
+          ref_id="segmento_de_linea"></ref></pageref>.
         </p>
         <p>
           De manera similar podemos notar como un
@@ -787,117 +790,169 @@ JOSEPH O'ROURK -->
           En la
           <ref ref_id="combinacion-convexa-2"></ref>
           podemos dar valores entre cero y uno a cada
-          $\alpha_i$ (cada $\alpha$ tiene al mismo
+          $\alpha_i$ (cada $\alpha_i$ tiene al mismo
           color del punto al cual multiplica), y en el
           caso que cumplan la condición $ \alpha_1 +
-          \dots + \alpha_k = 1 $ el punto $r$ será una
+          \dots + \alpha_5 = 1 $ el punto $r$ será una
           combinación convexa generada con los 5
           puntos, justo como en los ejemplos anteriores
           y en la definición. 
           
         </p>
         <figure id="combinacion-convexa-2">
-          <div class="interactive" width="600" height="380" window-size="false"
+          <div class="interactive" width="600" height="365" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_combinacion_convexa_2.html"></div>
           <figcaption>Ejemplo de combinación convexa generada por 5 puntos.</figcaption>
         </figure>
-        
-
+        <p>
+          Después de apreciar este ejemplo, podemos
+          notar como todas las posibles combinaciones
+          convexas generadas del conjunto de puntos,
+          resultan estar contenidas en un area convexa,
+          la cual en las figuras, <pageref
+          ref_id="combinacion-convexa"><ref
+          ref_id="combinacion-convexa"></ref></pageref>
+          y
+          <pageref ref_id="combinacion-convexa-2" ><ref
+          ref_id="combinacion-convexa-2"></ref></pageref>
+          se muestra de color morado.
+        </p>
       </div>
 
       <div class="page">
         <p>
-          Con este ejemplo podemos apreciar como los
-          puntos no deben ser precisamente aristas de
-          la figura que forman, para que con ellos se
-          pueda generar una combinación convexa.
-  
-          Podemos notar como 3 de los puntos forman al 
-            triangulo que 
+          Ahora pensemos a que nos recuerda si tomamos
+          a cada punto del conjunto como un clavo
+          clavado en el plano y los rodeamos con una
+          liga, esto sin lugar a dudas nos resultará
+          familiar, esta misma era la idea intuitiva
+          del 
+          <b><i>cierre convexo</i></b>, lo que nos deja
+          ver que area formada por todas las posibles
+          combinaciones convexas generadas del conjunto
+          de puntos, es justo el area encerrada por la
+          liga, dicho de otra manera, es el cierre
+          convexo del conjunto de puntos.
+        </p>
+        <p>
+          Por lo que, aprovehcandonos de eto, podemos
+          pasar a definir más formalmente a nuestro
+          <b><i>cierre convexo</i></b> de la siguiente
+          manera.
         </p>
         <!-- Cierre convexo.-->
       <p>
         <h4><b><i>Cierre convexo.</i></b></h4>
         Dado un conjunto finito $S$ de puntos en
         $\mathbb{R}^d$, el <b><i>cierre convexo</i></b>
-        de $S$, denotado por $conv(S)$, es el conjunto 
-        de todas las combinaciones convexas generadas por los 
+        de $S$, denotado por $conv(S)$, es el conjunto
+        de todas las combinaciones convexas de los
         puntos en $S$.
+        <bibref ref_id="CG_in_C">Pag. 64</bibref>
       </p>
       <p>
         Ahora que podemos comprender que es el cierre
-        convexo, podríamos preguntarnos, ¿cómo podemos
-        representar al cierre convexo de un conjunto de
-        puntos $S$? y ¿qué significa calcular el cierre
-        convexo un conjunto de puntos $S$?
+        convexo, nos sería de gran utilidad saber ¿cómo
+        representar al cierre convexo? y ¿qué significa
+        calcular el cierre convexo?, pues resulta
+        necesario para poder nuestro objetivo, que es
+        indagar en los algoritmos para calcularlo.
+      </p>
+      <p>
+        Comencemos primero por buscar una forma de
+        representarlo.
       </p>
       <p>
         Recordando la idea intuitiva de la liga que
-        rodea a los clavos, el area que encierra esta
-        liga es el cierre convexo de $S$.<br>
-        Esto nos lleva a una definición alternativa del
-        cierre convexo de un conjunto finito $S$ de
-        puntos en el plano: el cierre convexo es el
-        único polígono convexo cuyos vertices son
-        puntos de $S$ y que contienen todos los puntos
-        de $S$.
+        rodea a los clavos, podemos notar que el area
+        que encierra esta liga es un polígono convexo,
+        lo cual podemos ver en la <pageref
+        ref_id="cierre-convexo"><ref
+        ref_id="cierre-convexo"></ref></pageref>,
+        moviendo los puntos a voluntad. <br>
+        Esto nos lleva una definición alternativa, que
+        es la siguiente.
+      </p>
+    </div>
+
+    <div class="page">
+      <p>
+        <h4><b><i>Cierre convexo definición
+        alternativa.</i></b></h4>
+        El cierre convexo de un conjunto finito $S$ de
+        puntos en el plano es el único polígono convexo
+        cuyos vertices son puntos de $S$ y que
+        contienen todos los puntos de $S$.
       </p>
       <p>
         Ya que el objetivo de este libro no es ser
         totalmente formales, se pasan por alto muchas
-        de las pruebas, incluida la última afirmación
-        con respecto a la definición del cierre convexo
-        como un polígono, pero se invita al lector a
+        de las pruebas, pero se invita al lector a
         buscar en la bibliografía en caso de requerir
         más formalidad.
+        <bibref ref_id="CG_in_C">Pag. 64</bibref>
+      </p>
+      <p>
+        Esta nueva definición nos resulta util pues podremos representar 
+        al cierre convexo como un polígono convexo, teniendo en cuenta 
+        que el area contenida por este polígono es el cierre convexo.
       </p>
       <p>
         Ahora que sabemos que podemos representar al
         cierre convexo de un conjunto de puntos $S$
         como un polígono, resulta esencial saber como
         representar a este polígono.
-        <br>
+      </p>
+      <p>
         Una forma natural de hacerlo es listando los
         vertices de dicho polígono en orden de las
         manecillas del reloj, comenzando desde algún
         punto arbitrario.
       </p>
-      </div>
-
-      <div class="page">
       <p>
-        Por lo tanto podemos describir el problema de
+        Tomando forma de representar a
+        un conjunto convexo, podemos describir el problema de
         encontrar el conjunto convexo de un conjunto de
-        puntos como: dado un conjunto de puntos $S =
-        p_0, p_1, p_2,\dots, p_{n}$ en el plano,
-        calcular una lista qe contenga a todos los
-        puntos de $S$ que son vertices del $conv(S)$
-        listados en e orden de las manecillas del
-        reloj.
+        puntos, de la siguiente manera: 
       </p>
       <p>
-        Por ejemplo:
-        \[
-        Entrada = conjunto \ de \ puntos: \\
-        p_1, p_2, p_3, p_4, p_5, p_6, p_7, p_8
-        \]
-        \[
-        Salida = representación \ del \ cierre \ convexo: \\
-        p_2, p_9, p_4, p_5, p_8
-        \]
+        Dado un conjunto de puntos $S =
+        p_0, p_1, p_2,\dots, p_{n}$ en el plano,
+        calcular una lista que contenga a todos los
+        puntos de $S$ que son vertices del $conv(S)$
+        listados en orden de las manecillas del
+        reloj.
+      </p>
+      </div>
+      <div class="page">
+      <p>
+        Por ejemplo, dado el siguiente conjunto de puntos:
         <div class="interactive" width="380" height="200" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_ch_problema.html"></div>
         <br>
-        Es importante recordar que los puntos $p_2,
-        p_9, p_4, p_5, p_8$ no son el cierre convexo de
-        $S$, son solo la representación de cierre
-        convexo pues el cierre convexo sería el
-        polígono (interior y perímetro) formado con
-        estos puntos, lo que en el ejemplo se
-        representa con el area color morado.
+        La entrada y salida serían las siguientes:
+        \[
+        Entrada = conjunto \ de \ puntos \ completo: \\
+        p_1, p_2, p_3, p_4, p_5, p_6, p_7, p_8
+        \]
+        \[
+        Salida =  conjunto \ de \ puntos \\
+        que \ representan \ al \ cierre \ convexo: \\
+        p_2, p_9, p_4, p_5, p_8
+        \]
+      </p>
       </div>
 
       <div class="page">
+        <p>
+          Es importante recordar que los puntos $p_2,
+          p_9, p_4, p_5, p_8$ no son el cierre convexo de
+          $S$, son solo la representación de cierre
+          convexo pues el cierre convexo sería el
+          polígono (interior y perímetro) formado con
+          estos puntos, lo que en el ejemplo se
+          representa con el area color morado.
+        </p>
         <p>
           Ahora que sabemos qué es un cierre convexo, y
           además sabemos como describir el problema

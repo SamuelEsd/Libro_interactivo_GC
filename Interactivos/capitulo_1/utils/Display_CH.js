@@ -1,4 +1,5 @@
 let points = []
+let touched = false
 let selectedPoint = -1
 
 function setup() {
@@ -20,9 +21,10 @@ function initializePoints(num_of_points) {
 }
 
 function touchMoved() {
+  touched = true
   for(i = 0; i < points.length; i++){
     mouseVector = createVector(mouseX,mouseY)
-    if (mouseIsPressed == true && selectedPoint == -1) {
+    if (touched && selectedPoint == -1) {
       if(distance(points[i],mouseVector) < POINT_SIZE/2){
         selectedPoint = i
         return
@@ -32,6 +34,7 @@ function touchMoved() {
 }
 
 function touchEnded() {
+  touched = false
   selectedPoint = -1
 }
 

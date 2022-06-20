@@ -22,12 +22,10 @@ function initializePoints(num_of_points) {
 function touchMoved() {
   for(i = 0; i < points.length; i++){
     mouseVector = createVector(mouseX,mouseY)
-    if (mouseIsPressed == true) {
-      if(selectedPoint == -1) {
-        if(mouseButton == LEFT && distance(points[i],mouseVector) < POINT_SIZE/2){
-          selectedPoint = i
-          return
-        }
+    if (mouseIsPressed == true && selectedPoint == -1) {
+      if(distance(points[i],mouseVector) < POINT_SIZE/2){
+        selectedPoint = i
+        return
       }
     }
   }

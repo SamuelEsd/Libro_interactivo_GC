@@ -39,16 +39,16 @@ async function step() {
   if (!completed) {
     // add first point
     if (convexHull.length == 0) {
-      let minXPoint = points[0];
+      let minYPoint = points[0];
       for (let point of points) {
         if (
-          point.x < minXPoint.x ||
-          (point.x == minXPoint.x && point.y < minXPoint.y)
+          point.y > minYPoint.y ||
+          (point.y == minYPoint.y && point.x > minYPoint.x)
         ) {
-          minXPoint = point;
+          minYPoint = point;
         }
       }
-      convexHull.push(minXPoint);
+      convexHull.push(minYPoint);
     }
     // add the next corresponding point to the convex hull
     else {

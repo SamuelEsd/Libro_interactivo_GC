@@ -9,10 +9,10 @@
 function turnDirection(origin,v1,v2){
     crossProduct = (v1.y - origin.y) * (v2.x - origin.x) - (v1.x - origin.x) * (v2.y - origin.y)
     if(crossProduct > 0){
-        return 1
+        return -1
     }
     if(crossProduct < 0){
-        return -1
+        return 1
     }
     return 0
 }

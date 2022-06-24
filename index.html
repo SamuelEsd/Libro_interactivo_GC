@@ -721,8 +721,6 @@
 
         <p>
           <!-- Conjunto convexo.-->
-
-
           <h4><b><i>Combinación convexa.</i></b></h4>
           Dado un número finito $k$ de puntos
           $p_0, p_1, p_2,\dots, p_{k}$ en $\mathbb{R}^d$,
@@ -738,10 +736,7 @@
           <bibref ref_id="CG_in_C"></bibref>
         </p>
 
-        <bibitem id="CG_in_C">
-          O'Rourke, Joseph. <b>Computational Geometry In C.
-          </b> Cambridge University Press, February 15, 2001.
-        </bibitem>
+  
 
       </div>
 
@@ -910,11 +905,12 @@
         punto arbitrario.
       </p>
       <p>
-        Tomando forma de representar a
+        Tomando esta forma de representar a
         un conjunto convexo, podemos describir el problema de
         encontrar el conjunto convexo de un conjunto de
         puntos, de la siguiente manera: 
       </p>
+      <h4><b><i>Descripción del problema.</i></b></h4>
       <p>
         Dado un conjunto de puntos $S =
         p_0, p_1, p_2,\dots, p_{n}$ en el plano,
@@ -929,6 +925,7 @@
         Por ejemplo, dado el siguiente conjunto de puntos:
         <div class="interactive" width="380" height="200" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_ch_problema.html"></div>
+          <figcaption>Conjunto de puntos de entrada y polígono formado por la salida.</figcaption>
         <br>
         La entrada y salida serían las siguientes:
         \[
@@ -961,6 +958,11 @@
           que manera podremos solucionar estos
           problemas.
         </p>
+
+        <p>
+          <h4><b><i>Bibliografía</i></b></h4>
+          Sería buena opción agregar todas las fuentes aquí al final?
+        </p>
       </div>
       
         <!-- Algoritmo de Graham.-->
@@ -970,53 +972,89 @@
         <h4><b><i>Contexto</i></b></h4>
         <p>
           El algoritmo que se abordará en esta sección,
-          surgió a finales de la década de 1960, en los 
-          laboratorios Bell, de la necesidad de su creador 
-          Ron Graham, por calcular el cierre convexo de una gran cantidad
-          de puntos en el plano. Una complejidad de $O(n^2)$ en tiempo no 
-          le resultaba practica, lo que lo llevó a describir un 
-          algoritmo con una complejidad de $O(n log n)$ en tiempo,
-          el cual pasó a ser el posiblemente primer articulo
-          publicado en el campo de la geometría Computacional
-          en 1972, año en que fue publicado.
-          <br>
-          En esta publicación Graham mostró que al realizar
-          un ordenamiento de los puntos, al inicio del algoritmo,
-          podía encontrar los puntos externos que describen al
-          cierre convexo con una complejidad de $O(n)$ en tiempo.
+          surgió a finales de la década de 1960, en los
+          laboratorios Bell, de la necesidad de su
+          creador Ron Graham, por calcular el cierre
+          convexo de una gran cantidad de puntos en el
+          plano. Una complejidad de $O(n^2)$ en tiempo
+          no le resultaba practica, lo que lo llevó a
+          describir un algoritmo con una complejidad de
+          $O(n log n)$ en tiempo, el cual pasó a ser el
+          posiblemente primer articulo publicado en el
+          campo de la geometría computacional en 1972,
+          año en que fue publicado.
         </p>
-        <h4><b><i>Algoritmo</i></b></h4>
         <p>
-
+          En esta publicación Graham mostró que al
+          realizar un ordenamiento de los puntos, al
+          inicio del algoritmo, podía encontrar los
+          puntos externos que describen al cierre
+          convexo con una complejidad de $O(n)$ en
+          tiempo.
         </p>
+          <h4><b><i>Algoritmo</i></b></h4>
+        <p>
+          Antes de comenzar recordemos la descripción
+          del problema, y que lo que esperamos por
+          salida son los puntos del polígono que forma
+          al cierre convexo.
+        </p>
+        <p>
+          Para comenzar el algoritmo, dado nuestro
+          conjunto $S$ de puntos, procedemos a
+          encontrar el punto con la coordenada en $x$
+          más pequeña, de ser más de uno, tomaremos
+          entre estos, al punto con la coordenada en
+          $y$ más pequeña.
+          <br>
+          Tomamos este punto pues sabemos que este
+          pertenece al polígono que forma al cierre
+          convexo, y lo tomaremos como punto inicial,
+          para de aquí ir agregando a los puntos restantes.
+        </p>
+      </div>
+      <div class="page">
 
-        For a point set S in general position, just as in the gift-wrapping
-        algorithm, choose the rightmost bottom point. Sort the remaining points
-        of S by the angle they form with the horizontal line, from the largest angle
-        to the smallest. From here on, the points are processed in this angularly
-        sorted order. For each point c, a calculation is made to determine whether
-        the two endpoints of the last constructed hull edge ab and c form a left
-        turn or a right turn. If abc is a right turn, this means that b is not part
-        of the hull and so should be removed from consideration (such as points
-        a = 3, b = 4, and c = 5 in Figure 2.8). This discarding continues as long
-        as the last three points form a right turn. We move to the next point in
-        our list once abc is a left turn. This continues until we eventually return
-        to the starting point, which completes the hull.
+        <figure id="punto_inferior">
+          <!-- <div class="interactive" width="600"
+          height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
+          <img src="./images/capitulo_02/bottom_point.jpg" width="30%" height="30%" >
+          <figcaption>Seleccionamos el punto interior.</figcaption>
+        </figure>
+        <p>
+          Posteriormente ordenaremos todos los demás puntos en $S$
+          por angulo que forman con el eje $x$ de menor a mayor.
+          <br>
+          Esta parte es importante, pues con esto se baja la complejidad
+          a $O(nlogn)$.
+        </p>
+        
+        <figure id="ordenar_puntos">
+          <!-- <div class="interactive" width="600"
+          height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
+          <img src="./images/capitulo_02/sort_points.jpg" width="30%" height="30%">
+          <figcaption>Ordenamos con respecto al punto interior.</figcaption>
+        </figure>
 
-        The scan begins at the point labelled START, which may be taken as the 
-rightmost smallest-ordinate point of the given set and hence is certainly a 
-hull vertex. We repeatedly examine triples of consecutive points in counterclockwise order to determine whether or not they define a reflex angle (one 
-that is >_ it). If internal anglepIP2P3 is reflex, then pip2P3 is said to be a "right 
-turn," otherwise it is a "left turn." T
-
-        hat is the time complexity of the Graham scan algorithm? As mentioned in 
-        Section 2.3, sorting the points has time complexity O(n log n).
-        As we walk through the algorithm, we see that each point is considered
-        at most twice, once when added and once if it forms an illegal right
-        turn. Since right-turn discarded points are never revisited, the search
-        for hull points executes O(n) iterations. So the overall complexity is
-        O(n log n), dominated not by the hull search but by the initial sorting
-        of the points.
+        <p>
+          Ahora añadimos al punto con el menor angulo, a nuestro conjunto de salida.
+          A partir de aquí, tomaremos los últimos dos puntos que agregamos al conjunto 
+          de salida y junto con el siguiente punto a procesar (los procesamos en 
+          orden ascendente en el que los ordenamos), y determinaremos si los ángulos dan una 
+          vuelta derecha o una vuelta izquierda.
+          <bibref ref_id="CG_in_C">Pag. 42</bibref>
+          <bibref ref_id="CG_an_Introduction">Pag. 106</bibref>
+        </p>
+        
+      </div>
+      <div class="page">
+        <p>
+          Llamaremos vuelta derecha a tres puntos cuando su angulo 
+          interno es concavo (angulo $ \geq \pi $), de lo contrario 
+          lo llamaremos vuelta izquierda.
+        </p>
 
   <!-- Fuentes: Discrete%20and%20computational%20geometry%20by%20Devadoss%20S.,%20ORourke%20J.%20(z-lib.org).pdf -->
   <!-- Computational_Geometry_An_Introduction_by_Franco_P_Preparata,_Michael. -->
@@ -1041,6 +1079,9 @@ turn," otherwise it is a "left turn." T
         the next anchor forming the largest angle with the last constructed hull
         edge. This is repeated until the algorithm ends, winding around the entire
         hull. -->
+        
+      </div>
+      <div class="page">
 
         <div class="interactive" width="810" height="800" window-size="false"
           src="./Interactivos/capitulo_2/graham_scan.html"></div>
@@ -1128,6 +1169,27 @@ turn," otherwise it is a "left turn." T
 
         ¿Es este el mejor lugar para poner esta parte del temario?
         
+      </div>
+
+      <div class="page">
+        <h2 id="cap2_bib">Bibliografía</h2>
+        
+        <bibitem id="CG_in_C">
+          O'Rourke, Joseph. <b>Computational Geometry In C.
+          </b> Cambridge University Press, February 15, 2001.
+        </bibitem>
+        
+        <bibitem id="Discrete_and_CG">
+          Satyan L. Devadoss, Joseph O'Rourke. <b>
+          Discrete and Computational geometry. </b>
+          Princeton University Press, 2011
+        </bibitem>
+
+        <bibitem id="CG_an_Introduction">
+          Franco P. Preparata, Michael Ian Shamos. <b>
+          Computational Geometry An Introduction </b>
+          Springer-Verlag New York Inc, 1985
+        </bibitem>
       </div>
 
       <!--  -->

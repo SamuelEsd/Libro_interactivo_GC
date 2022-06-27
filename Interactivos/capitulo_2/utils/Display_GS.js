@@ -1,5 +1,8 @@
 let pointsSet = [];
+let pointsSorted = [];
 let convexHull = [];
+
+let lowestPoint= null;
 let currPoint = null;
 let prevVertex = null;
 let num_of_points = 10;
@@ -23,8 +26,6 @@ function setup() {
   initializeButton();
 }
 
-
-
 function initializePoints() {
   startingP = createVector(WINDOW_BORDER, WINDOW_BORDER);
   endingP = createVector(
@@ -32,6 +33,26 @@ function initializePoints() {
     CUSTOM_HEIGHT - WINDOW_BORDER
   );
   pointsSet = getRandomPointsInArea(num_of_points, startingP, endingP);
+  description.html("Generamos un conjunto de puntos aleatorio.");
+}
+
+function addLowestPoint() {
+  lowestPoint = pointsSet[0];
+  for (let point of pointsSet) {
+    if ( point.y > lowestPoint.y || (point.y == lowestPoint.y && point.x > lowestPoint.x)) {
+      lowestPoint = point;
+    }
+  }
+  convexHull.push(lowestPoint);
+  description.html("Agregamos el punto inferior al conjunto de salida.");
+}
+
+function sortPoints(){
+  pointsSorted = Array.from(pointsSet);
+  console.log(pointsSet);
+  sortCounterClockWise(pointsSorted,lowestPoint);
+  console.log(pointsSorted);
+  description.html("Ordenamos los puntos en contra de las manecillas del reloj, con respecto al punto inferior");
 }
 
 function initializeButton() {
@@ -52,23 +73,15 @@ async function step() {
   // Initialize points set
   if (pointsSet.length == 0) {
     initializePoints();
-    description.html("Generamos un conjunto de puntos aleatorio.")
   }
   // Steps of the Graham scan algorithm
   else if (!completed) {
     // add first point
     if (convexHull.length == 0) {
-      let minYPoint = pointsSet[0];
-      for (let point of pointsSet) {
-        if (
-          point.y > minYPoint.y ||
-          (point.y == minYPoint.y && point.x > minYPoint.x)
-        ) {
-          minYPoint = point;
-        }
-      }
-      convexHull.push(minYPoint);
-      description.html("Agregamos el punto inferior al conjunto de salida.")
+      addLowestPoint();
+    }
+    else if (pointsSorted.length == 0) {
+      sortPoints();
     }
     // add the next corresponding point to the convex hull
     else {
@@ -133,6 +146,9 @@ function sleep(millisecondsDuration) {
 
 function draw() {
   background(80);
+  if ( pointsSorted.length !== 0){
+    drawLinesFromPoint(pointsSorted, lowestPoint)
+  }
   drawArrows(convexHull, completed);
   drawPoints(pointsSet, 256);
   drawPoints(convexHull, "blue");

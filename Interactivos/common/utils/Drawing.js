@@ -29,10 +29,21 @@ function drawArrow(start, end, myColor) {
  * the points to draw.
  */
 function drawPoints(points,color) {
-    strokeWeight(POINT_SIZE);
+    noStroke();
     for (i = 0; i < points.length; i++) {
+        push();
+        fill(255);
         stroke(color);
-        point(points[i].x, points[i].y);
+        strokeWeight(3);
+        circle(points[i].x, points[i].y, POINT_SIZE);
+        pop();
+        if(points[i].z > 0){
+            push();
+            textSize(POINT_SIZE/2);
+            textAlign(CENTER);
+            text('P'+(points[i].z), points[i].x, points[i].y+(POINT_SIZE/4));
+            pop();
+        }
     }
 }
 
@@ -102,4 +113,22 @@ function drawLines(points,color){
     for(i = 0; i < points.length; i++){
       line(points[i].x, points[i].y,points[(i+1)%size].x, points[(i+1)%size].y);
     }
-  }
+}
+
+/**
+ * Given a clockwise sorted point list of all points in
+ * the convex hull draw a line from pi to pj
+ * where i = (j+1)%size with size equals the number of
+ * points in the list.
+ * @param {Array} points - Clockwise sorted point list of
+ * vectors representing the points on the convex hull.
+ * @param {Color} color - Color value for the lines 
+ * that will be drawn
+ */
+ function drawLinesFromPoint(points, origin, color = 'red', ){
+    strokeWeight(2);
+    stroke(color);
+    for(let point of points){
+      line(origin.x, origin.y, point.x, point.y);
+    }
+}

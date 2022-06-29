@@ -132,3 +132,22 @@ function drawLines(points,color){
       line(origin.x, origin.y, point.x, point.y);
     }
 }
+
+
+/**
+ * Given a sorted list of points, add a label with the 
+ * position to each point.
+ * @param {Array} points - Sorted list of points.
+ * @param {Color} color - Color value for the lines 
+ * that will be drawn
+ */
+ function drawOrder(points){
+    noStroke();
+    for (i = 0; i < points.length; i++) {
+        push();
+        textSize(POINT_SIZE/2);
+        textAlign(CENTER);
+        text(i+1, points[i].x-(POINT_SIZE/2), points[i].y-(POINT_SIZE/2));
+        pop();
+    }
+}

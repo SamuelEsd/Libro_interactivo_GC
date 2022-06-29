@@ -5,6 +5,8 @@ let convexHull = [];
 let lowestPoint= null;
 let currPoint = null;
 let prevVertex = null;
+let second_to_last = null;
+let last = null;
 let num_of_points = 10;
 
 
@@ -77,11 +79,17 @@ async function step() {
   // Steps of the Graham scan algorithm
   else if (!completed) {
     // add first point
-    if (convexHull.length == 0) {
+    if (convexHull.length === 0) {
       addLowestPoint();
     }
-    else if (pointsSorted.length == 0) {
+    // sort the points with respect to the lowest point 
+    else if (pointsSorted.length === 0) {
       sortPoints();
+    }
+    // add second point
+    else if (pointsSorted.length !== 0 && convexHull.length === 1) {
+      convexHull.push(pointsSorted[1]);
+      description.html("Agregamos el segundo punto de os que ordenamos, al conjunto de salida.");
     }
     // add the next corresponding point to the convex hull
     else {
@@ -101,8 +109,7 @@ async function step() {
         let td = turnDirection(prevVertex, rightmostVertex, point);
         let isColinear = td == 0;
         let isLeftTurn = td == 1;
-        let pointIsFarder =
-          distance(prevVertex, rightmostVertex) < distance(prevVertex, point);
+        let pointIsFarder = distance(prevVertex, rightmostVertex) < distance(prevVertex, point);
         // If there's a point more to the right or colinear but farder
         // that will be our new rightmost
         if ((isColinear && pointIsFarder) || isLeftTurn) {
@@ -123,6 +130,8 @@ async function step() {
         prevVertex = rightmostVertex;
         currPoint = null;
         prevVertex = null;
+        second_to_last = convexHull[convexHull.length - 2]
+        last = convexHull[convexHull.length - 1]
       }
     }
   }
@@ -131,6 +140,9 @@ async function step() {
     completed = false;
     convexHull = [];
     pointsSet = [];
+    pointsSorted = [];
+    second_to_last = null;
+    last = null;
     description.html('Para iniciar la visualización presione el botón iniciar.')
   }
   
@@ -154,5 +166,11 @@ function draw() {
   drawPoints(convexHull, "blue");
   if( currPoint != null){
     drawArrow(prevVertex, currPoint, "white");
+  }
+  if (last !== null && second_to_last !== null){
+    drawPoints([last,second_to_last], "red");
+  }
+  if( pointsSorted != null){
+    drawOrder(pointsSorted);
   }
 }

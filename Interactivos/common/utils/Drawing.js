@@ -81,10 +81,9 @@ function drawPointsWithSelection(points, selectedPoint, pointsColor=256, selecte
  * point in the array to the first point in the array, 
  * closing the cycle.
  */
-function drawArrows(points,isClosed) {
+function drawArrows(points,isClosed,color) {
     let size = points.length;
     strokeWeight(LINE_SIZE);
-    stroke("green");
     last = points.length
     if(! isClosed){
         last--;
@@ -92,7 +91,7 @@ function drawArrows(points,isClosed) {
     for (i = 0; i < last; i++) {
         let v0 = createVector(points[i].x, points[i].y);
         let v1 = createVector(points[(i + 1) % size].x, points[(i + 1) % size].y);
-        drawArrow(v0, v1, "green");
+        drawArrow(v0, v1, color);
     }
 }
 

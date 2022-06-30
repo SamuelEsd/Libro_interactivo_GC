@@ -1,10 +1,14 @@
 /**
- * Draw an arrow for a point A to point B.
- * @param {Vector} origin - Starting point of the
- * arrow.
- * @param {Vector} v1 - Starting point of the
- * arrow.
- * @param {Color} v2 - Color of the arrow.
+ * Given three points, returns the direction of 
+ * the turn that make the segment of the second
+ * and third point with respect to the segment
+ * of the first and second points.
+ * @param {Vector} origin - First of three points.
+ * @param {Vector} v1 - Second of three points.
+ * @param {Color} v2 - Third of three points
+ * @return 1 if the turn is clockwise,
+ * -1 if the turn is counterclockwise,
+ * 0 it points are colinear.
  */
 function turnDirection(origin,v1,v2){
     crossProduct = (v1.y - origin.y) * (v2.x - origin.x) - (v1.x - origin.x) * (v2.y - origin.y)

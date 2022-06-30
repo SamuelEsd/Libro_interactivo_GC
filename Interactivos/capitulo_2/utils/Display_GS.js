@@ -1,5 +1,6 @@
 let pointsSet = [];
 let pointsSorted = [];
+let pointsLabel = [];
 let convexHull = [];
 
 let lowestPoint= null;
@@ -12,6 +13,7 @@ let num_of_points = 10;
 
 let take_step = false;
 let completed = false;
+let turnDisplayed = false;
 
 // Vars used for the visualizations of steps
 let button;
@@ -85,53 +87,50 @@ async function step() {
     // sort the points with respect to the lowest point 
     else if (pointsSorted.length === 0) {
       sortPoints();
+      let first = pointsSorted.shift();
+      pointsSorted.push(first);
+      pointsLabel = Array.from(pointsSorted);
     }
     // add second point
     else if (pointsSorted.length !== 0 && convexHull.length === 1) {
-      convexHull.push(pointsSorted[1]);
-      description.html("Agregamos el segundo punto de os que ordenamos, al conjunto de salida.");
+      current = pointsSorted.shift();
+      convexHull.push(current);
+      description.html("Agregamos al primer punto de los que ordenamos, al conjunto de salida.");
     }
     // add the next corresponding point to the convex hull
     else {
-      prevVertex = convexHull[convexHull.length - 1];
-      let rightmostVertex = null;
-      for (let point of pointsSet) {
-        currPoint = point
-        await sleep(50)
-        if (point == prevVertex) continue;
-        // Take any point diferent to last vertex on hull
-        // as rightmost
-        if (rightmostVertex == null) {
-          rightmostVertex = point;
-          continue;
-        }
+      
+      second_to_last = convexHull[convexHull.length - 2];
+      last = convexHull[convexHull.length - 1];
+      current = pointsSorted[0]
 
-        let td = turnDirection(prevVertex, rightmostVertex, point);
-        let isColinear = td == 0;
-        let isLeftTurn = td == 1;
-        let pointIsFarder = distance(prevVertex, rightmostVertex) < distance(prevVertex, point);
-        // If there's a point more to the right or colinear but farder
-        // that will be our new rightmost
-        if ((isColinear && pointIsFarder) || isLeftTurn) {
-          rightmostVertex = point;
-        }
-      }
-
-      // If we reach the start it's time to finish
-      if (rightmostVertex == convexHull[0]) {
+      if (current === convexHull[0]){
         completed = true;
         currPoint = null;
         prevVertex = null;
+        return;
       }
-      // It not, add rightmost vertex to hull and take it as the new
-      // vertex to compare with
-      else {
-        convexHull.push(rightmostVertex);
-        prevVertex = rightmostVertex;
-        currPoint = null;
-        prevVertex = null;
-        second_to_last = convexHull[convexHull.length - 2]
-        last = convexHull[convexHull.length - 1]
+
+      if (!turnDisplayed){
+        description.html("Comprobamos de que tipo de vuelta se trata.");
+        turnDisplayed = true;
+        return;
+      }
+
+      let td = turnDirection(second_to_last, last, current);
+      let isColinear = td == 0;
+      let isLeftTurn = td == -1;
+
+      if (isLeftTurn || isColinear) {
+        pointsSorted.shift();
+        convexHull.push(current);
+        description.html("Si la vuelta es izquierda agregamos al nuevo punto.");
+        turnDisplayed = false;
+      }
+      else{
+        convexHull.pop();
+        description.html("Si la vuelta es derecha removemos al ultimo punto en conv(S) y volvemos a comprobar.");
+        turnDisplayed = false;
       }
     }
   }
@@ -141,6 +140,7 @@ async function step() {
     convexHull = [];
     pointsSet = [];
     pointsSorted = [];
+    pointsLabel = null;
     second_to_last = null;
     last = null;
     description.html('Para iniciar la visualización presione el botón iniciar.')
@@ -158,19 +158,21 @@ function sleep(millisecondsDuration) {
 
 function draw() {
   background(80);
+  // Red lines that shows order
   if ( pointsSorted.length !== 0){
     drawLinesFromPoint(pointsSorted, lowestPoint)
   }
-  drawArrows(convexHull, completed);
+  // Convex hull arrows
+  drawArrows(convexHull, completed,"green");
+  // Turn arrow
+  if ( turnDisplayed){
+    drawArrow(convexHull[convexHull.length - 1],pointsSorted[0], "white");
+  }
+  // Points in S
   drawPoints(pointsSet, 256);
+  // Points in conv(S)
   drawPoints(convexHull, "blue");
-  if( currPoint != null){
-    drawArrow(prevVertex, currPoint, "white");
-  }
-  if (last !== null && second_to_last !== null){
-    drawPoints([last,second_to_last], "red");
-  }
-  if( pointsSorted != null){
-    drawOrder(pointsSorted);
+  if( pointsLabel != null ){
+    drawOrder(pointsLabel);
   }
 }

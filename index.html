@@ -994,27 +994,34 @@
         </p>
           <h4><b><i>Algoritmo</i></b></h4>
         <p>
-          Antes de comenzar recordemos la descripción
-          del problema, y que lo que esperamos por
-          salida son los puntos del polígono que forma
-          al cierre convexo.
+          Dado nuestro conjunto $S$ de puntos,
+          obtengamos el cierre convexo $conv(S)$
+          representado por  
+          los puntos del polígono que forman al cierre
+          convexo $conv(S)$.
         </p>
         <p>
-          Para comenzar el algoritmo, dado nuestro
-          conjunto $S$ de puntos, procedemos a
-          encontrar el punto con la coordenada en $x$
-          más pequeña, de ser más de uno, tomaremos
-          entre estos, al punto con la coordenada en
-          $y$ más pequeña.
-          <br>
-          Tomamos este punto pues sabemos que este
-          pertenece al polígono que forma al cierre
-          convexo, y lo tomaremos como punto inicial,
-          para de aquí ir agregando a los puntos restantes.
+          Dividamos al algoritmo en pasos, para una
+          mejor comprensión del mismo.
+          
+        </p>
+        <h5><b><i>Paso 1. Tomar el punto inferior.</i></b></h5>
+        <p>
+          Comencemos por encontrar al punto con la
+          coordenada en $y$ más pequeña, de ser más de
+          uno, tomaremos entre estos, al punto con la
+          coordenada en $x$ más grande y lo agregamos
+          al conjunto de salida $conv(S)$.
         </p>
       </div>
       <div class="page">
-
+        <p>
+          Dado que este punto es el punto inferior
+          sabemos que pertenece al polígono que forma
+          al cierre convexo, y lo tomaremos como punto
+          inicial, para de aquí ir agregando a los
+          puntos restantes.
+        </p>
         <figure id="punto_inferior">
           <!-- <div class="interactive" width="600"
           height="310" window-size="false"
@@ -1022,12 +1029,16 @@
           <img src="./images/capitulo_02/bottom_point.jpg" width="30%" height="30%" >
           <figcaption>Seleccionamos el punto interior.</figcaption>
         </figure>
+        <h5><b><i>Paso 2. Ordenar los puntos con respecto al inferior.</i></b></h5>
         <p>
-          Posteriormente ordenaremos todos los demás puntos en $S$
-          por angulo que forman con el eje $x$ de menor a mayor.
+          Posteriormente ordenaremos todos los demás
+          puntos en $S$ por angulo, al sentido
+          contrario a las manecillas del reloj con
+          respecto a nuestro punto inferior que
+          seleccionamos en el paso anterior.
           <br>
-          Esta parte es importante, pues con esto se baja la complejidad
-          a $O(nlogn)$.
+          Esta parte es importante, pues con esto se
+          baja la complejidad a $O(nlogn)$.
         </p>
         
         <figure id="ordenar_puntos">
@@ -1036,28 +1047,38 @@
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/sort_points.jpg" width="30%" height="30%">
           <figcaption>Ordenamos con respecto al punto interior.</figcaption>
-        </figure>
-
+        </figure>       
+      </div>
+      <div class="page">
+        <h5><b><i>Paso 3. Recorrer los puntos ordenados y agregar puntos al $conv(S)$.</i></b></h5>
         <p>
-          Ahora añadimos al punto con el menor angulo, a nuestro conjunto de salida.
-          A partir de aquí, tomaremos los últimos dos puntos que agregamos al conjunto 
-          de salida y junto con el siguiente punto a procesar (los procesamos en 
-          orden ascendente en el que los ordenamos), y determinaremos si los ángulos dan una 
-          vuelta derecha o una vuelta izquierda.
+          A partir de aquí, para cada punto $z$
+          del conjunto de puntos ordenados, tomándolos en dicho orden, 
+          verificaremos si $z$ forma un TO DO 
+          @@@@@
+          tomaremos los últimos dos puntos
+          que agregamos al conjunto de salida $conv(S)$ y
+          determinaremos si el angulo resultante de conectar
+          a estos dos puntos dan una vuelta
+          derecha o una vuelta izquierda. Ya que esto
+          no es posible para el primer punto del
+          conjunto ordenado, a este simplemente lo
+          agregaremos sin más.
           <bibref ref_id="CG_in_C">Pag. 42</bibref>
           <bibref ref_id="CG_an_Introduction">Pag. 106</bibref>
         </p>
-        
-      </div>
-      <div class="page">
         <p>
           Llamaremos vuelta derecha a tres puntos cuando su angulo 
           interno es concavo (angulo $ \geq \pi $), de lo contrario 
           lo llamaremos vuelta izquierda.
         </p>
-
-        EJEMPLOS DE VUELTA izquierda y derecha
-
+        <figure id="ordenar_puntos">
+          <!-- <div class="interactive" width="600"
+          height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
+          <img src="./images/capitulo_02/Ejemplo_vueltas.png" width="80%" height="60%">
+          <figcaption>Ejemplo de la definición de vuelta derecha e izquierda.</figcaption>
+        </figure>
         <p>
           Si los tres puntos forman una vuelta derecha,
           agregamos al punto a nuestro conjunto de
@@ -1100,19 +1121,25 @@
         hull. -->
         
       </div>
+        
       <div class="page">
+        complejidad 
 
+      </div>
+
+      <div class="page">
+        <h2 id="cap2_algoritmo_jarvis">Algoritmo de Jarvis</h2>
         <div class="interactive" width="810" height="800" window-size="false"
           src="./Interactivos/capitulo_2/jarvis_march.html">
         </div>
       </div>
 
-      <div class="page">
-        <h2 id="cap2_algoritmo_jarvis">Algoritmo de Jarvis</h2>
+      <div class="page">  
         <h2 id="cap2_algoritmos_divide_venceras">Algoritmos usando divide y vencerás</h2>
         <h2 id="cap2_algoritmos_dinamicos">Algoritmos dinámicos</h2>
         <h2 id="cap2_extensiones_variantes">Extensiones y variantes</h2>
       </div>
+
       <div class="page">
 
         <h2 id="cap2_cota_minima">Cota mínima</h2>

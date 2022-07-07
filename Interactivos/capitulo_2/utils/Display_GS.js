@@ -14,6 +14,7 @@ let num_of_points = 10;
 let take_step = false;
 let completed = false;
 let turnDisplayed = false;
+let turnColor = null;
 
 // Vars used for the visualizations of steps
 let button;
@@ -38,6 +39,7 @@ function initializePoints() {
   );
   pointsSet = getRandomPointsInArea(num_of_points, startingP, endingP);
   description.html("Generamos un conjunto de puntos aleatorio.");
+  button.html("Siguiente");
 }
 
 function addLowestPoint() {
@@ -48,7 +50,7 @@ function addLowestPoint() {
     }
   }
   convexHull.push(lowestPoint);
-  description.html("Agregamos el punto inferior al conjunto de salida.");
+  description.html(`Agregamos el punto inferior (P${lowestPoint.z}) al conjunto de salida.`);
 }
 
 function sortPoints(){
@@ -56,11 +58,11 @@ function sortPoints(){
   console.log(pointsSet);
   sortCounterClockWise(pointsSorted,lowestPoint);
   console.log(pointsSorted);
-  description.html("Ordenamos los puntos en contra de las manecillas del reloj, con respecto al punto inferior");
+  description.html(`Ordenamos los puntos en contra de las manecillas del reloj, con respecto al punto inferior (P${lowestPoint.z}).`);
 }
 
 function initializeButton() {
-  button = createButton("Siguiente");
+  button = createButton("Iniciar");
   button.position(CUSTOM_WIDTH - 100, CUSTOM_HEIGHT - 25);
   button.mousePressed(step);
 }
@@ -89,13 +91,13 @@ async function step() {
       sortPoints();
       let first = pointsSorted.shift();
       pointsSorted.push(first);
-      pointsLabel = Array.from(pointsSorted);
+      pointsLabel = Array.from(pointsSorted.slice(0,-1));
     }
     // add second point
     else if (pointsSorted.length !== 0 && convexHull.length === 1) {
       current = pointsSorted.shift();
       convexHull.push(current);
-      description.html("Agregamos al primer punto de los que ordenamos, al conjunto de salida.");
+      description.html(`Agregamos al primer punto (P${current.z}) de los que ordenamos, al conjunto de salida.`);
     }
     // add the next corresponding point to the convex hull
     else {
@@ -104,32 +106,45 @@ async function step() {
       last = convexHull[convexHull.length - 1];
       current = pointsSorted[0]
 
+      // End of the algorithm
       if (current === convexHull[0]){
+        description.html(`Cuando terminamos de recorrer todos los puntos ordenados,
+                          el algoritmo termina.`);
         completed = true;
         currPoint = null;
         prevVertex = null;
-        return;
-      }
-
-      if (!turnDisplayed){
-        description.html("Comprobamos de que tipo de vuelta se trata.");
-        turnDisplayed = true;
+        button.html("Reiniciar");
         return;
       }
 
       let td = turnDirection(second_to_last, last, current);
-      let isColinear = td == 0;
       let isLeftTurn = td == -1;
 
-      if (isLeftTurn || isColinear) {
+      if (!turnDisplayed){
+        let turnValue = ''
+        if (isLeftTurn) {
+          turnValue = 'izquierda (marcado con color azul).';
+          turnColor = 'blue';
+        } 
+        else{
+          turnValue = 'derecha (marcado con color negro).';
+          turnColor = 'black';
+        }
+        description.html(`Comprobamos de que tipo de vuelta se trata. <br>
+                          En este caso la vuelta es ${turnValue}`);
+        turnDisplayed = true;
+        return;
+      }
+
+      if (isLeftTurn) {
         pointsSorted.shift();
         convexHull.push(current);
-        description.html("Si la vuelta es izquierda agregamos al nuevo punto.");
+        description.html(`Ya que la vuelta es izquierda agregamos al nuevo punto (P${current.z}).`);
         turnDisplayed = false;
       }
       else{
         convexHull.pop();
-        description.html("Si la vuelta es derecha removemos al ultimo punto en conv(S) y volvemos a comprobar.");
+        description.html("Ya que la vuelta es derecha removemos al ultimo punto en conv(S) y volvemos a comprobar.");
         turnDisplayed = false;
       }
     }
@@ -143,6 +158,7 @@ async function step() {
     pointsLabel = null;
     second_to_last = null;
     last = null;
+    button.html("Iniciar");
     description.html('Para iniciar la visualización presione el botón iniciar.')
   }
   
@@ -157,16 +173,16 @@ function sleep(millisecondsDuration) {
 }
 
 function draw() {
-  background(80);
+  background(230);
   // Red lines that shows order
   if ( pointsSorted.length !== 0){
-    drawLinesFromPoint(pointsSorted, lowestPoint)
+    drawLinesFromPoint(pointsSorted , lowestPoint)
   }
   // Convex hull arrows
   drawArrows(convexHull, completed,"green");
   // Turn arrow
   if ( turnDisplayed){
-    drawArrow(convexHull[convexHull.length - 1],pointsSorted[0], "white");
+    drawArrow(convexHull[convexHull.length - 1],pointsSorted[0], turnColor);
   }
   // Points in S
   drawPoints(pointsSet, 256);

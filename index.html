@@ -1036,9 +1036,6 @@
           contrario a las manecillas del reloj con
           respecto a nuestro punto inferior que
           seleccionamos en el paso anterior.
-          <br>
-          Esta parte es importante, pues con esto se
-          baja la complejidad a $O(nlogn)$.
         </p>
         
         <figure id="ordenar_puntos">
@@ -1052,25 +1049,33 @@
       <div class="page">
         <h5><b><i>Paso 3. Recorrer los puntos ordenados y agregar puntos al $conv(S)$.</i></b></h5>
         <p>
-          A partir de aquí, para cada punto $z$
-          del conjunto de puntos ordenados, tomándolos en dicho orden, 
-          verificaremos si $z$ forma un TO DO 
-          @@@@@
-          tomaremos los últimos dos puntos
-          que agregamos al conjunto de salida $conv(S)$ y
-          determinaremos si el angulo resultante de conectar
-          a estos dos puntos dan una vuelta
-          derecha o una vuelta izquierda. Ya que esto
-          no es posible para el primer punto del
-          conjunto ordenado, a este simplemente lo
-          agregaremos sin más.
+          A partir de aquí, recorreremos el conjunto de
+          puntos ordenados, tomando tripletas de puntos
+          consecutivos en orden contrario a las
+          manecillas del reloj.
+          <br>
+          Esta tripleta la formaremos con los últimos
+          dos puntos dentro del conv(S) que llamaremos
+          $p_k$ y $p_{k-1}$ y el punto siguiente en el
+          conjunto de puntos ordenados, que llamaremos
+          $p_{k+1}$.
+          <br>
+          Tomando esta tripleta $p_{k-1}p_{k}p_{k+1}$
+          verificaremos si el angulo interior que
+          forman forma es concavo (que mide más de
+          $\displaystyle \pi \,$ rad y menos de $
+          {\displaystyle 2\pi \,}$ rad.) o no. 
+          <br>
+          Si el
+          angulo es concavo diremos que se da una
+          vuelta derecha, si es convexo diremos que se
+          da una vuelta izquierda.          
           <bibref ref_id="CG_in_C">Pag. 42</bibref>
           <bibref ref_id="CG_an_Introduction">Pag. 106</bibref>
         </p>
         <p>
-          Llamaremos vuelta derecha a tres puntos cuando su angulo 
-          interno es concavo (angulo $ \geq \pi $), de lo contrario 
-          lo llamaremos vuelta izquierda.
+          La siguiente Figura muestra un ejemplo de 
+          la vuelta izquierda y la vuelta derecha.
         </p>
         <figure id="ordenar_puntos">
           <!-- <div class="interactive" width="600"
@@ -1079,23 +1084,50 @@
           <img src="./images/capitulo_02/Ejemplo_vueltas.png" width="80%" height="60%">
           <figcaption>Ejemplo de la definición de vuelta derecha e izquierda.</figcaption>
         </figure>
-        <p>
-          Si los tres puntos forman una vuelta derecha,
-          agregamos al punto a nuestro conjunto de
-          salida y si aún no llegamos al punto de inicio, continuamos.
-          Si los tres puntos forman una vuelta izquierda,
-          eliminamos al ultimo punto de nuestro conjunto de
-          salida y volvemos a revisar que tipo de vuelta
-          se forma con los últimos puntos de nuestro conjunto.
-        </p>
-        CODIGO?
-        <p></p>
       </div>
       <div class="page">
-        <div class="interactive" width="810" height="1150" window-size="false"
-          src="./Interactivos/capitulo_2/graham_scan.html">
-        </div>
+        <p>
+          Una vez sabiendo si la tripleta de puntos dan
+          una vuelta derecha o izquierda, actuamos de
+          la siguiente manera.
+        </p>
+        <p>
+          Si la tripleta $p_{k-1}p_{k}p_{k+1}$ forma
+          una vuelta izquierda, agregamos al punto
+          $p_{k+1}$ a nuestro conjunto de salida
+          $conv(S)$ y si aún hay puntos en el conjunto
+          ordenado de puntos, repetimos el proceso con
+          la tripleta $p_{k}p_{k+1}p_{k+2}$.
+        </p>
+        <p> 
+          Si la tripleta $p_{k-1}p_{k}p_{k+1}$ forma
+          una vuelta derecha, eliminamos al ultimo
+          punto de nuestro conjunto de salida
+          $conv(S)$, esto es al punto $p_{k}$ y
+          volvemos a revisar que tipo de vuelta se
+          forma con los últimos puntos de nuestro
+          conjunto, esto sería con
+          $p_{k-2}p_{k-1}p_{k+1}$.
 
+          
+          Ya que no es posible formar una tripleta el
+          primer punto del conjunto ordenado, a este
+          simplemente lo agregaremos sin más.
+        </p>
+        CODIGO?
+        <p>
+          A continuación, en la <ref ref_id="graham_scan_algorithm"></ref> podemos ver un ejemplo de la
+          ejecución del algoritmo de graham paso a paso
+        </p>
+      </div>
+      <div class="page">
+        
+        <figure id="graham_scan_algorithm">
+          <div class="interactive" width="810" height="1050" window-size="false"
+            src="./Interactivos/capitulo_2/graham_scan.html">
+          </div>
+          <figcaption>Ejemplo de la ejecución del algoritmo de Graham.</figcaption>
+        </figure>
   <!-- Fuentes: Discrete%20and%20computational%20geometry%20by%20Devadoss%20S.,%20ORourke%20J.%20(z-lib.org).pdf -->
   <!-- Computational_Geometry_An_Introduction_by_Franco_P_Preparata,_Michael. -->
   <!-- Computational%20Geometry%20in%20C%20by%20Joseph%20ORourke%20(z-lib.org).pdf -->
@@ -1123,12 +1155,139 @@
       </div>
         
       <div class="page">
-        complejidad 
+        <h4><b><i>Complejidad</i></b></h4>
+        <p>
+          Procederemos a hacer un análisis simple la
+          complejidad del algoritmo, con ayuda de su
+          division en pasos analizaremos la complejidad
+          de cada uno para obtener la total del
+          algoritmo.
+        </p>
+        <h5><b><i>Paso 1. Tomar el punto inferior.</i></b></h5>
+        <p>
+          Dado que lo único que nos interesa en este
+          paso es obtener un punto en algún extremo del
+          conjunto de puntos $S$, resulta indistinto
+          cual escoger, en este caso se toma al punto
+          interior.
+          <br>
+          Para poder obtener este punto inferior
+          resulta claro que es necesario recorrer todos
+          y cada uno de los puntos en $S$ y llevar registro 
+          del que tiene el menor valor en el eje y, lo cual 
+          podemos hacer en una complejidad en tiempo de $O(n)$ 
+          donde $n$ es el número de puntos en $S$.
+        </p>
+        <h5><b><i>Paso 2. Ordenar los puntos con respecto al inferior.</i></b></h5>
+        <p>
+          Para esta parte del algoritmo necesitamos
+          ordenar a todos los demás puntos en $S$ con
+          respecto al angulo que forman con nuestro
+          punto inferior, en sentido contrario a las
+          manecillas del reloj. 
+          <br>
+          Dado que podemos comparar cual es menor
+          respecto al angulo que forma con nuestro
+          punto inferior, en sentido contrario a las
+          manecillas del reloj, haciendo uso del
+          producto cruz, podemos asumir que la
+          complejidad de ordenar $n-1$ puntos nos
+          tomará $O(nlog(n))$.
+        </p>
+      </div>
 
+      <div class="page">
+        <h5><b><i>Paso 3. Recorrer los puntos ordenados y agregar puntos al $conv(S)$.</i></b></h5>
+        <p>
+          En este paso podemos observar que recorremos
+          la lista de puntos ordenados uno por uno,
+          verificando si forma una vuelta derecha o
+          izquierda, dicha comprobación puede ser
+          realizada haciendo uso del producto punto.
+          Además podemos observar que cada punto en el
+          conjunto ordenado, es añadido y removido del
+          conjunto de salida $conv(s)$ a lo más una
+          vez, entonces, dicho recorrido sobre los puntos
+          ordenados se realiza en $O(n)$ iteraciones.
+        </p>
+        <p>
+          Por lo tanto la complejidad es $O(nlog(n))$,
+          pues la complejidad de ordenar a los puntos
+          en el paso 2 domina las complejidades de los
+          pasos 1 y 3.
+        </p>
       </div>
 
       <div class="page">
         <h2 id="cap2_algoritmo_jarvis">Algoritmo de Jarvis</h2>
+        <h4><b><i>Contexto</i></b></h4>
+        <p>
+          En el algoritmo pasado comenzamos
+          identificando a un punto extremo en el
+          conjunto de puntos original, ahora bien,
+          ¿podríamos hacer lo mismo para encontrar
+          todos los puntos que representan al cierre
+          convexo?. 
+          <br>
+          Ciertamente, encontrar todos los
+          puntos extremos no resulta tan fácil como
+          encontrar el inferior, el superior, el más a
+          la derecha y el más a la izquierda, sin embargo
+          una vez tomado un extremo, resulta más fácil 
+          encontrar otro punto extremo si sabemos que 
+          la linea que trazan ambos puntos está en un extremo también, 
+          es decir, si todos los demás puntos en $S$ están o sobre la misma linea
+          o a un solo lado de la linea.<bibref ref_id="CG_an_Introduction">Pag. 110</bibref>
+        </p>
+        ILUSTRACIÓN
+      </div>
+
+      <div class="page"> 
+        <p>
+          Podríamos hacer uso de este conocimiento y
+          buscar todos pares de puntos que representan
+          líneas que cumplen dicha condición, pues
+          justo estas son las que forman al $conv(S)$,
+          sin embargo el número de parejas de puntos
+          sobre los que deberíamos comprobar si cumplen
+          dicha condición, son <a
+          href="https://en.wikipedia.org/wiki/Complete_graph"> 
+          $n(n-1)/2$</a> sobre los cuales, iterar nos
+          tomaría un tiempo de $O(n^2)$, además de que
+          para cada línea formada por cada par de
+          puntos deberíamos comprobar si todos los
+          demás puntos cumplen la condición de yacer
+          solo a un lado de la línea, lo que nos
+          tomaría $O(n)$ para cada par de puntos, esto
+          es $O(n^3)$ para el algoritmo completo.
+        </p>
+        <p>
+          ¿Se podría hacer algo mejor que eso usando la
+          misma idea? <br>
+          Tal parece que sí, Jarvis en su articulo de
+          1973, mostró como se puede reducir la
+          complejidad a $O(n^2)$ si tomamos en cuenta
+          que una vez tenemos un par de puntos $p1$ y
+          $p2$ en $conv(S)$, sabemos que debe existir
+          otro punto $p3$ que junto con $p2$ definan
+          una linea que tenga a todos los demás puntos
+          de un solo lado.
+          <bibref ref_id="CG_an_Introduction">Pag.
+          111</bibref>
+        </p>          
+        <p>
+          El algoritmo presentado en esta sección hará
+          uso de esta idea para obtener todos los
+          puntos que representan a $conv(S)$.
+        </p>
+        <h4><b><i>Algoritmo</i></b></h4>
+
+      </div>
+
+      <div class="page"> 
+      </div>
+
+      <div class="page"> 
         <div class="interactive" width="810" height="800" window-size="false"
           src="./Interactivos/capitulo_2/jarvis_march.html">
         </div>

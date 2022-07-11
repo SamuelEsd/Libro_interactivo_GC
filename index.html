@@ -398,7 +398,7 @@
           A pesar de que un solo par de puntos
           distintos definen perfectamente una línea,
           una línea en $\mathbb{R}^d$ contiene un
-          número infinito de puntos. <br> Lo cual puede
+          número infinito de puntos. Lo cual puede
           apreciarse en la siguiente figura(<ref
           ref_id="linea"></ref> ), en el cual las
           flechas azul y verde, representan la partes
@@ -406,15 +406,12 @@
           $p_1$ al nuevo punto $r$ respectivamente.
           <br> De esta manera, al cambiar el valor de
           $\alpha$ podemos obtener cualquier punto
-          sobre la línea roja, apreciando como va
-          cambiando la "cantidad" de cada punto $p_1$
-          $p_2$ que es "necesaria" para formar el nuevo
-          punto $r$.
+          sobre la línea roja.
         </p>
 
         <figure id="linea">
           <div class="interactive" width="500"
-          height="270" window-size="false"
+          height="300" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_linea.html"></div>
           <figcaption>
             Ejemplo de definición de
@@ -923,8 +920,7 @@
       <div class="page">
       <p>
         Por ejemplo, dado el siguiente conjunto de puntos:
-        <div class="interactive" width="380" height="200" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_ch_problema.html"></div>
+          <img src="./images/capitulo_01/Ejemplo_ch_problema.png">
           <figcaption>Conjunto de puntos de entrada y polígono formado por la salida.</figcaption>
         <br>
         La entrada y salida serían las siguientes:
@@ -966,7 +962,7 @@
       </div>
       
         <!-- Algoritmo de Graham.-->
-      <div class="page">
+      <div class="page" id="graham_algorithm_page">
         <h2 id="cap2_algorithmo_grahan">Algoritmo de Graham</h2>
         
         <h4><b><i>Contexto</i></b></h4>
@@ -1026,7 +1022,7 @@
           <!-- <div class="interactive" width="600"
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
-          <img src="./images/capitulo_02/bottom_point.jpg" width="30%" height="30%" >
+          <img src="./images/capitulo_02/punto_inferior.jpg" width="50%" height="50%" >
           <figcaption>Seleccionamos el punto interior.</figcaption>
         </figure>
         <h5><b><i>Paso 2. Ordenar los puntos con respecto al inferior.</i></b></h5>
@@ -1042,7 +1038,7 @@
           <!-- <div class="interactive" width="600"
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
-          <img src="./images/capitulo_02/sort_points.jpg" width="30%" height="30%">
+          <img src="./images/capitulo_02/puntos_ordenados.jpg" width="50%" height="50%">
           <figcaption>Ordenamos con respecto al punto interior.</figcaption>
         </figure>       
       </div>
@@ -1130,28 +1126,7 @@
         </figure>
   <!-- Fuentes: Discrete%20and%20computational%20geometry%20by%20Devadoss%20S.,%20ORourke%20J.%20(z-lib.org).pdf -->
   <!-- Computational_Geometry_An_Introduction_by_Franco_P_Preparata,_Michael. -->
-  <!-- Computational%20Geometry%20in%20C%20by%20Joseph%20ORourke%20(z-lib.org).pdf -->
-        <!-- Contexto, envoltura de regalo.
-
-        One approach is to wrap a string
-        around the entire point set, where the string catches and turns at each
-        of the hull points. This method is appropriately called the gift-wrapping
-        algorithm, first suggested by Donald Chand and Sham Kapur in 1970
-        (primarily for hulls in higher dimensions). Figure 2.7 shows this algorithm
-        in action.
-
-        Let’s look at the details. Let S be a point set in general position, with
-        no three points collinear. Consider the bottommost point; if there are
-        ties, choose the rightmost. This point will be the anchor from which we
-        wind our string around S. From this point, draw a line segment to all
-        other points in S. Choose the next anchor point on our wrapping of S to
-        be the point that makes the largest angle with the horizontal line. Now
-        that we have started our wrapping, we continue as follows. From the
-        new anchor, draw a line segment to all other points in S, and choose
-        the next anchor forming the largest angle with the last constructed hull
-        edge. This is repeated until the algorithm ends, winding around the entire
-        hull. -->
-        
+  <!-- Computational%20Geometry%20in%20C%20by%20Joseph%20ORourke%20(z-lib.org).pdf -->     
       </div>
         
       <div class="page">
@@ -1229,37 +1204,52 @@
           todos los puntos que representan al cierre
           convexo?. 
           <br>
-          Ciertamente, encontrar todos los
-          puntos extremos no resulta tan fácil como
-          encontrar el inferior, el superior, el más a
-          la derecha y el más a la izquierda, sin embargo
-          una vez tomado un extremo, resulta más fácil 
-          encontrar otro punto extremo si sabemos que 
-          la linea que trazan ambos puntos está en un extremo también, 
-          es decir, si todos los demás puntos en $S$ están o sobre la misma linea
-          o a un solo lado de la linea.<bibref ref_id="CG_an_Introduction">Pag. 110</bibref>
+          Ciertamente, encontrar todos los puntos
+          extremos no resulta tan fácil como encontrar
+          el inferior, el superior, el más a la derecha
+          y el más a la izquierda, sin embargo, una vez
+          tomado un extremo, resulta más fácil
+          encontrar otro punto extremo, si sabemos que
+          la linea que trazan ambos puntos, está en un
+          extremo también, es decir, si todos los demás
+          puntos en $S$ están o sobre la misma linea o
+          a un solo lado de la linea.<bibref
+          ref_id="CG_an_Introduction">Pag. 110</bibref>
         </p>
-        ILUSTRACIÓN
+        <p>
+          La siguiente figura un muestra ejemplo de
+          esto, tomando el punto los puntos ($p_8$) y
+          ($p_5$) podemos trazar una linea que cumple
+          la condición ya mencionada. 
+        </p>
+        <figure id="linea_extrema">
+          <!-- <div class="interactive" width="600"
+          height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
+          <img src="./images/capitulo_02/Ejemplo_linea_extrema.png" width="80%" height="80%" >
+          <figcaption>Seleccionamos el punto interior.</figcaption>
+        </figure>
       </div>
 
       <div class="page"> 
         <p>
           Podríamos hacer uso de este conocimiento y
-          buscar todos pares de puntos que representan
-          líneas que cumplen dicha condición, pues
-          justo estas son las que forman al $conv(S)$,
-          sin embargo el número de parejas de puntos
-          sobre los que deberíamos comprobar si cumplen
-          dicha condición, son <a
+          buscar todos los pares de puntos que
+          representan líneas que cumplen dicha
+          condición, pues justo estas son las que
+          forman al $conv(S)$, sin embargo el número de
+          parejas de puntos sobre las que deberíamos
+          iterar para comprobar si cumplen dicha
+          condición, son <a
           href="https://en.wikipedia.org/wiki/Complete_graph"> 
-          $n(n-1)/2$</a> sobre los cuales, iterar nos
-          tomaría un tiempo de $O(n^2)$, además de que
-          para cada línea formada por cada par de
-          puntos deberíamos comprobar si todos los
-          demás puntos cumplen la condición de yacer
-          solo a un lado de la línea, lo que nos
-          tomaría $O(n)$ para cada par de puntos, esto
-          es $O(n^3)$ para el algoritmo completo.
+          $n(n-1)/2$</a>, lo cual nos tomaría un tiempo
+          de $O(n^2)$, además de que para cada línea
+          formada por cada par de puntos deberíamos
+          comprobar si todos los demás puntos cumplen
+          la condición de yacer solo a un lado de la
+          línea, lo que nos tomaría $O(n)$ para cada
+          par de puntos, esto es $O(n^3)$ para el
+          algoritmo completo.
         </p>
         <p>
           ¿Se podría hacer algo mejor que eso usando la
@@ -1267,9 +1257,9 @@
           Tal parece que sí, Jarvis en su articulo de
           1973, mostró como se puede reducir la
           complejidad a $O(n^2)$ si tomamos en cuenta
-          que una vez tenemos un par de puntos $p1$ y
-          $p2$ en $conv(S)$, sabemos que debe existir
-          otro punto $p3$ que junto con $p2$ definan
+          que una vez tenemos un par de puntos $p_a$ y
+          $p_b$ en $conv(S)$, sabemos que debe existir
+          otro punto $p_c$ que junto con $p_b$ definan
           una linea que tenga a todos los demás puntos
           de un solo lado.
           <bibref ref_id="CG_an_Introduction">Pag.
@@ -1280,11 +1270,36 @@
           uso de esta idea para obtener todos los
           puntos que representan a $conv(S)$.
         </p>
-        <h4><b><i>Algoritmo</i></b></h4>
 
       </div>
 
       <div class="page"> 
+        <h4><b><i>Algoritmo</i></b></h4>
+        <p>
+          Dado lo que sabemos hasta ahora, podemos describir el algoritmo de Jarvis
+          en solo dos pasos, los cuales son los siguientes:
+        </p>
+        
+        <h5><b><i>Paso 1. Tomar el punto inferior.</i></b></h5>
+        <p>
+          Esto sería exactamente al primer paso del
+          <pageref
+          ref_id="graham_algorithm_page">algoritmo de
+          graham antes descrito</pageref>.
+        </p>
+        <h5><b><i>Paso 2. Ir agregando puntos a $conv(S)$ tomando el ultimo punto en
+        $conv(S)$ como referencia.</i></b></h5>
+
+        <p>
+          En esta parte del algoritmo tomamos al ultimo
+          punto $p_k$ en $conv(S)$ y comparando a todos
+          los demás puntos por al angulo que forman con
+          respecto a dicho punto $p_k$ en sentido
+          contrario a las manecillas del reloj, al
+          punto con menor angulo lo agregaremos a
+          $conv(S)$.
+        </p>
+        
       </div>
 
       <div class="page"> 

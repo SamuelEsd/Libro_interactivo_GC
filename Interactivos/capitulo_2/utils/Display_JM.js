@@ -132,11 +132,12 @@ function sleep(millisecondsDuration) {
 }
 
 function draw() {
-  background(80);
-  drawArrows(convexHull, completed);
+  background(230);
+  // Convex hull arrows
+  drawArrows(convexHull, completed,"green");
   drawPoints(pointsSet, 256);
   drawPoints(convexHull, "blue");
   if( currPoint != null){
-    drawArrow(prevVertex, currPoint, "white");
+    drawArrow(prevVertex, currPoint, "red");
   }
 }

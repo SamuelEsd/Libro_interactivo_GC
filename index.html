@@ -1129,12 +1129,12 @@
   <!-- Computational%20Geometry%20in%20C%20by%20Joseph%20ORourke%20(z-lib.org).pdf -->     
       </div>
         
-      <div class="page">
+      <div class="page" id="graham_algorithm__complexity_page">
         <h4><b><i>Complejidad</i></b></h4>
         <p>
           Procederemos a hacer un análisis simple la
           complejidad del algoritmo, con ayuda de su
-          division en pasos analizaremos la complejidad
+          division en pasos, analizaremos la complejidad
           de cada uno para obtener la total del
           algoritmo.
         </p>
@@ -1282,7 +1282,7 @@
         
         <h5><b><i>Paso 1. Tomar el punto inferior.</i></b></h5>
         <p>
-          Esto sería exactamente al primer paso del
+          Este paso es exactamente igual al primer paso del
           <pageref
           ref_id="graham_algorithm_page">algoritmo de
           graham antes descrito</pageref>.
@@ -1292,25 +1292,166 @@
 
         <p>
           En esta parte del algoritmo tomamos al ultimo
-          punto $p_k$ en $conv(S)$ y comparando a todos
-          los demás puntos por al angulo que forman con
+          punto que fue agregado a $conv(S)$, al que
+          nos referiremos como $p_k$, posteriormente,
+          procedemos a comparar a todos los demás
+          puntos en $S$ por al angulo que forman con
           respecto a dicho punto $p_k$ en sentido
-          contrario a las manecillas del reloj, al
-          punto con menor angulo lo agregaremos a
+          contrario a las manecillas del reloj, y
+          tomamos al que tenga el menor angulo, este
+          será el siguiente punto en ser agregado a
           $conv(S)$.
+          <br>
+          Repetiremos este procedimiento hasta que el
+          siguiente punto a agregar sea uno que ya
+          pertenece a $conv(S$.
         </p>
-        
       </div>
-
       <div class="page"> 
         <div class="interactive" width="810" height="800" window-size="false"
           src="./Interactivos/capitulo_2/jarvis_march.html">
         </div>
       </div>
 
+      <div class="page">
+        <h4><b><i>Complejidad</i></b></h4>
+        <p>
+          Procederemos a hacer un análisis simple la
+          complejidad del algoritmo, con ayuda de su
+          division en pasos, analizaremos la complejidad
+          de cada uno para obtener la total del
+          algoritmo.
+        </p>
+        <h5><b><i>Paso 1. Tomar el punto inferior.</i></b></h5>
+        <p>
+          Esto sería exactamente al análisis del primer paso del
+          <pageref
+          ref_id="graham_algorithm__complexity_page">algoritmo de
+          graham antes descrito</pageref>.
+        </p>
+        <h5><b><i>Paso 2. Ir agregando puntos a $conv(S)$ tomando el ultimo punto en
+          $conv(S)$ como referencia.</i></b></h5>
+        <p>
+          Para esta parte del algoritmo necesitamos
+          a un punto $p$ cuyo angulo (en sentido
+          contrario a las manecillas del reloj) que forma con
+          respecto al ultimo punto $p_k$ en $conv(S)$ sea el 
+          menor entre todos los puntos en $S$.
+          <br>
+          Haciendo uso del producto cruz, dados dos puntos 
+          podemos comparar cual de ellos es menor
+          respecto al angulo (en sentido contrario a las
+          manecillas del reloj) que forma con nuestro
+          ultimo punto en $conv(S)$, $ \ p_k$.
+          <br>
+          Esto lo tenemos que hacer para cada punto en
+          $S$ usando al ultimo punto en $conv(S)$ hasta
+          que no es posible agregar más puntos a
+          $conv(S)$. Lo que significa que para cada
+          punto en $conv(S)$ iteraremos sobre todos los
+          puntos en $S$, esto, en el peor de los casos
+          tiene una complejidad de $O(n^2)$ pues en el
+          peor de los casos $S = conv(S)$.
+          
+        </p>
+      </div>
+
+      <div class="page"> 
+        <p>
+          Esta cota superior es acertada, sin embargo,
+          es posible hacerla un poco más justa, ya que
+          sabemos que no siempre se cumple que $S =
+          conv(S)$, por lo que, si tomamos a $n$ como
+          el numero de puntos en $S$ y a $h$ el numero
+          de puntos en $conv(S)$, podemos decir que 
+          el algoritmo tiene una complejidad de $O(nh)$
+          pues la complejidad del paso 1 es $O(n)$ y 
+          $O(nh)$ domina.
+        </p>
+        <p>
+          Esta característica nos deja ver como este
+          algoritmo corre más rápido en casos donde en
+          cierre convexo es pequeño, a este tipo de algoritmos 
+          se les suele llamar           <a
+          href="https://en.wikipedia.org/wiki/Output-sensitive_algorithm">
+          algoritmos sensibles a la salida
+          </a>
+        </p>
+      </div>
+
       <div class="page">  
         <h2 id="cap2_algoritmos_divide_venceras">Algoritmos usando divide y vencerás</h2>
+        <h4><b><i>Contexto</i></b></h4>
+        <p>
+          En esta sección nos centraremos en un nuevo
+          enfoque para, resolver el problema del cierre
+          convexo, el cual hará uso de un paradigma
+          ampliamente conocido y utilizado, el
+          paradigma 
+          <a
+          href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm">divide
+          y vencerás</a>. 
+          <br>
+          Los primeros en aplicar este paradigma para
+          encontrar el cierre convexo fueron 
+          <a
+          href="https://dl.acm.org/doi/abs/10.1145/359423.359430"
+          >Franco Preparata y June Hong en 1977</a>,
+          utilizándolo no solo para el problema en 2
+          dimensiones, si no que también para 3
+          dimensiones, lo cual hace de este enfoque aun
+          mas interesante.
+        </p>
+        <p>
+          Este algoritmo, divide el problema inicial,
+          de encontrar el cierre convexo de un conjunto
+          de puntos $S$, en subproblemas que serán
+          resueltos y posteriormente unidos, de una
+          manera muy similar al algoritmo de
+          ordenamiento <a
+          href="https://en.wikipedia.org/wiki/Merge_sort"><i>merge
+          sort</i> </a>.
+          <br>
+          La forma de dividir el problema en
+          subproblemas es bastante simple, pues es
+          posible ordenar los puntos por su componente
+          en $x$ y dividir el problema en dos, calcular
+          el cierre convexo de la primer mitad de
+          dichos puntos ordenados y hacer lo mismo para
+          la segunda mitad, posteriormente es necesario
+          unir los cierres convexos resultantes de
+          dichos subproblemas, sin embargo, realizar
+          dicha union de los subproblemas, de una forma
+          optima, no resulta trivial. 
+        </p>
+        <p>
+          En este momento, nos queda la pregunta, dados
+          dos cierres convexos, ¿cómo podemos unirlos
+          para formar el cierre convexo de ambos?
+        </p>
+        <p>
+          Lo único que necesitamos es encontrar dos
+          lineas tangentes a ambos cierres convexos,
+          una superior y una inferior, un ejemplo de tales lineas 
+          pueden ser apreciado en la Figura TO DO
+        </p>
+      </div>
+
+      <div class="page"> 
+        Figura TO DO
+
+        <h4><b><i>Algoritmo</i></b></h4>
+        <p>
+          Dado lo que sabemos hasta ahora, podemos describir el algoritmo de Jarvis
+          en solo dos pasos, los cuales son los siguientes:
+        </p>
+      </div>
+
+      <div class="page"> 
         <h2 id="cap2_algoritmos_dinamicos">Algoritmos dinámicos</h2>
+      </div>
+
+      <div class="page"> 
         <h2 id="cap2_extensiones_variantes">Extensiones y variantes</h2>
       </div>
 

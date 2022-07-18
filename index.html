@@ -1446,21 +1446,177 @@
           <figcaption>Ejemplo de líneas tangentes en dos cierres convexos.</figcaption>
         </figure>
         <p>
-          La primer idea que nos puede venir a la mente,
-          es tomar todos los posibles segmentos de
-          lineas, que se pueden formar tomando un punto
-          de cada cierre convexo, y tomar al par que forme
-          una línea tal que todos los demás puntos
-          estén bajo ella y el par que forme una línea
-          tal que todos los demás puntos estén sobre
-          ella.
+          La primer idea que nos puede venir a la
+          mente, para encontrar dichas lineas
+          tangentes, es tomar todos los posibles
+          segmentos de lineas, que se pueden formar
+          tomando un punto de cada cierre convexo, y
+          tomar al par que forme una línea tal que
+          todos los demás puntos estén bajo ella y al
+          par que forme una línea tal que todos los
+          demás puntos estén sobre ella.
+          <br>
+          Si embargo, realizar este procedimiento no
+          sería muy eficiente, pues resultaría en
+          comprobar para cada par de puntos (n(n-1)) si
+          todos los demás puntos (n-2) yacen todos
+          sobre el mismo lado de la línea, lo cual
+          tendría una complejidad de $O(n^3)$.
+        </p>
+        <p>
+          Una posible mejora que podríamos realizar a
+          este algoritmo sería evitar tener que
+          comparar cada línea con todos los demás
+          puntos para saber si es una línea tangente.
+          <br>
+          ¿Cómo podemos comprobar que una línea es
+          tangente a los cierres convexos sin comparar
+          con todos los puntos?
+        </p>
+      </div>
+
+      <div class="page"> 
+        <p>
+          Podemos trazar una línea vertical, entre
+          ambos cierres convexos, y para cada línea
+          trazada por los puntos entre los cierres
+          convexos, tomaremos en cuenta el punto en el
+          que intercepta a la línea que trazamos,
+          entonces, tomaremos como nuestras líneas
+          tangentes por arriba y por abajo, a las
+          líneas con el mayor y menor valor de
+          intersección, con la línea vertical que
+          trazamos entre ambos puntos.
+          <br>
+          El siguiente interactivo muestra un ejemplo
+          en el que se pude visualizar esto fácilmente.
+        </p>
+        INTERACTIVO
+      </div>
+
+      <div class="page"> 
+        <p>
+          Teniendo esto en cuenta podríamos bajar la
+          complejidad para encontrar las líneas
+          tangentes superior e inferior a $O(n^2)$, sin
+          embargo, esto aún no es optimo.
+          <br>
+          ¿Qué se puede hacer para mejorarlo?
+          <br>
+          Podemos evitar tener que revisar sobre todas
+          las parejas de puntos y solo revisar sobre
+          las que resulte indispensable, esto es
+          posible lograrlo usando a la idea que
+          proponen Preparata y Hong en su articulo.
+          <br>
+          La idea es la siguiente y resulta
+          prácticamente la misma para obtener la
+          tangente superior, o la inferior, por lo que
+          a continuación solo se describe la inferior.
         </p>
 
+        <p>
+          Dado que sabemos que la tangente $T$ que
+          buscamos, tiene un punto en el cierre convexo
+          del subproblema izquierdo, y un punto en el
+          cierre convexo del subproblema derecho,
+          tomaremos como $T$, a la línea formada por el
+          punto mas a la derecha del cierre convexo
+          izquierdo, y el punto más a la izquierda del
+          cierre convexo derecho. Posteriormente,
+          comenzaremos a hacer "descender" la tangente
+          $T$ cambiando primero su punto en un cierre
+          convexo y después sobre el otro, repitiendo
+          hasta encontrar la tangente inferior.
+        </p>
+        <p>
+          Dicho proceso de descenso, se realiza
+          haciendo uso del hecho, de que la
+          representación de cada cierre convexo es una
+          lista de puntos, ordenada en sentido
+          contrario a las manecillas del reloj.
+          <br>
+          Este descenso comienza sustituyendo el punto
+          actual $pd_i$ en el conjunto convexo derecho,
+          por el punto anterior a él $pd_{i-1}$ ( el
+          siguiente en sentido de las manecillas del
+          reloj), siempre y cuando la linea nueva $T$
+          resultante esté mas abajo que la anterior
+          (para saber eso usamos el valor de
+          intersección con la línea vertical), y
+          seguiremos sustituyendo este punto hasta que
+          no podamos encontrar una $T$ más abajo.
+        </p>
+        
+      </div>
+
+
+      <div class="page"> 
+        <p>
+          Una vez hayamos "descendido" o más posible
+          sobre el punto del cierre convexo derecho,
+          hacemos lo equivalente con el punto del lado
+          izquierdo $pi_i$, pero en lugar de cambiar
+          con el punto anterior $pi_{i-1}$, cambiamos
+          el punto actual por el siguiente en el cierre
+          convexo $pi_{i+1}$ (el siguiente en sentido
+          contrario a las manecillas del reloj), y
+          seguimos cambiando por el siguiente punto
+          mientras la $T$ resultante se encuentre más
+          abajo que a anterior.
+          <br>
+          Una vez que ya no sea posible "descender" más
+          sobre el cierre convexo izquierdo, repetimos
+          el proceso comenzando a descender lo más
+          posible sobre el punto del cierre convexo
+          derecho y luego sobre el derecho, hasta que
+          no sea posible descender más en ninguno de los
+          los.
+          La siguiente figura muestra como es este algoritmo
+          de forma interactiva.
+        </p>
+        INTERACTIVO MERGE
+        
+        </div>
+
+        <div class="page"> 
+        <p>
+          De esta manera encontramos la tangente
+          inferior, en tiempo $O(n)$ pues la forma en
+          la que descendemos nunca da pasos atrás, por
+          lo tanto no pasa más de una vez por cada
+          punto. Y como ya mencionamos, el proceso para
+          encontrar la tangente superior, resulta ser
+          análogo. Una vez sabiendo cuales son estas
+          tangentes, combinar ambos cierres convexos
+          resulta trivial, pues solo es cuestión de
+          recorrer los cierres convexos que ya
+          conocíamos, desde una tangente a otra,
+          proceso en el cual visitaríamos a lo más
+          todos los puntos en ambos cierres convexos
+          una sola vez, lo cual puede ser realizado en
+          $O(n)$.
+        </p>
+        <p>
+          Gracias a este algoritmo para unir dos 
+          conjuntos convexos, reducimos la complejidad que 
+          teníamos de $O(n^2)$ a $O(n)$.
+        </p>
         <h4><b><i>Algoritmo</i></b></h4>
         <p>
-          Dado lo que sabemos hasta ahora, podemos describir el algoritmo de Jarvis
-          en solo dos pasos, los cuales son los siguientes:
+          Ahora que conocemos la forma de unir dos
+          cierres convexos de forma eficiente, podemos
+          describir el algoritmo completo, el cual
+          podemos dividir en lo siguientes pasos.
         </p>
+        
+        <h5><b><i>Paso 1. Ordenar los puntos por sus coordenadas en x.</i></b></h5>
+        <h5><b><i>Paso 2. Dividir los puntos en dos
+        conjuntos I y D con la primera mitad de puntos
+        y la segunda mitad de puntos
+        respectivamente.</i></b></h5>
+        <h5><b><i>Paso 3. Calcular recursivamente los cierres convexos de I y D.</i></b></h5>
+        <h5><b><i>Paso 4. Unir $conv(I)$ y $conv(D)$.</i></b></h5>
       </div>
 
       <div class="page"> 

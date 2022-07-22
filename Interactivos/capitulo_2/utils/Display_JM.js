@@ -23,8 +23,6 @@ function setup() {
   initializeButton();
 }
 
-
-
 function initializePoints() {
   startingP = createVector(WINDOW_BORDER, WINDOW_BORDER);
   endingP = createVector(
@@ -78,7 +76,7 @@ async function step() {
         currPoint = point
         await sleep(50)
         if (point == prevVertex) continue;
-        // Take any point diferent to last vertex on hull
+        // Take any point different to last vertex on hull
         // as rightmost
         if (rightmostVertex == null) {
           rightmostVertex = point;
@@ -88,11 +86,11 @@ async function step() {
         let td = turnDirection(prevVertex, rightmostVertex, point);
         let isColinear = td == 0;
         let isLeftTurn = td == 1;
-        let pointIsFarder =
+        let pointIsFarther =
           distance(prevVertex, rightmostVertex) < distance(prevVertex, point);
-        // If there's a point more to the right or colinear but farder
+        // If there's a point more to the right or colinear but farther
         // that will be our new rightmost
-        if ((isColinear && pointIsFarder) || isLeftTurn) {
+        if ((isColinear && pointIsFarther) || isLeftTurn) {
           rightmostVertex = point;
         }
       }

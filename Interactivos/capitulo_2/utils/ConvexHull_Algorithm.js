@@ -1,4 +1,4 @@
-function convexHullJM_steps(points){
+function convexHullJM(points){
     // Let's start the hull with the leftmost point
     points = Array.from(points)
     points.sort((a,b) => { return a.x - b.x});
@@ -6,13 +6,6 @@ function convexHullJM_steps(points){
     let start = points[0];
     hull.push(start);
     let prevVertex = start;
-    while(!take_step){
-      print("inside")
-      print(take_step)
-      background(0);
-      drawCH(convexHull);
-      drawPoints(points);
-    }
     
     while(true){
       let rightmostVertex = null;

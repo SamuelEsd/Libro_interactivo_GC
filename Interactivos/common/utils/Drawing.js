@@ -24,30 +24,6 @@ function drawArrow(start, end, myColor) {
 }
 
 /**
- * Given a list of points draw all the points on the screen.
- * @param {Array} points - List of vectors representing
- * the points to draw.
- */
-function drawPoints(points,color) {
-    noStroke();
-    for (i = 0; i < points.length; i++) {
-        push();
-        fill(255);
-        stroke(color);
-        strokeWeight(3);
-        circle(points[i].x, points[i].y, POINT_SIZE);
-        pop();
-        if(points[i].z > 0){
-            push();
-            textSize(POINT_SIZE/2);
-            textAlign(CENTER);
-            text('P'+(points[i].z), points[i].x, points[i].y+(POINT_SIZE/4));
-            pop();
-        }
-    }
-}
-
-/**
  * Given a list of points draw all the points on the screen
  * and change the position and color of a selected
  * point.

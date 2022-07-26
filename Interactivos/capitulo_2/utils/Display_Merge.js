@@ -33,13 +33,92 @@ function initializePoints(num_of_points) {
   right_pointsSet = getRandomPointsInArea(Math.ceil(num_of_points/2), startingP_right, endingP_right);
 }
 
+async function step() {
+  // Initialize points set
+  if (pointsSet.length == 0) {
+    computeCHs();
+    description.html("Generamos un conjunto de puntos aleatorio.")
+  }
+  // Steps of the Graham scan algorithm
+  else if (!completed) {
+    // add first point
+    if (convexHull.length == 0) {
+      let minYPoint = pointsSet[0];
+      for (let point of pointsSet) {
+        if (
+          point.y > minYPoint.y ||
+          (point.y == minYPoint.y && point.x > minYPoint.x)
+        ) {
+          minYPoint = point;
+        }
+      }
+      convexHull.push(minYPoint);
+      description.html("Agregamos el punto inferior al conjunto de salida.")
+    }
+    // add the next corresponding point to the convex hull
+    else {
+      prevVertex = convexHull[convexHull.length - 1];
+      let rightmostVertex = null;
+      for (let point of pointsSet) {
+        currPoint = point
+        await sleep(50)
+        if (point == prevVertex) continue;
+        // Take any point different to last vertex on hull
+        // as rightmost
+        if (rightmostVertex == null) {
+          rightmostVertex = point;
+          continue;
+        }
+
+        let td = turnDirection(prevVertex, rightmostVertex, point);
+        let isColinear = td == 0;
+        let isLeftTurn = td == 1;
+        let pointIsFarther =
+          distance(prevVertex, rightmostVertex) < distance(prevVertex, point);
+        // If there's a point more to the right or colinear but farther
+        // that will be our new rightmost
+        if ((isColinear && pointIsFarther) || isLeftTurn) {
+          rightmostVertex = point;
+        }
+      }
+
+      // If we reach the start it's time to finish
+      if (rightmostVertex == convexHull[0]) {
+        completed = true;
+        currPoint = null;
+        prevVertex = null;
+      }
+      // It not, add rightmost vertex to hull and take it as the new
+      // vertex to compare with
+      else {
+        convexHull.push(rightmostVertex);
+        prevVertex = rightmostVertex;
+        currPoint = null;
+        prevVertex = null;
+      }
+    }
+  }
+  // reset alg
+  else {
+    completed = false;
+    convexHull = [];
+    pointsSet = [];
+    description.html('Para iniciar la visualización presione el botón iniciar.')
+  }
+}
+
 function addIds(points){
   for (i = 0; i < points.length; i++) {
     points[i].z = i+1
   }
 
 }
-
+function computeCHs(){
+  left_convexHull = convexHullJM(left_pointsSet);
+  addIds(left_convexHull);
+  right_convexHull = convexHullJM(right_pointsSet);
+  addIds(right_convexHull);
+}
 function drawCHs(){
   drawLines(left_convexHull,'green');
   drawLines(right_convexHull,'green');
@@ -61,10 +140,7 @@ function drawLinesOfTwoCH(){
 }
 
 function draw() {  
-  left_convexHull = convexHullJM(left_pointsSet);
-  addIds(left_convexHull);
-  right_convexHull = convexHullJM(right_pointsSet);
-  addIds(right_convexHull);
+
 
   background(0);
 

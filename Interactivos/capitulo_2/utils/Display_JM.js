@@ -1,4 +1,4 @@
-let pointsSet = [];
+let pointsSet = null;
 let convexHull = [];
 let currPoint = null;
 let prevVertex = null;
@@ -29,7 +29,7 @@ function initializePoints() {
     CUSTOM_WIDTH - WINDOW_BORDER,
     CUSTOM_HEIGHT - WINDOW_BORDER
   );
-  pointsSet = getRandomPointsInArea(num_of_points, startingP, endingP);
+  pointsSet = new PointSet(getRandomPointsInArea(num_of_points, startingP, endingP));
 }
 
 function initializeButton() {
@@ -38,17 +38,9 @@ function initializeButton() {
   button.mousePressed(step);
 }
 
-function pointsToString(points){
-  let desc = '';
-  for (let currPoint of points) {
-    desc += `P${currPoint.z} `
-  }
-  return desc
-}
-
 async function step() {
   // Initialize points set
-  if (pointsSet.length == 0) {
+  if (pointsSet === null) {
     initializePoints();
     description.html("Generamos un conjunto de puntos aleatorio.")
   }
@@ -56,23 +48,14 @@ async function step() {
   else if (!completed) {
     // add first point
     if (convexHull.length == 0) {
-      let minYPoint = pointsSet[0];
-      for (let point of pointsSet) {
-        if (
-          point.y > minYPoint.y ||
-          (point.y == minYPoint.y && point.x > minYPoint.x)
-        ) {
-          minYPoint = point;
-        }
-      }
-      convexHull.push(minYPoint);
+      convexHull.push(pointsSet.getLowestPoint());
       description.html("Agregamos el punto inferior al conjunto de salida.")
     }
     // add the next corresponding point to the convex hull
     else {
       prevVertex = convexHull[convexHull.length - 1];
       let rightmostVertex = null;
-      for (let point of pointsSet) {
+      for (let point of pointsSet.points) {
         currPoint = point
         await sleep(50)
         if (point == prevVertex) continue;
@@ -115,12 +98,12 @@ async function step() {
   else {
     completed = false;
     convexHull = [];
-    pointsSet = [];
+    pointsSet = null;
     description.html('Para iniciar la visualización presione el botón iniciar.')
   }
   
-  inputDescription.html('S: ' + pointsToString(pointsSet));
-  outputDescription.html('conv(S): ' + pointsToString(convexHull));
+  inputDescription.html('S: ' + pointsSet);
+  //outputDescription.html('conv(S): ' + pointsToString(convexHull));
 }
 
 function sleep(millisecondsDuration) {
@@ -133,8 +116,11 @@ function draw() {
   background(230);
   // Convex hull arrows
   drawArrows(convexHull, completed,"green");
-  drawPoints(pointsSet, 256);
-  drawPoints(convexHull, "blue");
+  if (pointsSet != null) {
+    pointsSet.drawPoints(256);
+  }
+
+  //drawPoints(convexHull, "blue");
   if( currPoint != null){
     drawArrow(prevVertex, currPoint, "red");
   }

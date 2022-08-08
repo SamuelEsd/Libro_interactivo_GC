@@ -46,30 +46,7 @@ function drawPointsWithSelection(points, selectedPoint, pointsColor=256, selecte
     }
 }
 
-/**
- * Given a clockwise sorted point list of all points in
- * the convex hull draw an arrow from pi to pj
- * where i = (j+1)%size with size equals the number of
- * points in the list.
- * @param {Array} points - Clockwise sorted point list of
- * vectors representing the points on the convex hull.
- * @param {Boolean} isClosed - Add an arrow from the last
- * point in the array to the first point in the array, 
- * closing the cycle.
- */
-function drawArrows(points,isClosed,color) {
-    let size = points.length;
-    strokeWeight(LINE_SIZE);
-    last = points.length
-    if(! isClosed){
-        last--;
-    }
-    for (i = 0; i < last; i++) {
-        let v0 = createVector(points[i].x, points[i].y);
-        let v1 = createVector(points[(i + 1) % size].x, points[(i + 1) % size].y);
-        drawArrow(v0, v1, color);
-    }
-}
+
 
 /**
  * Given a clockwise sorted point list of all points in
@@ -87,24 +64,6 @@ function drawLines(points,color){
     stroke(color);
     for(i = 0; i < points.length; i++){
       line(points[i].x, points[i].y,points[(i+1)%size].x, points[(i+1)%size].y);
-    }
-}
-
-/**
- * Given a clockwise sorted point list of all points in
- * the convex hull draw a line from pi to pj
- * where i = (j+1)%size with size equals the number of
- * points in the list.
- * @param {Array} points - Clockwise sorted point list of
- * vectors representing the points on the convex hull.
- * @param {Color} color - Color value for the lines 
- * that will be drawn
- */
- function drawLinesFromPoint(points, origin, color = 'red', ){
-    strokeWeight(2);
-    stroke(color);
-    for(let point of points){
-      line(origin.x, origin.y, point.x, point.y);
     }
 }
 

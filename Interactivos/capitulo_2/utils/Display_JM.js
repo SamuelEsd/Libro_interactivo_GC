@@ -1,5 +1,5 @@
-let pointsSet = null;
-let convexHull = [];
+let pointsSet = new PointSet([]);
+let convexHull = new PointSet([]);
 let currPoint = null;
 let prevVertex = null;
 let num_of_points = 10;
@@ -40,20 +40,20 @@ function initializeButton() {
 
 async function step() {
   // Initialize points set
-  if (pointsSet === null) {
+  if (pointsSet.size() === 0) {
     initializePoints();
     description.html("Generamos un conjunto de puntos aleatorio.")
   }
   // Steps of the Graham scan algorithm
   else if (!completed) {
     // add first point
-    if (convexHull.length == 0) {
+    if (convexHull.size() === 0) {
       convexHull.push(pointsSet.getLowestPoint());
       description.html("Agregamos el punto inferior al conjunto de salida.")
     }
     // add the next corresponding point to the convex hull
     else {
-      prevVertex = convexHull[convexHull.length - 1];
+      prevVertex = convexHull.points[convexHull.size() - 1];
       let rightmostVertex = null;
       for (let point of pointsSet.points) {
         currPoint = point
@@ -79,7 +79,7 @@ async function step() {
       }
 
       // If we reach the start it's time to finish
-      if (rightmostVertex == convexHull[0]) {
+      if (rightmostVertex == convexHull.points[0]) {
         completed = true;
         currPoint = null;
         prevVertex = null;
@@ -97,8 +97,8 @@ async function step() {
   // reset alg
   else {
     completed = false;
-    convexHull = [];
-    pointsSet = null;
+    convexHull = new PointSet([]);
+    pointsSet = new PointSet([]);
     description.html('Para iniciar la visualización presione el botón iniciar.')
   }
   
@@ -115,11 +115,12 @@ function sleep(millisecondsDuration) {
 function draw() {
   background(230);
   // Convex hull arrows
-  drawArrows(convexHull, completed,"green");
-  if (pointsSet != null) {
+  convexHull.drawArrowsBetweenPoints(completed,"green");
+  if (pointsSet.size() != 0) {
     pointsSet.drawPoints(256);
   }
 
+  convexHull.drawPoints("blue");
   //drawPoints(convexHull, "blue");
   if( currPoint != null){
     drawArrow(prevVertex, currPoint, "red");

@@ -54,9 +54,9 @@ class PointSet {
   // DRAWING related functions
 
   /**
-   * Draws all the PointSet points on the screen, 
+   * Draws all the PointSet points on the screen,
    * with a line of an specific color, surrounding the points.
-   * If the coordinate z is greater than 0, it will be considered 
+   * If the coordinate z is greater than 0, it will be considered
    * as the ID i of the point, and it will be displayed on the
    * center of the point as Pi.
    * @param {Color} color - Color of the points to be drawn.
@@ -101,30 +101,63 @@ class PointSet {
 
   /**
    * Draw an arrow from every point in the PointSet
-   * array to the next point in the order they apear
-   * in the array. 
-   * If isClosed is true, the line from the last 
-   * point in the array to the first point in 
+   * array to the next point in the order they appear
+   * in the array.
+   * If isClosed is true, the arrow from the last
+   * point in the array to the first point in
    * the array will be drawn.
-   * @param {Boolean} isClosed - Boolean value, to 
+   * @param {Boolean} isClosed - Boolean value, to
    * decide whether or not to add an arrow from the last
    * point in the array to the first point in the array,
    * closing the cycle.
    */
   drawArrowsBetweenPoints(isClosed, color) {
+    this.#drawFigureBetweenPoints(isClosed, color, "arrow");
+  }
+
+  /**
+   * Draw a line from every point in the PointSet
+   * array to the next point in the order they appear
+   * in the array.
+   * If isClosed is true, the line from the last
+   * point in the array to the first point in
+   * the array will be drawn.
+   * @param {Boolean} isClosed - Boolean value, to
+   * decide whether or not to add an arrow from the last
+   * point in the array to the first point in the array,
+   * closing the cycle.
+   */
+  drawLinesBetweenPoints(isClosed, color) {
+    this.#drawFigureBetweenPoints(isClosed, color, "line");
+  }
+
+  #drawFigureBetweenPoints(isClosed, color, figure) {
     let size = this.points.length;
     strokeWeight(LINE_SIZE);
+    stroke(color);
     let last = this.points.length;
     if (!isClosed) {
       last--;
     }
     for (let i = 0; i < last; i++) {
-      let v0 = createVector(this.points[i].x, this.points[i].y);
-      let v1 = createVector(
-        this.points[(i + 1) % size].x,
-        this.points[(i + 1) % size].y
-      );
-      drawArrow(v0, v1, color);
+      if (figure === "line") {
+        push();
+        line(
+          this.points[i].x,
+          this.points[i].y,
+          this.points[(i + 1) % size].x,
+          this.points[(i + 1) % size].y
+        );
+        pop();
+      }
+      if (figure === "arrow") {
+        let v0 = createVector(this.points[i].x, this.points[i].y);
+        let v1 = createVector(
+          this.points[(i + 1) % size].x,
+          this.points[(i + 1) % size].y
+        );
+        drawArrow(v0, v1, color);
+      }
     }
   }
 

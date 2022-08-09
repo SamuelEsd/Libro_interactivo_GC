@@ -34,6 +34,15 @@ function initializePoints(num_of_points) {
   computeCHs();
 }
 
+function computeCHs(){
+  let left_convexHullArr = convexHullJM(left_pointsSet.points);
+  left_convexHull = new PointSet(left_convexHullArr);
+  console.log(left_convexHull)
+  let right_convexHullArr = convexHullJM(right_pointsSet.points);
+  right_convexHull = new PointSet(right_convexHullArr);
+  console.log(right_convexHull);
+}
+
 async function step() {
   // Initialize points set
   if (pointsSet.length == 0) {
@@ -105,15 +114,6 @@ async function step() {
     pointsSet = [];
     description.html('Para iniciar la visualización presione el botón iniciar.')
   }
-}
-
-function computeCHs(){
-  let left_convexHullArr = convexHullJM(left_pointsSet.points);
-  left_convexHull = new PointSet(left_convexHullArr);
-  console.log(left_convexHull)
-  let right_convexHullArr = convexHullJM(right_pointsSet.points);
-  right_convexHull = new PointSet(right_convexHullArr);
-  console.log(right_convexHull);
 }
 
 function drawCHs(){

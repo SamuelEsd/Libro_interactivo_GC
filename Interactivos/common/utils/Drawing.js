@@ -46,28 +46,6 @@ function drawPointsWithSelection(points, selectedPoint, pointsColor=256, selecte
     }
 }
 
-
-
-/**
- * Given a clockwise sorted point list of all points in
- * the convex hull draw a line from pi to pj
- * where i = (j+1)%size with size equals the number of
- * points in the list.
- * @param {Array} points - Clockwise sorted point list of
- * vectors representing the points on the convex hull.
- * @param {Color} color - Color value for the lines 
- * that will be drawn
- */
-function drawLines(points,color){
-    let size = points.length
-    strokeWeight(LINE_SIZE);
-    stroke(color);
-    for(i = 0; i < points.length; i++){
-      line(points[i].x, points[i].y,points[(i+1)%size].x, points[(i+1)%size].y);
-    }
-}
-
-
 /**
  * Given a sorted list of points, add a label with the 
  * position to each point.

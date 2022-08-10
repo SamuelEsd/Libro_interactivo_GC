@@ -4,34 +4,20 @@ let right_pointsSet = new PointSet([]);
 let left_convexHull = new PointSet([]);
 let right_convexHull = new PointSet([]);
 
-let half_point = null
-let touched = false
-let selectedPoint = -1
+let num_of_points = 10;
 
 function setup() {
   CUSTOM_WIDTH = windowWidth - 30;
   CUSTOM_HEIGHT = windowHeight - 30;
-  half_point = Math.ceil((CUSTOM_WIDTH)/2)
-
   createCanvas(CUSTOM_WIDTH, CUSTOM_HEIGHT);
   strokeWeight(POINT_SIZE);
-  initializePoints(10);
-}
 
-function initializePoints(num_of_points) {
-  startingP_left = createVector(WINDOW_BORDER, WINDOW_BORDER);
-  endingP_left = createVector(
-    half_point-20,
-    CUSTOM_HEIGHT - WINDOW_BORDER
-  );
-  startingP_right = createVector(half_point+20, WINDOW_BORDER);
-  endingP_right = createVector(
-    CUSTOM_WIDTH - WINDOW_BORDER,
-    CUSTOM_HEIGHT - WINDOW_BORDER
-  );
-  left_pointsSet = new PointSet(getRandomPointsInArea(Math.floor(num_of_points/2), startingP_left, endingP_left));
-  right_pointsSet = new PointSet(getRandomPointsInArea(Math.ceil(num_of_points/2), startingP_right, endingP_right));
-  computeCHs();
+  initializeCorners();
+  left_pointsSet = new PointSet(getRandomPointsInArea(Math.floor(num_of_points/2), UP_LEFT_CORNER, DOWN_MIDDLE_CORNER));
+  right_pointsSet = new PointSet(getRandomPointsInArea(Math.ceil(num_of_points/2), UP_MIDDLE_CORNER, DOWN_RIGHT_CORNER));
+  
+  left_convexHull = new PointSet(convexHullJM(left_pointsSet.points));
+  right_convexHull = new PointSet(convexHullJM(right_pointsSet.points));
 }
 
 async function step() {
@@ -107,14 +93,7 @@ async function step() {
   }
 }
 
-function computeCHs(){
-  let left_convexHullArr = convexHullJM(left_pointsSet.points);
-  left_convexHull = new PointSet(left_convexHullArr);
-  console.log(left_convexHull)
-  let right_convexHullArr = convexHullJM(right_pointsSet.points);
-  right_convexHull = new PointSet(right_convexHullArr);
-  console.log(right_convexHull);
-}
+
 
 function drawCHs(){
   left_convexHull.drawLinesBetweenPoints(true,"green");
@@ -127,8 +106,8 @@ function drawCHs(){
 function drawMiddleLine(){
   push();
   stroke('red');
-  strokeWeight(3);
-  line(half_point, WINDOW_BORDER, half_point, CUSTOM_HEIGHT - WINDOW_BORDER);
+  strokeWeight(2);
+  line(MIDDLE_WIDTH, WINDOW_BORDER, MIDDLE_WIDTH, CUSTOM_HEIGHT - WINDOW_BORDER);
   pop();
 }
 

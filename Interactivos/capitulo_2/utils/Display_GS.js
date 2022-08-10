@@ -22,23 +22,20 @@ let description;
 function setup() {
   CUSTOM_WIDTH = windowWidth - 10;
   CUSTOM_HEIGHT = windowHeight - 230;
+  createCanvas(CUSTOM_WIDTH, CUSTOM_HEIGHT);
+  strokeWeight(POINT_SIZE);
+  initializeCorners();
+  
   description = createElement('h3', 'Para iniciar la visualización presione el botón iniciar.');
   inputDescription = createElement('h4', 'S: ');
   outputDescription = createElement('h4', 'conv(S): ');
-  createCanvas(CUSTOM_WIDTH, CUSTOM_HEIGHT);
-  strokeWeight(POINT_SIZE);
   initializeButton();
 }
 
-function initializePoints() {
-  startingP = createVector(WINDOW_BORDER, WINDOW_BORDER);
-  endingP = createVector(
-    CUSTOM_WIDTH - WINDOW_BORDER,
-    CUSTOM_HEIGHT - WINDOW_BORDER
-  );
-  pointsSet = new PointSet(getRandomPointsInArea(num_of_points, startingP, endingP));
-  description.html("Generamos un conjunto de puntos aleatorio.");
-  button.html("Siguiente");
+function initializeButton() {
+  button = createButton("Iniciar");
+  button.position(CUSTOM_WIDTH - 100, CUSTOM_HEIGHT - 25);
+  button.mousePressed(step);
 }
 
 function addLowestPoint() {
@@ -51,20 +48,15 @@ function sortPoints(){
   let pointsSortedArr = Array.from(pointsSet.points);
   sortCounterClockWise(pointsSortedArr,lowestPoint);
   pointsSorted = new PointSet(pointsSortedArr)
-  console.log(pointsSorted);
   description.html(`Ordenamos los puntos en contra de las manecillas del reloj, con respecto al punto inferior (P${lowestPoint.z}).`);
-}
-
-function initializeButton() {
-  button = createButton("Iniciar");
-  button.position(CUSTOM_WIDTH - 100, CUSTOM_HEIGHT - 25);
-  button.mousePressed(step);
 }
 
 async function step() {
   // Initialize points set
   if (pointsSet.size() == 0) {
-    initializePoints();
+    pointsSet = new PointSet(getRandomPointsInArea(num_of_points, UP_LEFT_CORNER, DOWN_RIGHT_CORNER));
+    description.html("Generamos un conjunto de puntos aleatorio.");
+    button.html("Siguiente");
   }
   // Steps of the Graham scan algorithm
   else if (!completed) {

@@ -5,7 +5,7 @@ class PointSet {
     this.points = points;
   }
 
-  // Array related funtions
+  // Array related functions
 
   /**
    * Removes the first element from the points array and returns it.
@@ -83,6 +83,26 @@ class PointSet {
       }
     }
   }
+
+  /**
+   * Draws all the PointSet points on the screen,
+   * with a line of an specific color, surrounding the points.
+   * If the coordinate z is greater than 0, it will be considered
+   * as the ID i of the point, and it will be displayed on the
+   * center of the point as Pi.
+   * @param {Color} color - Color of the points to be drawn.
+   */
+  drawPointsNoId(color, point_size) {
+    noStroke();
+    for (let i = 0; i < this.points.length; i++) {
+      push();
+      fill(255);
+      stroke(color);
+      strokeWeight(3);
+      circle(this.points[i].x, this.points[i].y, point_size);
+      pop();
+    }
+  }
   /**
    * Given an origin point, draw a line from origin point
    * to all points in PointSet.
@@ -92,7 +112,7 @@ class PointSet {
    * to be drawn.
    */
   drawLinesFromPoint(origin, color = "red") {
-    strokeWeight(2);
+    strokeWeight(3);
     stroke(color);
     for (let point of this.points) {
       line(origin.x, origin.y, point.x, point.y);
@@ -111,8 +131,8 @@ class PointSet {
    * point in the array to the first point in the array,
    * closing the cycle.
    */
-  drawArrowsBetweenPoints(isClosed, color) {
-    this.#drawFigureBetweenPoints(isClosed, color, "arrow");
+  drawArrowsBetweenPoints(isClosed, color, weight) {
+    this.#drawFigureBetweenPoints(isClosed, color, "arrow", weight);
   }
 
   /**
@@ -127,13 +147,18 @@ class PointSet {
    * point in the array to the first point in the array,
    * closing the cycle.
    */
-  drawLinesBetweenPoints(isClosed, color) {
-    this.#drawFigureBetweenPoints(isClosed, color, "line");
+  drawLinesBetweenPoints(isClosed, color, weight) {
+    this.#drawFigureBetweenPoints(isClosed, color, "line", weight);
   }
 
-  #drawFigureBetweenPoints(isClosed, color, figure) {
+  #drawFigureBetweenPoints(isClosed, color, figure,weight) {
     let size = this.points.length;
-    strokeWeight(LINE_SIZE);
+    if (weight){
+      strokeWeight(weight);  
+    }
+    else{
+      strokeWeight(LINE_SIZE);
+    }
     stroke(color);
     let last = this.points.length;
     if (!isClosed) {

@@ -1,4 +1,4 @@
-let points = []
+let pointSet = new PointSet([])
 let touched = false
 let selectedPoint = -1
 
@@ -17,15 +17,15 @@ function initializePoints(num_of_points) {
     CUSTOM_WIDTH - WINDOW_BORDER,
     CUSTOM_HEIGHT - WINDOW_BORDER
   );
-  points = getRandomPointsInArea(num_of_points, startingP, endingP);
+  pointSet = new PointSet(getRandomPointsInArea(num_of_points, startingP, endingP));
 }
 
 function touchMoved() {
   touched = true
-  for(i = 0; i < points.length; i++){
+  for(i = 0; i < pointSet.points.length; i++){
     mouseVector = createVector(mouseX,mouseY)
     if (touched && selectedPoint == -1) {
-      if(distance(points[i],mouseVector) < POINT_SIZE/2){
+      if(distance(pointSet.points[i],mouseVector) < POINT_SIZE/2){
         selectedPoint = i
         return
       }
@@ -39,8 +39,8 @@ function touchEnded() {
 }
 
 function draw() {
-  let convexHull = convexHullJM(points)
+  let convexHull = new PointSet(convexHullJM(pointSet.points));
   background(0);
-  drawLines(convexHull,'green');
-  drawPointsWithSelection(points, selectedPoint)
+  convexHull.drawLinesBetweenPoints(true,'green');
+  pointSet.drawPointsWithSelection(selectedPoint);
 }

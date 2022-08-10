@@ -24,29 +24,6 @@ function drawArrow(start, end, myColor) {
 }
 
 /**
- * Given a list of points draw all the points on the screen
- * and change the position and color of a selected
- * point.
- * @param {Array} points - List of vectors representing
- * the points to draw.
- * @param {Point} selectedPoint - Vector representing
- * the selected point to move.
- */
-function drawPointsWithSelection(points, selectedPoint, pointsColor=256, selectedColor="red") {
-    strokeWeight(POINT_SIZE);
-    for (i = 0; i < points.length; i++) {
-        if (selectedPoint == i) {
-            stroke("red");
-            points[i].x = mouseX;
-            points[i].y = mouseY;
-        } else {
-            stroke(256);
-        }
-        point(points[i].x, points[i].y);
-    }
-}
-
-/**
  * Given a sorted list of points, add a label with the 
  * position to each point.
  * @param {Array} points - Sorted list of points.

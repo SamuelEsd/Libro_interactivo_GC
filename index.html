@@ -913,7 +913,7 @@
           p_0, p_1, p_2,\dots, p_{n}$ en el plano,
           calcular una lista que contenga a todos los
           puntos de $S$ que son vertices del $conv(S)$
-          listados en orden de las manecillas del
+          listados en orden contrario a las manecillas del
           reloj.
         </p>
       </div>
@@ -926,12 +926,12 @@
         La entrada y salida serían las siguientes:
         \[
         Entrada = conjunto \ de \ puntos \ completo: \\
-        p_1, p_2, p_3, p_4, p_5, p_6, p_7, p_8
+        p_1, p_2, p_3, p_4, p_5, p_6, p_7, p_8, p_9
         \]
         \[
         Salida = conjunto \ de \ puntos \\
         que \ representan \ al \ cierre \ convexo: \\
-        p_2, p_9, p_4, p_5, p_8
+        p_2, p_8, p_5, p_4, p_9
         \]
         </p>
       </div>
@@ -1427,7 +1427,7 @@
           Lo único que necesitamos es encontrar dos
           lineas tangentes a ambos cierres convexos,
           una superior y una inferior, un ejemplo de tales lineas
-          pueden ser apreciado en la <ref ref_id="lineas_tangentes"></ref>
+          puede ser apreciado en la <ref ref_id="lineas_tangentes"></ref>
         </p>
       </div>
 
@@ -1495,9 +1495,9 @@
 
       <div class="page">
         <p>
-          Haciendo uso de este algoritmo esto en cuenta la
+          Haciendo uso de este algoritmo la
           complejidad para encontrar las líneas
-          tangentes superior e inferior pasaa $O(n^2)$, sin
+          tangentes superior e inferior pasa a $O(n^2)$, sin
           embargo, esto aún no es optimo.
         </p>
         <p>
@@ -1538,8 +1538,8 @@
           contrario a las manecillas del reloj.
           <br>
           Este descenso comienza sustituyendo el punto
-          actual $pd_i$ en el conjunto convexo derecho,
-          por el punto anterior a él $pd_{i-1}$ ( el
+          actual $pd_j$ en el conjunto convexo derecho,
+          por el punto anterior a él $pd_{j-1}$ ( el
           siguiente en sentido de las manecillas del
           reloj), siempre y cuando la linea nueva $T$
           resultante esté mas abajo que la anterior
@@ -1554,13 +1554,13 @@
 
       <div class="page">
         <p>
-          Una vez hayamos "descendido" o más posible
+          Una vez hayamos "descendido" lo más posible
           sobre el punto del cierre convexo derecho,
           hacemos lo equivalente con el punto del lado
-          izquierdo $pi_i$, pero en lugar de cambiar
-          con el punto anterior $pi_{i-1}$, cambiamos
+          izquierdo $pi_k$, pero en lugar de cambiar
+          con el punto anterior $pi_{k-1}$, cambiamos
           el punto actual por el siguiente en el cierre
-          convexo $pi_{i+1}$ (el siguiente en sentido
+          convexo $pi_{k+1}$ (el siguiente en sentido
           contrario a las manecillas del reloj), y
           seguimos cambiando por el siguiente punto
           mientras la $T$ resultante se encuentre más
@@ -1615,6 +1615,12 @@
       <div class="page">
         <h4><b><i>Algoritmo</i></b></h4>
         <p>
+          Dado nuestro conjunto $S$ de puntos,
+          obtengamos el cierre convexo $conv(S)$
+          representado por los puntos del polígono que
+          forman al cierre convexo $conv(S)$.
+        </p>
+        <p>
           Ahora que conocemos la forma de unir dos
           cierres convexos de forma eficiente, podemos
           describir el algoritmo completo, el cual
@@ -1622,6 +1628,12 @@
         </p>
 
         <h5><b><i>Paso 1. Ordenar los puntos por sus coordenadas en x.</i></b></h5>
+        <p>
+          Para comenzar ordenaremos todos los puntos en
+          $S$ por su coordenada en $x$ de forma
+          ascendente.
+          Lo cual podemos realizar con una complejidad de $O(nlog)$ en tiempo.
+        </p>
         <h5><b><i>Paso 2. Dividir los puntos en dos
               conjuntos I y D con la primera mitad de puntos
               y la segunda mitad de puntos

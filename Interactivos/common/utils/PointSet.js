@@ -105,27 +105,31 @@ class PointSet {
   }
 
   /**
- * Given a list of points draw all the points on the screen
- * and change the position and color of a selected
- * point.
- * @param {Array} points - List of vectors representing
- * the points to draw.
- * @param {Point} selectedPoint - Vector representing
- * the selected point to move.
- */
-drawPointsWithSelection(selectedPoint, pointsColor=256, selectedColor="red") {
-  strokeWeight(POINT_SIZE);
-  for (i = 0; i < points.length; i++) {
+   * Given a list of points draw all the points on the screen
+   * and change the position and color of a selected
+   * point.
+   * @param {Array} points - List of vectors representing
+   * the points to draw.
+   * @param {Point} selectedPoint - Vector representing
+   * the selected point to move.
+   */
+  drawPointsWithSelection(
+    selectedPoint,
+    pointsColor = 256,
+    selectedColor = "red"
+  ) {
+    strokeWeight(POINT_SIZE);
+    for (i = 0; i < points.length; i++) {
       if (selectedPoint == i) {
-          stroke("red");
-          this.points[i].x = mouseX;
-          this.points[i].y = mouseY;
+        stroke("red");
+        this.points[i].x = mouseX;
+        this.points[i].y = mouseY;
       } else {
-          stroke(256);
+        stroke(256);
       }
       point(this.points[i].x, this.points[i].y);
+    }
   }
-}
   /**
    * Given an origin point, draw a line from origin point
    * to all points in PointSet.
@@ -154,7 +158,7 @@ drawPointsWithSelection(selectedPoint, pointsColor=256, selectedColor="red") {
    * point in the array to the first point in the array,
    * closing the cycle.
    */
-  drawArrowsBetweenPoints(isClosed, color = 'green', weight = LINE_SIZE) {
+  drawArrowsBetweenPoints(isClosed, color = "green", weight = LINE_SIZE) {
     this.#drawFigureBetweenPoints(isClosed, color, "arrow", weight);
   }
 
@@ -170,11 +174,11 @@ drawPointsWithSelection(selectedPoint, pointsColor=256, selectedColor="red") {
    * point in the array to the first point in the array,
    * closing the cycle.
    */
-  drawLinesBetweenPoints(isClosed, color = 'green', weight = LINE_SIZE) {
+  drawLinesBetweenPoints(isClosed, color = "green", weight = LINE_SIZE) {
     this.#drawFigureBetweenPoints(isClosed, color, "line", weight);
   }
 
-  #drawFigureBetweenPoints(isClosed, color, figure,weight) {
+  #drawFigureBetweenPoints(isClosed, color, figure, weight) {
     let size = this.points.length;
     strokeWeight(weight);
     stroke(color);
@@ -206,7 +210,7 @@ drawPointsWithSelection(selectedPoint, pointsColor=256, selectedColor="red") {
 
   /**
    * Returns the lowest point in the PointSet.
-   * @return {Point} the lowest point in the PointSet.
+   * @return {Vector} the lowest point in the PointSet.
    */
   getLowestPoint() {
     let minYPoint = this.points[0];
@@ -219,5 +223,43 @@ drawPointsWithSelection(selectedPoint, pointsColor=256, selectedColor="red") {
       }
     }
     return minYPoint;
+  }
+
+  /**
+   * Returns the leftmost point in the PointSet.
+   * @return {Vector} the leftmost point in the PointSet.
+   */
+  getLeftmostPointIndex() {
+    let minXPoint = 0;
+    for (let i = 0; i < this.size(); i++) {
+      let point = this.points[i];
+      if (
+        point.x < this.points[minXPoint].x ||
+        (point.x == this.points[minXPoint].x &&
+          point.y > this.points[minXPoint].y)
+      ) {
+        minXPoint = i;
+      }
+    }
+    return minXPoint;
+  }
+
+  /**
+   * Returns the rightmost point in the PointSet.
+   * @return {Vector} the rightmost point in the PointSet.
+   */
+  getRightmostPointIndex() {
+    let maxXPoint = 0;
+    for (let i = 0; i < this.size(); i++) {
+      let point = this.points[i];
+      if (
+        point.x > this.points[maxXPoint].x ||
+        (point.x == this.points[maxXPoint].x &&
+          point.y > this.points[maxXPoint].y)
+      ) {
+        maxXPoint = i;
+      }
+    }
+    return maxXPoint;
   }
 }

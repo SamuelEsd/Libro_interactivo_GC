@@ -12,12 +12,15 @@ let description;
 
 function setup() {
   CUSTOM_WIDTH = windowWidth - 10;
-  CUSTOM_HEIGHT = windowHeight - 230;
+  CUSTOM_HEIGHT = windowHeight - 260;
   initializeCorners();
 
-  description = createElement('h3', 'Para iniciar la visualización presione el botón iniciar.');
-  inputDescription = createElement('h4', 'S: ');
-  outputDescription = createElement('h4', 'conv(S): ');
+  description = createElement(
+    "h3",
+    "Para iniciar la visualización presione el botón iniciar."
+  );
+  inputDescription = createElement("h4", "S: ");
+  outputDescription = createElement("h4", "conv(S): ");
   createCanvas(CUSTOM_WIDTH, CUSTOM_HEIGHT);
   strokeWeight(POINT_SIZE);
   initializeButton();
@@ -32,8 +35,11 @@ function initializeButton() {
 async function step() {
   // Initialize points set
   if (pointsSet.size() === 0) {
-    pointsSet = new PointSet(getRandomPointsInArea(num_of_points, UP_LEFT_CORNER, DOWN_RIGHT_CORNER));
+    pointsSet = new PointSet(
+      getRandomPointsInArea(num_of_points, UP_LEFT_CORNER, DOWN_RIGHT_CORNER)
+    );
     description.html("Generamos un conjunto de puntos aleatorio.");
+    button.html("Siguiente");
   }
   // Steps of the Graham scan algorithm
   else if (!completed) {
@@ -47,10 +53,10 @@ async function step() {
       prevVertex = convexHull.points[convexHull.size() - 1];
       let rightmostVertex = null;
       for (let point of pointsSet.points) {
-        currPoint = point
-        button.attribute('disabled', '');
+        currPoint = point;
+        button.attribute("disabled", "");
         await sleep(50);
-        button.removeAttribute('disabled');
+        button.removeAttribute("disabled");
         if (point == prevVertex) continue;
         // Take any point different to last vertex on hull
         // as rightmost
@@ -76,6 +82,10 @@ async function step() {
         completed = true;
         currPoint = null;
         prevVertex = null;
+        description.html(
+          "Una vez que alcanzamos el punto de partida, hemos encontrado el cierre convexo."
+        );
+        button.html("Reiniciar.");
       }
       // It not, add rightmost vertex to hull and take it as the new
       // vertex to compare with
@@ -84,6 +94,9 @@ async function step() {
         prevVertex = rightmostVertex;
         currPoint = null;
         prevVertex = null;
+        description.html(
+          "Comparamos el ultimo punto agregado al cierre convexo con todos los puntos y tomamos el de menor angulo con respecto a las manecillas del reloj."
+        );
       }
     }
   }
@@ -92,11 +105,13 @@ async function step() {
     completed = false;
     convexHull = new PointSet([]);
     pointsSet = new PointSet([]);
-    description.html('Para iniciar la visualización presione el botón iniciar.');
+    description.html(
+      "Para iniciar la visualización presione el botón iniciar."
+    );
   }
-  
-  inputDescription.html('S: ' + pointsSet);
-  outputDescription.html('conv(S): ' + convexHull);
+
+  inputDescription.html("S: " + pointsSet);
+  outputDescription.html("conv(S): " + convexHull);
 }
 
 function sleep(millisecondsDuration) {
@@ -108,13 +123,13 @@ function sleep(millisecondsDuration) {
 function draw() {
   background(230);
   // Convex hull arrows
-  convexHull.drawArrowsBetweenPoints(completed,"green");
+  convexHull.drawArrowsBetweenPoints(completed, "green");
   if (pointsSet.size() != 0) {
     pointsSet.drawPoints(256);
   }
 
   convexHull.drawPoints("blue");
-  if( currPoint != null){
+  if (currPoint != null) {
     drawArrow(prevVertex, currPoint, "red");
   }
 }

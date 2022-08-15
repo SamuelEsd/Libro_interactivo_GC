@@ -27,7 +27,7 @@ let description;
 
 function setup() {
   CUSTOM_WIDTH = windowWidth - 30;
-  CUSTOM_HEIGHT = windowHeight - 200;
+  CUSTOM_HEIGHT = windowHeight - 180;
   createCanvas(CUSTOM_WIDTH, CUSTOM_HEIGHT);
   strokeWeight(POINT_SIZE);
   initializeCorners();

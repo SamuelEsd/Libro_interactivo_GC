@@ -1623,23 +1623,117 @@
         <p>
           Ahora que conocemos la forma de unir dos
           cierres convexos de forma eficiente, podemos
-          describir el algoritmo completo, el cual
-          podemos dividir en lo siguientes pasos.
+          describir el algoritmo completo, en lo siguientes pasos
+          que resultan suficientemente descriptivos.
         </p>
 
         <h5><b><i>Paso 1. Ordenar los puntos por sus coordenadas en x.</i></b></h5>
-        <p>
-          Para comenzar ordenaremos todos los puntos en
-          $S$ por su coordenada en $x$ de forma
-          ascendente.
-          Lo cual podemos realizar con una complejidad de $O(nlog)$ en tiempo.
-        </p>
-        <h5><b><i>Paso 2. Dividir los puntos en dos
+        <br>
+        <h5><b><i>
+          Paso 2. Dividir los puntos en dos
               conjuntos I y D con la primera mitad de puntos
               y la segunda mitad de puntos
-              respectivamente.</i></b></h5>
-        <h5><b><i>Paso 3. Calcular recursivamente los cierres convexos de I y D.</i></b></h5>
+              respectivamente.
+        </i></b></h5>
+        <br>
+        <h5><b><i>Paso 3. Calcular recursivamente los cierres convexos de A y B.</i></b></h5>
+        <br>
         <h5><b><i>Paso 4. Unir $conv(I)$ y $conv(D)$.</i></b></h5>
+      
+      </div>
+
+      <div class="page">
+        <h4><b><i>Complejidad</i></b></h4>
+        <p>
+          Procederemos a hacer un análisis simple la
+          complejidad del algoritmo, sin embargo, en
+          esta ocasión dividiremos el algoritmo en las
+          partes, <span class="bolded">Dividir</span>,
+          <span class="bolded">Vencer</span> y <span
+          class="bolded">Combinar</span>, pues el
+          presente algoritmo es recursivo, y de esta
+          manera describiremos la complejidad usando la 
+          <a
+          href="https://es.wikipedia.org/wiki/Relación_de_recurrencia#:~:text=La%20conexión%20con">
+          relación de recurrencia
+          </a>.
+        </p>
+        <p>
+          Antes de empezar dejemos en claro la notación
+          para describir la recurrencia, tomaremos a
+          $T(n)$ como el tiempo de ejecutar el
+          algoritmo para encontrar el cierre convexo de
+          n puntos (los cuales asumimos están ordenados
+          de forma ascendente respecto al eje x), a
+          $D(n)$ como el tiempo que toma dividir el
+          problema con n puntos en los subproblemas
+          necesarios, y a $C(n)$ como el tiempo que
+          toma combinar las soluciones de los
+          subproblemas para formar la solución del
+          problema original.
+        </p>
+        <p>
+
+        </p>
+        <h5><b><i>Dividir.</i></b></h5>
+        <p>
+          El paso de dividir solo requiere encontrar 
+          el punto medio de los puntos ya ordenados, 
+          lo cual toma tiempo constante. Por lo tanto,
+          podemos decir que que complejidad de este paso
+          es constante, i.e. $D(n)$ = $O(1)$.
+        </p>
+        <h5><b><i>Vencer.</i></b></h5>
+        <p>
+          Sabemos que en el paso de dividir obtuvimos 
+          unicamente dos subproblemas de tamaño $n/2$, 
+          pues dividimos.
+          Entonces, podemos describir la complejidad de 
+          resolver los subproblemas (vencer), como
+          $2T(2/n)$ pues son dos subproblemas cada uno de tamaño 
+          $n/2$.
+        </p>
+      </div>
+      <div class="page">
+        <h5><b><i>Combinar.</i></b></h5>
+        <p>
+          Gracias al algoritmo ya mencionado para unir
+          dos cierres convexos en tiempo $O(n)$ donde
+          $n$ es la suma de los tamaños de los cierres
+          que combinaremos, podemos decir que que
+          complejidad de este paso es lineal, i.e.
+          $C(n)$ = $O(n)$.
+        </p>
+        <br>
+        <p>
+          Uniendo estas complejidades podemos describir
+          a $T(n)$ como:
+        </p>
+        $T(n) = O(1) + 2T(n/n) + O(n)$
+        <p>
+          Sin embargo, ya que el termino constante
+          resulta no tener mucho pero especialmente al
+          incrementar el tamaño de n, podemos
+          reescribir a $T(n)$ como :
+        </p>
+        $T(n) = 2T(n/n) + O(n)$
+        <p>
+          La cual es una relación de recurrencia clásica 
+          en las ciencias de la computación cuya solución es
+          <a href="https://www.cs.cornell.edu/courses/cs3110/2014sp/recitations/21/solving-recurrences.html">
+            $T(n) = O(nlogn)$
+          </a>.
+          <br>
+          Por lo tanto podemos concluir que la
+          complejidad de algoritmo para encontrar el
+          cierre convexo de n puntos usando la técnica
+          de divide y vencerás es de $O(nlogn)$, pues
+          nuestro preprocesamiento de los puntos al
+          ordenarlos los toma $O(nlogn)$ y usando estos
+          puntos ordenados usar la técnica de dividir y
+          vencerás también toma $O(nlogn)$.
+        </p>
+
       </div>
 
       <div class="page">

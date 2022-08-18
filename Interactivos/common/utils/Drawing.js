@@ -24,6 +24,33 @@ function drawArrow(start, end, myColor) {
 }
 
 /**
+ * Draw an arrow for a point A to point B.
+ * @param {Vector} start - Starting point of the
+ * arrow.
+ * @param {Vector} end - Starting point of the
+ * arrow.
+ * @param {Color} color - Color of the arrow.
+ */
+ function drawDirectedLine(start, end, myColor) {
+    push();
+    stroke(myColor);
+    strokeWeight(LINE_SIZE);
+    fill(myColor);
+    let resultantVect = createVector((end.x - start.x), (end.y - start.y));
+    translate(start.x, start.y);
+    push();
+    drawingContext.setLineDash([5, 10]);
+    line(0, 0, resultantVect.x*3, resultantVect.y*3);
+    pop();
+    rotate(resultantVect.heading());
+    // then draw a triangle
+    let arrowSize = LINE_SIZE*2;
+    translate(resultantVect.mag() - (arrowSize + POINT_SIZE / 2), 0);
+    triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
+    pop();
+}
+
+/**
  * Given a sorted list of points, add a label with the 
  * position to each point.
  * @param {Array} points - Sorted list of points.

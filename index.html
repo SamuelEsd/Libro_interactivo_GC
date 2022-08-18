@@ -753,7 +753,7 @@
           triangulo consiste de todas las combinaciones
           convexas de los 3 puntos (no colineales) que
           lo definen. Lo cual puede ser visto en la
-          siguiente <ref ref_id="combinacion-convexa"></ref>, en la
+          siguiente <ref ref_id="comb-convexa"></ref>, en la
           cual, al presionar el botón en la parte
           inferior, podemos generar una combinación
           convexa aleatoria a partir de los tres puntos
@@ -766,7 +766,7 @@
           una $\alpha_i$ aleatoria, de tal manera que
           la suma de las $\alpha_i$s suman 1.
         </p>
-        <figure id="combinacion-convexa">
+        <figure id="comb-convexa">
           <div class="interactive" width="500" height="295" window-size="false"
             src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_conjunto_convexo.html"></div>
           <figcaption>Ejemplo de una combinación convexa generada por los puntos que definen un triangulo.</figcaption>
@@ -779,7 +779,7 @@
           puntos, $p_1 = (1,5)$, $p_2 = (8,1)$ y $p_3 =
           (8,8)$, $p_4 = (4,6)$ y $p_5 = (7,6)$. <br>
           En la
-          <ref ref_id="combinacion-convexa-2"></ref>
+          <ref ref_id="comb-convexa-2"></ref>
           podemos dar valores entre cero y uno a cada
           $\alpha_i$ (cada $\alpha_i$ tiene al mismo
           color del punto al cual multiplica), y en el
@@ -790,7 +790,7 @@
           y en la definición.
 
         </p>
-        <figure id="combinacion-convexa-2">
+        <figure id="comb-convexa-2">
           <div class="interactive" width="600" height="365" window-size="false"
             src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_combinacion_convexa_2.html"></div>
           <figcaption>Ejemplo de combinación convexa generada por 5 puntos.</figcaption>
@@ -800,12 +800,12 @@
           notar como todas las posibles combinaciones
           convexas generadas del conjunto de puntos,
           resultan estar contenidas en un area convexa,
-          la cual en las figuras, <pageref ref_id="combinacion-convexa">
-            <ref ref_id="combinacion-convexa"></ref>
+          la cual en las figuras, <pageref ref_id="comb-convexa">
+            <ref ref_id="comb-convexa"></ref>
           </pageref>
           y
-          <pageref ref_id="combinacion-convexa-2">
-            <ref ref_id="combinacion-convexa-2"></ref>
+          <pageref ref_id="comb-convexa-2">
+            <ref ref_id="comb-convexa-2"></ref>
           </pageref>
           se muestra de color morado.
         </p>
@@ -992,9 +992,9 @@
         <p>
           Dado nuestro conjunto $S$ de puntos,
           obtengamos el cierre convexo $conv(S)$
-          representado por
-          los puntos del polígono que forman al cierre
-          convexo $conv(S)$.
+          representado por los puntos que son vertices
+          del polígono que forma al cierre convexo
+          $conv(S)$.
         </p>
         <p>
           Dividamos al algoritmo en pasos, para una
@@ -1045,34 +1045,55 @@
       <div class="page">
         <h5><span class="bolded">Paso 3. Recorrer los puntos ordenados y agregar puntos al $conv(S)$.</span></h5>
         <p>
-          A partir de aquí, recorreremos el conjunto de
-          puntos ordenados, tomando tripletas de puntos
-          consecutivos en orden contrario a las
-          manecillas del reloj.
+          A partir de aquí, iremos procesando cada
+          punto en el orden que resultó del paso
+          anterior, al cual llamaremos $p_i$.
+        </p>
+        <p>
+          Para procesar al siguiente punto $p_i$
+          haremos uso de los últimos dos puntos
+          agregados a $conv(S)$. 
           <br>
-          Esta tripleta la formaremos con los últimos
-          dos puntos dentro del conv(S) que llamaremos
-          $p_k$ y $p_{k-1}$ y el punto siguiente en el
-          conjunto de puntos ordenados, que llamaremos
-          $p_{k+1}$.
+          Podemos apreciar que iniciamos esta parte del
+          algoritmo con solo un punto en $conv(S)$, por
+          lo que en este caso, agregaremos al siguiente
+          punto a procesar $p_i$ automáticamente.
+        </p>
+        <p>
+          Una vez que es posible tomar los últimos dos
+          puntos en $conv(S)$, formaremos una tripleta
+          con los últimos dos puntos dentro del conv(S)
+          que llamaremos $p_k$ y $p_{k-1}$ y el
+          siguiente punto a procesar $p_i$.
           <br>
-          Tomando esta tripleta $p_{k-1}p_{k}p_{k+1}$
-          verificaremos si el angulo interior que
-          forman forma es concavo (que mide más de
-          $\displaystyle \pi \,$ rad y menos de $
-          {\displaystyle 2\pi \,}$ rad.) o no.
+          Tomando esta tripleta $ ( p_{k-1} , p_{k} ,
+          p_{i} ) $, realizaremos una comprobación de
+          si la secuencia de los tres puntos en esta
+          tripleta realiza una vuelta izquierda, una
+          vuelta derecha, o si los 3 puntos son
+          colineales.
           <br>
-          Si el
-          angulo es concavo diremos que se da una
-          vuelta derecha, si es convexo diremos que se
-          da una vuelta izquierda.
-          <bibref ref_id="CG_in_C">Pag. 42</bibref>
-          <bibref ref_id="CG_an_Introduction">Pag. 106</bibref>
+          Para verificar si la secuencia de los 3
+          puntos dan una vuelta izquierda, derecha o
+          son colineares, comprobaremos si el tercer
+          punto de la secuencia está a la izquierda,
+          derecha o en la <span class="bolded">línea
+          dirigida</span> formada por los primeros dos
+          puntos.
+          <br>
+          Diremos que una <span class="bolded">línea
+          dirigida</span> es formada por una secuencia
+          de dos números, la linea es la formada por
+          ambos números y la dirección va del primer
+          numero al segundo numero.
+          <bibref ref_id="CG_in_C">Pag. 29</bibref>
         </p>
         <p>
           La siguiente Figura muestra un ejemplo de
           la vuelta izquierda y la vuelta derecha.
         </p>
+      </div>
+      <div class="page">
         <figure id="ordenar_puntos">
           <!-- <div class="interactive" width="600"
           height="310" window-size="false"
@@ -1080,37 +1101,29 @@
           <img src="./images/capitulo_02/Ejemplo_vueltas.png" width="80%" height="60%">
           <figcaption>Ejemplo de la definición de vuelta derecha e izquierda.</figcaption>
         </figure>
-      </div>
-      <div class="page">
         <p>
           Una vez sabiendo si la tripleta de puntos dan
           una vuelta derecha o izquierda, actuamos de
           la siguiente manera.
         </p>
         <p>
-          Si la tripleta $p_{k-1}p_{k}p_{k+1}$ forma
-          una vuelta izquierda, agregamos al punto
-          $p_{k+1}$ a nuestro conjunto de salida
-          $conv(S)$ y si aún hay puntos en el conjunto
-          ordenado de puntos, repetimos el proceso con
-          la tripleta $p_{k}p_{k+1}p_{k+2}$.
+          Si la tripleta $ ( p_{k-1} , p_{k} , p_{i} )
+          $ forma una vuelta izquierda, agregamos al
+          punto $p_{i}$ a nuestro conjunto de salida
+          $conv(S)$.
         </p>
         <p>
-          Si la tripleta $p_{k-1}p_{k}p_{k+1}$ forma
-          una vuelta derecha, eliminamos al ultimo
-          punto de nuestro conjunto de salida
-          $conv(S)$, esto es al punto $p_{k}$ y
-          volvemos a revisar que tipo de vuelta se
-          forma con los últimos puntos de nuestro
-          conjunto, esto sería con
-          $p_{k-2}p_{k-1}p_{k+1}$.
-
-
-          Ya que no es posible formar una tripleta el
-          primer punto del conjunto ordenado, a este
-          simplemente lo agregaremos sin más.
+          Si la tripleta $ ( p_{k-1} , p_{k} , p_{i} )
+          $ forma una vuelta derecha o los puntos son
+          colineales, eliminamos al ultimo punto de
+          nuestro conjunto de salida $conv(S)$, esto es
+          al punto $p_{k}$.
         </p>
-        CODIGO?
+        <p>
+          Repetiremos este proceso hasta que hayamos
+          procesando todos los puntos que ordenamos al
+          inicio.
+        </p>
         <p>
           A continuación, en la <ref ref_id="graham_scan_algorithm"></ref> podemos ver un ejemplo de la
           ejecución del algoritmo de graham paso a paso
@@ -1617,8 +1630,9 @@
         <p>
           Dado nuestro conjunto $S$ de puntos,
           obtengamos el cierre convexo $conv(S)$
-          representado por los puntos del polígono que
-          forman al cierre convexo $conv(S)$.
+          representado por los puntos que son vertices
+          del polígono que forma al cierre convexo
+          $conv(S)$.
         </p>
         <p>
           Ahora que conocemos la forma de unir dos
@@ -1761,7 +1775,7 @@
           estado estudiando, resulta bastante util dar
           una mejor descripción del problema, asumiendo
           para simplicidad, que no hay tres puntos que
-          sean colineares.
+          sean colineales.
         </p>
         <h4><span class="bolded">Descripción del problema.</span></h4>
         <p>
@@ -1776,82 +1790,31 @@
       </div>
 
       <div class="page">
+        <h4><span class="bolded">Algoritmo</span></h4>
+        <p>
+          Para comenzar el algoritmo podemos tomar los
+          primeros 3 puntos en la secuencia (esto
+          haciendo uso de que  no hay 3 puntos no son
+          colineales), pues sabemos que este será nuestro
+          primer cierre convexo que formaremos.
+          <br>
+          Una vez teniendo un cierre convexo, el agregar un 
+          punto nos deja con dos posibles casos: cuando el 
+          nuevo punto $p_i$ que agregaremos, está contenido
+          en el cierre convexo (recordemos que esto es que el punto
+          esté en el area o el perímetro del polígono que representa al
+          cierre convexo) o no lo está. 
+        </p>
+
+      </div>
+
+      <div class="page">
         <h2 id="cap2_extensiones_variantes">Extensiones y variantes</h2>
       </div>
 
       <div class="page">
 
         <h2 id="cap2_cota_minima">Cota mínima</h2>
-        So far, we have described three algorithms for constructing the convex
-        hull, each superior to the previous in terms of time complexity,
-        both of which run in O(n log n) time. A natural
-        question to consider is whether we can do better.
-        It seems at least feasible that 0 (n) might be possible. We show in
-        this section that this is in fact not possible: n log n is a "lower bound" on the complexity
-        of any algorithm that finds the hull.
-        The short answer is “no” (assuming a model of
-        computation based on binary comparisons).
-        We show in
-        this section that this is in fact not possible: n log n is a "lower bound" on the complexity
-        of any algorithm that finds the hull.
-
-        Researchers in computer science have found it fiendishly difficult to establish no
-        trivial lower bounds for problems. The difficulty is that the lower bound must hold
-        for any conceivable algorithm, and it is hard to capture all algorithms in a proof.
-        Nevertheless, this has been accomplished for a few key problems, notably sorting:
-        Q(n log n) is a lower bound for sorting n elements.
-        https://www.youtube.com/watch?v=eK6Ual_3ezA
-        Once a lower bound for one problem has been established, lower bounds for other problems can be proved via
-        "problem
-        reduction."
-        this is the typical approach to establishing a lower bound
-        on all algorithms that solve a particular problem: reduce the problem
-        to another whose lower bound had been previously established.
-
-        Suppose problem A is known to have some particular lower bound. One can view
-        this as knowing that problem A is "hard" to the degree exhibited by the lower bound.
-        So if A has a lower bound of n(n4 ), it is a rather hard problem. Now suppose problem
-        A can be reduced to problem B, in the sense that an algorithm for solving problem B
-        can be used to solve problem A (with little additional work). A has been reduced to B
-        in the sense that if we can solve B quickly, we can solve A quickly. This often leads
-        to a lower bound on B, since if we could solve B too quickly, the known lower bound
-        on A would be violated.
-
-        This is how we will establish a lower bound on constructing the hull: we will show that it
-        is possible to reduce the sorting problem to the convex hull problem in linear time. This implies that
-        any O(f(n))-time algorithm for the convex hull problem implies an O(n + f(n))-time algorithm for
-        sorting. Clearly, f(n) cannot be smaller than Ω(n log n) for otherwise we would obtain an immediate
-        contradiction to the lower bound on sorting.
-
-        The reduction works by projecting the points onto a convex curve. In particular, let X = {x1, . . . , xn}
-        be the n values that we wish to sort. Suppose we “lift” each of these points onto a parabola y = x^2
-        , by mapping x-i to the point p-i = (x_i, x^2_i).
-        Let P denote the resulting set of points (see Fig. 18(a)). Note
-        that all the points of P lie on its convex hull.
-
-        Next, compute the convex hull of P by whatever algorithm we like in O(f(n)) time, which we assume
-        to be given as a counter-clockwise cyclic enumeration of its vertices (see Fig. 18(b)). In O(n) time
-        we can find the leftmost vertex of this cyclic order, and then read out the rest of the points in O(n)
-        time (see Fig. 18(c)). Whenever we encounter some point pi
-        in this order, we output its x-coordinate.
-        Clearly, the points appear on the hull in left-to-right order, and therefore the final output is the sorted
-        order of X, as desired. Except for the f(n) time to compute the convex hull, all the other steps can
-        be performed in O(n) time. Thus, any super-linear lower bound on the sorting problem must apply to
-        the function f(n) as well.
-
-        This reduction leaves open two questions:
-        • What if we don’t require that the points be enumerated in cyclic order, just that they all be
-        identified? It remained an open problem for several years to determine if finding extreme
-        points was easier, but the work of several researchers finally established that O (n logn)
-        is a lower bound on this problem also. Solo nos quedaremos con esto,
-        no se ahondará más en la demostración, pero recomendamos a los lectores más
-        aventurados a saber más de esto a mirar See Preparata & Shamos (1985, pp. 101-3).
-
-        • What if the all the points of P do not lie on the convex hull? The above reduction only suggests
-        that the vertices of the hull need to sorted. This suggests that we might do better, if we know
-        that the output size is significantly smaller than n. An algorithm whose running time is expressed
-        as a function of both its input size and output size is called output sensitive. In this lecture we
-        will discuss two output sensitive convex hull algorithms.
 
 
         ¿Es este el mejor lugar para poner esta parte del temario?
@@ -1860,6 +1823,8 @@
 
       <div class="page">
         <h2 id="cap2_bib">Bibliografía</h2>
+        
+        <bibref ref_id="CG_an_Introduction">Pag. 106</bibref>
 
         <bibitem id="CG_in_C">
           O'Rourke, Joseph. <b>Computational Geometry In C.

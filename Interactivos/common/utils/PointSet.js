@@ -50,6 +50,13 @@ class PointSet {
     }
     return desc;
   }
+  
+  setIds() {
+    let i = 1;
+    for (let currPoint of this.points) {
+      currPoint.z = i++;
+    }
+  }
 
   // DRAWING related functions
 
@@ -70,7 +77,7 @@ class PointSet {
       strokeWeight(3);
       circle(this.points[i].x, this.points[i].y, POINT_SIZE);
       pop();
-      if (points[i].z > 0) {
+      if (this.points[i].z != null && this.points[i].z > 0) {
         push();
         textSize(POINT_SIZE / 2);
         textAlign(CENTER);

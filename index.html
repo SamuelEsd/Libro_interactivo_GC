@@ -1042,7 +1042,7 @@
           <figcaption>Ordenamos con respecto al punto interior.</figcaption>
         </figure>
       </div>
-      <div class="page">
+      <div class="page" id="graham_step_3">
         <h5><span class="bolded">Paso 3. Recorrer los puntos ordenados y agregar puntos al $conv(S)$.</span></h5>
         <p>
           A partir de aquí, iremos procesando cada
@@ -1779,13 +1779,13 @@
         </p>
         <h4><span class="bolded">Descripción del problema.</span></h4>
         <p>
-          Dado una secuencia de $n$ puntos $S =
-          p_0, p_1, p_2,\dots, p_{n}$ en el plano,
-          calcular su cierre convexo de tal forma
-          que después de procesar al punto $p_{i}$
-          obtengamos al cierre convexo del conjunto de puntos
-          $ \{ p_0, p_1, p_2,\dots, p_{i} \} \ $ esto es
-          $ \ conv( \{ p_0, p_1, p_2,\dots, p_{i} \} )$.
+          Dado una secuencia de $n$ puntos $S = p_0,
+          p_1, p_2,\dots, p_{n}$ en el plano, calcular
+          su cierre convexo de tal forma que después de
+          procesar al punto $p_{i}$ obtengamos al
+          cierre convexo del conjunto de puntos $ \{
+          p_0, p_1, p_2,\dots, p_{i} \} \ $ esto es 
+          $ \ conv( \{ p_0, p_1, p_2,\dots, p_{i} \} ) $.
         </p>
       </div>
 
@@ -1794,18 +1794,91 @@
         <p>
           Para comenzar el algoritmo podemos tomar los
           primeros 3 puntos en la secuencia (esto
-          haciendo uso de que  no hay 3 puntos no son
-          colineales), pues sabemos que este será nuestro
-          primer cierre convexo que formaremos.
+          haciendo uso de que  no hay 3 puntos que sean
+          colineales), pues sabemos que este será
+          nuestro primer cierre convexo que formaremos.
           <br>
-          Una vez teniendo un cierre convexo, el agregar un 
-          punto nos deja con dos posibles casos: cuando el 
-          nuevo punto $p_i$ que agregaremos, está contenido
-          en el cierre convexo (recordemos que esto es que el punto
-          esté en el area o el perímetro del polígono que representa al
-          cierre convexo) o no lo está. 
+          Una vez teniendo un cierre convexo, el
+          agregar un punto nos deja con dos posibles
+          casos: cuando el nuevo punto $p_i$ que
+          agregaremos, está contenido en el cierre
+          convexo (recordemos que esto es que el punto
+          esté en el area o el perímetro del polígono
+          que representa al cierre convexo) o no lo
+          está. 
         </p>
+        <h5><span class="bolded">$p_i$ está en el cierre convexo actual.</span></h5>
+        <p>
+          Si este es el caso, podemos simplemente
+          descartar a $p_i$.
+          <br>
+          ¿Cómo podemos comprobar que en efecto $p_i$
+          se encuentra en el cierre convexo actual?
+          <br>
+          Podemos usar el mismo procedimiento que
+          usamos en el  <pageref
+          ref_id="graham_step_3">paso 3 del algoritmo
+          de Graham</pageref>, para comprobar con cada
+          arista en el cierre convexo si el punto $p_i$
+          da vuelta derecha o no. Si tomando a cada una
+          de las aristas en el cierre convexo actual,
+          como la linea dirigida comprobamos que $p_i$
+          nunca da una vuelta derecha en alguna arista,
+          podemos decir que $p_i$ se encuentra dentro
+          del cierre convexo actual.
+          <br>
+          Este proceso se realiza para todas las
+          aristas del cierre convexo actual por lo que
+          tomaría una complejidad de $O(n)$.
+        </p>
+        <h5><span class="bolded">$p_i$ no está en el cierre convexo actual.</span></h5>
+        <p>
+          Si este es el caso, cosa que comprobamos si
+          $p_i$ da vuelta derecha con al menos una
+          arista en el cierre convexo actual, tenemos
+          que añadir a $p_i$ al cierre convexo.
+        </p>
+      </div>
+      <div class="page">
+        <p>
+          Ahora lo que necesitamos es una forma de unir
+          el cierre convexo actual con $p_i$. Si
+          recordamos como se realiza la unión de dos
+          cierres convexos en el algoritmo divide y
+          vencerás, podemos ver que lo único que
+          necesitamos es encontrar dos lineas tangentes
+          a $p_i$ y después quitar los puntos que ya no
+          formen parte del cierre convexo si es que los
+          hay.
+        </p>
+        <p>
+          Podemos encontrar las lineas tangentes usando
+          el mismo recorrido que usamos para saber si
+          $p_i$ está en el cierre convexo actual o no,
+          pues justo estos puntos en el cierre convexo
+          que forman la tangente son los puntos donde
+          el punto $p_i$ da vuelta derecha por primera
+          y ultima vez en todo su recorrido.
+          <br>
+          Este proceso lo podemos apreciar en el
+          la <ref ref_id="finding_tangents_with_a_point"></ref>.
+        </p>
+        <p>
+          Hoola
+        </p>
+      
+      </div>
 
+      <div class="page">
+
+        <figure id="finding_tangents_with_a_point">
+          <div class="interactive" width="810" height="1020" window-size="false"
+            src="./Interactivos/capitulo_2/ch_merge_point.html">
+          </div>
+          <figcaption>Ejemplo del recorrido que verifica si un punto está dentro o fuera del 
+            cierre convexo actual y si está fuera actualiza el cierre convexo.
+          </figcaption>
+        </figure>
       </div>
 
       <div class="page">

@@ -138,3 +138,7 @@ body.dark .invertcolor {
   font-weight: bold;
   font-style: italic;
 }
+
+div.step {
+  margin-left: 2%;
+}

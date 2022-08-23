@@ -1798,48 +1798,60 @@
           colineales), pues sabemos que este será
           nuestro primer cierre convexo que formaremos.
           <br>
-          Una vez teniendo un cierre convexo, el
-          agregar un punto nos deja con dos posibles
+          Una vez teniendo un cierre convexo $C$, el
+          agregar un punto $p_i$ nos deja con dos posibles
           casos: cuando el nuevo punto $p_i$ que
           agregaremos, está contenido en el cierre
-          convexo (recordemos que esto es que el punto
+          convexo $ p_i \in C$ (recordemos que esto es que el punto
           esté en el area o el perímetro del polígono
           que representa al cierre convexo) o no lo
-          está. 
+          está $ p_i \notin C$. 
         </p>
-        <h5><span class="bolded">$p_i$ está en el cierre convexo actual.</span></h5>
-        <p>
-          Si este es el caso, podemos simplemente
-          descartar a $p_i$.
-          <br>
-          ¿Cómo podemos comprobar que en efecto $p_i$
-          se encuentra en el cierre convexo actual?
-          <br>
-          Podemos usar el mismo procedimiento que
-          usamos en el  <pageref
-          ref_id="graham_step_3">paso 3 del algoritmo
-          de Graham</pageref>, para comprobar con cada
-          arista en el cierre convexo si el punto $p_i$
-          da vuelta derecha o no. Si tomando a cada una
-          de las aristas en el cierre convexo actual,
-          como la linea dirigida comprobamos que $p_i$
-          nunca da una vuelta derecha en alguna arista,
-          podemos decir que $p_i$ se encuentra dentro
-          del cierre convexo actual.
-          <br>
-          Este proceso se realiza para todas las
-          aristas del cierre convexo actual por lo que
-          tomaría una complejidad de $O(n)$.
-        </p>
-        <h5><span class="bolded">$p_i$ no está en el cierre convexo actual.</span></h5>
-        <p>
-          Si este es el caso, cosa que comprobamos si
-          $p_i$ da vuelta derecha con al menos una
-          arista en el cierre convexo actual, tenemos
-          que añadir a $p_i$ al cierre convexo.
-        </p>
+        <div class="step"> 
+          <h5><span class="bolded">$p_i \in C$</span></h5>
+          <p>
+            Si este es el caso, podemos simplemente
+            descartar a $p_i$.
+            <br>
+            ¿Cómo podemos comprobar que en efecto $p_i$
+            se encuentra en el cierre convexo actual?
+            <br>
+            Podemos usar el mismo procedimiento que
+            usamos en el  <pageref
+            ref_id="graham_step_3">paso 3 del algoritmo
+            de Graham</pageref>, para comprobar con cada
+            arista en el cierre convexo si el punto $p_i$
+            da vuelta derecha o no. Si tomando a cada una
+            de las aristas en el cierre convexo actual,
+            como la linea dirigida comprobamos que $p_i$
+            nunca da una vuelta derecha en alguna arista,
+            podemos decir que $p_i$ se encuentra dentro
+            del cierre convexo actual.
+            <br>
+            Este proceso se realiza para todas las
+            aristas del cierre convexo actual por lo que
+            tomaría una complejidad de $O(n)$.
+          </p>
+        </div>
+        <div class="step">
+          <h5><span class="bolded">$p_i \notin C$</span></h5>
+          <p>
+            Si este es el caso, (cosa que comprobaremos
+            revisando si alguna tripleta da vuelta
+            derecha, usando el criterio de vuelta
+            derecha e izquierda que usamos en el
+            algoritmo de graham, usando dos 
+          </p>
+        </div>
       </div>
       <div class="page">
+        <div class="step">
+          <p>
+            puntos consecutivos en el cierre convexo y
+            al punto $p_i$ como tripleta), tenemos que
+            añadir a $p_i$ al cierre convexo.
+          </p>
+        </div>
         <p>
           Ahora lo que necesitamos es una forma de unir
           el cierre convexo actual con $p_i$. Si
@@ -1856,17 +1868,25 @@
           el mismo recorrido que usamos para saber si
           $p_i$ está en el cierre convexo actual o no,
           pues justo estos puntos en el cierre convexo
-          que forman la tangente son los puntos donde
-          el punto $p_i$ da vuelta derecha por primera
-          y ultima vez en todo su recorrido.
+          que forman la tangente son los puntos que
+          pertenecen a dos aristas que dan vuelta en
+          sentidos opuestos.
           <br>
-          Este proceso lo podemos apreciar en el
-          la <ref ref_id="finding_tangents_with_a_point"></ref>.
+          La siguiente <ref
+          ref_id="cierre_convexo_union_punto"></ref>,
+          muestra un ejemplo de esto, en el cual las
+          lineas rojas muestran la dirección de la
+          vuelta que daría una arista dirigida al punto
+          $p$, esto es, de que lado yace el punto $p$
+          con respecto a la flecha roja.
         </p>
-        <p>
-          Hoola
-        </p>
-      
+        <figure id="cierre_convexo_union_punto">
+          <!-- <div class="interactive" width="600"
+          height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
+          <img src="./images/capitulo_02/Ejemplo_unir_punto_a_ch.png" width="80%" height="80%">
+          <figcaption>En la imagen se aprecia como justo los puntos que perte.</figcaption>
+        </figure>
       </div>
 
       <div class="page">

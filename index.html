@@ -301,22 +301,22 @@
           suficiente con solo saber representar puntos,
           pues, los objetos geométricos que se estudian
           o de los que se hace uso para estudiar la
-          <span class="bolded">Geometría computacional</b></i>, a
-            pesar de no que necesitan consistir de un
-            número finito de puntos, sí resulta necesario
-            que tengan una especificación finita.
-            <br>
-            Es por eso que, además de considerar
-            <span class="bolded">puntos</b></i>
-              individuales, se consideran elementos más
-              complejos, tales como,
-              <span class="bolded">líneas rectas</b></i>, <span class="bolded">segmentos
-                  de líneas rectas</b></i>,
-                  <span class="bolded">planos</b></i>,
-                    <span class="bolded">polígonos</b></i>, etcétera, cuyas
-                      definiciones y/o conceptos básicos serán
-                      presentados en la primer parte del capitulo
-                      actual.
+          <span class="bolded">Geometría computacional</span>, a
+          pesar de no que necesitan consistir de un
+          número finito de puntos, sí resulta necesario
+          que tengan una especificación finita.
+          <br>
+          Es por eso que, además de considerar
+          <span class="bolded">puntos</span>
+          individuales, se consideran elementos más
+          complejos, tales como,
+          <span class="bolded">líneas rectas</span>, <span class="bolded">segmentos
+            de líneas rectas</span>,
+          <span class="bolded">planos</span>,
+          <span class="bolded">polígonos</span>, etcétera, cuyas
+          definiciones y/o conceptos básicos serán
+          presentados en la primer parte del capitulo
+          actual.
         </p>
       </div>
 
@@ -402,7 +402,7 @@
           distintos definen perfectamente una línea,
           una línea en $\mathbb{R}^d$ contiene un
           número infinito de puntos. Lo cual puede
-          apreciarse en la siguiente figura(<ref ref_id="linea"></ref> ), en el cual las
+          apreciarse en la (<ref ref_id="linea"></ref> ), en el cual las
           flechas azul y verde, representan la partes
           respectivas que aportan los puntos $p_2$ y
           $p_1$ al nuevo punto $r$ respectivamente.
@@ -432,16 +432,16 @@
           -\alpha ) p_2 \qquad ( 0 \leq \alpha \leq 1 )
           \] el conjunto de todos los puntos que
           satisfacen dicha definición, describe el
-          <span class="bolded">segmento de linea</span>
-          recta que une los dos puntos $ \ q_1 \ $ y $
-          \ q_2 \ $ en $\mathbb{R}^d$. Normalmente este
-          <span class="bolded">segmento de linea</span>
+          <span class="bolded">segmento de línea</span>
+          recta que une los dos puntos $ \ p_1 \ $ y $
+          \ p_2 \ $ en $\mathbb{R}^d$. Normalmente este
+          <span class="bolded">segmento de línea</span>
           se denota como $ \ \overline{ p_1 p_2}$.
         </p>
         <p>
-          La siguiente figura(<ref ref_id="segmento_de_linea"></ref>) muestra un
+          La (<ref ref_id="segmento_de_linea"></ref>) muestra un
           interactivo que funciona de la misma manera
-          al presente en la figura anterior(<ref ref_id="linea"></ref>), el cual muestra la
+          al presentado en la (<ref ref_id="linea"></ref>), el cual muestra la
           definición de línea, sin embargo se puede
           notar como en este recurso el valor de
           $\alpha$ cumple la condición $( 0 \leq \alpha
@@ -463,9 +463,11 @@
         <h4><span class="bolded">Polígono.</span></h4>
         <p>
           En $\mathbb{R}^d$ un
-          <span class="bolded">polígono</span> $P$, es la región
-          cerrada del plano, acotada por una colección
-          finita de segmentos de línea, formando una
+          <span class="bolded">polígono</span> $P$, es
+          la región cerrada del plano, acotada por una
+          colección finita de segmentos de línea,
+          formando una <span class="bolded">curva
+            cerrada simple</span>.
           <br>
           Ya que puede ser complejo explicar el
           significado de
@@ -475,7 +477,7 @@
           sencilla.
         </p>
         <p>
-          Sean $v_0, v_1, v_2,\dots, v_{n-1}$ $n$
+          Sean $ \ v_0, v_1, v_2,\dots, v_{n-1} $, $n$
           puntos en el plano. Sean $ e_0 = $
           $ \overline{v_0 v_1}, \ e_1 = $
           $ \overline{v_1 v_2}, \ \ \dots \ ,e_i =$
@@ -551,8 +553,8 @@
           cumplen también la segunda (los segmentos no
           adyacentes no se intersectan) los llamaremos
           <span class="bolded">polígonos simples</span>, otra forma
-          más simple de definirlo es que un polígono es
-          simple si no se cruza a sí mismo.
+          más sencilla de definirlo es que un polígono es
+          simple si sus elementos no se intersectan entre sí.
           <br>
           Ya que prácticamente solo se hará uso de los
           <span class="bolded">polígonos no simples</span>, por
@@ -569,13 +571,13 @@
           esa razón), y los puntos $v_i$ (puntos donde
           se intersectan los segmentos de línea
           adyacentes) son llamados
-          <span class="bolded">vertices</span>.
+          <span class="bolded">vértices</span>.
         </p>
       </div>
 
       <div class="page">
         <p>
-          Un polígono, con sus aristas y vertices,
+          Un polígono, con sus aristas y vértices,
           encierra una región del plano, nos
           referiremos a esta región como el
           <span class="bolded">interior del polígono</span>. La
@@ -583,12 +585,12 @@
           forma el <span class="bolded">exterior del polígono</span>.
         </p>
         <p>
-          El conjunto de vertices y aristas de un
+          El conjunto de vértices y aristas de un
           polígono $P$ (el polígono sin su interior) es
           llamado perímetro, y es denotado como $
           \partial P$.
           <br>
-          A lo largo del libro cuando nos refiramos a
+          A lo largo de las notas cuando nos refiramos a
           un polígono nos referiremos a la unión de su
           perímetro y su interior. Lo que significa que
           si mencionamos un punto en un polígono este
@@ -606,7 +608,7 @@
           <br>
           Una <span class="bolded">diagonal</span> de un polígono
           $P$, es un segmento de línea que conecta dos
-          vertices de $P$ y que yace en el interior de
+          vértices de $P$ y que yace en el interior de
           $P$, este segmento no toca a $ \partial P$
           excepto en su punto inicial y su punto final.
         </p>
@@ -619,7 +621,8 @@
       </div>
 
       <div class="page">
-        <img src="/images/capitulo_01/Diagonales_from_Devad_discrete_and_computational_geo.jpg" width="90%">
+        TO DO
+        <!-- <img src="/images/capitulo_01/Diagonales_from_Devad_discrete_and_computational_geo.jpg" width="90%">
         <br>
         Figure 1.2 shows (a) a polygon, (b) a diagonal, (c) a line segment
         that is not a diagonal, and (d) two crossing diagonals.
@@ -628,27 +631,29 @@
         triangles by a maximal set of noncrossing diagonals.
         Here maximal means that no further diagonal may be added to the
         set without crossing (sharing an interior point with) one already in
-        the set.
+        the set. -->
       </div>
 
       <!-- REPASO DE ESTRUCTURAS DE DATOS -->
       <div class="page">
         <h2 id="cap1_repaso_estructuras_datos">Repaso de estructuras de datos</h2>
         <p>
-          Como ya se mencionó al inicio de este capítulo las
-          estructuras de datos resultan una herramienta
-          fundamental para el uso de los algoritmos geométricos.
-          Muchas de estas estructuras de datos son muy bien
-          descritas en el curso referente a estructuras de datos,
-          y dado que no es la intención de este libro volver
-          a describir dichas estructuras de datos,
-          a continuación serán descritas únicamente las que
-          resulten indispensables por no formar parte del
-          temario oficial de dicho curso.
+          Como ya se mencionó al inicio de este
+          capítulo las estructuras de datos resultan
+          una herramienta fundamental para el uso de
+          los algoritmos geométricos. Muchas de estas
+          estructuras de datos son descritas en el
+          curso referente a estructuras de datos, y
+          dado que no es la intención de este libro
+          volver a describir dichas estructuras, a
+          continuación serán presentadas únicamente las
+          que resulten indispensables por no formar
+          parte del temario oficial de dicho curso.
           <br><br>
         </p>
 
         <h2 id="cap1_preliminares_geometricos">Preliminares geométricos</h2>
+        TO DO
       </div>
 
       <!--  -->
@@ -680,7 +685,7 @@
           liga al rededor de todos los clavos.
         </p>
         <p>
-          La siguiente figura, <pageref ref_id="cierre-convexo">
+          La <pageref ref_id="cierre-convexo">
             <ref ref_id="cierre-convexo"></ref>
           </pageref>,
           contiene un recurso interactivo que nos
@@ -688,10 +693,10 @@
           representan los "clavos" (puntos en $S$) y
           las líneas verdes la "liga" que los encierra.
           <br>
-          Puedes hacer click en cualquiera de los
+          Puedes hacer clic en cualquiera de los
           círculos blancos que representan a los puntos
           en $S$ para poder moverlo en la dirección que
-          muevas el cursos, y a su vez puedes dar de
+          muevas el cursor, y a su vez puedes dar de
           nuevo click para dejarlo fijo en la nueva
           posición de cursor y ver como se modifica el
           cierre convexo.
@@ -713,7 +718,7 @@
         </p>
         <p>
           A continuación definiremos una <span class="bolded">combinación convexa</span>
-          para después poder definir lo que es un <span class="bolded">cierre convexo</span>
+          para definir lo que es un <span class="bolded">cierre convexo</span>
           a partir de la primera.
           <br>
         </p>
@@ -742,28 +747,28 @@
       <div class="page">
         <p>
           Si prestamos atención, podemos notar que un
-          <span class="bolded">segmento de línea</span> consta de
-          todas las combinaciones convexas que pueden
-          ser generadas de sus puntos extremos que lo
-          definen. Lo cual puede ser visto claramente
-          en la <pageref ref_id="segmento_de_linea">
+          <span class="bolded">segmento de línea</span>
+          consta de todas las combinaciones convexas
+          que pueden ser generadas de sus puntos
+          extremos que lo definen. Lo cual puede ser
+          visto claramente en la <pageref ref_id="segmento_de_linea">
             <ref ref_id="segmento_de_linea"></ref>
           </pageref>.
         </p>
         <p>
           De manera similar podemos notar como un
-          triangulo consiste de todas las combinaciones
+          triángulo consiste de todas las combinaciones
           convexas de los 3 puntos (no colineales) que
           lo definen. Lo cual puede ser visto en la
-          siguiente <ref ref_id="comb-convexa"></ref>, en la
+          <ref ref_id="comb-convexa"></ref>, en la
           cual, al presionar el botón en la parte
           inferior, podemos generar una combinación
           convexa aleatoria a partir de los tres puntos
-          que forman al triangulo. En la parte superior
-          podemos apreciar como se define al punto r
+          que forman al triángulo. En la parte superior
+          podemos apreciar como se define al punto $r$
           siguiendo la definición de combinación
           convexa, tomando cada uno de los puntos que
-          definen al triangulo ($p_1 = (1,5)$, $p_2 =
+          definen al triángulo ($p_1 = (1,5)$, $p_2 =
           (8,1)$ y $p_3 = (8,8)$) multiplicándolos por
           una $\alpha_i$ aleatoria, de tal manera que
           la suma de las $\alpha_i$s suman 1.
@@ -771,13 +776,13 @@
         <figure id="comb-convexa">
           <div class="interactive" width="500" height="295" window-size="false"
             src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_conjunto_convexo.html"></div>
-          <figcaption>Ejemplo de una combinación convexa generada por los puntos que definen un triangulo.</figcaption>
+          <figcaption>Ejemplo de una combinación convexa generada por los puntos que definen un triángulo.</figcaption>
         </figure>
       </div>
       <div class="page">
         <p>
           Una vez vistos los ejemplos anteriores
-          podemos ver un ejemplo más, esta vez con 5
+          podemos ver un ejemplo más, con 5
           puntos, $p_1 = (1,5)$, $p_2 = (8,1)$ y $p_3 =
           (8,8)$, $p_4 = (4,6)$ y $p_5 = (7,6)$. <br>
           En la
@@ -801,7 +806,7 @@
           Después de apreciar este ejemplo, podemos
           notar como todas las posibles combinaciones
           convexas generadas del conjunto de puntos,
-          resultan estar contenidas en un area convexa,
+          resultan estar contenidas en un área convexa,
           la cual en las figuras, <pageref ref_id="comb-convexa">
             <ref ref_id="comb-convexa"></ref>
           </pageref>
@@ -816,29 +821,31 @@
       <div class="page">
         <p>
           Ahora pensemos a que nos recuerda si tomamos
-          a cada punto del conjunto como un clavo
-          clavado en el plano y los rodeamos con una
-          liga, esto sin lugar a dudas nos resultará
-          familiar, esta misma era la idea intuitiva
-          del
-          <span class="bolded">cierre convexo</span>, lo que nos deja
-          ver que area formada por todas las posibles
-          combinaciones convexas generadas del conjunto
-          de puntos, es justo el area encerrada por la
-          liga, dicho de otra manera, es el cierre
-          convexo del conjunto de puntos.
+          cada punto del conjunto como un clavo clavado
+          en el plano y los rodeamos con una liga, esto
+          sin lugar a dudas nos resultará familiar,
+          esta misma era la idea intuitiva del
+          <span class="bolded">cierre convexo</span>,
+          lo que nos deja ver que el área formada por
+          todas las posibles combinaciones convexas
+          generadas del conjunto de puntos, es justo el
+          área encerrada por la liga, dicho de otra
+          manera, es el cierre convexo del conjunto de
+          puntos.
         </p>
         <p>
-          Por lo que, aprovehcandonos de eto, podemos
+          Por lo que, aprovechándonos de esto, podemos
           pasar a definir más formalmente a nuestro
-          <span class="bolded">cierre convexo</span> de la siguiente
-          manera.
+          <span class="bolded">cierre convexo</span> de
+          la siguiente manera.
         </p>
         <!-- Cierre convexo.-->
         <p>
-        <h4><span class="bolded">Cierre convexo.</span></h4>
+        <h4><span class="bolded">Cierre
+            convexo.</span></h4>
         Dado un conjunto finito $S$ de puntos en
-        $\mathbb{R}^d$, el <span class="bolded">cierre convexo</span>
+        $\mathbb{R}^d$, el <span class="bolded">cierre
+          convexo</span>
         de $S$, denotado por $conv(S)$, es el conjunto
         de todas las combinaciones convexas de los
         puntos en $S$.
@@ -846,11 +853,11 @@
         </p>
         <p>
           Ahora que podemos comprender que es el cierre
-          convexo, nos sería de gran utilidad saber ¿cómo
-          representar al cierre convexo? y ¿qué significa
-          calcular el cierre convexo?, pues resulta
-          necesario para poder nuestro objetivo, que es
-          indagar en los algoritmos para calcularlo.
+          convexo, nos sería de gran utilidad saber
+          ¿cómo representar al cierre convexo? y ¿qué
+          significa calcular el cierre convexo?, pues
+          resulta necesario para nuestro objetivo, que
+          es indagar en los algoritmos para calcularlo.
         </p>
         <p>
           Comencemos primero por buscar una forma de
@@ -858,24 +865,24 @@
         </p>
         <p>
           Recordando la idea intuitiva de la liga que
-          rodea a los clavos, podemos notar que el area
-          que encierra esta liga es un polígono convexo,
-          lo cual podemos ver en la <pageref ref_id="cierre-convexo">
+          rodea a los clavos, podemos notar que el área
+          que encierra esta liga es un polígono
+          convexo, lo cual podemos ver en la <pageref ref_id="cierre-convexo">
             <ref ref_id="cierre-convexo"></ref>
-          </pageref>,
-          moviendo los puntos a voluntad. <br>
-          Esto nos lleva una definición alternativa, que
-          es la siguiente.
+          </pageref>, moviendo los puntos a voluntad.
+          <br>
+          Esto nos lleva una definición alternativa,
+          que es la siguiente.
         </p>
       </div>
 
       <div class="page">
         <p>
-        <h4><span class="bolded">Cierre convexo definición
-            alternativa.</span></h4>
+        <h4><span class="bolded">Cierre convexo
+            definición alternativa.</span></h4>
         El cierre convexo de un conjunto finito $S$ de
         puntos en el plano es el único polígono convexo
-        cuyos vertices son puntos de $S$ y que
+        cuyos vértices son puntos de $S$ y que
         contienen todos los puntos de $S$.
         </p>
         <p>
@@ -887,9 +894,11 @@
           <bibref ref_id="CG_in_C">Pag. 64</bibref>
         </p>
         <p>
-          Esta nueva definición nos resulta util pues podremos representar
-          al cierre convexo como un polígono convexo, teniendo en cuenta
-          que el area contenida por este polígono es el cierre convexo.
+          Esta nueva definición nos resulta útil pues
+          podremos representar al cierre convexo como
+          un polígono convexo, teniendo en cuenta que
+          el área contenida por este polígono es el
+          cierre convexo.
         </p>
         <p>
           Ahora que sabemos que podemos representar al
@@ -899,22 +908,23 @@
         </p>
         <p>
           Una forma natural de hacerlo es listando los
-          vertices de dicho polígono en orden de las
+          vértices de dicho polígono en orden de las
           manecillas del reloj, comenzando desde algún
           punto arbitrario.
         </p>
         <p>
-          Tomando esta forma de representar a
-          un conjunto convexo, podemos describir el problema de
-          encontrar el conjunto convexo de un conjunto de
-          puntos, de la siguiente manera:
+          Tomando esta forma de representar a un
+          conjunto convexo, podemos describir el
+          problema de encontrar el conjunto convexo de
+          un conjunto de puntos, de la siguiente
+          manera:
         </p>
         <h4><span class="bolded">Descripción del problema.</span></h4>
         <p>
           Dado un conjunto de puntos $S =
           p_0, p_1, p_2,\dots, p_{n}$ en el plano,
           calcular una lista que contenga a todos los
-          puntos de $S$ que son vertices del $conv(S)$
+          puntos de $S$ que son vértices del $conv(S)$
           listados en orden contrario a las manecillas del
           reloj.
         </p>
@@ -946,7 +956,7 @@
           convexo pues el cierre convexo sería el
           polígono (interior y perímetro) formado con
           estos puntos, lo que en el ejemplo se
-          representa con el area color morado.
+          representa con el área color morado.
         </p>
         <p>
           Ahora que sabemos qué es un cierre convexo, y
@@ -973,9 +983,8 @@
           no le resultaba practica, lo que lo llevó a
           describir un algoritmo con una complejidad de
           $O(n log n)$ en tiempo, el cual pasó a ser el
-          posiblemente primer articulo publicado en el
-          campo de la geometría computacional en 1972,
-          año en que fue publicado.
+          posiblemente primer el articulo publicado en el
+          campo de la geometría computacional en 1972.
         </p>
         <p>
           En esta publicación Graham mostró que al
@@ -989,8 +998,8 @@
         <p>
           Dado nuestro conjunto $S$ de puntos,
           obtengamos el cierre convexo $conv(S)$
-          representado por los puntos que son vertices
-          del polígono que forma al cierre convexo
+          representado por los puntos que son vértices
+          del polígono que forman al cierre convexo
           $conv(S)$.
         </p>
         <p>
@@ -1025,10 +1034,10 @@
         <h5><span class="bolded">Paso 2. Ordenar los puntos con respecto al inferior.</span></h5>
         <p>
           Posteriormente ordenaremos todos los demás
-          puntos en $S$ por angulo, al sentido
-          contrario a las manecillas del reloj con
-          respecto a nuestro punto inferior que
-          seleccionamos en el paso anterior.
+          puntos en $S$ por el ángulo que forma la
+          línea trazada desde el punto inferior hasta
+          el punto actual, con respecto al eje $x$, al
+          sentido contrario a las manecillas del reloj.
         </p>
 
         <figure id="ordenar_puntos">
@@ -1059,16 +1068,15 @@
         <p>
           Una vez que es posible tomar los últimos dos
           puntos en $conv(S)$, formaremos una tripleta
-          con los últimos dos puntos dentro del conv(S)
+          con los últimos dos puntos dentro del $conv(S)$
           que llamaremos $p_k$ y $p_{k-1}$ y el
           siguiente punto a procesar $p_i$.
           <br>
           Tomando esta tripleta $ ( p_{k-1} , p_{k} ,
           p_{i} ) $, realizaremos una comprobación de
-          si la secuencia de los tres puntos en esta
-          tripleta realiza una vuelta izquierda, una
-          vuelta derecha, o si los 3 puntos son
-          colineales.
+          si la secuencia de los tres puntos realiza
+          una vuelta hacia la izquierda, hacia la
+          derecha, o si los 3 puntos son colineales.
           <br>
           Para verificar si la secuencia de los 3
           puntos dan una vuelta izquierda, derecha o
@@ -1080,9 +1088,9 @@
           <br>
           Diremos que una <span class="bolded">línea
             dirigida</span> es formada por una secuencia
-          de dos números, la linea es la formada por
-          ambos números y la dirección va del primer
-          numero al segundo numero.
+          de dos puntos, la línea es la formada por
+          ambos puntos y la dirección va del primer
+          punto al segundo punto.
           <bibref ref_id="CG_in_C">Pag. 29</bibref>
         </p>
         <p>
@@ -1122,8 +1130,8 @@
           inicio.
         </p>
         <p>
-          A continuación, en la <ref ref_id="graham_scan_algorithm"></ref> podemos ver un ejemplo de la
-          ejecución del algoritmo de graham paso a paso
+          En la <ref ref_id="graham_scan_algorithm"></ref> podemos ver un ejemplo de la
+          ejecución del algoritmo de Graham paso a paso
         </p>
       </div>
       <div class="page">
@@ -1142,11 +1150,11 @@
       <div class="page" id="graham_algorithm__complexity_page">
         <h4><span class="bolded">Complejidad</span></h4>
         <p>
-          Procederemos a hacer un análisis simple la
+          Procederemos a hacer un análisis simple de la
           complejidad del algoritmo, con ayuda de su
-          division en pasos, analizaremos la complejidad
-          de cada uno para obtener la total del
-          algoritmo.
+          division en pasos, analizaremos la
+          complejidad de cada uno para obtener la total
+          del algoritmo.
         </p>
         <h5><span class="bolded">Paso 1. Tomar el punto inferior.</span></h5>
         <p>
@@ -1156,23 +1164,24 @@
           cual escoger, en este caso se toma al punto
           interior.
           <br>
-          Para poder obtener este punto inferior
-          resulta claro que es necesario recorrer todos
-          y cada uno de los puntos en $S$ y llevar registro
-          del que tiene el menor valor en el eje y, lo cual
-          podemos hacer en una complejidad en tiempo de $O(n)$
-          donde $n$ es el número de puntos en $S$.
+          Para obtener este punto inferior resulta
+          claro que es necesario recorrer todos y cada
+          uno de los puntos en $S$ y llevar registro
+          del que tiene el menor valor en el eje $y$,
+          lo cual podemos hacer en una complejidad en
+          tiempo de $ \ O(n) \ $ donde $ \ n \ $ es el número
+          de puntos en $S$.
         </p>
         <h5><span class="bolded">Paso 2. Ordenar los puntos con respecto al inferior.</span></h5>
         <p>
           Para esta parte del algoritmo necesitamos
-          ordenar a todos los demás puntos en $S$ con
-          respecto al angulo que forman con nuestro
+          ordenar todos los demás puntos en $S$ con
+          respecto al ángulo que forman con nuestro
           punto inferior, en sentido contrario a las
           manecillas del reloj.
           <br>
           Dado que podemos comparar cual es menor
-          respecto al angulo que forma con nuestro
+          respecto al ángulo que forma con nuestro
           punto inferior, en sentido contrario a las
           manecillas del reloj, haciendo uso del
           producto cruz, podemos asumir que la
@@ -1207,12 +1216,12 @@
         <h2 id="cap2_algoritmo_jarvis">Algoritmo de Jarvis</h2>
         <h4><span class="bolded">Contexto</span></h4>
         <p>
-          En el algoritmo pasado comenzamos
-          identificando a un punto extremo en el
+          En el algoritmo anterior comenzamos
+          identificando un punto extremo en el
           conjunto de puntos original, ahora bien,
           ¿podríamos hacer lo mismo para encontrar
           todos los puntos que representan al cierre
-          convexo?.
+          convexo?
           <br>
           Ciertamente, encontrar todos los puntos
           extremos no resulta tan fácil como encontrar
@@ -1220,15 +1229,15 @@
           y el más a la izquierda, sin embargo, una vez
           tomado un extremo, resulta más fácil
           encontrar otro punto extremo, si sabemos que
-          la linea que trazan ambos puntos, está en un
+          la línea que trazan ambos puntos, está en un
           extremo también, es decir, si todos los demás
-          puntos en $S$ están o sobre la misma linea o
-          a un solo lado de la linea.<bibref ref_id="CG_an_Introduction">Pag. 110</bibref>
+          puntos en $S$ están, sobre la misma línea o
+          a un solo lado de la línea.<bibref ref_id="CG_an_Introduction">Pag. 110</bibref>
         </p>
         <p>
-          La siguiente figura un muestra ejemplo de
-          esto, tomando el punto los puntos ($p_8$) y
-          ($p_5$) podemos trazar una linea que cumple
+          La siguiente figura muestra un ejemplo de
+          esto, tomando los puntos ($p_8$) y
+          ($p_5$) podemos trazar una línea que cumple
           la condición ya mencionada.
         </p>
         <figure id="linea_extrema">
@@ -1268,7 +1277,7 @@
           que una vez tenemos un par de puntos $p_a$ y
           $p_b$ en $conv(S)$, sabemos que debe existir
           otro punto $p_c$ que junto con $p_b$ definan
-          una linea que tenga a todos los demás puntos
+          una línea que tenga a todos los demás puntos
           de un solo lado.
           <bibref ref_id="CG_an_Introduction">Pag.
             111</bibref>
@@ -1302,16 +1311,16 @@
           punto que fue agregado a $conv(S)$, al que
           nos referiremos como $p_k$, posteriormente,
           procedemos a comparar a todos los demás
-          puntos en $S$ por al angulo que forman con
+          puntos en $S$ por al ángulo que forman con
           respecto a dicho punto $p_k$ en sentido
           contrario a las manecillas del reloj, y
-          tomamos al que tenga el menor angulo, este
+          tomamos al que tenga el menor ángulo, este
           será el siguiente punto en ser agregado a
           $conv(S)$.
           <br>
           Repetiremos este procedimiento hasta que el
           siguiente punto a agregar sea uno que ya
-          pertenece a $conv(S$.
+          pertenece a $conv(S)$.
         </p>
       </div>
       <div class="page">
@@ -1326,32 +1335,36 @@
       <div class="page">
         <h4><span class="bolded">Complejidad</span></h4>
         <p>
-          Procederemos a hacer un análisis simple la
+          Procederemos a hacer un análisis simple de la
           complejidad del algoritmo, con ayuda de su
-          division en pasos, analizaremos la complejidad
-          de cada uno para obtener la total del
-          algoritmo.
+          division en pasos, analizaremos la
+          complejidad de cada uno para obtener la total
+          del algoritmo.
         </p>
         <h5><span class="bolded">Paso 1. Tomar el punto inferior.</span></h5>
         <p>
-          Esto sería exactamente al análisis del primer paso del
-          <pageref ref_id="graham_algorithm__complexity_page">algoritmo de
-            graham antes descrito</pageref>.
+          Esto sería igual al análisis del primer paso
+          del
+          <pageref ref_id="graham_algorithm__complexity_page">algoritmo
+            de graham antes descrito</pageref>. Es decir,
+          tenemos una complejidad de $O(n)$.
         </p>
         <h5><span class="bolded">Paso 2. Ir agregando puntos a $conv(S)$ tomando el ultimo punto en
             $conv(S)$ como referencia.</span></h5>
         <p>
-          Para esta parte del algoritmo necesitamos
-          a un punto $p$ cuyo angulo (en sentido
-          contrario a las manecillas del reloj) que forma con
-          respecto al ultimo punto $p_k$ en $conv(S)$ sea el
-          menor entre todos los puntos en $S$.
+          Para esta parte del algoritmo necesitamos a
+          un punto $p$ cuyo ángulo (en sentido
+          contrario a las manecillas del reloj) que
+          forma con respecto al ultimo punto $p_k$ en
+          $conv(S)$ sea el menor entre todos los
+          ángulos formados con los puntos en $S$.
           <br>
-          Haciendo uso del producto cruz, dados dos puntos
-          podemos comparar cual de ellos es menor
-          respecto al angulo (en sentido contrario a las
-          manecillas del reloj) que forma con nuestro
-          ultimo punto en $conv(S)$, $ \ p_k$.
+          Haciendo uso del producto cruz, dados dos
+          puntos podemos comparar cual de ellos es
+          menor respecto al ángulo (en sentido
+          contrario a las manecillas del reloj) que
+          forma con nuestro ultimo punto en $conv(S)$,
+          $ \ p_k$.
           <br>
           Esto lo tenemos que hacer para cada punto en
           $S$ usando al ultimo punto en $conv(S)$ hasta
@@ -1379,7 +1392,7 @@
         </p>
         <p>
           Esta característica nos deja ver como este
-          algoritmo corre más rápido en casos donde en
+          algoritmo se ejecuta más rápido en casos donde el
           cierre convexo es pequeño, a este tipo de algoritmos
           se les suele llamar <a target="_blank" href="https://en.wikipedia.org/wiki/Output-sensitive_algorithm">
             algoritmos sensibles a la salida
@@ -1405,7 +1418,7 @@
             1977</a>,
           utilizándolo no solo para el problema en 2
           dimensiones, si no que también para 3
-          dimensiones, lo cual hace de este enfoque aun
+          dimensiones, lo cual hace de este enfoque aún
           mas interesante.
         </p>
         <p>
@@ -1436,9 +1449,9 @@
         </p>
         <p>
           Lo único que necesitamos es encontrar dos
-          lineas tangentes a ambos cierres convexos,
-          una superior y una inferior, un ejemplo de tales lineas
-          puede ser apreciado en la <ref ref_id="lineas_tangentes"></ref>
+          líneas tangentes a ambos cierres convexos,
+          una superior y una inferior, un ejemplo de
+          tales líneas puede ser apreciado en la <ref ref_id="lineas_tangentes"></ref>
         </p>
       </div>
 
@@ -1452,9 +1465,9 @@
         </figure>
         <p>
           La primer idea que nos puede venir a la
-          mente, para encontrar dichas lineas
+          mente, para encontrar dichas líneas
           tangentes, es tomar todos los posibles
-          segmentos de lineas, que se pueden formar
+          segmentos de líneas, que se pueden formar
           tomando un punto de cada cierre convexo, y
           tomar al par que forme una línea tal que
           todos los demás puntos estén bajo ella y al
@@ -1515,17 +1528,17 @@
           ¿Qué se puede hacer para mejorarlo?
         </p>
         <p>
-          Podemos evitar tener que revisar sobre todas
-          las parejas de puntos y solo revisar sobre
-          las que resulte indispensable, esto es
-          posible lograrlo usando a la idea que
-          proponen Preparata y Hong en su articulo.
+          Podemos evitar revisar todas las parejas de
+          puntos y solo revisar las que resulte
+          indispensable, esto es posible usando a la
+          idea que proponen Preparata y Hong en su
+          artículo.
           <br>
           La idea es la siguiente y resulta
           prácticamente la misma para obtener la
           tangente superior, o la inferior, por lo que
           a continuación solo se describe como obtener
-          la inferior.
+          una de ellas.
         </p>
         <p>
           Dado que sabemos que la tangente $T$ que
@@ -1552,7 +1565,7 @@
           actual $pd_j$ en el conjunto convexo derecho,
           por el punto anterior a él $pd_{j-1}$ ( el
           siguiente en sentido de las manecillas del
-          reloj), siempre y cuando la linea nueva $T$
+          reloj), siempre y cuando la línea nueva $T$
           resultante esté mas abajo que la anterior
           (para saber eso usamos el valor de
           intersección con la línea vertical), y
@@ -1583,7 +1596,7 @@
           posible sobre el punto del cierre convexo
           derecho y luego sobre el izquierdo, hasta que
           no sea posible descender más en ninguno de los
-          los.
+          dos.
         </p>
         <p>
           La <ref ref_id="ch_merge_algorithm"></ref> muestra como es este algoritmo
@@ -1596,7 +1609,7 @@
           lo tanto no pasa más de una vez por cada
           punto. Y como ya mencionamos, el proceso para
           encontrar la tangente superior, resulta ser
-          análogo. Una vez sabiendo cuales son estas
+          análogo. Una vez conociendo cuales son estas
           tangentes, combinar ambos cierres convexos
           resulta trivial, pues solo es cuestión de
           recorrer los cierres convexos que ya
@@ -1628,7 +1641,7 @@
         <p>
           Dado nuestro conjunto $S$ de puntos,
           obtengamos el cierre convexo $conv(S)$
-          representado por los puntos que son vertices
+          representado por los puntos que son vértices
           del polígono que forma al cierre convexo
           $conv(S)$.
         </p>
@@ -1643,12 +1656,12 @@
         <br>
         <h5><span class="bolded">
             Paso 2. Dividir los puntos en dos
-            conjuntos I y D con la primera mitad de puntos
+            conjuntos $I$ y $D$ con la primera mitad de puntos
             y la segunda mitad de puntos
             respectivamente.
           </span></h5>
         <br>
-        <h5><span class="bolded">Paso 3. Calcular recursivamente los cierres convexos de A y B.</span></h5>
+        <h5><span class="bolded">Paso 3. Calcular recursivamente los cierres convexos de $I$ y $D$.</span></h5>
         <br>
         <h5><span class="bolded">Paso 4. Unir $conv(I)$ y $conv(D)$.</span></h5>
 
@@ -1657,7 +1670,7 @@
       <div class="page">
         <h4><span class="bolded">Complejidad</span></h4>
         <p>
-          Procederemos a hacer un análisis simple la
+          Procederemos a hacer un análisis simple de la
           complejidad del algoritmo, sin embargo, en
           esta ocasión dividiremos el algoritmo en las
           partes, <span class="bolded">Dividir</span>,
@@ -1673,10 +1686,10 @@
           para describir la recurrencia, tomaremos a
           $T(n)$ como el tiempo de ejecutar el
           algoritmo para encontrar el cierre convexo de
-          n puntos (los cuales asumimos están ordenados
-          de forma ascendente respecto al eje x), a
+          $n$ puntos (los cuales asumimos están ordenados
+          de forma ascendente respecto al eje $x$), a
           $D(n)$ como el tiempo que toma dividir el
-          problema con n puntos en los subproblemas
+          problema con $n$ puntos en los subproblemas
           necesarios, y a $C(n)$ como el tiempo que
           toma combinar las soluciones de los
           subproblemas para formar la solución del
@@ -1690,13 +1703,13 @@
           El paso de dividir solo requiere encontrar
           el punto medio de los puntos ya ordenados,
           lo cual toma tiempo constante. Por lo tanto,
-          podemos decir que que complejidad de este paso
+          podemos decir que complejidad de este paso
           es constante, i.e. $D(n)$ = $O(1)$.
         </p>
         <h5><span class="bolded">Vencer.</span></h5>
         <p>
           Sabemos que en el paso de dividir obtuvimos
-          unicamente dos subproblemas de tamaño $n/2$,
+          únicamente dos subproblemas de tamaño $n/2$,
           pues dividimos.
           Entonces, podemos describir la complejidad de
           resolver los subproblemas (vencer), como
@@ -1722,8 +1735,8 @@
         $T(n) = O(1) + 2T(n/n) + O(n)$
         <p>
           Sin embargo, ya que el termino constante
-          resulta no tener mucho pero especialmente al
-          incrementar el tamaño de n, podemos
+          resulta no tener mucho peso especialmente al
+          incrementar el tamaño de $n$, podemos
           reescribir a $T(n)$ como :
         </p>
         $T(n) = 2T(n/n) + O(n)$
@@ -1736,12 +1749,12 @@
           </a>.
           <br>
           Por lo tanto podemos concluir que la
-          complejidad de algoritmo para encontrar el
-          cierre convexo de n puntos usando la técnica
+          complejidad del algoritmo para encontrar el
+          cierre convexo de $n$ puntos usando la técnica
           de divide y vencerás es de $O(nlogn)$, pues
-          nuestro preprocesamiento de los puntos al
-          ordenarlos los toma $O(nlogn)$ y usando estos
-          puntos ordenados usar la técnica de dividir y
+          nuestro preprocesamiento de puntos al
+          ordenarlos toma $O(nlogn)$ y usando estos
+          puntos ordenados la técnica de dividir y
           vencerás también toma $O(nlogn)$.
         </p>
 
@@ -1795,12 +1808,12 @@
           colineales), pues sabemos que este será
           nuestro primer cierre convexo que formaremos.
           <br>
-          Una vez teniendo un cierre convexo $C$, el
+          Una vez teniendo un cierre convexo $C$, al
           agregar un punto $p_i$ nos deja con dos posibles
           casos: cuando el nuevo punto $p_i$ que
           agregaremos, está contenido en el cierre
           convexo $ p_i \in C$ (recordemos que esto es que el punto
-          esté en el area o el perímetro del polígono
+          esté en el área o el perímetro del polígono
           que representa al cierre convexo) o no lo
           está $ p_i \notin C$.
         </p>
@@ -1819,7 +1832,7 @@
             arista en el cierre convexo si el punto $p_i$
             da vuelta derecha o no. Si tomando a cada una
             de las aristas en el cierre convexo actual,
-            como la linea dirigida comprobamos que $p_i$
+            como la línea dirigida comprobamos que $p_i$
             nunca da una vuelta derecha en alguna arista,
             podemos decir que $p_i$ se encuentra dentro
             del cierre convexo actual.
@@ -1854,13 +1867,13 @@
           recordamos como se realiza la unión de dos
           cierres convexos en el algoritmo divide y
           vencerás, podemos ver que lo único que
-          necesitamos es encontrar dos lineas tangentes
+          necesitamos es encontrar dos líneas tangentes
           a $p_i$ y después quitar los puntos que ya no
           formen parte del cierre convexo si es que los
           hay.
         </p>
         <p>
-          Podemos encontrar las lineas tangentes usando
+          Podemos encontrar las líneas tangentes usando
           el mismo recorrido que usamos para saber si
           $p_i$ está en el cierre convexo actual o no,
           pues justo estos puntos en el cierre convexo
@@ -1868,9 +1881,9 @@
           pertenecen a dos aristas que dan vuelta en
           sentidos opuestos.
           <br>
-          La siguiente <ref ref_id="cierre_convexo_union_punto"></ref>,
+          La <ref ref_id="cierre_convexo_union_punto"></ref>,
           muestra un ejemplo de esto, en el cual las
-          lineas rojas muestran la dirección de la
+          líneas rojas muestran la dirección de la
           vuelta que daría una arista dirigida al punto
           $p$, esto es, de que lado yace el punto $p$
           con respecto a la flecha roja.
@@ -1880,7 +1893,7 @@
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_unir_punto_a_ch.png" width="80%" height="80%">
-          <figcaption>En la imagen se aprecia como justo los puntos que perte.</figcaption>
+          <figcaption>TO DO.</figcaption>
         </figure>
       </div>
 

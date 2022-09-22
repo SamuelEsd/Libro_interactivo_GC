@@ -50,7 +50,7 @@ class PointSet {
     }
     return desc;
   }
-  
+
   setIds() {
     let i = 1;
     for (let currPoint of this.points) {
@@ -70,22 +70,18 @@ class PointSet {
    */
   drawPoints(color) {
     noStroke();
-    for (let i = 0; i < this.points.length; i++) {
+    for (const point of this.points) {
       push();
       fill(255);
       stroke(color);
       strokeWeight(3);
-      circle(this.points[i].x, this.points[i].y, POINT_SIZE);
+      circle(point.x, point.y, POINT_SIZE);
       pop();
-      if (this.points[i].z != null && this.points[i].z > 0) {
+      if (point.z != null && point.z > 0) {
         push();
         textSize(POINT_SIZE / 2);
         textAlign(CENTER);
-        text(
-          "P" + this.points[i].z,
-          this.points[i].x,
-          this.points[i].y + POINT_SIZE / 4
-        );
+        text("P" + point.z, point.x, point.y + POINT_SIZE / 4);
         pop();
       }
     }
@@ -101,12 +97,12 @@ class PointSet {
    */
   drawPointsNoId(color, point_size) {
     noStroke();
-    for (let i = 0; i < this.points.length; i++) {
+    for (const point of this.points) {
       push();
       fill(255);
       stroke(color);
       strokeWeight(3);
-      circle(this.points[i].x, this.points[i].y, point_size);
+      circle(point.x, point.y, point_size);
       pop();
     }
   }

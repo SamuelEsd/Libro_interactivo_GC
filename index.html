@@ -1180,22 +1180,47 @@
         <h5><span class="bolded">Paso 2. Ordenar los puntos con respecto al inferior.</span></h5>
         <p>
           Para esta parte del algoritmo necesitamos
-          ordenar todos los demás puntos en $S$ con
-          respecto al ángulo que forman con nuestro
-          punto inferior, en sentido contrario a las
-          manecillas del reloj.
+          ordenar ordenaremos todos los demás puntos en
+          $S$ por el ángulo que forma la línea trazada
+          desde el punto inferior hasta el punto
+          actual, con respecto al eje $x$, al sentido
+          contrario a las manecillas del reloj.
           <br>
-          Dado que podemos comparar cual es menor
-          respecto al ángulo que forma con nuestro
-          punto inferior, en sentido contrario a las
-          manecillas del reloj, haciendo uso del
-          producto cruz, podemos asumir que la
-          complejidad de ordenar $n-1$ puntos nos
-          tomará $O(nlog(n))$.
+          Es posible hacer esto ordenando los puntos
+          por el valor del angulo con respecto al punto
+          inferior. Como se puede apreciar en la
+          INSERTAR FIGRURA. Sin embargo, los ángulos
+          resultantes pueden ser números de punto
+          flotante que nos puedan hacer cometer
+          errores.
+        </p>
+        <p>
+          Afortunadamente, podemos ordenar los puntos
+          de la forma que queremos sin necesidad de
+          saber su angulo, pues dados dos puntos podemos ver
+          cual tiene un angulo menor haciendo uso del
+          producto cruz.
         </p>
       </div>
 
       <div class="page">
+        <p>
+          Esto lo podemos lograr gracias a que dados
+          dos vectores $a$ y $b$, su producto cruz $ a
+          \times b $ resulta ser positivo si el ángulo
+          de $a$ es menor al de $b$. Si por el
+          contrario el ángulo de $b$ es menor que el de
+          $a$ el producto cruz $a \times b$ será
+          negativo, y en el caso de que ambos vectores
+          tengan el mismo angulo, el valor resultante
+          será cero.
+          <br>
+          Entonces, podemos usar el producto cruz para
+          comparar a los puntos que queremos ordenar
+          tomándolos como vectores con origen en el
+          punto inferior y con esta comparación,
+          ordenar los puntos en tiempo $O(nlogn)$.
+        </p>
         <h5><span class="bolded">Paso 3. Recorrer los puntos ordenados y agregar puntos al $conv(S)$.</span></h5>
         <p>
           En este paso podemos observar que recorremos

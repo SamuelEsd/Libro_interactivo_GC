@@ -1107,7 +1107,7 @@
           <!-- <div class="interactive" width="600"
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
-          <img src="./images/capitulo_02/Ejemplo_vueltas.png" width="80%" height="60%"
+          <img src="./images/capitulo_02/Ejemplo_vueltas_1.jpg" width="80%" height="60%"
             alt="Ejemplo de la definición de vuelta derecha e izquierda.">
           <figcaption>Ejemplo de la definición de vuelta derecha e izquierda.</figcaption>
         </figure>
@@ -1180,48 +1180,82 @@
         <h5><span class="bolded">Paso 2. Ordenar los puntos con respecto al inferior.</span></h5>
         <p>
           Para esta parte del algoritmo necesitamos
-          ordenar ordenaremos todos los demás puntos en
-          $S$ por el ángulo que forma la línea trazada
-          desde el punto inferior hasta el punto
-          actual, con respecto al eje $x$, al sentido
-          contrario a las manecillas del reloj.
+          ordenar todos los demás puntos en $S$ por el
+          ángulo que forma la línea trazada desde el
+          punto inferior hasta el punto actual, con
+          respecto al eje $x$ (suponiendo al punto
+          inferior como el origen) al sentido contrario
+          a las manecillas del reloj.
           <br>
           Es posible hacer esto ordenando los puntos
-          por el valor del angulo con respecto al punto
-          inferior. Como se puede apreciar en la
-          INSERTAR FIGRURA. Sin embargo, los ángulos
-          resultantes pueden ser números de punto
-          flotante que nos puedan hacer cometer
-          errores.
+          por el valor del angulo la línea trazada
+          desde el punto inferior hasta dicho punto.
+          Como se puede apreciar en la <ref ref_id="compare_points_by_angle"></ref>
+          donde el ángulo de $p_2$ es menor al ángulo
+          de $p_3$.
         </p>
         <p>
-          Afortunadamente, podemos ordenar los puntos
-          de la forma que queremos sin necesidad de
-          saber su angulo, pues dados dos puntos podemos ver
-          cual tiene un angulo menor haciendo uso del
-          producto cruz.
+          Sin embargo, los ángulos resultantes pueden
+          ser números de punto flotante que nos puedan
+          hacer cometer errores.
         </p>
       </div>
 
       <div class="page">
         <p>
-          Esto lo podemos lograr gracias a que dados
-          dos vectores $a$ y $b$, su producto cruz $ a
-          \times b $ resulta ser positivo si el ángulo
-          de $a$ es menor al de $b$. Si por el
-          contrario el ángulo de $b$ es menor que el de
-          $a$ el producto cruz $a \times b$ será
-          negativo, y en el caso de que ambos vectores
-          tengan el mismo angulo, el valor resultante
-          será cero.
-          <br>
-          Entonces, podemos usar el producto cruz para
-          comparar a los puntos que queremos ordenar
-          tomándolos como vectores con origen en el
-          punto inferior y con esta comparación,
-          ordenar los puntos en tiempo $O(nlogn)$.
+        <figure id="compare_points_by_angle">
+          <img src="./images/capitulo_02/Ejemplo_comparar_angulos.svg" width="80%" height="60%" alt="Ejemplo de la
+          comparación de dos puntos por sus ángulos.">
+          <figcaption>Ejemplo de la comparación de los
+            ángulos de $p_2$ y $p_3$ con respecto a punto
+            inferior $p_1$.</figcaption>
+        </figure>
+        Afortunadamente, podemos ordenar los puntos de
+        la forma que queremos sin necesidad de saber su
+        ángulo, pues dados dos puntos podemos ver cual
+        tiene un ángulo menor haciendo uso del producto
+        cruz.
         </p>
-        <h5><span class="bolded">Paso 3. Recorrer los puntos ordenados y agregar puntos al $conv(S)$.</span></h5>
+        <p>
+          Esto lo podemos lograr gracias a que dados
+          dos vectores $A$ y $B$, su producto cruz $ A
+          \times B $ resulta ser positivo si ???, lo
+          cual podemos apreciar en la
+          <ref ref_id="cross_product"></ref>
+          .
+          <br>
+          Además, en el caso particular en el que $A$ y
+          $B$ son vectores con el eje $y$ no negativo,
+          su producto cruz $ A \times B$, resulta ser
+          positivo si el ángulo de $A$ es menor al de
+          $B$, por el contrario, si el ángulo de $B$ es
+          menor que el de $A$, el producto cruz $A
+          \times B$ será negativo, y en el caso de que
+          ambos vectores tengan el mismo angulo, el
+          valor resultante será cero.
+        </p>
+
+      </div>
+
+      <div class="page">
+        <p>
+        <figure id="cross_product">
+          <div class="interactive" width="600" height="310" window-size="false"
+            src="./Interactivos/capitulo_2/descartesJS/Ejemplo_producto_cruz.html"></div>
+          <figcaption>TO DO.</figcaption>
+        </figure>
+        Entonces, podemos usar el producto cruz para
+        comparar a los puntos que queremos ordenar
+        tomándolos como vectores con origen en el punto
+        inferior y con esta comparación, ordenar los
+        puntos en tiempo $O(nlogn)$.
+        </p>
+      </div>
+
+      <div class="page">
+        <h5><span class="bolded">Paso 3. Recorrer los
+            puntos ordenados y agregar puntos al
+            $conv(S)$.</span></h5>
         <p>
           En este paso podemos observar que recorremos
           la lista de puntos ordenados uno por uno,
@@ -1231,8 +1265,9 @@
           Además podemos observar que cada punto en el
           conjunto ordenado, es añadido y removido del
           conjunto de salida $conv(s)$ a lo más una
-          vez, entonces, dicho recorrido sobre los puntos
-          ordenados se realiza en $O(n)$ iteraciones.
+          vez, entonces, dicho recorrido sobre los
+          puntos ordenados se realiza en $O(n)$
+          iteraciones.
         </p>
         <p>
           Por lo tanto la complejidad es $O(nlog(n))$,

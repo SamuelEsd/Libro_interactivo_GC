@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>TITULO</title>
+  <script type="text/javascript" src="lib/descartes-min.js" charset="utf-8"></script>
+</head>
+
+<body style="padding:0; margin:0; background:#eff0f1;">
+
+  <div align="center">
+    <ajs name="Descartes" code="Descartes" width="500" height="400">
+      <param name="tamaño" value="500x400">
+      <param name="decimal_symbol" value=".">
+      <param name="expand" value="fit">
+      <param name="nombre" value="">
+      <param name="Versión" value="5.5">
+      <param name="editable" value="no">
+      <param name="Idioma" value="español">
+      <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' escala='30' O.x='-100' O.y='100' números='sí' ">
+      <param name="C_01" value="id='p1_x' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='p1 x' expresión='(0,0,150,40)' valor='2.30' visible='sí' ">
+      <param name="C_02" value="id='p1_y' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='p1 y' expresión='(0,0,150,40)' valor='5.40' visible='sí' ">
+      <param name="C_03" value="id='p2_x' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='p2 x' expresión='(0,0,150,40)' valor='6.00' visible='sí' ">
+      <param name="C_04" value="id='p2_y' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='p2 y' expresión='(0,0,150,40)' valor='2.50' visible='sí' ">
+      <param name="A_01" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' hacer='p1_x = 1;p1_y = 3;;p2_x = 4;p2_y = 1;;inicio_suma = (p1_x >= 0)? ((p1_y >= 0)? (0): (360)) : (180);inicio_ang = (atan(p1_y/p1_x)*(180/pi)) + inicio_suma ;;fin_suma = (p2_x >= 0)? ((p2_y >= 0)? (0): (360)) : (180);fin_ang = (atan(p2_y/p2_x)*(180/pi)) + fin_suma;;a_x_b = (p1_x*p2_y) - (p1_y*p2_x)' ">
+      <param name="A_02" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' hacer='m = (p2_y - p1_y) / (p2_x - p1_x);;alpha = atan(p1_y/p1_x)*180;;b_suma = (p1_x >= 0)? ((p1_y >= 0)? (0): (360)) : (180);b_ang = (atan(p1_y/p1_x)*(180/pi)) + inicio_suma ;;a_suma = (p2_x >= 0)? ((p2_y >= 0)? (0): (360)) : (180);a_ang = (atan(p2_y/p2_x)*(180/pi)) + fin_suma;;a_x_b = (p1_x*p2_y) - (p1_y*p2_x)' ">
+      <param name="G_01" value="espacio='E1' tipo='flecha' color='7920303a' coord_abs='no' expresión='(p1_x,p1_y)(p1_x+p2_x, p1_y+p2_y)' ancho='5' punta='8' flecha='7200ffff' info='A_2' ">
+      <param name="G_02" value="espacio='E1' tipo='flecha' color='9920303a' coord_abs='no' expresión='(p2_x,p2_y)(p1_x+p2_x, p1_y+p2_y)' ancho='5' punta='8' flecha='a200ff00' info='B_2' ">
+      <param name="G_03" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p1_x,p1_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 \i{\*\mjaformula\i p\i0{\subix\i 1\i0}}\i0    }' tamaño='7' info='p1' ">
+      <param name="G_04" value="espacio='E1' tipo='punto' color='404040' coord_abs='no' expresión='(p2_x,p2_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 \i{\*\mjaformula\i p\i0{\subix\i 2\i0}}\i0 }' tamaño='7' info='p2' ">
+      <param name="G_05" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(0,0)(p1_x,p1_y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}{\colortbl\red0\green0\blue0;}\cf0\f0\fs40 A}' ancho='5' punta='8' flecha='0000ff' info='A' ">
+      <param name="G_06" value="espacio='E1' tipo='flecha' color='20303a' coord_abs='no' expresión='(0,0)(p2_x,p2_y)' texto='B' ancho='5' punta='8' flecha='00ff00' info='B' ">
+      <param name="G_07" value="espacio='E1' tipo='punto' color='00ffff' coord_abs='no' expresión='(p1_x+p2_x, p1_y+p2_y)' tamaño='5' info='r' ">
+      <param name="G_08" value="espacio='E1' tipo='arco' color='ff0000' dibujar-si='0' coord_abs='no' centro='(0,0)' radio='1' inicio='inicio_ang' fin='fin_ang' vectores='sí' ancho='3' info='ángulo1' ">
+      <param name="G_09" value="espacio='E1' tipo='arco' color='ff0000' dibujar-si='0' coord_abs='no' centro='(0,0)' radio='1' inicio='fin_ang' fin='inicio_ang' vectores='sí' ancho='3' info='ángulo2' ">
+      <param name="G_10" value="espacio='E1' tipo='texto' color='20303a' coord_abs='sí' expresión='(E1._w/2,10)' familia='a' a.intervalo='[0,1]' a.pasos='4' texto='A × B = [a_x_b]' ancho='1' align='a_center' anchor='a_top_center' ">
+      <param name="G_11" value="espacio='E1' tipo='relleno' color='a25e208d' coord_abs='no' expresión='((p1_x+p2_x)/2, (p1_y+p2_y)/2)' ">
+    </ajs>
+  </div>
+
+
+
+</body>
+</html>

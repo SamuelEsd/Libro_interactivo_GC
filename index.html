@@ -1242,7 +1242,8 @@
         <figure id="cross_product">
           <div class="interactive" width="500" height="400" window-size="false"
             src="./Interactivos/capitulo_2/utils/descarteJS/Ejemplo_producto_cruz.html"></div>
-          <figcaption>TO DO.</figcaption>
+          <figcaption>Ejemplo que muestra el producto cruz de dos vectores y como
+            cambia dependiendo del valor de cada vector.</figcaption>
         </figure>
         Entonces, podemos usar el producto cruz para
         comparar a los puntos que queremos ordenar
@@ -1916,16 +1917,17 @@
             revisando si alguna tripleta da vuelta
             derecha, usando el criterio de vuelta
             derecha e izquierda que usamos en el
-            algoritmo de graham, usando dos
+            algoritmo de graham, usando dos puntos
+            consecutivos en el cierre convexo y al
+            punto $p_i$ como
           </p>
         </div>
       </div>
       <div class="page">
         <div class="step">
           <p>
-            puntos consecutivos en el cierre convexo y
-            al punto $p_i$ como tripleta), tenemos que
-            añadir a $p_i$ al cierre convexo.
+            tripleta), tenemos que añadir a $p_i$ al
+            cierre convexo.
           </p>
         </div>
         <p>
@@ -1959,15 +1961,27 @@
           <!-- <div class="interactive" width="600"
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
-          <img src="./images/capitulo_02/Ejemplo_unir_punto_a_ch.png" width="80%" height="80%">
-          <figcaption>TO DO.</figcaption>
+          <img src="./images/capitulo_02/Ejemplo_unir_punto_a_ch.png" width="75%" height="75%">
+          <figcaption>Ejemplo que muestra un cierre convexo y un punto exterior a él que se agregará
+            al cierre, las líneas tangentes que se deben agregar para formar el nuevo cierre se muestran en amarillo.
+          </figcaption>
         </figure>
       </div>
 
       <div class="page">
+        <p>
+          Una vez que agregamos al nuevo punto o
+          ignoramos dependiendo el caso, estamos
+          seguros de que tenemos el cierre convexo para
+          los primeros 4 puntos. Para seguir calculando
+          el cierre convexo a medida que agregamos
+          puntos es suficiente agregar el nuevo punto y
+          repetir el mismo procedimiento aplicado
+          anteriormente.
 
+        </p>
         <figure id="finding_tangents_with_a_point">
-          <div class="interactive" width="810" height="1020" window-size="false"
+          <div class="interactive" width="810" height="830" window-size="false"
             src="./Interactivos/capitulo_2/ch_merge_point.html">
           </div>
           <figcaption>Ejemplo del recorrido que verifica si un punto está dentro o fuera del

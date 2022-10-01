@@ -5,5 +5,8 @@
   },
   "scripts": {
     "start": "http-server"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.11"
   }
 }

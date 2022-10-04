@@ -1990,15 +1990,81 @@
         </figure>
       </div>
 
+
+
+      <div class="page">
+        <h4><span class="bolded">Complejidad</span></h4>
+        <p>
+          Procederemos a hacer un análisis simple de la
+          complejidad del algoritmo, con ayuda de su
+          division en pasos, analizaremos la
+          complejidad de cada uno para obtener la total
+          del algoritmo.
+        </p>
+        <h5><span class="bolded">Paso 1. Calcular el
+            cierre convexo para los primeros 3
+            puntos.</span></h5>
+        <div class="step">
+          <p>
+            Calcular el cierre convexo de los primeros 3
+            puntos en $S$ nos toma tiempo $ \ O(1) \ $
+            pues 3 es un número constante y el número de
+            operaciones para formar su cierre convexo son
+            solo las necesarias para unir a estos puntos.
+          </p>
+        </div>
+        <h5><span class="bolded">Paso 2. Agregar un punto
+            y calcular el cierre convexo resultante.</span></h5>
+        <div class="step">
+          <p>
+            La complejidad de agregar un punto nuevo como
+            hemos visto resulta ser $O(n)$, pues en el
+            pero de los casos recorremos todos los puntos
+            que hemos agregado hasta dicha iteración.
+            Este segundo paso será ejecutado para cada
+            nuevo punto agregado hasta que no falten
+            puntos por agregar.
+          </p>
+        </div>
+        <p>
+          Por lo tanto podemos concluir que la
+          complejidad de ejecutar este algoritmo
+          dinámico es de $O(n^{2})$, lo cual a pesar de
+          no ser igual de optimo que el algoritmo no
+          dinámico resulta ser más eficiente que la
+          idea más simple que podríamos ocupar para
+          resolver este problema, la cual sería
+          calcular el cierre convexo para cada
+          iteración con alguno de los algoritmos con
+          complejidad $O(nlogn)$ ya mencionados, que
+          nos dejaría una complejidad total de
+          $O(n^{2}logn)$.
+        </p>
+        <p>
+          A pesar de esto, sí es posible mejorar la
+          complejidad aún más si utilizamos una tecnica
+          más eficiente que $O(n)$ para insertar, lo
+          cual describe
+          <a target="_blank"
+            href="http://galaxy.cti.gr/dep/sites/default/files/member/zagouras/course-files/p402-preparata.pdf">
+            Preparata
+          </a>
+          mejorando la complejidad de inserción a
+          $\theta(logn)$ y así la complejidad total a
+          $O(nlogn)$. Sin embargo, dicho algoritmo
+          resulta bastante más complejo por lo cual no
+          será abarcado en estas notas.
+        </p>
+      </div>
+
+
+
       <div class="page">
         <h2 id="cap2_extensiones_variantes">Extensiones y variantes</h2>
       </div>
 
       <div class="page">
-
         <h2 id="cap2_cota_minima">Cota mínima</h2>
-
-
         <p>
           Después de ver distintos algoritmos que nos sirven para encontrar el cierre convexo, es natural
           preguntarnos, ¿podemos encontrar un algoritmo aún mejor en cuanto a complejidad en tiempo?
@@ -2028,8 +2094,31 @@
           La reducción se puede realizar proyectando
           los números $n_i \in X$, a ordenar, a una curva
           convexa, mapeandolos al punto $(n_i,
-          n_{i}^{2})$, como se muestra en la INSERTAR FIGURA.
+          n_{i}^{2})$, como se muestra en la <ref ref_id="lower_bound_1"></ref>.
         </p>
+        <figure id="lower_bound_1">
+          <!-- <div class="interactive" width="600"
+          height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
+          <img src="./images/capitulo_02/Ejemplo_cota_inferior.svg" width="75%" height="75%">
+          <figcaption>
+            Ejemplo del mapeo de un número $n_i$ al punto $(n_i,
+            n_{i}^{2})$.
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <div class="page">
+        <figure id="lower_bound_2">
+          <!-- <div class="interactive" width="600"
+          height="310" window-size="false"
+          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
+          <img src="./images/capitulo_02/Ejemplo_cota_inferior_cierre.svg" width="75%" height="75%">
+          <figcaption>
+            Ejemplo obtener el cierre convexo del ejemplo anterior del mapeo.
+          </figcaption>
+        </figure>
         <p>
           Como podemos notar los puntos caen en una
           parabola, por lo que después de ejecutar
@@ -2045,10 +2134,6 @@
           para finalmente obtener los números en $X$
           ordenados.
         </p>
-
-      </div>
-
-      <div class="page">
         <p>
           Nos basta con hacer esto, pues, si tenemos un
           algoritmo con complejidad $T(n)$ para
@@ -2086,6 +2171,12 @@
           Springer-Verlag New York Inc, 1985
         </bibitem>
 
+        <bibitem id="CG_an_Introduction">
+          Preparata, F.P. <b>
+            An optimal real-time algorithm for planar
+            convex hulls
+          </b> Commun. ACM, 22, 402-405. 1979
+        </bibitem>
         https://en.wikipedia.org/wiki/Reduction_(complexity) (20/09/22)
       </div>
 
@@ -2099,14 +2190,68 @@
           <h1 class="chap_name" id="intersecciones_segmentos">Intersecciones entre segmentos de rectas</h1>
           <h1 class="chap_num">3</h1>
         </div>
-        <h2 id="cap3_deteccion">Detección</h2>
-        <h2 id="cap3_algoritmos">Algoritmos</h2>
-        <h2 id="cap3_lista_doblemente_ligada">Lista doblemente conexa de aristas</h2>
-        <h2 id="cap3_calculando_traslape">Calculando el traslape de dos subdivisiones</h2>
-        <h2 id="cap3_barrido_topologico">Barrido topológico</h2>
-        <h2 id="cap3_ordenando_pendientes">Ordenando pendientes en O(n^2)</h2>
+        <p>
+          El problema que se abordará en este capitulo
+          es la intersección de segmentos de rectas,
+          pero antes de comenzar, necesitamos tener en
+          claro que significa esto y definir qué es una
+          intersección.
+        </p>
+        <p>
+
+
+          Definición de intersección
+
+          TO DO: Añadir imágenes que muestren las intersecciones.
+        </p>
 
       </div>
+
+      <div class="page">
+        <h2 id="cap3_deteccion">Detección</h2>
+        <p>
+          Ahora que tenemos bien definido nuestro
+          problema podemos comenzar a pensar en una
+          solución.
+        </p>
+        <p>
+          Como primer acercamiento podemos comparar
+          cada segmento de línea en el conjunto $S$
+          contra todos los demás, lo cual es una buena
+          idea, pues nos permite calcular todas las
+          intersecciones entre los segmentos, además de
+          que su complejidad es de $O(n^{2})$, lo cual,
+          si pensamos detenidamente, es lo mejor que
+          podemos hacer en el peor de los casos, esto
+          es, cuando todos los segmentos se intersectan
+          entre sí, pues justamente estamos revisando
+          todas las intersecciones que puede haber
+          entre los segmentos de linea en $S$.
+        </p>
+        <p>
+          Listo, entonces hemos terminado, ¿o no?.
+          <br>
+          Es verdad que en situaciones donde tenemos
+          que lidiar con el peor escenario no puede ser
+          mejorado, sin embargo, en aplicaciones reales,
+          dicho caso es poco común y resultaría
+          bastante conveniente tener un algoritmo que
+          sea más eficiente si el número de
+          intersecciones es menor.
+        </p>
+
+
+      </div>
+
+      <div class="page">
+
+        <h2 id="cap3_algoritmos">Algoritmo</h2>
+        TO DO: sweep line algorithm description and interactive resource.
+
+        <h2 id="cap3_lista_doblemente_ligada">Lista doblemente conexa de aristas</h2>
+        <h2 id="cap3_calculando_traslape">Calculando el traslape de dos subdivisiones</h2>
+      </div>
+
 
       <!--  -->
       <!-- CAPITULO 4: TRIANGULACIÓN Y VISIBILIDAD -->

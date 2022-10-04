@@ -9,23 +9,39 @@
 <body style="padding:0; margin:0; background:#eff0f1;">
 
   <div align="center">
-    <ajs name="Descartes" code="Descartes" width="970" height="550">
-      <param name="tamaño" value="970x550">
+    <ajs name="Descartes" code="Descartes" width="700" height="350">
+      <param name="tamaño" value="700x350">
       <param name="decimal_symbol" value=".">
       <param name="nombre" value="">
       <param name="Versión" value="5.5">
       <param name="editable" value="no">
       <param name="Idioma" value="español">
       <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
-      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' escala='30' O.y='120' números='sí' ">
-      <param name="A_01" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' hacer='n_1 = 2;n_2 = -2;n_3 = 8;n_4 = -6;n_5 = 12' ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' escala='40' O.y='150' red='no' red10='no' ejes='000000' ">
+      <param name="A_01" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' hacer='n_1 = 2;n_2 = -4;n_3 = 8;n_4 = -6;n_5 = 7;n_6 = 3;n_7 = 5' ">
       <param name="A_02" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' ">
-      <param name="G_01" value="espacio='E1' tipo='ecuación' color='ff0000' coord_abs='no' expresión='y=x*x' ancho='2' ">
-      <param name="G_02" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_1,n_1*n_1)' tamaño='4' ">
-      <param name="G_03" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_2,n_2*n_2)' tamaño='4' ">
-      <param name="G_04" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_3,n_3*n_3)' tamaño='4' ">
-      <param name="G_05" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_4,n_4*n_4)' tamaño='4' ">
-      <param name="G_06" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_5,n_5*n_5)' tamaño='4' ">
+      <param name="G_01" value="espacio='E1' tipo='ecuación' color='ff0000' coord_abs='no' expresión='y=(x*x)/10' ancho='2' ">
+      <param name="G_02" value="espacio='E1' tipo='segmento' color='00ff00' coord_abs='no' expresión='(n_1,(n_1*n_1)/10)(n_1,0)' tamaño='2' ancho='3' ">
+      <param name="G_03" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_1,(n_1*n_1)/10)' tamaño='4' ">
+      <param name="G_04" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_1,0)' tamaño='4' ">
+      <param name="G_05" value="espacio='E1' tipo='segmento' color='00ff00' coord_abs='no' expresión='(n_2,0)(n_2,(n_2*n_2)/10)' tamaño='2' ancho='2' ">
+      <param name="G_06" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_2,0)' tamaño='4' ">
+      <param name="G_07" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_2,(n_2*n_2)/10)' tamaño='4' ">
+      <param name="G_08" value="espacio='E1' tipo='segmento' color='00ff00' coord_abs='no' expresión='(n_3,0)(n_3,(n_3*n_3)/10)' tamaño='2' ancho='2' ">
+      <param name="G_09" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_3,0)' tamaño='4' ">
+      <param name="G_10" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_3,(n_3*n_3)/10)' tamaño='4' ">
+      <param name="G_11" value="espacio='E1' tipo='segmento' color='00ff00' coord_abs='no' expresión='(n_4,0)(n_4,(n_4*n_4)/10)' tamaño='2' ancho='2' ">
+      <param name="G_12" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_4,0)' tamaño='4' ">
+      <param name="G_13" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_4,(n_4*n_4)/10)' tamaño='4' ">
+      <param name="G_14" value="espacio='E1' tipo='segmento' color='00ff00' coord_abs='no' expresión='(n_5,0)(n_5,(n_5*n_5)/10)' tamaño='2' ancho='2' ">
+      <param name="G_15" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_5,0)' tamaño='4' ">
+      <param name="G_16" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_5,(n_5*n_5)/10)' tamaño='4' ">
+      <param name="G_17" value="espacio='E1' tipo='segmento' color='00ff00' coord_abs='no' expresión='(n_6,0)(n_6,(n_6*n_6)/10)' tamaño='2' ancho='2' ">
+      <param name="G_18" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_6,0)' tamaño='4' ">
+      <param name="G_19" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_6,(n_6*n_6)/10)' tamaño='4' ">
+      <param name="G_20" value="espacio='E1' tipo='segmento' color='00ff00' coord_abs='no' expresión='(n_7,0)(n_7,(n_7*n_7)/10)' tamaño='2' ancho='2' ">
+      <param name="G_21" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_7,0)' tamaño='4' ">
+      <param name="G_22" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(n_7,(n_7*n_7)/10)' tamaño='4' ">
     </ajs>
   </div>
 

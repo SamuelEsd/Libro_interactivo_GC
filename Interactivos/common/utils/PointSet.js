@@ -122,7 +122,7 @@ class PointSet {
     selectedColor = "red"
   ) {
     strokeWeight(POINT_SIZE);
-    for (let i = 0; i < points.length; i++) {
+    for (let i = 0; i < this.points.length; i++) {
       if (selectedPoint == i) {
         stroke("red");
         this.points[i].x = mouseX;

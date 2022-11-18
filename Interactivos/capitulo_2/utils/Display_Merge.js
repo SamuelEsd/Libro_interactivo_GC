@@ -62,6 +62,9 @@ function resetAlgorithm() {
       DOWN_RIGHT_CORNER
     )
   );
+  for (let i = 0; i < right_pointsSet.size(); i++) {
+    right_pointsSet.points[i].z += 5;
+  }
 
   left_convexHull = new PointSet(convexHullJM(left_pointsSet.points));
   right_convexHull = new PointSet(convexHullJM(right_pointsSet.points));
@@ -71,9 +74,9 @@ function resetAlgorithm() {
 
   checkLeft = true;
   checkRight = true;
-  (changesOnLeft = true),
-    (changesOnRight = true),
-    (lowest_intersection = middleLine_end.y);
+  changesOnLeft = true;
+  changesOnRight = true;
+  lowest_intersection = middleLine_end.y;
 
   description.html("Para iniciar la visualización presione el botón iniciar.");
   button.html("Iniciar");
@@ -180,7 +183,7 @@ async function step() {
     "Tangente inferior actual:<br>Cierre izquierdo:" +
       tangent_point_names[0] +
       " Cierre derecho:" +
-      tangent_point_names[1]
+      (tangent_point_names[1] === undefined ? "" : tangent_point_names[1])
   );
 }
 

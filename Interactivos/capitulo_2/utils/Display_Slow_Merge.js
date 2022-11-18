@@ -37,35 +37,52 @@ function setup() {
   button = createButton("");
   button.position(CUSTOM_WIDTH - 100, CUSTOM_HEIGHT - 25);
   button.mousePressed(step);
-  description = createElement('h3', '');
-  inputDescription = createElement('h4', '');
-  outputDescription = createElement('h4', '');
+  description = createElement("h3", "");
+  inputDescription = createElement("h4", "");
+  outputDescription = createElement("h4", "");
 
   resetAlgorithm();
 }
 
 function resetAlgorithm() {
-  left_pointsSet = new PointSet(getRandomPointsInArea(Math.floor(num_of_points/2), UP_LEFT_CORNER, DOWN_MIDDLE_CORNER));
-  right_pointsSet = new PointSet(getRandomPointsInArea(Math.ceil(num_of_points/2), UP_MIDDLE_CORNER, DOWN_RIGHT_CORNER));
-  
+  left_pointsSet = new PointSet(
+    getRandomPointsInArea(
+      Math.floor(num_of_points / 2),
+      UP_LEFT_CORNER,
+      DOWN_MIDDLE_CORNER
+    )
+  );
+  right_pointsSet = new PointSet(
+    getRandomPointsInArea(
+      Math.ceil(num_of_points / 2),
+      UP_MIDDLE_CORNER,
+      DOWN_RIGHT_CORNER
+    )
+  );
+  for (let i = 0; i < right_pointsSet.size(); i++) {
+    right_pointsSet.points[i].z += 5;
+  }
+
   left_convexHull = new PointSet(convexHullJM(left_pointsSet.points));
   right_convexHull = new PointSet(convexHullJM(right_pointsSet.points));
 
-  upper_tangent.points = []
-  lower_tangent.points = []
+  upper_tangent.points = [];
+  lower_tangent.points = [];
 
   highest_intersection = middleLine_start.y;
   lowest_intersection = middleLine_end.y;
 
-  description.html('Para iniciar la visualización presione el botón iniciar.');
-  button.html('Iniciar');
+  description.html("Para iniciar la visualización presione el botón iniciar.");
+  button.html("Iniciar");
 }
 
 async function step() {
   // Initialize set of point to iterate
   if (start === true) {
     points_to_process = new PointSet(Array.from(left_convexHull.points));
-    description.html("Iteramos sobre cada uno de los puntos pertenecientes al cierre convexo izquierdo.");
+    description.html(
+      "Iteramos sobre cada uno de los puntos pertenecientes al cierre convexo izquierdo."
+    );
     button.html("Siguiente");
     start = false;
   }
@@ -78,53 +95,69 @@ async function step() {
     }
     // Compare the left point with each point on right
     else {
-      if (intersecting_points.size() > 0){
+      if (intersecting_points.size() > 0) {
         intersecting_points.points = [];
         displayTangents = true;
-        description.html("Tomaremos como tangentes a las líneas cuya intersección tenga el valor en \"y\" más grande o mas chico.");
+        description.html(
+          'Tomaremos como tangentes a las líneas cuya intersección tenga el valor en "y" más grande o mas chico.'
+        );
         curr_point_left.shift();
         return;
       }
       for (let point of right_convexHull.points) {
         curr_point_right.push(point);
 
-        let intersecting_point = intersect_point(middleLine_start, middleLine_end, curr_point_left.points[0], curr_point_right.points[0]);
+        let intersecting_point = intersect_point(
+          middleLine_start,
+          middleLine_end,
+          curr_point_left.points[0],
+          curr_point_right.points[0]
+        );
         intersecting_points.push(intersecting_point);
-       
+
         // if the line from left point to right point is a new tangent
         // update the tangent value
-        if (intersecting_point.y < lowest_intersection){
+        if (intersecting_point.y < lowest_intersection) {
           lowest_intersection = intersecting_point.y;
-          lower_tangent.points = [curr_point_left.points[0],curr_point_right.points[0]];
+          lower_tangent.points = [
+            curr_point_left.points[0],
+            curr_point_right.points[0],
+          ];
         }
-        if (intersecting_point.y > highest_intersection){
+        if (intersecting_point.y > highest_intersection) {
           highest_intersection = intersecting_point.y;
-          upper_tangent.points = [curr_point_left.points[0],curr_point_right.points[0]];
+          upper_tangent.points = [
+            curr_point_left.points[0],
+            curr_point_right.points[0],
+          ];
         }
 
-        button.attribute('disabled', '');
+        button.attribute("disabled", "");
         await sleep(50);
-        button.removeAttribute('disabled');
+        button.removeAttribute("disabled");
         curr_point_right.shift();
-        description.html("Trazamos las lineas y calculamos sus intersecciones con la linea que separa a los cierres convexos.");
+        description.html(
+          "Trazamos las lineas y calculamos sus intersecciones con la linea que separa a los cierres convexos."
+        );
       }
     }
   }
   // finished
   else {
     // reset alg
-    if (reset){
+    if (reset) {
       resetAlgorithm();
       start = true;
       reset = false;
-    }
-    else{
-      description.html('Ya no hay más puntos que procesar y tenemos las líneas tangentes a los cierres convexos')
-      button.html('Reiniciar');
+    } else {
+      description.html(
+        "Ya no hay más puntos que procesar y tenemos las líneas tangentes a los cierres convexos"
+      );
+      button.html("Reiniciar");
       reset = true;
     }
   }
-  inputDescription.html('Puntos por procesar: ' + points_to_process);
+  inputDescription.html("Puntos por procesar: " + points_to_process);
 }
 
 function sleep(millisecondsDuration) {
@@ -136,7 +169,7 @@ function sleep(millisecondsDuration) {
 function draw() {
   background(0);
   // Draws the line from the left convex hull to the right convex hull
-  if( curr_point_right.size() > 0){
+  if (curr_point_right.size() > 0) {
     drawArrow(curr_point_left.points[0], curr_point_right.points[0], "red");
   }
 
@@ -145,22 +178,27 @@ function draw() {
   curr_point_left.drawPoints("red");
 }
 
-function drawCHs(){
-  left_convexHull.drawLinesBetweenPoints(true,"green");
-  right_convexHull.drawLinesBetweenPoints(true,"green");
+function drawCHs() {
+  left_convexHull.drawLinesBetweenPoints(true, "green");
+  right_convexHull.drawLinesBetweenPoints(true, "green");
 
-  lower_tangent.drawLinesBetweenPoints(false,"yellow",2);
-  upper_tangent.drawLinesBetweenPoints(false,"yellow",2);
+  lower_tangent.drawLinesBetweenPoints(false, "yellow", 2);
+  upper_tangent.drawLinesBetweenPoints(false, "yellow", 2);
 
   left_pointsSet.drawPoints("blue");
   right_pointsSet.drawPoints("blue");
 }
 
-function drawMiddleLine(){
+function drawMiddleLine() {
   push();
-  stroke('red');
+  stroke("red");
   strokeWeight(2);
-  line(middleLine_start.x,middleLine_start.y,middleLine_end.x,middleLine_end.y);
+  line(
+    middleLine_start.x,
+    middleLine_start.y,
+    middleLine_end.x,
+    middleLine_end.y
+  );
   pop();
-  intersecting_points.drawPointsNoId('yellow',3);
+  intersecting_points.drawPointsNoId("yellow", 3);
 }

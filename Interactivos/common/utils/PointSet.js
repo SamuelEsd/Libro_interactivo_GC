@@ -95,7 +95,7 @@ class PointSet {
    * center of the point as Pi.
    * @param {Color} color - Color of the points to be drawn.
    */
-  drawPointsNoId(color, point_size) {
+  drawPointsNoId(color, point_size = POINT_SIZE) {
     noStroke();
     for (const point of this.points) {
       push();
@@ -122,7 +122,7 @@ class PointSet {
     selectedColor = "red"
   ) {
     strokeWeight(POINT_SIZE);
-    for (i = 0; i < points.length; i++) {
+    for (let i = 0; i < points.length; i++) {
       if (selectedPoint == i) {
         stroke("red");
         this.points[i].x = mouseX;

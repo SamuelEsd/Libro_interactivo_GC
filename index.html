@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8" />
@@ -315,7 +315,7 @@
           <span class="bolded">planos</span>,
           <span class="bolded">polígonos</span>, etcétera, cuyas
           definiciones y/o conceptos básicos serán
-          presentados en la primer parte del capitulo
+          presentados en la primer parte del capítulo
           actual.
         </p>
       </div>
@@ -402,7 +402,7 @@
           distintos definen perfectamente una línea,
           una línea en $\mathbb{R}^d$ contiene un
           número infinito de puntos. Lo cual puede
-          apreciarse en la (<ref ref_id="linea"></ref> ), en el cual las
+          apreciarse en la <ref ref_id="linea"></ref>, en el cual las
           flechas azul y verde, representan la partes
           respectivas que aportan los puntos $p_2$ y
           $p_1$ al nuevo punto $r$ respectivamente.
@@ -439,9 +439,9 @@
           se denota como $ \ \overline{ p_1 p_2}$.
         </p>
         <p>
-          La (<ref ref_id="segmento_de_linea"></ref>) muestra un
+          La <ref ref_id="segmento_de_linea"></ref> muestra un
           interactivo que funciona de la misma manera
-          al presentado en la (<ref ref_id="linea"></ref>), el cual muestra la
+          al presentado en la <ref ref_id="linea"></ref>, el cual muestra la
           definición de línea, sin embargo se puede
           notar como en este recurso el valor de
           $\alpha$ cumple la condición $( 0 \leq \alpha
@@ -543,7 +543,7 @@
           están conectados por los extremos; la razón
           por la cual esta curva es
           <span class="bolded">cerrada</span> es porque
-          forma un ciclo, pues el ultimo segmento se
+          forma un ciclo, pues el último segmento se
           conecta con el primero y la razón por la que
           la curva cerrada, es además <span class="bolded">simple</span>, es porque los
           segmentos no adyacentes no se intersectan.
@@ -670,7 +670,7 @@
           <h1 class="chap_num">2</h1>
         </div>
         <p>
-          Antes de comenzar este capitulo, necesitamos
+          Antes de comenzar este capítulo, necesitamos
           saber que es un <span class="bolded">cierre convexo</span>,
           antes de definirlo formalmente, podemos
           tomarnos la libertad de definirlo de una
@@ -699,7 +699,7 @@
           círculos blancos que representan a los puntos
           en $S$ para poder moverlo en la dirección que
           muevas el cursor, y a su vez puedes dar de
-          nuevo click para dejarlo fijo en la nueva
+          nuevo clic para dejarlo fijo en la nueva
           posición de cursor y ver como se modifica el
           cierre convexo.
         </p>
@@ -773,7 +773,7 @@
           definen al triángulo ($p_1 = (1,5)$, $p_2 =
           (8,1)$ y $p_3 = (8,8)$) multiplicándolos por
           una $\alpha_i$ aleatoria, de tal manera que
-          la suma de las $\alpha_i$s suman 1.
+          la suma de las $\alpha_i$ suman 1.
         </p>
         <figure id="comb-convexa">
           <div class="interactive" width="500" height="295" window-size="false"
@@ -985,7 +985,7 @@
           no le resultaba practica, lo que lo llevó a
           describir un algoritmo con una complejidad de
           $O(n log n)$ en tiempo, el cual pasó a ser el
-          posiblemente primer el articulo publicado en el
+          posiblemente el primer articulo publicado en el
           campo de la geometría computacional en 1972.
         </p>
         <p>
@@ -1084,7 +1084,7 @@
           <br>
           Para verificar si la secuencia de los 3
           puntos dan una vuelta izquierda, derecha o
-          son colineares, comprobaremos si el tercer
+          son colineales, comprobaremos si el tercer
           punto de la secuencia está a la izquierda,
           derecha o en la <span class="bolded">línea
             dirigida</span> formada por los primeros dos
@@ -1125,7 +1125,7 @@
         <p>
           Si la tripleta $ ( p_{k-1} , p_{k} , p_{i} )
           $ forma una vuelta derecha o los puntos son
-          colineales, eliminamos al ultimo punto de
+          colineales, eliminamos al último punto de
           nuestro conjunto de salida $conv(S)$, esto es
           al punto $p_{k}$.
         </p>
@@ -1157,7 +1157,7 @@
         <p>
           Procederemos a hacer un análisis simple de la
           complejidad del algoritmo, con ayuda de su
-          division en pasos, analizaremos la
+          división en pasos, analizaremos la
           complejidad de cada uno para obtener la total
           del algoritmo.
         </p>
@@ -1183,12 +1183,12 @@
           ordenar todos los demás puntos en $S$ por el
           ángulo que forma la línea trazada desde el
           punto inferior hasta el punto actual, con
-          respecto al eje $x$ (suponiendo al punto
+          respecto al eje $x$ (considerando al punto
           inferior como el origen) al sentido contrario
           a las manecillas del reloj.
           <br>
           Es posible hacer esto ordenando los puntos
-          por el valor del angulo la línea trazada
+          por el valor del ángulo la línea trazada
           desde el punto inferior hasta dicho punto.
           Como se puede apreciar en la <ref ref_id="compare_points_by_angle"></ref>
           donde el ángulo de $p_2$ es menor al ángulo
@@ -1219,8 +1219,9 @@
         <p>
           Esto lo podemos lograr gracias a que dados
           dos vectores $A$ y $B$, su producto cruz $ A
-          \times B $ resulta ser positivo si ???, lo
-          cual podemos apreciar en la
+          \times B $ cambia de signo dependiendo de la
+          orientación de un vector con respeto del
+          otro, lo cual podemos apreciar en la
           <ref ref_id="cross_product"></ref>
           .
           <br>
@@ -1231,7 +1232,7 @@
           $B$, por el contrario, si el ángulo de $B$ es
           menor que el de $A$, el producto cruz $A
           \times B$ será negativo, y en el caso de que
-          ambos vectores tengan el mismo angulo, el
+          ambos vectores tengan el mismo ángulo, el
           valor resultante será cero.
         </p>
 
@@ -1302,8 +1303,8 @@
         </p>
         <p>
           La siguiente figura muestra un ejemplo de
-          esto, tomando los puntos ($p_8$) y
-          ($p_5$) podemos trazar una línea que cumple
+          esto, tomando los puntos $p_8$ y
+          $p_5$ podemos trazar una línea que cumple
           la condición ya mencionada.
         </p>
         <figure id="linea_extrema">
@@ -1311,8 +1312,8 @@
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_linea_extrema.png" width="75%" height="75%"
-            alt="Linea que se encuentra al extremo inferior, con todos lose demás puntos por arriba de ella.">
-          <figcaption>Linea que se encuentra al extremo inferior, con todos lose demás puntos por arriba de ella.
+            alt="Linea que se encuentra al extremo inferior, con todos los demás puntos por arriba de ella.">
+          <figcaption>Línea que se encuentra al extremo inferior, con todos los demás puntos por arriba de ella.
           </figcaption>
         </figure>
       </div>
@@ -1369,13 +1370,13 @@
         <p>
           Este paso es exactamente igual al primer paso del
           <pageref ref_id="graham_algorithm_page">algoritmo de
-            graham antes descrito</pageref>.
+            Graham antes descrito</pageref>.
         </p>
-        <h5><span class="bolded">Paso 2. Ir agregando puntos a $conv(S)$ tomando el ultimo punto en
+        <h5><span class="bolded">Paso 2. Ir agregando puntos a $conv(S)$ tomando el último punto en
             $conv(S)$ como referencia.</span></h5>
 
         <p>
-          En esta parte del algoritmo tomamos al ultimo
+          En esta parte del algoritmo tomamos al último
           punto que fue agregado a $conv(S)$, al que
           nos referiremos como $p_k$, posteriormente,
           procedemos a comparar a todos los demás
@@ -1405,7 +1406,7 @@
         <p>
           Procederemos a hacer un análisis simple de la
           complejidad del algoritmo, con ayuda de su
-          division en pasos, analizaremos la
+          división en pasos, analizaremos la
           complejidad de cada uno para obtener la total
           del algoritmo.
         </p>
@@ -1417,13 +1418,13 @@
             de graham antes descrito</pageref>. Es decir,
           tenemos una complejidad de $O(n)$.
         </p>
-        <h5><span class="bolded">Paso 2. Ir agregando puntos a $conv(S)$ tomando el ultimo punto en
+        <h5><span class="bolded">Paso 2. Ir agregando puntos a $conv(S)$ tomando el último punto en
             $conv(S)$ como referencia.</span></h5>
         <p>
           Para esta parte del algoritmo necesitamos a
           un punto $p$ cuyo ángulo (en sentido
           contrario a las manecillas del reloj) que
-          forma con respecto al ultimo punto $p_k$ en
+          forma con respecto al último punto $p_k$ en
           $conv(S)$ sea el menor entre todos los
           ángulos formados con los puntos en $S$.
           <br>
@@ -1431,11 +1432,11 @@
           puntos podemos comparar cual de ellos es
           menor respecto al ángulo (en sentido
           contrario a las manecillas del reloj) que
-          forma con nuestro ultimo punto en $conv(S)$,
+          forma con nuestro último punto en $conv(S)$,
           $ \ p_k$.
           <br>
           Esto lo tenemos que hacer para cada punto en
-          $S$ usando al ultimo punto en $conv(S)$ hasta
+          $S$ usando al último punto en $conv(S)$ hasta
           que no es posible agregar más puntos a
           $conv(S)$. Lo que significa que para cada
           punto en $conv(S)$ iteraremos sobre todos los
@@ -1544,14 +1545,14 @@
           <br>
           Si embargo, realizar este procedimiento no
           sería muy eficiente, pues resultaría en
-          comprobar para cada par de puntos (n(n-1)) si
-          todos los demás puntos (n-2) yacen todos
+          comprobar para cada par de puntos $n(n-1)$ si
+          todos los demás puntos $n-2$ yacen todos
           sobre el mismo lado de la línea, lo cual
           tendría una complejidad de $O(n^3)$.
         </p>
         <p>
           Una posible mejora que podríamos realizar a
-          este algoritmo sería evitar tener que
+          este algoritmo sería evitar
           comparar cada línea con todos los demás
           puntos para saber si es una línea tangente.
           <br>
@@ -1575,7 +1576,7 @@
           trazamos entre ambos puntos.
           <br>
           La <ref ref_id="ch_slow_merge_algorithm"></ref> muestra un ejemplo
-          en el que se pude visualizar esto fácilmente.
+          en el que se puede visualizar esto fácilmente.
         </p>
         <figure id="ch_slow_merge_algorithm">
           <div class="interactive" width="810" height="750" window-size="false"
@@ -1590,7 +1591,7 @@
           Haciendo uso de este algoritmo la
           complejidad para encontrar las líneas
           tangentes superior e inferior pasa a $O(n^2)$, sin
-          embargo, esto aún no es optimo.
+          embargo, esto aún no es óptimo.
         </p>
         <p>
           ¿Qué se puede hacer para mejorarlo?
@@ -1631,7 +1632,7 @@
           <br>
           Este descenso comienza sustituyendo el punto
           actual $pd_j$ en el conjunto convexo derecho,
-          por el punto anterior a él $pd_{j-1}$ ( el
+          por el punto anterior a él $pd_{j-1}$ (el
           siguiente en sentido de las manecillas del
           reloj), siempre y cuando la línea nueva $T$
           resultante esté mas abajo que la anterior
@@ -1771,7 +1772,7 @@
           El paso de dividir solo requiere encontrar
           el punto medio de los puntos ya ordenados,
           lo cual toma tiempo constante. Por lo tanto,
-          podemos decir que complejidad de este paso
+          podemos decir que la complejidad de este paso
           es constante, i.e. $D(n)$ = $O(1)$.
         </p>
         <h5><span class="bolded">Vencer.</span></h5>
@@ -1850,7 +1851,7 @@
         </p>
         <p>
           Ya que este no es el mismo problema que hemos
-          estado estudiando, resulta bastante util dar
+          estado estudiando, resulta bastante útil dar
           una mejor descripción del problema, asumiendo
           para simplicidad, que no hay tres puntos que
           sean colineales.
@@ -1917,7 +1918,7 @@
             revisando si alguna tripleta da vuelta
             derecha, usando el criterio de vuelta
             derecha e izquierda que usamos en el
-            algoritmo de graham, usando dos puntos
+            algoritmo de Graham, usando dos puntos
             consecutivos en el cierre convexo y al
             punto $p_i$ como
           </p>
@@ -1962,7 +1963,7 @@
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_unir_punto_a_ch.png" width="75%" height="75%">
-          <figcaption>Ejemplo que muestra un cierre convexo y un punto exterior a él que se agregará
+          <figcaption>Ejemplo que muestra un cierre convexo y un punto exterior a el que se agregará
             al cierre, las líneas tangentes que se deben agregar para formar el nuevo cierre se muestran en amarillo.
           </figcaption>
         </figure>
@@ -1997,7 +1998,7 @@
         <p>
           Procederemos a hacer un análisis simple de la
           complejidad del algoritmo, con ayuda de su
-          division en pasos, analizaremos la
+          división en pasos, analizaremos la
           complejidad de cada uno para obtener la total
           del algoritmo.
         </p>
@@ -2019,7 +2020,7 @@
           <p>
             La complejidad de agregar un punto nuevo como
             hemos visto resulta ser $O(n)$, pues en el
-            pero de los casos recorremos todos los puntos
+            peor de los casos recorremos todos los puntos
             que hemos agregado hasta dicha iteración.
             Este segundo paso será ejecutado para cada
             nuevo punto agregado hasta que no falten
@@ -2030,7 +2031,7 @@
           Por lo tanto podemos concluir que la
           complejidad de ejecutar este algoritmo
           dinámico es de $O(n^{2})$, lo cual a pesar de
-          no ser igual de optimo que el algoritmo no
+          no ser igual de óptimo que el algoritmo no
           dinámico resulta ser más eficiente que la
           idea más simple que podríamos ocupar para
           resolver este problema, la cual sería
@@ -2042,7 +2043,7 @@
         </p>
         <p>
           A pesar de esto, sí es posible mejorar la
-          complejidad aún más si utilizamos una tecnica
+          complejidad aún más si utilizamos una técnica
           más eficiente que $O(n)$ para insertar, lo
           cual describe
           <a target="_blank"
@@ -2073,9 +2074,9 @@
           es que podemos estar seguros de esto.
         </p>
         <p>
-          Después de haber revisado todos los
+          Después de haber revisado los
           algoritmos anteriores, sabemos que la
-          complejidad optima para calcular el cierre
+          complejidad para calcular el cierre
           convexo es $O(nlogn)$, ¿cómo podemos
           demostrar que es lo mejor que podemos hacer?,
           para hacerlo deberíamos poder demostrar que
@@ -2125,8 +2126,8 @@
           nuestro algoritmo para calcular el cierre
           convexo en tiempo $T(n)$, todos los puntos se
           encuentran en el resultado, posteriormente
-          buscamos al punto $p_0$ con el eje $x$ más
-          pequeño, en tiempo $O(n)$, y ya que sabemos
+          buscamos al punto $p_0$ con la coordenada $x$ más
+          pequeña, en tiempo $O(n)$, y ya que sabemos
           que nuestro algoritmo nos devuelve los puntos
           en orden contrario a las manecillas del
           reloj, los puntos a partir de $p_0$ están
@@ -2191,7 +2192,7 @@
           <h1 class="chap_num">3</h1>
         </div>
         <p>
-          El problema que se abordará en este capitulo
+          El problema que se abordará en este capítulo
           es la intersección de segmentos de rectas,
           pero antes de comenzar, necesitamos tener en
           claro que significa esto y definir qué es una
@@ -2226,7 +2227,7 @@
           es, cuando todos los segmentos se intersectan
           entre sí, pues justamente estamos revisando
           todas las intersecciones que puede haber
-          entre los segmentos de linea en $S$.
+          entre los segmentos de línea en $S$.
         </p>
         <p>
           Listo, entonces hemos terminado, ¿o no?.
@@ -2264,11 +2265,111 @@
           </h1>
           <h1 class="chap_num">4</h1>
         </div>
-
+        <p>
+          Para comenzar con el problema de la
+          triangulación, antes tomaremos en cuenta un
+          problema relacionado con ello.
+          <br>
+          Dicho problema suele ser llamado el problema
+          de la galeria de arte, el cual describiremos a
+          continuación.
+        </p>
+        <p>
+          Supongamos que queremos resguardar las
+          valiosas piezas de una galería de arte, y
+          para ello usaremos camaras para vigilar
+          cada parte de la galeria facilmente, dichas
+          camaras pueden rotar para abarcar un area
+          más grande, sin embargo nos interesaría
+          poder hacer uso de las menos camaras
+          posibles, ya que, todas estas serían
+          transmitidas a un conjunto de pantallas que
+          una persona se encargaría de vigilar, y
+          resulta menos problematico vigilar solo una
+          cantidad reducida de pantallas. Sin
+          embargo, no podemos tener tan pocas camaras
+          al punto que no podamos vigilar cada area
+          de la galería.
+          <br>
+          Entonces, lo que queremos es
+          saber cual sería el menor número de camaras
+          necesarias para vigilar toda la galería,
+          además, dado que dependiendo de donde se
+          pone cada camara puede vigilar una area
+          distinta, también queremos saber, en que
+          partes de la galería poner dichas camaras.
+        </p>
         <h2 id="cap4_vigilancia_triangulaciones">Vigilancia y triangulaciones</h2>
-        <h2 id="cap4_dividiendo_polígono">Dividiendo un polígono en piezas monótonas</h2>
-        <h2 id="cap4_triangulando_polígono">Triangulando un polígono monótono</h2>
-        <h2 id="cap4_calcular_grafica_divisibilidad">Calcular la gráfica de visibilidad</h2>
+        <p>
+          Ya tenemos la idea del problema que queremos
+          resolver, ahora definamos más formalmente
+          dicho problema y veamos que tiene que ver
+          este problema con las triangulaciones.
+        </p>
+      </div>
+
+      <div class="page">
+        <p>
+          Para comenzar, podemos abstraer una galeria
+          de arte a un poligono en 2 dimenciones y
+          trabajar sobre este polígono, pues podemos
+          ver a la galería como un plano de la misma y
+          sobre este buscar los puntos donde poner las
+          camaras.
+        </p>
+
+        <!-- https://thetourguy.com/travel-blog/france/paris/louvre/top-ten-things-to-see-at-the-louvre-museum/
+        17/11/2022 imagen louvre -->
+        <figure id="poligono_condiciones">
+          <img src="./images/capitulo_04/Map_Great-Sphinx-of-Tanis_Louvre_The-Tour-Guy-750x420.jpg" width="90%"
+            height="90%">
+          <figcaption>Ejemplo de un plano del
+            famoso museo louvre.</figcaption>
+        </figure>
+
+        <p>
+          Sin embargo, aara motivos de estas notas, no
+          trabajaremos poligonos como este plano del
+          museo Louvre, ya que nos limitaremos a
+          trabajar con
+          <span class="bolded">poligonos simples</span>
+          (que no hace intersección consigo mismo y no
+          tiene agujeros).
+        </p>
+        <p>
+          Ahora que tenemos una abstracción para las
+          galerías, ¿qué hay de las cámaras? Estas las
+          podemos representar con un punto que esté
+          dentro del poligono.
+        </p>
+        <p>
+          Además, diremos que esta camara puede vigilar
+          todos los puntos en el poligono a los que
+          pueda trazar un segmento de tal manera que
+          dicho segmento esté contenido totalmente en
+          el poligono.
+          <br>
+          En la <ref ref_id="camara"></ref> se muestra
+          un ejemplo de esto.
+        </p>
+      </div>
+
+      <div class="page">
+        <figure id="camara">
+          <div class="interactive" width="810" height="500" window-size="false"
+            src="./Interactivos/capitulo_3/intuitive_idea_Camera.html"></div>
+          <figcaption>Ejemplo de la idea de una camara
+            (punto) en una galeria (poligono simple) y el
+            area que puede vigilar (area
+            blanca).</figcaption>
+        </figure>
+
+        <h2 id="cap4_dividiendo_polígono">Dividiendo un
+          polígono en piezas monótonas</h2>
+        <h2 id="cap4_triangulando_polígono">Triangulando un
+          polígono monótono</h2>
+        <h2 id="cap4_calcular_grafica_divisibilidad">Calcular
+          la gráfica de visibilidad</h2>
 
       </div>
 

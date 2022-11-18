@@ -75,8 +75,8 @@ function distance(v1, v2) {
  * limits of the area to create points.
  */
 function getRandomPointsInArea(num_of_points, startingP, endingP) {
-  points = [];
-  for (i = 0; i < num_of_points; i++) {
+  let points = [];
+  for (let i = 0; i < num_of_points; i++) {
     let new_x = Math.ceil(random(startingP.x, endingP.x));
     let new_y = Math.ceil(random(startingP.y, endingP.y));
     points.push(createVector(new_x, new_y, i + 1));
@@ -85,16 +85,146 @@ function getRandomPointsInArea(num_of_points, startingP, endingP) {
 }
 
 /**
+ * Create an array of vectors representing the points created
+ * among the specified limits.
+ * @param {Integer} num_of_points - Number of points
+ * to be created among the specified limits.
+ * @param {Vector} startingP - Point representing the left and top
+ * limits of the area to create points.
+ * @param {Vector} endingP - Point representing the right and bottom
+ * limits of the area to create points.
+ */
+function getSimplePolygon(startingP, endingP) {
+  points = [];
+  let x_units = Math.floor((endingP.x - startingP.x) / 100);
+  let y_units = Math.floor((endingP.y - startingP.y) / 100);
+  let i = 0;
+  points.push(
+    createVector(startingP.x + x_units * 0, startingP.y + y_units * 0, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 100, startingP.y + y_units * 0, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 100, startingP.y + y_units * 50, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 85, startingP.y + y_units * 50, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 85, startingP.y + y_units * 25, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 60, startingP.y + y_units * 25, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 60, startingP.y + y_units * 28, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 82, startingP.y + y_units * 28, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 82, startingP.y + y_units * 60, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 60, startingP.y + y_units * 60, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 60, startingP.y + y_units * 85, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 62, startingP.y + y_units * 85, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 62, startingP.y + y_units * 63, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 82, startingP.y + y_units * 63, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 82, startingP.y + y_units * 100, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 50, startingP.y + y_units * 100, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 50, startingP.y + y_units * 85, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 27, startingP.y + y_units * 85, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 27, startingP.y + y_units * 28, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 48, startingP.y + y_units * 28, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 48, startingP.y + y_units * 55, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 50, startingP.y + y_units * 55, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 50, startingP.y + y_units * 25, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 25, startingP.y + y_units * 25, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 25, startingP.y + y_units * 55, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 15, startingP.y + y_units * 55, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 15, startingP.y + y_units * 58, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 25, startingP.y + y_units * 58, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 25, startingP.y + y_units * 100, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 0, startingP.y + y_units * 100, i + 1)
+  );
+
+  points.push(
+    createVector(startingP.x + x_units * 0, startingP.y + y_units * 28, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 15, startingP.y + y_units * 28, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 15, startingP.y + y_units * 25, i + 1)
+  );
+  points.push(
+    createVector(startingP.x + x_units * 0, startingP.y + y_units * 25, i + 1)
+  );
+  return points;
+}
+
+/**
  * Returns a P5.js Vector corresponding to the intersection
- * of the line formed by the point1 and point2, and the 
+ * of the line formed by the point1 and point2, and the
  * line formed by the point3 and point4.
- * @param {Vector} point1 - Point representing the start of 
+ * @param {Vector} point1 - Point representing the start of
  * the first line.
- * @param {Vector} point2 - Point representing the end of 
+ * @param {Vector} point2 - Point representing the end of
  * the first line.
- * @param {Vector} point3 - Point representing the start of 
+ * @param {Vector} point3 - Point representing the start of
  * the second line.
- * @param {Vector} point4 - Point representing the end of 
+ * @param {Vector} point4 - Point representing the end of
  * the second line.
  */
 function intersect_point(point1, point2, point3, point4) {

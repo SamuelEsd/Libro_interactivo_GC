@@ -95,7 +95,7 @@ function getRandomPointsInArea(num_of_points, startingP, endingP) {
  * limits of the area to create points.
  */
 function getSimplePolygon(startingP, endingP) {
-  points = [];
+  let points = [];
   let x_units = Math.floor((endingP.x - startingP.x) / 100);
   let y_units = Math.floor((endingP.y - startingP.y) / 100);
   let i = 0;

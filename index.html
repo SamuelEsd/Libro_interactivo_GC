@@ -873,7 +873,7 @@
             <ref ref_id="cierre-convexo"></ref>
           </pageref>, moviendo los puntos a voluntad.
           <br>
-          Esto nos lleva una definición alternativa,
+          Esto nos lleva a una definición alternativa,
           que es la siguiente.
         </p>
       </div>
@@ -2092,34 +2092,51 @@
           de $\Omega (nlogn)$.
         </p>
         <p>
-          La reducción se puede realizar proyectando
-          los números $n_i \in X$, a ordenar, a una curva
-          convexa, mapeandolos al punto $(n_i,
-          n_{i}^{2})$, como se muestra en la <ref ref_id="lower_bound_1"></ref>.
+          La reducción se puede realizar de la
+          siguiente manera. Supongamos que tenemos $k$
+          números reales $n_1, \dots, n_k \in
+          \mathbb{R}$, los cuales queremos ordenar. A
+          partir de estos números construyamos un
+          conjunto de puntos $S = p_0, p_1, p_2,\dots,
+          p_{k}$ donde cada punto este definido como
+          $p_i = (n_i, n_{i}^{2})$, lo cual corresponde
+          a tomar cada número y mapearlo a un punto
+          sobre el eje $x$, y a su vez este punto
+          trasladarlo verticalmente al punto sobre la
+          parabola unitaria que tiene la misma
+          coordenada en $x$, como se muestra en la <ref ref_id="lower_bound_1"></ref>. Como se puede
+          apreciar en la <ref ref_id="lower_bound_2"></ref>, el orden en el
+          que los puntos aparecen en el cierre convexo
+          inferior es justo el orden de los números
+          $n_{i}$.
         </p>
+      </div>
+
+      <div class="page">
+        <br>
         <figure id="lower_bound_1">
           <!-- <div class="interactive" width="600"
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
-          <img src="./images/capitulo_02/Ejemplo_cota_inferior.svg" width="75%" height="75%">
+          <img src="./images/capitulo_02/Ejemplo_cota_inferior.svg" width="85%" height="85%">
           <figcaption>
             Ejemplo del mapeo de un número $n_i$ al punto $(n_i,
             n_{i}^{2})$.
           </figcaption>
         </figure>
-
-      </div>
-
-      <div class="page">
+        <br>
         <figure id="lower_bound_2">
           <!-- <div class="interactive" width="600"
           height="310" window-size="false"
           src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
-          <img src="./images/capitulo_02/Ejemplo_cota_inferior_cierre.svg" width="75%" height="75%">
+          <img src="./images/capitulo_02/Ejemplo_cota_inferior_cierre.svg" width="85%" height="85%">
           <figcaption>
             Ejemplo obtener el cierre convexo del ejemplo anterior del mapeo.
           </figcaption>
         </figure>
+      </div>
+
+      <div class="page">
         <p>
           Como podemos notar los puntos caen en una
           parabola, por lo que después de ejecutar
@@ -2233,11 +2250,12 @@
           Listo, entonces hemos terminado, ¿o no?.
           <br>
           Es verdad que en situaciones donde tenemos
-          que lidiar con el peor escenario no puede ser
-          mejorado, sin embargo, en aplicaciones reales,
-          dicho caso es poco común y resultaría
-          bastante conveniente tener un algoritmo que
-          sea más eficiente si el número de
+          que lidiar con el peor escenario no podemos
+          reducir el número de comparaciones, sin
+          embargo, en aplicaciones reales, dicho caso
+          es poco común y resultaría bastante
+          conveniente tener un algoritmo que sea más
+          eficiente si el número de
           intersecciones es menor.
         </p>
 

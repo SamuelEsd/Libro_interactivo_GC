@@ -507,9 +507,6 @@
         </ol>
 
         <figure id="poligono_condiciones">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_01/Ejemplo_condiciones_poligono.png">
           <figcaption>Ejemplo condiciones del
             polígono.</figcaption>
@@ -1027,9 +1024,6 @@
           puntos restantes.
         </p>
         <figure id="punto_inferior">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/punto_inferior.png" width="45%" height="45%"
             alt="Imagen que muestra el punto inferior seleccionado.">
           <figcaption>Seleccionamos el punto interior.</figcaption>
@@ -1044,9 +1038,6 @@
         </p>
 
         <figure id="ordenar_puntos">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/puntos_ordenados.png" width="50%" height="50%"
             alt="Imagen que muestra el punto inferior seleccionado y a los demás ordenados con respecto a este.">
           <figcaption>Ordenamos con respecto al punto interior.</figcaption>
@@ -1104,9 +1095,6 @@
       </div>
       <div class="page">
         <figure id="ordenar_puntos">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_vueltas_1.jpg" width="80%" height="60%"
             alt="Ejemplo de la definición de vuelta derecha e izquierda.">
           <figcaption>Ejemplo de la definición de vuelta derecha e izquierda.</figcaption>
@@ -1231,9 +1219,11 @@
 
       </div>
       <div class="page">
-        <h5><span class="bolded">Paso 3. Recorrer los
+        <h5>
+          <span class="bolded">Paso 3. Recorrer los
             puntos ordenados y agregar puntos al
-            $conv(S)$.</span></h5>
+            $conv(S)$.</span>
+        </h5>
         <p>
           En este paso podemos observar que recorremos
           la lista de puntos ordenados uno por uno,
@@ -1242,13 +1232,42 @@
           realizada de la siguiente manera.
         </p>
         <p>
-          Dada la tripleta de puntos $(p_1,p_2,p_3)$
-          podemos
+          Dada la tripleta de puntos $(a,b,c)$ podemos
+          calcular las pendientes de los segmentos
+          $A = \overline{a b}$ y $B = \overline{b c}$
+          denotadas como:
         </p>
+        $$ m_{A} = \frac{b_y - a_y}{b_x - a_x} $$
+        $$ m_{B} = \frac{c_y - b_y}{c_x - b_x} $$
         <p>
-          Además podemos observar que cada punto en el
+          Si la $ m_{A} > m_{B} $ entonces tenemos una
+          vuelta derecha, si por el contrario $ m_{A} < m_{B} $ entonces tenemos una vuelta izquierda, y en el caso que
+            $ m_{A}=m_{B} $ entonces no hay vuelta, ya que los puntos son colineales. </p>
+
+            <p>
+              En la figura <ref ref_id="comparacion_pendientes"></ref> podemos apreciar esta comparación,
+              la cual podemos calcular fácilmente como:
+              $$ (b_y - a_y) * (c_x b_x) - (c_y - b_y)*(b_x - a_x) $$
+              Formula que se deriva de restar $ m_{A} - m_{B}$ y cuyo resultado es
+              positivo cuando $ m_{A} > m_{B} $, negativo cuando $ m_{A} < m_{B} $ y 0 cuando $ m_{A}=m_{B} $ .</p>
+                <p>
+                  Por lo que gracias a esto podemos calcular de que tipo de vuelta se trata en tiempo constante.
+                </p>
+      </div>
+
+      <div class="page">
+        <figure id="comparacion_pendientes">
+          <div class="interactive" width="500" height="350" window-size="false"
+            src="./Interactivos/capitulo_2/descartesJS/Ejemplo_comparacion_de_pendientes.html"></div>
+          <figcaption>Ejemplo de comparación de pendientes para saber que tipo de vuelta dan los puntos.
+          </figcaption>
+        </figure>
+
+        <p>
+          Además podemos observar que cada punto en
+          el
           conjunto ordenado, es añadido y removido del
-          conjunto de salida $conv(s)$ a lo más una
+          conjunto de salida $conv(S)$ a lo más una
           vez, entonces, dicho recorrido sobre los
           puntos ordenados se realiza en $O(n)$
           iteraciones.
@@ -1290,9 +1309,6 @@
           la condición ya mencionada.
         </p>
         <figure id="linea_extrema">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_linea_extrema.png" width="75%" height="75%"
             alt="Linea que se encuentra al extremo inferior, con todos los demás puntos por arriba de ella.">
           <figcaption>Línea que se encuentra al extremo inferior, con todos los demás puntos por arriba de ella.
@@ -1508,9 +1524,6 @@
 
       <div class="page">
         <figure id="lineas_tangentes">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_lineas_tangentes.png" width="80%" height="80%">
           <figcaption>Ejemplo de líneas tangentes en dos cierres convexos.</figcaption>
         </figure>
@@ -1941,9 +1954,6 @@
           con respecto a la flecha roja.
         </p>
         <figure id="cierre_convexo_union_punto">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_unir_punto_a_ch.png" width="75%" height="75%">
           <figcaption>Ejemplo que muestra un cierre convexo y un punto exterior a el que se agregará
             al cierre, las líneas tangentes que se deben agregar para formar el nuevo cierre se muestran en amarillo.
@@ -2097,9 +2107,6 @@
       <div class="page">
         <br>
         <figure id="lower_bound_1">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_cota_inferior.svg" width="85%" height="85%">
           <figcaption>
             Ejemplo del mapeo de un número $n_i$ al punto $(n_i,
@@ -2108,9 +2115,6 @@
         </figure>
         <br>
         <figure id="lower_bound_2">
-          <!-- <div class="interactive" width="600"
-          height="310" window-size="false"
-          src="./Interactivos/capitulo_1/utils/descartesJS/Ejemplo_condiciones_poligono.html"></div> -->
           <img src="./images/capitulo_02/Ejemplo_cota_inferior_cierre.svg" width="85%" height="85%">
           <figcaption>
             Ejemplo obtener el cierre convexo del ejemplo anterior del mapeo.
@@ -2277,27 +2281,27 @@
         <p>
           Supongamos que queremos resguardar las
           valiosas piezas de una galería de arte, y
-          para ello usaremos camaras para vigilar
+          para ello usaremos cámaras para vigilar
           cada parte de la galeria facilmente, dichas
-          camaras pueden rotar para abarcar un area
+          cámaras pueden rotar para abarcar un area
           más grande, sin embargo nos interesaría
-          poder hacer uso de las menos camaras
+          poder hacer uso de las menos cámaras
           posibles, ya que, todas estas serían
           transmitidas a un conjunto de pantallas que
           una persona se encargaría de vigilar, y
           resulta menos problematico vigilar solo una
           cantidad reducida de pantallas. Sin
-          embargo, no podemos tener tan pocas camaras
+          embargo, no podemos tener tan pocas cámaras
           al punto que no podamos vigilar cada area
           de la galería.
           <br>
           Entonces, lo que queremos es
-          saber cual sería el menor número de camaras
+          saber cual sería el menor número de cámaras
           necesarias para vigilar toda la galería,
           además, dado que dependiendo de donde se
-          pone cada camara puede vigilar una area
+          pone cada cámara puede vigilar una area
           distinta, también queremos saber, en que
-          partes de la galería poner dichas camaras.
+          partes de la galería poner dichas cámaras.
         </p>
         <h2 id="cap4_vigilancia_triangulaciones">Vigilancia y triangulaciones</h2>
         <p>
@@ -2311,11 +2315,11 @@
       <div class="page">
         <p>
           Para comenzar, podemos abstraer una galeria
-          de arte a un poligono en 2 dimenciones y
+          de arte a un polígono en 2 dimenciones y
           trabajar sobre este polígono, pues podemos
           ver a la galería como un plano de la misma y
           sobre este buscar los puntos donde poner las
-          camaras.
+          cámaras.
         </p>
 
         <!-- https://thetourguy.com/travel-blog/france/paris/louvre/top-ten-things-to-see-at-the-louvre-museum/
@@ -2329,10 +2333,10 @@
 
         <p>
           Sin embargo, aara motivos de estas notas, no
-          trabajaremos poligonos como este plano del
+          trabajaremos polígonos como este plano del
           museo Louvre, ya que nos limitaremos a
           trabajar con
-          <span class="bolded">poligonos simples</span>
+          <span class="bolded">polígonos simples</span>
           (que no hace intersección consigo mismo y no
           tiene agujeros).
         </p>
@@ -2340,14 +2344,14 @@
           Ahora que tenemos una abstracción para las
           galerías, ¿qué hay de las cámaras? Estas las
           podemos representar con un punto que esté
-          dentro del poligono.
+          dentro del polígono.
         </p>
         <p>
-          Además, diremos que esta camara puede vigilar
-          todos los puntos en el poligono a los que
+          Además, diremos que esta cámara puede vigilar
+          todos los puntos en el polígono a los que
           pueda trazar un segmento de tal manera que
           dicho segmento esté contenido totalmente en
-          el poligono.
+          el polígono.
           <br>
           En la <ref ref_id="camara"></ref> se muestra
           un ejemplo de esto.
@@ -2358,8 +2362,8 @@
         <figure id="camara">
           <div class="interactive" width="810" height="500" window-size="false"
             src="./Interactivos/capitulo_4/intuitive_idea_Camera.html"></div>
-          <figcaption>Ejemplo de la idea de una camara
-            (punto) en una galeria (poligono simple) y el
+          <figcaption>Ejemplo de la idea de una cámara
+            (punto) en una galería (polígono simple) y el
             area que puede vigilar (area
             blanca).</figcaption>
         </figure>

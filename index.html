@@ -2271,25 +2271,25 @@
         </div>
         <p>
           Para comenzar con el problema de la
-          triangulación, antes tomaremos en cuenta un
-          problema relacionado con ello.
+          triangulación de polígonos, antes tomaremos
+          en cuenta un problema racionado con ello.
           <br>
           Dicho problema suele ser llamado el problema
-          de la galeria de arte, el cual describiremos a
-          continuación.
+          de la galería de arte, el cual describiremos
+          a continuación.
         </p>
         <p>
           Supongamos que queremos resguardar las
           valiosas piezas de una galería de arte, y
           para ello usaremos cámaras para vigilar
-          cada parte de la galeria facilmente, dichas
+          cada parte de la galería fácilmente, dichas
           cámaras pueden rotar para abarcar un area
           más grande, sin embargo nos interesaría
           poder hacer uso de las menos cámaras
           posibles, ya que, todas estas serían
           transmitidas a un conjunto de pantallas que
           una persona se encargaría de vigilar, y
-          resulta menos problematico vigilar solo una
+          resulta menos problemático vigilar solo una
           cantidad reducida de pantallas. Sin
           embargo, no podemos tener tan pocas cámaras
           al punto que no podamos vigilar cada area
@@ -2306,16 +2306,16 @@
         <h2 id="cap4_vigilancia_triangulaciones">Vigilancia y triangulaciones</h2>
         <p>
           Ya tenemos la idea del problema que queremos
-          resolver, ahora definamos más formalmente
-          dicho problema y veamos que tiene que ver
-          este problema con las triangulaciones.
+          resolver, ahora veamos que tiene que ver
+          este problema con las triangulaciones de
+          polígonos.
         </p>
       </div>
 
       <div class="page">
         <p>
-          Para comenzar, podemos abstraer una galeria
-          de arte a un polígono en 2 dimenciones y
+          Para comenzar, podemos abstraer una galería
+          de arte a un polígono en 2 dimensiones y
           trabajar sobre este polígono, pues podemos
           ver a la galería como un plano de la misma y
           sobre este buscar los puntos donde poner las
@@ -2332,7 +2332,7 @@
         </figure>
 
         <p>
-          Sin embargo, aara motivos de estas notas, no
+          Sin embargo, para motivos de estas notas, no
           trabajaremos polígonos como este plano del
           museo Louvre, ya que nos limitaremos a
           trabajar con
@@ -2367,7 +2367,126 @@
             area que puede vigilar (area
             blanca).</figcaption>
         </figure>
+        <p>
+          Ahora que tenemos estas abstracciones,
+          podemos preguntarnos, ¿cuántas cámaras
+          necesitamos para vigilar totalmente un
+          polígono simple? Podemos hablar de este
+          número de cámaras en términos del número de
+          aristas de nuestro polígono, sin embargo, no
+          nos podemos guiar unicamente por el número de
+          vertices ya que a pesar de que calcular el
+          número de cámaras para polígonos convexos no
+          implica mayor dificultad, ya que pueden ser
+          vigilados en su totalidad por una sola
+          cámara, el número de vertices no nos dice
+          mucho para cualquier polígono no convexo.
+          <br>
+          De hecho, el calcular el número mínimo
+          necesario de cámaras necesarias para vigilar
+          un polígono simple es un problema
+          <a
+            href="https://es.wikipedia.org/wiki/NP-hard#:~:text=En%20teoría%20de%20la%20complejidad,ser%20transformado%20polinomialmente%20en%20H.">
+            <b>NP-Difícil</b>
+          </a>.
+        </p>
+        <p>
+          A pesar de que no podemos obtener la mejor
+          solución del problema, podemos calcular una muy buena
+          solución al problema haciéndolo más fácil,
+          descomponiendo el polígono en piezas más
+          pequeñas.
 
+        </p>
+      </div>
+      <div class="page">
+        <p>
+          ¿Cómo podríamos descomponer el polígono en
+          piezas más pequeñas? Sabemos que los
+          polígonos convexos solo requieren una cámara
+          para ser vigilados por lo que nos resultaría
+          util trabajar con polígonos convexos, sin
+          embargo, para hacer la descomposición aún más
+          simple, descompondremos el polígono en
+          triángulos.
+          <br>
+          Aquí es donde entra la triangulación de polígonos,
+          pero antes de abordarla, definamos que es una diagonal.
+        </p>
+        <p>
+        <h4><span class="bolded">Diagonal.</span></h4>
+        Es un segmento de línea recta que conecta dos
+        vértices no contiguos de un polígono $P$ tal que cada
+        punto este segmento yace completamente dentro
+        de $P$.
+        </p>
+        TO DO: Ejemplos de que sí es y que no es una diagonal
+        <p>
+        <h4><span class="bolded">Triangulación de un polígono.</span></h4>
+        Es una descomposición de un polígono en un
+        conjunto de triángulos por un conjunto
+        maximal de diagonales que no se intersectan
+        entre ellas.
+        </p>
+      </div>
+      <div class="page">
+        <p>
+          Las triangulaciones no suelen ser únicas,
+          como se puede apreciar en la Figura (TODO),
+          sin embargo, esto nos importa, dado que
+          teniendo alguna triangulación, podemos
+          colocar una cámara en cada triangulo para
+          poder resolver nuestro problema.
+        </p>
+        TODO Figura con al menos dos triangulaciones distintas
+        <p>
+          Lo que realmente nos interesa, es saber si
+          siempre es posible encontrar alguna
+          triangulación para cualquier polígono simple.
+          La respuesta es sí, además, si el polígono
+          simple tiene $n$ vertices, el número de triángulos
+          que resultantes son $n - 2$.
+        </p>
+        <p>
+        <div class="bolded">
+          De todo polígono simple se puede obtener una
+          triangulación, y cualquier triangulación de
+          un polígono simple de $n$ vertices consistirá
+          de $n - 2$ vertices.
+        </div>
+        </p>
+        <div class="bolded">
+          Caso Base: $n = 3$ (triangulo)
+        </div>
+        <p>
+          En este caso el triangulo ya está triangulado por definición
+          y para sus $n = 3$ lados, contiene $n - 2 = 3 - 2 = 1$ un triángulo.
+        </p>
+        TO DO: imagen triangulo
+
+        <div class="bolded">
+          Hipótesis de inducción
+        </div>
+        <p>
+          Supongamos que para un polígono con $n = k$ su triangulación
+          existe y tiene $k - 2$ triángulos.
+        </p>
+
+        <div class="bolded">
+          Paso inductivo: demostrar para $n = k + 1$
+        </div>
+        <p>
+          Tomar al vértice más a la izquierda $v$, tomamos a los vertices $u$ y $w$
+          que comparten arista con $v$, y trazamos un segmento de recta de $u$ a $w$.
+
+          Dos casos, $\overline{uw}$ es diagonal o no.
+          TODO imágenes de ejemplo si es diagonal y si no lo es.
+        </p>
+      </div>
+      <div class="page">
+        <p></p>
+      </div>
+      <div class="page">
         <h2 id="cap4_dividiendo_polígono">Dividiendo un
           polígono en piezas monótonas</h2>
         <h2 id="cap4_triangulando_polígono">Triangulando un

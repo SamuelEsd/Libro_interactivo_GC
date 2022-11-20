@@ -1182,27 +1182,38 @@
           Para esta parte del algoritmo necesitamos
           ordenar todos los demás puntos en $S$ por el
           ángulo que forma la línea trazada desde el
-          punto inferior hasta el punto actual, con
-          respecto al eje $x$ (considerando al punto
-          inferior como el origen) al sentido contrario
-          a las manecillas del reloj.
+          punto inferior hasta el punto que deseamos
+          ordenar, con respecto al eje $x$
+          (considerando al punto inferior como el
+          origen) al sentido contrario a las manecillas
+          del reloj.
           <br>
-          Es posible hacer esto ordenando los puntos
-          por el valor del ángulo la línea trazada
-          desde el punto inferior hasta dicho punto.
-          Como se puede apreciar en la <ref ref_id="compare_points_by_angle"></ref>
+          Es posible hacer este ordenamiento,
+          comparando cada punto a ordenar, usando el
+          valor del ángulo de la línea trazada desde el
+          punto inferior hasta dicho punto. Como se
+          puede apreciar en la <ref ref_id="compare_points_by_angle"></ref>
           donde el ángulo de $p_2$ es menor al ángulo
           de $p_3$.
         </p>
         <p>
-          Sin embargo, los ángulos resultantes pueden
-          ser números de punto flotante que nos puedan
-          hacer cometer errores.
+          Para que el ordenamiento resulte en
+          $O(nlogn)$ necesitamos una forma de comparar
+          dos puntos en tiempo constante, lo cual
+          podemos hacer calculando los ángulos
+          directamente.
         </p>
       </div>
 
       <div class="page">
         <p>
+          Esta forma de comparar podría tener algunos
+          inconvenientes, por lo que hay formas
+          alternativas para comparar los puntos que
+          aprovechan el mismo calculo necesario para
+          calcular si 3 puntos dan una vuelta derecha o
+          izquierda, sin embargo, no ahondaremos en más
+          dichos detalles.
         <figure id="compare_points_by_angle">
           <img src="./images/capitulo_02/Ejemplo_comparar_angulos.svg" width="80%" height="60%" alt="Ejemplo de la
           comparación de dos puntos por sus ángulos.">
@@ -1210,50 +1221,15 @@
             ángulos de $p_2$ y $p_3$ con respecto a punto
             inferior $p_1$.</figcaption>
         </figure>
-        Afortunadamente, podemos ordenar los puntos de
-        la forma que queremos sin necesidad de saber su
-        ángulo, pues dados dos puntos podemos ver cual
-        tiene un ángulo menor haciendo uso del producto
-        cruz.
         </p>
         <p>
-          Esto lo podemos lograr gracias a que dados
-          dos vectores $A$ y $B$, su producto cruz $ A
-          \times B $ cambia de signo dependiendo de la
-          orientación de un vector con respeto del
-          otro, lo cual podemos apreciar en la
-          <ref ref_id="cross_product"></ref>
-          .
-          <br>
-          Además, en el caso particular en el que $A$ y
-          $B$ son vectores con el eje $y$ no negativo,
-          su producto cruz $ A \times B$, resulta ser
-          positivo si el ángulo de $A$ es menor al de
-          $B$, por el contrario, si el ángulo de $B$ es
-          menor que el de $A$, el producto cruz $A
-          \times B$ será negativo, y en el caso de que
-          ambos vectores tengan el mismo ángulo, el
-          valor resultante será cero.
+          Entonces, asumiendo que la complejidad de la
+          comparación usada para el ordenamiento toma
+          tiempo constante, este paso nos resulta
+          en $O(nlogn)$.
         </p>
 
       </div>
-
-      <div class="page">
-        <p>
-        <figure id="cross_product">
-          <div class="interactive" width="500" height="400" window-size="false"
-            src="./Interactivos/capitulo_2/utils/descarteJS/Ejemplo_producto_cruz.html"></div>
-          <figcaption>Ejemplo que muestra el producto cruz de dos vectores y como
-            cambia dependiendo del valor de cada vector.</figcaption>
-        </figure>
-        Entonces, podemos usar el producto cruz para
-        comparar a los puntos que queremos ordenar
-        tomándolos como vectores con origen en el punto
-        inferior y con esta comparación, ordenar los
-        puntos en tiempo $O(nlogn)$.
-        </p>
-      </div>
-
       <div class="page">
         <h5><span class="bolded">Paso 3. Recorrer los
             puntos ordenados y agregar puntos al
@@ -1263,7 +1239,13 @@
           la lista de puntos ordenados uno por uno,
           verificando si forma una vuelta derecha o
           izquierda, dicha comprobación puede ser
-          realizada haciendo uso del producto punto.
+          realizada de la siguiente manera.
+        </p>
+        <p>
+          Dada la tripleta de puntos $(p_1,p_2,p_3)$
+          podemos
+        </p>
+        <p>
           Además podemos observar que cada punto en el
           conjunto ordenado, es añadido y removido del
           conjunto de salida $conv(s)$ a lo más una

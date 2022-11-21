@@ -2371,7 +2371,10 @@
           Ahora que tenemos estas abstracciones,
           podemos preguntarnos, ¿cuántas cámaras
           necesitamos para vigilar totalmente un
-          polígono simple? Podemos hablar de este
+          polígono simple?
+        </p>
+        <p>
+          Podemos hablar de este
           número de cámaras en términos del número de
           aristas de nuestro polígono, sin embargo, no
           nos podemos guiar unicamente por el número de
@@ -2390,16 +2393,15 @@
             <b>NP-Difícil</b>
           </a>.
         </p>
+      </div>
+      <div class="page">
         <p>
           A pesar de que no podemos obtener la mejor
           solución del problema, podemos calcular una muy buena
           solución al problema haciéndolo más fácil,
           descomponiendo el polígono en piezas más
           pequeñas.
-
         </p>
-      </div>
-      <div class="page">
         <p>
           ¿Cómo podríamos descomponer el polígono en
           piezas más pequeñas? Sabemos que los
@@ -2420,7 +2422,14 @@
         punto este segmento yace completamente dentro
         de $P$.
         </p>
-        TO DO: Ejemplos de que sí es y que no es una diagonal
+        <figure id="diagonales">
+          <img src="./images/capitulo_04/diagonales.svg" width="90%" height="90%">
+          <figcaption>Ejemplo de un segmento que sí es diagonal(verde) y un segmento que no es diagonal(rojo) ya que el
+            segmento no está contenido completamente en el polígono.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="page">
         <p>
         <h4><span class="bolded">Triangulación de un polígono.</span></h4>
         Es una descomposición de un polígono en un
@@ -2428,17 +2437,33 @@
         maximal de diagonales que no se intersectan
         entre ellas.
         </p>
+        <br>
+        <figure id="triangulaciones_validas">
+          <img src="./images/capitulo_04/Triangulacion.svg" width="70%" height="70%">
+          <figcaption>Ejemplo de dos triangulaciones validas diferentes.
+          </figcaption>
+        </figure>
+        <br>
+        <figure id="triangulaciones_validas">
+          <img src="./images/capitulo_04/NoTriangulacion.svg" width="70%" height="70%">
+          <figcaption>Ejemplo de dos triangulaciones no
+            validas diferentes, en la primera hay dos
+            diagonales que se intersectan entre ellas, en
+            la segunda no hay una cantidad maximal de
+            diagonales, pues aún se puede añadir a una
+            más.
+          </figcaption>
+        </figure>
       </div>
       <div class="page">
         <p>
           Las triangulaciones no suelen ser únicas,
-          como se puede apreciar en la Figura (TODO),
+          como se puede apreciar en la <ref ref_id="triangulaciones_validas"></ref>,
           sin embargo, esto nos importa, dado que
           teniendo alguna triangulación, podemos
           colocar una cámara en cada triangulo para
           poder resolver nuestro problema.
         </p>
-        TODO Figura con al menos dos triangulaciones distintas
         <p>
           Lo que realmente nos interesa, es saber si
           siempre es posible encontrar alguna

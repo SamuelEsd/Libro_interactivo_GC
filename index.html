@@ -2310,26 +2310,29 @@
           este problema con las triangulaciones de
           polígonos.
         </p>
+        <p>
+          Para comenzar, podemos abstraer una galería
+          de arte a un polígono
+        </p>
       </div>
 
       <div class="page">
         <p>
-          Para comenzar, podemos abstraer una galería
-          de arte a un polígono en 2 dimensiones y
-          trabajar sobre este polígono, pues podemos
-          ver a la galería como un plano de la misma y
-          sobre este buscar los puntos donde poner las
-          cámaras.
-        </p>
-
-        <!-- https://thetourguy.com/travel-blog/france/paris/louvre/top-ten-things-to-see-at-the-louvre-museum/
-        17/11/2022 imagen louvre -->
+          en 2 dimensiones y trabajar sobre este
+          polígono, pues podemos ver a la galería como
+          un plano de la misma y sobre este buscar los
+          puntos donde poner las cámaras.
+          <!-- https://thetourguy.com/travel-blog/france/paris/louvre/top-ten-things-to-see-at-the-louvre-museum/
+          17/11/2022 imagen louvre -->
         <figure id="poligono_condiciones">
           <img src="./images/capitulo_04/Map_Great-Sphinx-of-Tanis_Louvre_The-Tour-Guy-750x420.jpg" width="90%"
             height="90%">
           <figcaption>Ejemplo de un plano del
-            famoso museo louvre.</figcaption>
+            famoso museo louvre.
+            (https://thetourguy.com/travel-blog/france/paris/louvre/top-ten-things-to-see-at-the-louvre-museum/
+            17/11/2022)</figcaption>
         </figure>
+        </p>
 
         <p>
           Sin embargo, para motivos de estas notas, no
@@ -2345,8 +2348,7 @@
           galerías, ¿qué hay de las cámaras? Estas las
           podemos representar con un punto que esté
           dentro del polígono.
-        </p>
-        <p>
+          <br>
           Además, diremos que esta cámara puede vigilar
           todos los puntos en el polígono a los que
           pueda trazar un segmento de tal manera que
@@ -2417,10 +2419,12 @@
         </p>
         <p>
         <h4><span class="bolded">Diagonal.</span></h4>
-        Es un segmento de línea recta que conecta dos
-        vértices no contiguos de un polígono $P$ tal que cada
-        punto este segmento yace completamente dentro
-        de $P$.
+        Es un segmento de línea recta abierto (no
+        incluye los puntos extremos) que conecta dos
+        vértices de un polígono $P$ tal que cada punto
+        este segmento yace completamente dentro del
+        interior de $P$ (el area sin incluir al
+        perímetro de $P$).
         </p>
         <figure id="diagonales">
           <img src="./images/capitulo_04/diagonales.svg" width="90%" height="90%">
@@ -2487,8 +2491,6 @@
           En este caso el triangulo ya está triangulado por definición
           y para sus $n = 3$ lados, contiene $n - 2 = 3 - 2 = 1$ un triángulo.
         </p>
-        TO DO: imagen triangulo
-
         <div class="bolded">
           Hipótesis de inducción
         </div>
@@ -2498,26 +2500,85 @@
         </p>
 
         <div class="bolded">
-          Paso inductivo: demostrar para $n = k + 1$
+          Paso inductivo: Demostrar para $n = k + 1$
         </div>
         <p>
-          Tomar al vértice más a la izquierda $v$, tomamos a los vertices $u$ y $w$
-          que comparten arista con $v$, y trazamos un segmento de recta de $u$ a $w$.
-
-          Dos casos, $\overline{uw}$ es diagonal o no.
-          TODO imágenes de ejemplo si es diagonal y si no lo es.
+          Sea $P$, nuestro polígono simple de $k + 1$
+          vertices, tomemos al vértice $v$ más a la
+          izquierda, esto es, el vértice con la menor
+          coordenada en $x$, en caso de tener dos,
+          tomaremos al que tenga la menor coordenada en
+          $y$ y no habrá más de dos con el mismo valor
+          de $x$ pues asumimos que no hay 3 puntos
+          colineales en $P$.
         </p>
       </div>
       <div class="page">
-        <p></p>
+        <p>
+          A continuación definimos como $u$ y $w$ los
+          vertices que comparten arista con $v$, y
+          trazamos un segmento de recta de $u$ a $w$.
+          <br>
+          Esto nos deja con dos posibles casos,
+          $\overline{uw}$ es diagonal o no.
+        </p>
+        <figure id="triangulaciones_validas">
+          <img src="./images/capitulo_04/Demostración.svg" width="70%" height="70%">
+          <figcaption>Ejemplo de los dos casos, cuando
+            $\overline{uw}$ es diagonal(verde) y cuando
+            no lo es(rojo).
+          </figcaption>
+        </figure>
+        <p>
+          Si $\overline{uw}$ es diagonal, podemos
+          agregar esa diagonal y nos deja a un
+          triángulo y un polígono $k$ vertices, el cual
+          por hipótesis de inducción sabemos que tiene
+          una triangulación con $k - 2$ triángulos,
+          esto nos deja con $k - 1$ triángulos en
+          total, lo cual es justo el número de vertices
+          menos dos, $n - 2 = (k + 1) - 2 = k - 1$.
+        </p>
+      </div>
+      <div class="page">
+        <p>
+          Si $\overline{uw}$ no es diagonal, significa
+          que dentro del triángulo $uvw$ hay al menos
+          un vértice de $P$, entonces debemos de buscar
+          entre dichos vertices, un vértice $\mu$ que
+          nos asegure que el segmento $\overline{v\mu}$
+          es diagonal, el cual es el vértice dentro de
+          $uvw$ que esté más lejos del segmento
+          $\overline{uw}$, pues al ser el vértice más
+          lejano al segmento $\overline{uw}$, nos
+          asegura que entre $v$ y $\mu$ no hay ninguna
+          arista de $P$, por lo tanto $\overline{v\mu}$
+          es diagonal.
+        </p>
+        <p>
+          Con $\overline{v\mu}$ como diagonal, podemos
+          dividir el polígono en 2 polígonos, uno con
+          $m$ vertices y el otro con $ (k + 1) - m + 2$
+          vertices ($k + 1$ el tamaño original, $m$
+          tamaño del otro polígono, $2$ número de
+          vertices que comparten ambos polígonos).
+          <br>
+          Ahora bien, por hipótesis de inducción
+          sabemos que tiene ambos polinomios tienen un
+          triangulación con $m - 2$ y $ ((k + 1) - m +
+          2) - 2$ triángulos, respectivamente, los
+          cuales al sumarlos nos deja con $(k + 1) - 2
+          = k - 1$ lo cual es precisamente el número de
+          vertices de $P$ menos dos.
+        </p>
+        TODO: figuras de poligonos divididos en subpoligonos.
+
       </div>
       <div class="page">
         <h2 id="cap4_dividiendo_polígono">Dividiendo un
           polígono en piezas monótonas</h2>
         <h2 id="cap4_triangulando_polígono">Triangulando un
           polígono monótono</h2>
-        <h2 id="cap4_calcular_grafica_divisibilidad">Calcular
-          la gráfica de visibilidad</h2>
 
       </div>
 

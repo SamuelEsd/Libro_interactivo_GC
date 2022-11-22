@@ -2523,7 +2523,7 @@
           $\overline{uw}$ es diagonal o no.
         </p>
         <figure id="triangulaciones_validas">
-          <img src="./images/capitulo_04/Demostración.svg" width="70%" height="70%">
+          <img src="./images/capitulo_04/Demostración.svg" width="60%" height="60%">
           <figcaption>Ejemplo de los dos casos, cuando
             $\overline{uw}$ es diagonal(verde) y cuando
             no lo es(rojo).
@@ -2539,6 +2539,14 @@
           total, lo cual es justo el número de vertices
           menos dos, $n - 2 = (k + 1) - 2 = k - 1$.
         </p>
+        <figure id="demostracion_caso_1">
+          <img src="./images/capitulo_04/Demostracin_caso1.svg" width="35%" height="35%">
+          <figcaption>Ejemplo del caso uno, con un
+            triángulo(amarillo) y un nuevo polígono(azúl)
+            después de agregar la diagonal.
+          </figcaption>
+        </figure>
+
       </div>
       <div class="page">
         <p>
@@ -2571,10 +2579,54 @@
           = k - 1$ lo cual es precisamente el número de
           vertices de $P$ menos dos.
         </p>
-        TODO: figuras de poligonos divididos en subpoligonos.
+        TODO: figuras de polígonos divididos en subpoligonos.
 
       </div>
       <div class="page">
+        <p>
+          Habiendo demostrado lo anterior, ya podemos
+          resolver el problema, podemos calcular la
+          triangulación del polígono $P$ y colocar una
+          cámara en cada triangulo lo que nos dejaría
+          con $n - 2$ cámaras, sin embargo, esa es una
+          gran cantidad de cámaras, así que conviene
+          buscar una mejor forma de resolverlo.
+        </p>
+        <p>
+          Una mejor forma de resolverlo sería colocar
+          las cámaras en vertices de nuestra
+          triangulación, en lugar de en cada triángulo,
+          ya que un solo vértice puede vigilar varios
+          triángulos y eso nos ahorraría muchas
+          cámaras.
+          <br>
+          El problema ahora sería, ¿cómo escoger dichos
+          vértices?, para hacer esto podemos calcular
+          una 3-coloración a la triangulación de
+          nuestro polígono $P$. A continuación se
+          explica como calcular dicha coloración.
+        </p>
+        <p>
+          Sea $P$ un polígono simple, para calcular la
+          3-coloración de $T(P)$, colorearemos cada
+          vértice de $T(P)$ con 3 colores distintos, de
+          tal manera que ningún vértice esté conectado
+          con otro vértice del mismo color, a traves de
+          una arista de $P$ o una diagonal de $T(P)$.
+        </p>
+        <p>
+          Al tener la 3-coloración de $T(P)$ para
+          vigilar todo $P$ podemos simplemente colocar
+          una cámara en todos los vertices que
+          correspondan a un solo color, ya que por
+          construcción cada triangulo tendrá un vértice
+          de cada color.
+          <br>
+          Dado color que escojamos no importa, pero sí
+          importa el número de cámaras podemos poner
+          una cámara en todos los vertices del color
+          que menos ocurrencias tenga.
+        </p>
         <h2 id="cap4_dividiendo_polígono">Dividiendo un
           polígono en piezas monótonas</h2>
         <h2 id="cap4_triangulando_polígono">Triangulando un

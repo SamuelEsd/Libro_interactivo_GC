@@ -2542,7 +2542,7 @@
         <figure id="demostracion_caso_1">
           <img src="./images/capitulo_04/Demostracin_caso1.svg" width="35%" height="35%">
           <figcaption>Ejemplo del caso uno, con un
-            triángulo(amarillo) y un nuevo polígono(azúl)
+            triángulo(verde) y un nuevo polígono(azul)
             después de agregar la diagonal.
           </figcaption>
         </figure>
@@ -2579,8 +2579,13 @@
           = k - 1$ lo cual es precisamente el número de
           vertices de $P$ menos dos.
         </p>
-        TODO: figuras de polígonos divididos en subpoligonos.
-
+        <figure id="demostracion_caso_1">
+          <img src="./images/capitulo_04/Demostracin_caso2.svg" width="65%" height="65%">
+          <figcaption>Ejemplo del caso dos, con un
+            polígono de $m$ vertices (verde) y un polígono de $ (k + 1) - m + 2$ vertices(azul)
+            después de agregar la diagonal.
+          </figcaption>
+        </figure>
       </div>
       <div class="page">
         <p>
@@ -2614,6 +2619,16 @@
           con otro vértice del mismo color, a traves de
           una arista de $P$ o una diagonal de $T(P)$.
         </p>
+        TO DO: ejemplo de proceso de coloración.
+      </div>
+
+      <div class="page">
+        <p>
+          La 3-coloración ya mencionada siempre puede
+          ser calculada para una triangulación de un
+          polígono simple, sin embargo, la demostración
+          no será abordada en estas notas.
+        </p>
         <p>
           Al tener la 3-coloración de $T(P)$ para
           vigilar todo $P$ podemos simplemente colocar
@@ -2622,22 +2637,81 @@
           construcción cada triangulo tendrá un vértice
           de cada color.
           <br>
-          Dado color que escojamos no importa, pero sí
-          importa el número de cámaras podemos poner
-          una cámara en todos los vertices del color
-          que menos ocurrencias tenga.
+          El color que escojamos no importa, pero sí
+          importa el número de cámaras utilizadas,
+          dicho esto, podemos escoger el color con
+          menor número de vertices y poner una cámara
+          en cada vértice de dicho color.
         </p>
+        <p>
+          Con esta coloración, ahora podemos colocar
+          solo $ \lfloor n/3 \rfloor $ cámaras, y dado
+          que sabemos que siempre podemos encontrar una
+          triangulación y a su vez una 3-coloración,
+          podemos decir que para vigilar un polígono
+          simple resultan suficientes $ \lfloor n/3
+          \rfloor $ cámaras, lo que nos deja la duda.
+          <br>
+          ¿Podrá hacerse con menos cámaras?
+          <br>
+          La respuesta es sí, pero no siempre es
+          posible, como en el ejemplo de la TODO
+          FIGURA, el cual es un ejemplo muy común de un
+          polígono simple que no puede ser vigilado con
+          menos de $ \lfloor n/3 \rfloor $.
+        </p>
+      </div>
+
+      <div class="page">
         <h2 id="cap4_dividiendo_polígono">Dividiendo un
           polígono en piezas monótonas</h2>
+        <p>
+          Con lo aprendido hasta ahora podemos
+          empezar a buscar un algoritmo para resolver
+          el problema, recordando que siempre hay una
+          triangulación para un polígono simple,
+          podemos construir dicha triangulación de la
+          misma manera en que se construyó la
+          demostración.
+          <br>
+          Construir la triangulación de esta manera
+          resultaría en una complejidad de $O(n^{2})$
+          ya que en el peor de los casos cada nueva diagonal
+          agregada sería de estilo del caso 2(agregar ref),
+          tomando $O(n)$ para agregar cada diagonal,
+          ya que requiere buscar el vértice más lejano a
+          $\overline{uv}$. A su vez cada diagonal añadida
+          solo agregaría un triangulo por lo que este
+          proceso se tomaría también $O(n)$.
+        </p>
+        TODO: agregar ejemplo que tome $O(n^2)$
+      </div>
+
+      <div class="page">
+        <p>
+          Es por esta razón por la que buscando mejorar
+          dicha complejidad dividiremos el polígono
+          simple inicial, en polígonos más fáciles de
+          triangular.
+          <br>
+          Dichos polígonos son llamados, <b>polígonos
+            monótonos</b>, y a continuación
+          profundizaremos en su definición y en una
+          forma eficiente de particionar nuestro
+          polígono simple, en polígonos monótonos.
+        </p>
+        <p>
+        </p>
         <h2 id="cap4_triangulando_polígono">Triangulando un
           polígono monótono</h2>
-
       </div>
+
 
       <!--  -->
       <!-- CAPITULO 5: PROGRAMACIÓN LINEAL -->
       <!--  -->
       <div class="page">
+
         <div class="chap_space">
           <h1></h1>
           <h1 class="chap_name" id="programacion_lineal">Programación lineal</h1>

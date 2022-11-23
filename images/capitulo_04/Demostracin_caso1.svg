@@ -11,10 +11,10 @@
 <g style="clip-path: url(#clipPath_E1);" stroke-linecap="round">
 	<rect x="0" y="0" width="300" height="280" fill="#ffffff" fill-opacity="1"/>
 	<rect x="0" y="0" width="600" height="560" fill="#ffffff" fill-opacity="1" stroke="none" />
-	<path fill="#c9e106" fill-opacity="0.3255" stroke="none" d="M 50 108 L 170 108 L 80 258 L 50 108 " />
+	<path fill="#00ff00" fill-opacity="0.4667" stroke="none" d="M 50 108 L 170 108 L 80 258 L 50 108 " />
 	<path fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" d="M 50 108 L 170 108 L 80 258 L 50 108 " />
-	<path fill="#34a8ff" fill-opacity="0.4" stroke="none" d="M 170 108 L 185 18 L 260 108 L 200 198 L 170 168 L 80 258 L 170 108 " />
-	<path fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" d="M 170 108 L 185 18 L 260 108 L 200 198 L 170 168 L 80 258 L 170 108 " />
+	<path fill="#0000ff" fill-opacity="0.4667" stroke="none" d="M 170 108 L 185 18 L 260 108 L 200 198 L 170 168 L 125 258 L 80 258 L 170 108 " />
+	<path fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" d="M 170 108 L 185 18 L 260 108 L 200 198 L 170 168 L 125 258 L 80 258 L 170 108 " />
 	<path fill="none" stroke="#00ff00" stroke-opacity="1" stroke-width="4" d="M 170 108 L 80 258 " />
 	<circle cx="170" cy="108" r="2" stroke="none" fill="#00ff00" fill-opacity="1" />
 	<circle cx="80" cy="258" r="2" stroke="none" fill="#00ff00" fill-opacity="1" />
@@ -26,6 +26,7 @@
 	<circle cx="260" cy="108" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="200" cy="198" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="170" cy="168" r="7" stroke="none" fill="#000000" fill-opacity="1" />
+	<circle cx="125" cy="258" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="80" cy="258" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<text fill="#000000" fill-opacity="1" x="80" y="277" style="font-size:20px; font-family:descartesJS_serif,Times,'Times New Roman',serif; ">u </text>
 </g>

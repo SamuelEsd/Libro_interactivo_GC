@@ -11,27 +11,32 @@
 <g style="clip-path: url(#clipPath_E1);" stroke-linecap="round">
 	<rect x="0" y="0" width="500" height="280" fill="#ffffff" fill-opacity="1"/>
 	<rect x="0" y="0" width="1000" height="560" fill="#ffffff" fill-opacity="1" stroke="none" />
-	<path fill="#ae73ff" fill-opacity="0.6" stroke="none" d="M 275 108 L 395 108 L 410 18 L 485 108 L 425 198 L 395 168 L 350 258 L 305 258 L 275 108 " />
-	<path fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" d="M 275 108 L 395 108 L 410 18 L 485 108 L 425 198 L 395 168 L 350 258 L 305 258 L 275 108 " />
-	<path fill="none" stroke="#00ff00" stroke-opacity="1" stroke-width="4" d="M 395 108 L 305 258 " />
-	<circle cx="395" cy="108" r="2" stroke="none" fill="#00ff00" fill-opacity="1" />
-	<circle cx="305" cy="258" r="2" stroke="none" fill="#00ff00" fill-opacity="1" />
+	<path fill="#00ff00" fill-opacity="0.4667" stroke="none" d="M 275 108 L 335 168 L 350 258 L 305 258 L 275 108 " />
+	<path fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" d="M 275 108 L 335 168 L 350 258 L 305 258 L 275 108 " />
+	<path fill="#0000ff" fill-opacity="0.4667" stroke="none" d="M 275 108 L 395 108 L 410 18 L 485 108 L 425 198 L 335 168 L 275 108 " />
+	<path fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" d="M 275 108 L 395 108 L 410 18 L 485 108 L 425 198 L 335 168 L 275 108 " />
+	<path fill="none" stroke="#00ff00" stroke-opacity="1" stroke-width="4" d="M 275 108 L 335 168 " />
+	<circle cx="275" cy="108" r="2" stroke="none" fill="#00ff00" fill-opacity="1" />
+	<circle cx="335" cy="168" r="2" stroke="none" fill="#00ff00" fill-opacity="1" />
 	<circle cx="275" cy="108" r="7" stroke="none" fill="#000000" fill-opacity="1" />
-	<text fill="#000000" fill-opacity="1" x="275" y="127" style="font-size:20px; font-family:descartesJS_serif,Times,'Times New Roman',serif; "> u </text>
+	<text fill="#000000" fill-opacity="1" x="275" y="127" style="font-size:20px; font-family:descartesJS_serif,Times,'Times New Roman',serif; "> v </text>
 	<circle cx="395" cy="108" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<text fill="#000000" fill-opacity="1" x="395" y="127" style="font-size:20px; font-family:descartesJS_serif,Times,'Times New Roman',serif; ">w </text>
 	<circle cx="410" cy="18" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="485" cy="108" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="425" cy="198" r="7" stroke="none" fill="#000000" fill-opacity="1" />
-	<circle cx="395" cy="168" r="7" stroke="none" fill="#000000" fill-opacity="1" />
+	<circle cx="335" cy="168" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="350" cy="258" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="305" cy="258" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<text fill="#000000" fill-opacity="1" x="305" y="277" style="font-size:20px; font-family:descartesJS_serif,Times,'Times New Roman',serif; ">u </text>
 	<path fill="#ae73ff" fill-opacity="0.6" stroke="none" d="M 20 108 L 140 108 L 155 18 L 230 108 L 170 198 L 80 168 L 95 258 L 50 258 L 20 108 " />
 	<path fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" d="M 20 108 L 140 108 L 155 18 L 230 108 L 170 198 L 80 168 L 95 258 L 50 258 L 20 108 " />
-	<path fill="none" stroke="#ff0000" stroke-opacity="1" stroke-width="4" d="M 140 108 L 50 258 " />
+	<path fill="none" stroke="#ff0000" stroke-opacity="1" stroke-width="3" d="M 140.5 108.5 L 50.5 258.5 " />
 	<circle cx="140" cy="108" r="2" stroke="none" fill="#ff0000" fill-opacity="1" />
 	<circle cx="50" cy="258" r="2" stroke="none" fill="#ff0000" fill-opacity="1" />
+	<path fill="none" stroke="#0000ff" stroke-opacity="1" stroke-width="4" d="M 20 108 L 80 168 " stroke-linecap="butt" stroke-dasharray="16,12" />
+	<circle cx="20" cy="108" r="2" stroke="none" fill="#0000ff" fill-opacity="1" />
+	<circle cx="80" cy="168" r="2" stroke="none" fill="#0000ff" fill-opacity="1" />
 	<circle cx="20" cy="108" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<text fill="#000000" fill-opacity="1" x="20" y="127" style="font-size:20px; font-family:descartesJS_serif,Times,'Times New Roman',serif; ">  v </text>
 	<circle cx="140" cy="108" r="7" stroke="none" fill="#000000" fill-opacity="1" />
@@ -40,6 +45,7 @@
 	<circle cx="230" cy="108" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="170" cy="198" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="80" cy="168" r="7" stroke="none" fill="#ff0000" fill-opacity="1" />
+	<text fill="#000000" fill-opacity="1" x="80" y="187" style="font-size:20px; font-family:descartesJS_serif,Times,'Times New Roman',serif; "> μ </text>
 	<circle cx="95" cy="258" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<circle cx="50" cy="258" r="7" stroke="none" fill="#000000" fill-opacity="1" />
 	<text fill="#000000" fill-opacity="1" x="50" y="277" style="font-size:20px; font-family:descartesJS_serif,Times,'Times New Roman',serif; ">u </text>

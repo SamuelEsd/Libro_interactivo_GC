@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>TITULO</title>
+  <script type="text/javascript" src="lib/descartes-min.js" charset="utf-8"></script>
+</head>
+
+<body style="padding:0; margin:0; background:#eff0f1;">
+
+  <div align="center">
+    <ajs name="Descartes" code="Descartes" width="500" height="345">
+      <param name="tamaño" value="500x345">
+      <param name="decimal_symbol" value=".">
+      <param name="expand" value="cover">
+      <param name="nombre" value="">
+      <param name="Versión" value="5.5">
+      <param name="editable" value="no">
+      <param name="Idioma" value="español">
+      <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' fijo='sí' escala='30' O.x='-170' O.y='115' red='no' red10='no' ejes='no' ">
+      <param name="C_01" value="id='barra_x' tipo='numérico' interfaz='barra' región='sur' espacio='E1' nombre='Deslizar linea paralela al eje y' expresión='(0,0,150,40)' min='-2' max='13' visible='no' acción='calcular' parámetro='p = barra_x' color='e0e4e8' color-int='182C61' ">
+      <param name="A_01" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' hacer='p1_x = 0;p1_y = 6;;p2_x = 2;p2_y = 7.5;;p3_x = 4;p3_y = 4;;p4_x = 9;p4_y = 7;;p5_x = 11;p5_y = 2;;p6_x = 6.5;p6_y = 0.5;;p7_x = 3.5;p7_y = 1;;p8_x = 1 ;p8_y = 3;;;p = -2;;x1_arriba = 0;y1_arriba = 0;x2_arriba = 0;y2_arriba = 0' ">
+      <param name="A_02" value="id='CALCULAR' algoritmo='sí' evaluar='siempre' hacer='x1_arriba = ((p>=p1_x)&(p<=p2_x))? p1_x : x1_arriba ;x1_arriba = ((p>=p2_x)&(p<=p3_x))? p2_x : x1_arriba ;x1_arriba = ((p>=p3_x)&(p<=p4_x))? p3_x : x1_arriba ;x1_arriba = ((p>=p4_x)&(p<=p5_x))? p4_x : x1_arriba ;;x2_arriba = ((p>=p1_x)&(p<=p2_x))? p2_x : x2_arriba;x2_arriba = ((p>=p2_x)&(p<=p3_x))? p3_x : x2_arriba;x2_arriba = ((p>=p3_x)&(p<=p4_x))? p4_x : x2_arriba;x2_arriba = ((p>=p4_x)&(p<=p5_x))? p5_x : x2_arriba;;y1_arriba = ((p>=p1_x)&(p<=p2_x))? p1_y : y1_arriba;y1_arriba = ((p>=p2_x)&(p<=p3_x))? p2_y : y1_arriba;y1_arriba = ((p>=p3_x)&(p<=p4_x))? p3_y : y1_arriba;y1_arriba = ((p>=p4_x)&(p<=p5_x))? p4_y : y1_arriba;;y2_arriba = ((p>=p1_x)&(p<=p2_x))? p2_y : y2_arriba;y2_arriba = ((p>=p2_x)&(p<=p3_x))? p3_y : y2_arriba;y2_arriba = ((p>=p3_x)&(p<=p4_x))? p4_y : y2_arriba;y2_arriba = ((p>=p4_x)&(p<=p5_x))? p5_y : y2_arriba;;m_superior = (y1_arriba-y2_arriba)/(x1_arriba-x2_arriba);;punto_superior_x = p;punto_superior_y = (m_superior * (p - x1_arriba)) + y1_arriba;;;x1_abajo = ((p>=p1_x)&(p<=p8_x))? p1_x : x1_abajo ;x1_abajo = ((p>=p8_x)&(p<=p7_x))? p8_x : x1_abajo ;x1_abajo = ((p>=p7_x)&(p<=p6_x))? p7_x : x1_abajo ;x1_abajo = ((p>=p6_x)&(p<=p5_x))? p6_x : x1_abajo ;;x2_abajo = ((p>=p1_x)&(p<=p8_x))? p8_x : x2_abajo ;x2_abajo = ((p>=p8_x)&(p<=p7_x))? p7_x : x2_abajo ;x2_abajo = ((p>=p7_x)&(p<=p6_x))? p6_x : x2_abajo ;x2_abajo = ((p>=p6_x)&(p<=p5_x))? p5_x : x2_abajo ;;y1_abajo = ((p>=p1_x)&(p<=p8_x))? p1_y : y1_abajo ;y1_abajo = ((p>=p8_x)&(p<=p7_x))? p8_y : y1_abajo ;y1_abajo = ((p>=p7_x)&(p<=p6_x))? p7_y : y1_abajo ;y1_abajo = ((p>=p6_x)&(p<=p5_x))? p6_y : y1_abajo ;;y2_abajo = ((p>=p1_x)&(p<=p8_x))? p8_y : y2_abajo ;y2_abajo = ((p>=p8_x)&(p<=p7_x))? p7_y : y2_abajo ;y2_abajo = ((p>=p7_x)&(p<=p6_x))? p6_y : y2_abajo ;y2_abajo = ((p>=p6_x)&(p<=p5_x))? p5_y : y2_abajo ;;m_inferior = (y1_abajo-y2_abajo)/(x1_abajo-x2_abajo);;punto_inferior_x = p;punto_inferior_y = (m_inferior * (p - x1_abajo)) + y1_abajo' ">
+      <param name="G_01" value="espacio='E1' tipo='polígono' color='000000' coord_abs='no' expresión='(p1_x,p1_y)(p2_x,p2_y)(p3_x,p3_y)(p4_x,p4_y)(p5_x,p5_y)(p6_x,p6_y)(p7_x,p7_y)(p8_x,p8_y)(p1_x,p1_y)' relleno='66ae73ff' ancho='1' info='Area del poligono' ">
+      <param name="G_02" value="espacio='E1' tipo='ecuación' color='20303a' coord_abs='no' expresión='x=p' ancho='1' ">
+      <param name="G_03" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='[(p >= 0)&(p <= 11)]' coord_abs='no' expresión='(p,punto_superior_y)(p,punto_inferior_y)' tamaño='2' ancho='3' ">
+      <param name="G_04" value="espacio='E1' tipo='segmento' color='20303a' dibujar-si='0' coord_abs='no' expresión='(p,0)(p,5)' tamaño='2' ancho='1' ">
+    </ajs>
+  </div>
+
+
+
+</body>
+</html>

@@ -2619,12 +2619,20 @@
           con otro vértice del mismo color, a traves de
           una arista de $P$ o una diagonal de $T(P)$.
         </p>
-        TO DO: ejemplo de proceso de coloración.
+        <figure id="demostracion_caso_1">
+          <img src="./images/capitulo_04/3_coloracion.svg" width="45%" height="45%">
+          <figcaption>Ejemplo de 3-coloración, donde
+            nos resulta conveniente ponerlas cámaras en
+            los vértices verdes que son precisamente
+            $\lfloor n/3 \rfloor = \lfloor 8/3 \rfloor =
+            2$.
+          </figcaption>
+        </figure>
       </div>
 
       <div class="page">
         <p>
-          La 3-coloración ya mencionada siempre puede
+          La 3-coloración ya mencionada, siempre puede
           ser calculada para una triangulación de un
           polígono simple, sin embargo, la demostración
           no será abordada en estas notas.
@@ -2655,11 +2663,25 @@
           ¿Podrá hacerse con menos cámaras?
           <br>
           La respuesta es sí, pero no siempre es
-          posible, como en el ejemplo de la TODO
-          FIGURA, el cual es un ejemplo muy común de un
-          polígono simple que no puede ser vigilado con
-          menos de $ \lfloor n/3 \rfloor $.
+          posible, como en el ejemplo de la
+          <ref ref_id="peine"></ref>,
+          el cual es un ejemplo
+          muy común de un polígono simple que no puede
+          ser vigilado con menos de $ \lfloor n/3
+          \rfloor
+          $.
         </p>
+        <figure id="peine">
+          <img src="./images/capitulo_04/Peine.svg" width="45%" height="45%">
+          <figcaption>
+            Este polígono tiene 3 vertices
+            para cada "pico", y no es posible colocar
+            menos de $ \lfloor n/3 \rfloor $, pues es
+            necesario tener al menos una para cada
+            "pico".
+          </figcaption>
+        </figure>
+        peine interactivo?
       </div>
 
       <div class="page">
@@ -2684,7 +2706,7 @@
           solo agregaría un triangulo por lo que este
           proceso se tomaría también $O(n)$.
         </p>
-        TODO: agregar ejemplo que tome $O(n^2)$
+        TODO: agregar ejemplo que tome $O(n^2)$ ?
       </div>
 
       <div class="page">
@@ -2700,7 +2722,146 @@
           forma eficiente de particionar nuestro
           polígono simple, en polígonos monótonos.
         </p>
+
+        <h4><span class="bolded">Polígono monótono.</span></h4>
         <p>
+          Un <b>polígono monótono</b> con respecto a
+          una línea $l$, es un polígono simple $P$ tal
+          que para cualquier línea $l'$ perpendicular a
+          $l$, si $P$ y $l'$ se intersectan, la
+          intersección del polígono $P$ y $l'$ es un
+          segmento de línea o un punto.
+        </p>
+        <p>
+          Adicionalmente podemos definir como <b>$x$-monótonos</b>
+          y <b>$y$-monótonos</b> a los polígonos que son
+          monótonos con respecto al eje $x$ y $y$ respectivamente.
+        </p>
+        TODO ejemplo interactivo que muestre ejemplos de polígonos
+        x-monótonos y y-monótonos.
+      </div>
+
+      <div class="page">
+        <p>
+          De estos dos tipos de polígonos monótonos,
+          nos interesa particionar nuestro polígono
+          simple inicial en polígonos $y$-monótonos
+          para poder calcular la triangulación de una
+          forma más eficiente.
+          <br>
+          Pero, ¿Cómo podemos particionar en polígonos
+          $y$-monótonos de forma eficiente?
+        </p>
+        <p>
+          Para comenzar, notemos que cuando hacemos un
+          recorrido de arriba a abajo por los vertices
+          de un polígono $y$-monótono, estos cumplen la
+          propiedad de que las aristas que conectan a
+          los vertices nunca van de abajo a arriba,
+          como se muestra en la Figura TODO. Propiedad
+          de polígonos monótonos.
+        </p>
+        TODO: ejemplo con flechas apuntando a abajo.
+      </div>
+
+      <div class="page">
+        <p>
+          Para poder lograr que dicha condición se
+          cumpla es útil saber cuales son los tipos de
+          formas, que pueden tener las aristas que
+          conectan a los vertices en los polígonos. Es
+          por ello que procederemos a clasificar a los
+          vertices pertenecientes a polígonos simples
+          de la siguiente manera.
+        </p>
+        <p>
+          Diremos que un vértice $v$ es <b>vértice
+            vuelta</b>
+          si los vertices $u$ y $w$ adyacentes a $v$
+          tienen ambos coordenadas en $y$ mayores a la
+          coordenada en $y$ de $v$ o de lo contrario
+          tienen ambos coordenadas en $y$ menores a la
+          coordenada en $y$ de $v$.
+        </p>
+
+        TODO: imagen
+
+        <p>
+          Este tipo de vertices los podemos clasificar
+          en 4 distintos, vertices
+          <b>principio</b>, <b>final</b>,
+          <b>separación</b> y <b>unión</b>.
+        </p>
+      </div>
+
+      <div class="page">
+        <h4><span class="bolded">Vértice
+            principio.</span></h4>
+        <p>
+          Diremos que un vértice $v$ es vértice
+          principio, si los vertices $u$ y $w$
+          adyacentes a $v$ tienen coordenadas en $y$
+          menores a la coordenada en $y$ de $v$ y
+          además el angulo interior de $v$ es menor a
+          $180^{\circ}$.
+        </p>
+        TODO:imagen
+
+        <h4><span class="bolded">Vértice
+            separación.</span></h4>
+        <p>
+          Diremos que un vértice $v$ es vértice
+          principio, si los vertices $u$ y $w$
+          adyacentes a $v$ tienen coordenadas en $y$
+          menores a la coordenada en $y$ de $v$ y
+          además el angulo interior de $v$ es mayor a
+          $180^{\circ}$.
+        </p>
+        TODO:imagen
+      </div>
+
+      <div class="page">
+        <h4><span class="bolded">Vértice
+            final.</span></h4>
+        <p>
+          Diremos que un vértice $v$ es vértice
+          principio, si los vertices $u$ y $w$
+          adyacentes a $v$ tienen coordenadas en $y$
+          mayores a la coordenada en $y$ de $v$ y
+          además el angulo interior de $v$ es menor a
+          $180^{\circ}$.
+        </p>
+        TODO:imagen
+        <h4><span class="bolded">Vértice unión.</span></h4>
+        <p>
+          Diremos que un vértice $v$ es vértice
+          principio, si los vertices $u$ y $w$ adyacentes a $v$
+          tienen coordenadas en $y$ mayores a la
+          coordenada en $y$ de $v$ y además el angulo
+          interior de $v$ es mayor a $180^{\circ}$.
+        </p>
+        TODO:imagen
+      </div>
+
+      <div class="page">
+        <p>
+          Dadas estas definiciones, podemos decir que
+          un polígono simple $P$ es $y$-monótono si no
+          contiene vertices separación ni vertices
+          unión.
+        </p>
+        <p>
+          Entonces podemos decir que nuestro algoritmo
+          para transformar un polígono simple en un
+          polígono $y$-monótono, tenemos que eliminar
+          todos los vertices separación y unión.
+          Para ello es necesario poder agregar
+          diagonales validas(que no se intersecten
+          entre ellas, y que estén completamente
+          contenidas en $P$) a todos los vertices
+          separación y unión.
+          <br>
+
         </p>
         <h2 id="cap4_triangulando_polígono">Triangulando un
           polígono monótono</h2>

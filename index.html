@@ -2197,27 +2197,33 @@
         <p>
           El problema que se abordará en este capítulo
           es la intersección de segmentos de rectas,
-          pero antes de comenzar, necesitamos tener en
-          claro que significa esto y definir qué es una
-          intersección.
+          el cuál se describe a continuación.
+        </p>
+
+        <h4><span class="bolded">Definición del problema.</span></h4>
+        <p>
+          Sea $S$ un conjunto de $n$ segmentos de recta cerrados
+          en $\mathbb{R}^2$, encontrar todos los puntos de
+          intersección entre los segmentos de $S$.
         </p>
         <p>
-
-
-          Definición de intersección
-
-          TO DO: Añadir imágenes que muestren las intersecciones.
+          Nótese que al considerar los segmentos en $S$ como
+          cerrados, la intersección del inicio de
+          un segmento de recta con el interior de otro segmento
+          de recta, sí está considerado como intersección,
+          como lo muestra la figura <ref ref_id="intersección"></ref>.
         </p>
-
+        TODO: figura intersecciones
+        <figure id="intersección">
+          <img src="./images/capitulo_03/interseccion.svg" width="85%" height="85%">
+          <figcaption>
+            Ejemplo de intersecciones de segmentos de recta.
+          </figcaption>
+        </figure>
       </div>
 
       <div class="page">
         <h2 id="cap3_deteccion">Detección</h2>
-        <p>
-          Ahora que tenemos bien definido nuestro
-          problema podemos comenzar a pensar en una
-          solución.
-        </p>
         <p>
           Como primer acercamiento podemos comparar
           cada segmento de línea en el conjunto $S$
@@ -2228,29 +2234,157 @@
           si pensamos detenidamente, es lo mejor que
           podemos hacer en el peor de los casos, esto
           es, cuando todos los segmentos se intersectan
-          entre sí, pues justamente estamos revisando
+          entre sí(como se muestra en la
+          <ref ref_id="intersecciones_cuadrático"></ref>),
+          pues justamente estamos revisando
           todas las intersecciones que puede haber
           entre los segmentos de línea en $S$.
         </p>
+        TODO: ejemplo de $O(n^2)$
+        <figure id="intersecciones_cuadrático">
+          <img src="./images/capitulo_03/intersecciones_cuadratico.svg" width="85%" height="85%">
+          <figcaption>
+            Ejemplo de intersecciones que requiere $O(n^2)$ comparaciones.
+          </figcaption>
+        </figure>
         <p>
-          Listo, entonces hemos terminado, ¿o no?.
-          <br>
-          Es verdad que en situaciones donde tenemos
-          que lidiar con el peor escenario no podemos
-          reducir el número de comparaciones, sin
-          embargo, en aplicaciones reales, dicho caso
-          es poco común y resultaría bastante
+          Sin embargo, en aplicaciones reales, dicho
+          caso es poco común y resultaría bastante
           conveniente tener un algoritmo que sea más
-          eficiente si el número de
-          intersecciones es menor.
+          eficiente si el número de intersecciones es
+          menor, tal como lo que mencionamos en el
+          capítulo anterior un algoritmos sensible a la
+          salida.
         </p>
+      </div>
 
+      <div class="page">
+        <p>
+          La idea que se utilizará para reducir la
+          complejidad será hacer uso de un
+          <a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm">
+            algoritmo de barrido de línea
+          </a>, para esto, simularemos hacer un barrido
+          por el plano con una línea $l$ paralela al
+          eje $x$ y solo compararemos los segmentos en
+          $S$ que estén siendo intersectados al mismo
+          tiempo por dicha línea $l$. De esta manera
+          evitaremos comparar segmentos que están
+          alejados en el eje $y$ y por lo tanto, que no
+          se intersectan.
+        </p>
+        TODO: Ejemplo de sweep line
+        <figure id="barrido_de_línea_interactivo">
+          <div class="interactive" width="810" height="500" window-size="false"
+            src="./Interactivos/capitulo_4/intuitive_idea_Camera.html"></div>
+          <figcaption>
+            Ejemplo del barrido de línea, nótese como
+            solo necesitamos comparar entre sí, a los
+            segmentos que están siendo intersectados
+            por la línea de barrido (segmentos de color
+            verde).
+          </figcaption>
+        </figure>
 
       </div>
 
       <div class="page">
+        <p>
+          Implementar la idea del barrido de línea como
+          se muestra en la
+          <ref ref_id="barrido_de_línea_interactivo"></ref>
+          puede parecer bastante complejo, sin embargo
+          podemos simular el barrido en pasos
+          discretos.
+          <br>
+          Para ello definamos el estado de la línea de
+          barrido y los puntos que usaremos para
+          cambiar el estado de la línea de forma
+          discreta.
+        </p>
+        <h4><span class="bolded">Estado.</span></h4>
+        <p>
+          Diremos que el <b>estado</b> de la línea de
+          barrido es el conjunto de segmentos en $S$
+          que la intersectan.
+          <br>
+          La figura <ref ref_id="barrido_de_línea_interactivo"></ref>
+          muestra el estado de la línea de barrido en
+          cada momento coloreando de color verde a los
+          segmentos que forman parte del estado.
+        </p>
+        <h4>
+          <span class="bolded">
+            Punto de evento.
+          </span>
+        </h4>
+        <p>
+          Diremos que un punto es un
+          <b>punto de evento</b>
+          si es un punto en un extremo de algún
+          segmento en $S$.
+        </p>
+      </div>
 
-        <h2 id="cap3_algoritmos">Algoritmo</h2>
+      <div class="page">
+        <p>
+          Para realizar el barrido de forma discreta,
+          actualizaremos el estado de la línea de
+          barrido solamente en los puntos de evento.
+          <br>
+          En adición a esto, calcularemos las posibles
+          intersecciones de igual manera, unicamente en
+          los puntos de evento.
+          <br>
+          Dicho esto es claro que tenemos dos tipos de
+          puntos de eventos, los que son el inicio de
+          un segmento y los que son un final de un
+          segmento.
+        </p>
+        <p>
+          En aquellos que forman parte del inicio de un
+          segmento, agregaremos al segmento del que
+          forman parte, al estado de la línea de
+          barrido, y además, calcularemos las
+          intersecciones con los demás segmentos en el
+          estado.
+        </p>
+        <p>
+          En aquellos que forman parte del final de un
+          segmento, solamente tendremos que eliminar a
+          dicho segmento del estado de la línea de
+          barrido.
+        </p>
+        TODO: interactivo paso a Paso de dicho
+        algoritmo para calcular intersecciones.
+
+      </div>
+
+      <div class="page">
+        <p>
+          Sin embargo, el número de comparaciones
+          hechas realizando el algoritmo de esta
+          manera, no nos proporciona un algoritmo
+          sensible a la salida, como queríamos, un
+          claro ejemplo de esto se muestra en la
+          <ref ref_id="ejemplo_lineas_verticales"></ref>
+          donde el estado de la línea de barrido tiene
+          un punto donde todos los segmentos en $S$
+          intersectan a la línea de barrido pero no hay
+          ninguna intersección.
+        </p>
+        TODO: ejemplo de lineas verticales
+        <figure id="ejemplo_lineas_verticales">
+          <img src="./images/capitulo_03/ejemplo_lineas_verticales.svg" width="85%" height="85%">
+          <figcaption>
+            Ejemplo de intersecciones que requiere $O(n^2)$ comparaciones.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="page">
+
+        <h4><span class="bolded">Algoritmo</span></h4>
         TO DO: sweep line algorithm description and interactive resource.
 
         <h2 id="cap3_lista_doblemente_ligada">Lista doblemente conexa de aristas</h2>

@@ -2706,10 +2706,6 @@
           solo agregaría un triangulo por lo que este
           proceso se tomaría también $O(n)$.
         </p>
-        TODO: agregar ejemplo que tome $O(n^2)$ ?
-      </div>
-
-      <div class="page">
         <p>
           Es por esta razón por la que buscando mejorar
           dicha complejidad dividiremos el polígono
@@ -2722,6 +2718,9 @@
           forma eficiente de particionar nuestro
           polígono simple, en polígonos monótonos.
         </p>
+      </div>
+
+      <div class="page">
 
         <h4><span class="bolded">Polígono monótono.</span></h4>
         <p>
@@ -2733,12 +2732,30 @@
           segmento de línea o un punto.
         </p>
         <p>
-          Adicionalmente podemos definir como <b>$x$-monótonos</b>
-          y <b>$y$-monótonos</b> a los polígonos que son
-          monótonos con respecto al eje $x$ y $y$ respectivamente.
+          Adicionalmente podemos definir como
+          <b>$x$-monótonos</b>
+          y <b>$y$-monótonos</b> a los polígonos que
+          son monótonos con respecto al eje $x$ y $y$
+          respectivamente.
         </p>
-        TODO ejemplo interactivo que muestre ejemplos de polígonos
-        x-monótonos y y-monótonos.
+        <p>
+          La <ref ref_id="poligonos_monotonos"></ref> 2
+          polígonos distintos los cuales podemos
+          verificar si son $x$-monótonos o
+          $y$-monótonos deslizando una linea vertical u
+          horizontal a lo largo del polígono.
+        </p>
+
+        <figure id="poligonos_monotonos">
+          <div class="interactive" width="300" height="200" src="./Interactivos/capitulo_4/poligonos_monotonos.html">
+          </div>
+          <figcaption>Ejemplo de polígonos <b>$x$-monótonos</b>
+            y <b>$y$-monótonos</b>$$.
+          </figcaption>
+        </figure>
+        <br>
+
+
       </div>
 
       <div class="page">
@@ -2784,7 +2801,16 @@
           coordenada en $y$ de $v$.
         </p>
 
-        TODO: imagen
+        <figure id="vertices_vuelta">
+          <img src="./images/capitulo_04/Vertices_vuelta.svg" width="65%" height="65%">
+          <figcaption>
+            Este polígono tiene 3 vertices
+            para cada "pico", y no es posible colocar
+            menos de $ \lfloor n/3 \rfloor $, pues es
+            necesario tener al menos una para cada
+            "pico".
+          </figcaption>
+        </figure>
 
         <p>
           Este tipo de vertices los podemos clasificar

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>TITULO</title>
+  <script type="text/javascript" src="lib/descartes-min.js" charset="utf-8"></script>
+</head>
+
+<body style="padding:0; margin:0; background:#eff0f1;">
+
+  <div align="center">
+    <ajs name="Descartes" code="Descartes" width="500" height="340">
+      <param name="tamaño" value="500x340">
+      <param name="decimal_symbol" value=".">
+      <param name="expand" value="cover">
+      <param name="nombre" value="">
+      <param name="Versión" value="5.5">
+      <param name="editable" value="no">
+      <param name="Idioma" value="español">
+      <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' O.x='-230' O.y='150' red='no' red10='no' ejes='no' ">
+      <param name="C_01" value="id='sweep_line' tipo='numérico' interfaz='barra' región='sur' espacio='E1' nombre='Línea de barrido' expresión='(0,0,150,40)' min='0' max='7' visible='no' color='e0e4e8' color-int='182C61' ">
+      <param name="A_01" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' ">
+      <param name="A_02" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' ">
+      <param name="G_01" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(1.5,0)(3,2)' tamaño='2' ancho='3' ">
+      <param name="G_02" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(6.5-sweep_line <= 2) & (6.5-sweep_line >= 0)' coord_abs='no' expresión='(1.5,0)(3,2)' tamaño='2' ancho='3' ">
+      <param name="G_03" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(7,4)(3,6)' tamaño='2' ancho='3' ">
+      <param name="G_04" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(6.5-sweep_line <= 6) & (6.5-sweep_line >= 4)' coord_abs='no' expresión='(7,4)(3,6)' tamaño='2' ancho='3' ">
+      <param name="G_05" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(4.3,6.1)(5.7,1)' tamaño='2' ancho='3' ">
+      <param name="G_06" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(6.5-sweep_line <= 6.1) & (6.5-sweep_line >= 1)' coord_abs='no' expresión='(4.3,6.1)(5.7,1)' tamaño='2' ancho='3' ">
+      <param name="G_07" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(8,4)(7,2)' tamaño='2' ancho='3' ">
+      <param name="G_08" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(6.5-sweep_line <= 4) & (6.5-sweep_line >= 2)' coord_abs='no' expresión='(8,4)(7,2)' tamaño='2' ancho='3' ">
+      <param name="G_09" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(3,4)(3,2)' tamaño='2' ancho='3' ">
+      <param name="G_10" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(6.5-sweep_line <= 4) & (6.5-sweep_line >= 2)' coord_abs='no' expresión='(3,4)(3,2)' tamaño='2' ancho='3' ">
+      <param name="G_11" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(1,4)(4,1)' tamaño='2' ancho='3' ">
+      <param name="G_12" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(6.5-sweep_line <= 4) & (6.5-sweep_line >= 1)' coord_abs='no' expresión='(1,4)(4,1)' tamaño='2' ancho='3' ">
+      <param name="G_13" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(1.5,0)' tamaño='6' ">
+      <param name="G_14" value="espacio='E1' tipo='punto' color='ff0000' dibujar-si='6.5-sweep_line <= 2' coord_abs='no' expresión='(3,2)' tamaño='6' ">
+      <param name="G_15" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(7,4)' tamaño='6' ">
+      <param name="G_16" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(3,6)' tamaño='6' ">
+      <param name="G_17" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(4.3,6.1)' tamaño='6' ">
+      <param name="G_18" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(5.7,1)' tamaño='6' ">
+      <param name="G_19" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(8,4)' tamaño='6' ">
+      <param name="G_20" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(7,2)' tamaño='6' ">
+      <param name="G_21" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(3,4)' tamaño='6' ">
+      <param name="G_22" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(1,4)' tamaño='6' ">
+      <param name="G_23" value="espacio='E1' tipo='punto' color='20303a' coord_abs='no' expresión='(4,1)' tamaño='6' ">
+      <param name="G_24" value="espacio='E1' tipo='punto' color='ff0000' dibujar-si='6.5-sweep_line <= 5.22' coord_abs='no' expresión='(4.55,5.22)' tamaño='6' ">
+      <param name="G_25" value="espacio='E1' tipo='ecuación' color='ff0000' coord_abs='no' expresión='y=6.5-sweep_line' ancho='1' ">
+    </ajs>
+  </div>
+
+
+
+</body>
+</html>

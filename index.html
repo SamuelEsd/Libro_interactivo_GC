@@ -2239,9 +2239,8 @@
           todas las intersecciones que puede haber
           entre los segmentos de línea en $S$.
         </p>
-        TODO: ejemplo de $O(n^2)$
         <figure id="intersecciones_cuadrático">
-          <img src="./images/capitulo_03/intersecciones_cuadratico.svg" width="85%" height="85%">
+          <img src="./images/capitulo_03/ejemplo_cuadratico.svg" width="85%" height="85%">
           <figcaption>
             Ejemplo de intersecciones que requiere $O(n^2)$ comparaciones.
           </figcaption>
@@ -2272,10 +2271,9 @@
           alejados en el eje $y$ y por lo tanto, que no
           se intersectan.
         </p>
-        TODO: Ejemplo de sweep line
         <figure id="barrido_de_línea_interactivo">
-          <div class="interactive" width="810" height="500" window-size="false"
-            src="./Interactivos/capitulo_4/intuitive_idea_Camera.html"></div>
+          <div class="interactive" width="570" height="420" window-size="false"
+            src="./Interactivos/capitulo_3/barrido_de_línea_interactivo.html"></div>
           <figcaption>
             Ejemplo del barrido de línea, nótese como
             solo necesitamos comparar entre sí, a los
@@ -2323,9 +2321,6 @@
           si es un punto en un extremo de algún
           segmento en $S$.
         </p>
-      </div>
-
-      <div class="page">
         <p>
           Para realizar el barrido de forma discreta,
           actualizaremos el estado de la línea de
@@ -2340,6 +2335,9 @@
           un segmento y los que son un final de un
           segmento.
         </p>
+      </div>
+
+      <div class="page">
         <p>
           En aquellos que forman parte del inicio de un
           segmento, agregaremos al segmento del que
@@ -2354,8 +2352,21 @@
           dicho segmento del estado de la línea de
           barrido.
         </p>
-        TODO: interactivo paso a Paso de dicho
-        algoritmo para calcular intersecciones.
+        <figure id="barrido_de_línea_interactivo_discreto">
+          <div class="interactive" width="570" height="420" window-size="false"
+            src="./Interactivos/capitulo_3/barrido_de_línea_interactivo_discreto.html"></div>
+          <figcaption>
+            Ejemplo del barrido de línea, haciendo los
+            pasos discretos. Nótese como solo
+            necesitamos comparar entre sí, a los
+            segmentos que están siendo intersectados
+            por la línea de barrido (segmentos de color
+            verde).
+          </figcaption>
+        </figure>
+
+
+
 
       </div>
 

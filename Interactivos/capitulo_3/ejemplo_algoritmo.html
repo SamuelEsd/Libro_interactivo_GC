@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>TITULO</title>
+  <script type="text/javascript" src="lib/descartes-min.js" charset="utf-8"></script>
+</head>
+
+<body style="padding:0; margin:0; background:#eff0f1;">
+
+  <div align="center">
+    <ajs name="Descartes" code="Descartes" width="500" height="450">
+      <param name="tamaño" value="500x450">
+      <param name="decimal_symbol" value=".">
+      <param name="expand" value="cover">
+      <param name="nombre" value="">
+      <param name="Versión" value="5.5">
+      <param name="editable" value="no">
+      <param name="Idioma" value="español">
+      <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' O.x='-250' O.y='110' red='no' red10='no' ejes='no' ">
+      <param name="C_01" value="id='numero_evento' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='Punto de evento' expresión='(0,0,150,40)' incr='1' min='0' max='8' discreto='sí' visible='sí' ">
+      <param name="A_01" value="id='x' vector='sí' evaluar='una-sola-vez' tamaño='3' expresión='x[0]=0;x[1]=4.3;x[2]=3;x[3]=4.58;x[4]=8;x[5]=7;x[6]=7;x[7]=5.7;x[8]=0' tipo='vector' ">
+      <param name="A_02" value="id='y' vector='sí' evaluar='una-sola-vez' tamaño='3' expresión='y[0]=7;y[1]=6.3;y[2]=6;y[3]=5.20;y[4]=5;y[5]=4;y[6]=2;y[7]=1;y[8]=-10' tipo='vector' ">
+      <param name="A_03" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' ">
+      <param name="A_04" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' hacer='sweep_line = y[numero_evento]' ">
+      <param name="G_01" value="espacio='E1' tipo='segmento' color='000000' dibujar-si='! ((sweep_line <= y[1]) & (sweep_line >= y[7]))' coord_abs='no' expresión='(x[1],y[1])(x[7],y[7])' texto='   B' tamaño='2' ancho='3' info='evento 1-7' ">
+      <param name="G_02" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[1]) & (sweep_line >= y[7])' coord_abs='no' expresión='(x[1],y[1])(x[7],y[7])' texto='   B' tamaño='2' ancho='3' info='evento 1-7 v' ">
+      <param name="G_03" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[2],y[2])(x[5],y[5])' texto='           A' tamaño='2' ancho='3' info='evento 2-5' ">
+      <param name="G_04" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[2]) & (sweep_line >= y[5])' coord_abs='no' expresión='(x[2],y[2])(x[5],y[5])' texto='           A' tamaño='2' ancho='3' info='evento 2-5 v' ">
+      <param name="G_05" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[4],y[4])(x[6],y[6])' texto=' C' tamaño='2' ancho='3' info='evento 4-6' ">
+      <param name="G_06" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[4]) & (sweep_line >= y[6])' coord_abs='no' expresión='(x[4],y[4])(x[6],y[6])' texto=' C' tamaño='2' ancho='3' info='evento 4-6 v' ">
+      <param name="G_07" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[1],y[1])' tamaño='6' info='evento 1' ">
+      <param name="G_08" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 1]' coord_abs='no' expresión='(x[1],y[1])' tamaño='6' info='evento 1 v' ">
+      <param name="G_09" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[2],y[2])' tamaño='6' info='evento 2' ">
+      <param name="G_10" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 2]' coord_abs='no' expresión='(x[2],y[2])' tamaño='6' info='evento 2 v' ">
+      <param name="G_11" value="espacio='E1' tipo='punto' color='ff0000' dibujar-si='sweep_line <= y[2]' coord_abs='no' expresión='(x[3],y[3])' tamaño='10' info='evento 3' ">
+      <param name="G_12" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[4],y[4])' tamaño='6' info='evento 4' ">
+      <param name="G_13" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 4]' coord_abs='no' expresión='(x[4],y[4])' tamaño='6' info='evento 4 v' ">
+      <param name="G_14" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[5],y[5])' tamaño='6' info='evento 5' ">
+      <param name="G_15" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 5]' coord_abs='no' expresión='(x[5],y[5])' tamaño='6' info='evento 5 v' ">
+      <param name="G_16" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[6],y[6])' tamaño='6' info='evento 6' ">
+      <param name="G_17" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 6]' coord_abs='no' expresión='(x[6],y[6])' tamaño='6' info='evento 6 v' ">
+      <param name="G_18" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[7],y[7])' tamaño='6' info='evento 7' ">
+      <param name="G_19" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 7]' coord_abs='no' expresión='(x[7],y[7])' tamaño='6' info='evento 7 v' ">
+      <param name="G_20" value="espacio='E1' tipo='ecuación' color='ff0000' coord_abs='no' expresión='y=sweep_line' ancho='1' ">
+      <param name="G_21" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 0]' coord_abs='sí' expresión='(E1._w/2,E1._h)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Estado = \{\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 0' ">
+      <param name="G_22" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 1]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Caso 1\par\f0\fs36 Agregaremos B orden al Estado, no hay \par\f0\fs36 intersecciones con los vecinos entonces\par\f0\fs36 no se agregan nuevos puntos de evento\par\f0\fs36 Estado = \{B\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 1' ">
+      <param name="G_23" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 2]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Caso 1\par\f0\fs36 Agregaremos A en orden al Estado, sí hay \par\f0\fs36 intersecciones con el vecíno derecho B, entonces\par\f0\fs36 se agrega como nuevo punto de evento\par\f0\fs36 Estado = \{A,B\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 2' ">
+      <param name="G_24" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 3]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Caso 3\par\f0\fs36 Cambiamos el orden de los segmentos que \par\f0\fs36 se intersectan, A y B. No se intersectan con sus \par\f0\fs36 nuevos vecínos, no agregamos nuevos puntos de evento.\par\f0\fs36 Estado = \{B,A\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 3' ">
+      <param name="G_25" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 4]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Caso 1\par\f0\fs36 Agregaremos a C en orden al Estado, no hay \par\f0\fs36 intersecciones con el vecíno derecho A, entonces\par\f0\fs36 no se agregan nuevos puntos de evento\par\f0\fs36 Estado = \{B,A,C\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 4' ">
+      <param name="G_26" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 5]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Caso 2\par\f0\fs36 Eliminamos a A del Estado, no hay intersecciones \par\f0\fs36 entre los nuevos vecinos B y C entonces\par\f0\fs36 no se agregan nuevos puntos de evento\par\f0\fs36 Estado = \{B,C\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 5' ">
+      <param name="G_27" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 6]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Caso 2\par\f0\fs36 Eliminamos a C del Estado, no hay nuevas \par\f0\fs36 intersecciones entre vecinos entonces\par\f0\fs36 no se agregan nuevos puntos de evento\par\f0\fs36 Estado = \{B\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 6' ">
+      <param name="G_28" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 7]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Caso 2\par\f0\fs36 Eliminamos a B del Estado, el estado\par\f0\fs36 está vacío, termina el algoritmo\par\f0\fs36 Estado = \{B\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 7' ">
+      <param name="G_29" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 8]' coord_abs='sí' expresión='(E1._w/2,E1._h)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;}\f0\fs36 Estado = \{\}}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 8' ">
+    </ajs>
+  </div>
+
+
+
+</body>
+</html>

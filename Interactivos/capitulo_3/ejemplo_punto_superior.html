@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>TITULO</title>
+  <script type="text/javascript" src="lib/descartes-min.js" charset="utf-8"></script>
+</head>
+
+<body style="padding:0; margin:0; background:#eff0f1;">
+
+  <div align="center">
+    <ajs name="Descartes" code="Descartes" width="500" height="400">
+      <param name="tamaño" value="500x400">
+      <param name="decimal_symbol" value=".">
+      <param name="expand" value="cover">
+      <param name="nombre" value="">
+      <param name="Versión" value="5.5">
+      <param name="editable" value="no">
+      <param name="Idioma" value="español">
+      <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' O.x='-250' O.y='150' red='no' red10='no' ejes='no' ">
+      <param name="C_01" value="id='numero_evento' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='Punto de evento' expresión='(0,0,150,40)' incr='1' min='0' max='7' discreto='sí' visible='sí' ">
+      <param name="A_01" value="id='x' vector='sí' evaluar='una-sola-vez' tamaño='3' expresión='x[0]=0;x[1]=4.3;x[2]=3;x[3]=8;x[4]=7;x[5]=7;x[6]=5.7;x[7]=0' tipo='vector' ">
+      <param name="A_02" value="id='y' vector='sí' evaluar='una-sola-vez' tamaño='3' expresión='y[0]=7;y[1]=6.3;y[2]=6;y[3]=5;y[4]=4;y[5]=2;y[6]=1;y[7]=-1' tipo='vector' ">
+      <param name="A_03" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' ">
+      <param name="A_04" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' hacer='sweep_line = y[numero_evento]' ">
+      <param name="G_01" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[1],y[1])(x[6],y[6])' texto='   B' tamaño='2' ancho='3' info='evento 1-6' ">
+      <param name="G_02" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[1]) & (sweep_line >= y[6])' coord_abs='no' expresión='(x[1],y[1])(x[6],y[6])' texto='   B' tamaño='2' ancho='3' info='evento 1-6 v' ">
+      <param name="G_03" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[2],y[2])(x[4],y[4])' texto='           A' tamaño='2' ancho='3' info='evento 2-4' ">
+      <param name="G_04" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[2]) & (sweep_line >= y[4])' coord_abs='no' expresión='(x[2],y[2])(x[4],y[4])' texto='           A' tamaño='2' ancho='3' info='evento 2-4 v' ">
+      <param name="G_05" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[3],y[3])(x[5],y[5])' texto=' C' tamaño='2' ancho='3' info='evento 3-5' ">
+      <param name="G_06" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[3]) & (sweep_line >= y[5])' coord_abs='no' expresión='(x[3],y[3])(x[5],y[5])' texto=' C' tamaño='2' ancho='3' info='evento 3-5 v' ">
+      <param name="G_07" value="espacio='E1' tipo='punto' color='ff0000' dibujar-si='sweep_line <= y[2]' coord_abs='no' expresión='(4.58,5.20)' tamaño='10' info='interseccion 1' ">
+      <param name="G_08" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[1],y[1])' tamaño='6' info='evento 1' ">
+      <param name="G_09" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 1]' coord_abs='no' expresión='(x[1],y[1])' tamaño='6' info='evento 1 v' ">
+      <param name="G_10" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[2],y[2])' tamaño='6' info='evento 2' ">
+      <param name="G_11" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 2]' coord_abs='no' expresión='(x[2],y[2])' tamaño='6' info='evento 2 v' ">
+      <param name="G_12" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[3],y[3])' tamaño='6' info='evento 3' ">
+      <param name="G_13" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 3]' coord_abs='no' expresión='(x[3],y[3])' tamaño='6' info='evento 3 v' ">
+      <param name="G_14" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[4],y[4])' tamaño='6' info='evento 4' ">
+      <param name="G_15" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 4]' coord_abs='no' expresión='(x[4],y[4])' tamaño='6' info='evento 4 v' ">
+      <param name="G_16" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[5],y[5])' tamaño='6' info='evento 5' ">
+      <param name="G_17" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 5]' coord_abs='no' expresión='(x[5],y[5])' tamaño='6' info='evento 5 v' ">
+      <param name="G_18" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[6],y[6])' tamaño='6' info='evento 6' ">
+      <param name="G_19" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 6]' coord_abs='no' expresión='(x[6],y[6])' tamaño='6' info='evento 6 v' ">
+      <param name="G_20" value="espacio='E1' tipo='ecuación' color='ff0000' coord_abs='no' expresión='y=sweep_line' ancho='1' ">
+      <param name="G_21" value="espacio='E1' tipo='texto' color='20303a' coord_abs='sí' expresión='(20,20)' texto='Estado = []' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado' ">
+    </ajs>
+  </div>
+
+
+
+</body>
+</html>

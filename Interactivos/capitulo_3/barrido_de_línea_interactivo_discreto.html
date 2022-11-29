@@ -9,8 +9,8 @@
 <body style="padding:0; margin:0; background:#eff0f1;">
 
   <div align="center">
-    <ajs name="Descartes" code="Descartes" width="500" height="360">
-      <param name="tamaño" value="500x360">
+    <ajs name="Descartes" code="Descartes" width="500" height="450">
+      <param name="tamaño" value="500x450">
       <param name="decimal_symbol" value=".">
       <param name="expand" value="cover">
       <param name="nombre" value="">
@@ -18,26 +18,26 @@
       <param name="editable" value="no">
       <param name="Idioma" value="español">
       <param name="Botones" value="créditos=no config=no inicio=no limpiar=no filas_norte=0 filas_sur=0 ancho_este=150 ancho_oeste=150 alto=40 ">
-      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' O.x='-230' O.y='150' red='no' red10='no' ejes='no' ">
-      <param name="C_01" value="id='numero_evento' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='Evento' expresión='(0,0,150,40)' incr='1' min='0' max='12' discreto='sí' visible='sí' ">
+      <param name="E_01" value="tipo='R2' id='E1' ancho='100%' alto='100%' O.x='-230' O.y='110' red='no' red10='no' ejes='no' ">
+      <param name="C_01" value="id='numero_evento' tipo='numérico' interfaz='pulsador' región='sur' espacio='E1' nombre='Punto de evento' expresión='(0,0,150,40)' incr='1' min='0' max='12' discreto='sí' visible='sí' ">
       <param name="A_01" value="id='x' vector='sí' evaluar='una-sola-vez' tamaño='3' expresión='x[0]=0;x[1]=4.3;x[2]=3;x[3]=8;x[4]=3;x[5]=1;x[6]=7;x[7]=3;x[8]=7;x[9]=4;x[10]=5.7;x[11]=1.5;x[12]=0' tipo='vector' ">
-      <param name="A_02" value="id='y' vector='sí' evaluar='una-sola-vez' tamaño='3' expresión='y[0]=7;y[1]=6.3;y[2]=6;y[3]=5;y[4]=4.5;y[5]=4;y[6]=4;y[7]=2;y[8]=2;y[9]=1;y[10]=1;y[11]=0;y[12]=-1' tipo='vector' ">
+      <param name="A_02" value="id='y' vector='sí' evaluar='una-sola-vez' tamaño='3' expresión='y[0]=7;y[1]=6.3;y[2]=6;y[3]=5;y[4]=4.5;y[5]=4;y[6]=4;y[7]=2;y[8]=2;y[9]=1;y[10]=1;y[11]=0;y[12]=-10' tipo='vector' ">
       <param name="A_03" value="id='INICIO' algoritmo='sí' evaluar='una-sola-vez' ">
       <param name="A_04" value="id='CALCULOS' algoritmo='sí' evaluar='siempre' hacer='sweep_line = y[numero_evento]' ">
-      <param name="G_01" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[1],y[1])(5.7,1)' tamaño='2' ancho='3' ">
-      <param name="G_02" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[1]) & (sweep_line >= 1)' coord_abs='no' expresión='(x[1],y[1])(5.7,1)' tamaño='2' ancho='3' ">
-      <param name="G_03" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[2],y[2])(x[6],y[6])' tamaño='2' ancho='3' ">
-      <param name="G_04" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[2]) & (sweep_line >= y[6])' coord_abs='no' expresión='(x[2],y[2])(x[6],y[6])' tamaño='2' ancho='3' ">
-      <param name="G_05" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(1.5,0)(3,2)' tamaño='2' ancho='3' ">
-      <param name="G_06" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= 2) & (sweep_line >= 0)' coord_abs='no' expresión='(1.5,0)(3,2)' tamaño='2' ancho='3' ">
-      <param name="G_07" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[3],y[3])(7,2)' tamaño='2' ancho='3' ">
-      <param name="G_08" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[3]) & (sweep_line >= 2)' coord_abs='no' expresión='(x[3],y[3])(7,2)' tamaño='2' ancho='3' ">
-      <param name="G_09" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[4],y[4])(3,2)' tamaño='2' ancho='3' ">
-      <param name="G_10" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[4]) & (sweep_line >= 2)' coord_abs='no' expresión='(x[4],y[4])(3,2)' tamaño='2' ancho='3' ">
-      <param name="G_11" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(1,4)(4,1)' tamaño='2' ancho='3' ">
-      <param name="G_12" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(6.5-sweep_line <= 4) & (6.5-sweep_line >= 1)' coord_abs='no' expresión='(1,4)(4,1)' tamaño='2' ancho='3' ">
+      <param name="G_01" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[1],y[1])(x[10],y[10])' tamaño='2' ancho='3' info='evento 1-10' ">
+      <param name="G_02" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[1]) & (sweep_line >= y[10])' coord_abs='no' expresión='(x[1],y[1])(x[10],y[10])' tamaño='2' ancho='3' info='evento 1-10 v' ">
+      <param name="G_03" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[2],y[2])(x[6],y[6])' tamaño='2' ancho='3' info='evento 2-6' ">
+      <param name="G_04" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[2]) & (sweep_line >= y[6])' coord_abs='no' expresión='(x[2],y[2])(x[6],y[6])' tamaño='2' ancho='3' info='evento 2-6 v' ">
+      <param name="G_05" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[11],y[11])(x[7],y[7])' tamaño='2' ancho='3' info='evento 11-7' ">
+      <param name="G_06" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[7]) & (sweep_line >= y[11])' coord_abs='no' expresión='(x[11],y[11])(x[7],y[7])' tamaño='2' ancho='3' info='evento 11-7 v' ">
+      <param name="G_07" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[3],y[3])(x[8],y[8])' tamaño='2' ancho='3' info='evento 3-8' ">
+      <param name="G_08" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[3]) & (sweep_line >= y[8])' coord_abs='no' expresión='(x[3],y[3])(x[8],y[8])' tamaño='2' ancho='3' info='evento 3-8 v' ">
+      <param name="G_09" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[4],y[4])(x[7],y[7])' tamaño='2' ancho='3' info='evento 4-7' ">
+      <param name="G_10" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[4]) & (sweep_line >= y[7])' coord_abs='no' expresión='(x[4],y[4])(x[7],y[7])' tamaño='2' ancho='3' info='evento 4-7 v' ">
+      <param name="G_11" value="espacio='E1' tipo='segmento' color='000000' coord_abs='no' expresión='(x[5],y[5])(x[9],y[9])' tamaño='2' ancho='3' info='evento 5-9' ">
+      <param name="G_12" value="espacio='E1' tipo='segmento' color='00ff00' dibujar-si='(sweep_line <= y[5]) & (sweep_line >= y[9]) & (numero_evento <= 9) ' coord_abs='no' expresión='(x[5],y[5])(x[9],y[9])' tamaño='2' ancho='3' info='evento 5-9 v' ">
       <param name="G_13" value="espacio='E1' tipo='punto' color='ff0000' dibujar-si='sweep_line <= y[2]' coord_abs='no' expresión='(4.58,5.20)' tamaño='10' info='interseccion 1' ">
-      <param name="G_14" value="espacio='E1' tipo='punto' color='ff0000' dibujar-si='sweep_line <= y[4]' coord_abs='no' expresión='(3,2)' tamaño='10' info='interseccion 2' ">
+      <param name="G_14" value="espacio='E1' tipo='punto' color='ff0000' dibujar-si='sweep_line <= y[5]' coord_abs='no' expresión='(3,2)' tamaño='10' info='interseccion 2' ">
       <param name="G_15" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[1],y[1])' tamaño='6' info='evento 1' ">
       <param name="G_16" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 1]' coord_abs='no' expresión='(x[1],y[1])' tamaño='6' info='evento 1 v' ">
       <param name="G_17" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[2],y[2])' tamaño='6' info='evento 2' ">
@@ -61,6 +61,17 @@
       <param name="G_35" value="espacio='E1' tipo='punto' color='000000' coord_abs='no' expresión='(x[11],y[11])' tamaño='6' info='evento 11' ">
       <param name="G_36" value="espacio='E1' tipo='punto' color='0000ff' dibujar-si='[numero_evento = 11]' coord_abs='no' expresión='(x[11],y[11])' tamaño='6' info='evento 11 v' ">
       <param name="G_37" value="espacio='E1' tipo='ecuación' color='ff0000' coord_abs='no' expresión='y=sweep_line' ancho='1' ">
+      <param name="G_38" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 1]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 Es punto superior, agregamos al segmento al estado y no \par\f0\fs40 hay intersección de este con ningun segmento en el estado.}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 1' ">
+      <param name="G_39" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 2]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 Es punto superior, agregamos al segmento al estado \par\f0\fs40 y hay una intersección con un segmento en el estado.\par\f0\fs40 Detectamos una intersección.}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 2' ">
+      <param name="G_40" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 3]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 Es punto superior, agregamos al segmento al estado y no \par\f0\fs40 hay intersección de este con ningun segmento en el estado.}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 3' ">
+      <param name="G_41" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 4]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 Es punto superior, agregamos al segmento al estado y no \par\f0\fs40 hay intersección de este con ningun segmento en el estado.}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 4' ">
+      <param name="G_42" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 5]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 Es punto superior, agregamos al segmento al estado \par\f0\fs40 y hay una intersección con un segmento en el estado.\par\f0\fs40 Detectamos una intersección.}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 5' ">
+      <param name="G_43" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 6]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs40 Es punto inferior, removemos al segmento del estado.}' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 6' ">
+      <param name="G_44" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 7]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;}\f0\fs32 Es punto inferior y superior, removemos al segmento del punto \par\f0\fs32 inferior y agregamos al segmento del superior, además hay una \par\f0\fs32 intersección de este segmento con otro segmento del estado.\par\f0\fs32 Detectamos una intersección (una ya existente).}' ancho='1' fuente puntos='812' align='a_center' anchor='a_bottom_center' info='Estado 7' ">
+      <param name="G_45" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 8]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='Es punto inferior, removemos al segmento del estado.' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 8' ">
+      <param name="G_46" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 9]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='Es punto inferior, removemos al segmento del estado.' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 9' ">
+      <param name="G_47" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 10]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='Es punto inferior, removemos al segmento del estado.' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 10' ">
+      <param name="G_48" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='[numero_evento = 11]' coord_abs='sí' expresión='(E1._w/2,E1._h-10)' texto='Es punto inferior, removemos al segmento del estado.' ancho='1' align='a_center' anchor='a_bottom_center' info='Estado 11' ">
     </ajs>
   </div>
 

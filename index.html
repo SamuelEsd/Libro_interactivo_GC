@@ -2304,7 +2304,6 @@
           Diremos que el <b>estado</b> de la línea de
           barrido es el conjunto de segmentos en $S$
           que la intersectan.
-          <br>
           La figura <ref ref_id="barrido_de_línea_interactivo"></ref>
           muestra el estado de la línea de barrido en
           cada momento coloreando de color verde a los
@@ -2320,54 +2319,60 @@
           <b>punto de evento</b>
           si es un punto en un extremo de algún
           segmento en $S$.
+          La figura <ref ref_id="barrido_de_línea_interactivo"></ref>
+          muestra el los puntos de evento como puntos
+          de color negro, en los extremos de los
+          segmentos.
         </p>
         <p>
           Para realizar el barrido de forma discreta,
           actualizaremos el estado de la línea de
           barrido solamente en los puntos de evento.
-          <br>
           En adición a esto, calcularemos las posibles
           intersecciones de igual manera, unicamente en
           los puntos de evento.
-          <br>
+        </p>
+        <p>
           Dicho esto es claro que tenemos dos tipos de
-          puntos de eventos, los que son el inicio de
-          un segmento y los que son un final de un
-          segmento.
+          puntos de eventos, los que son el punto
+          superior de un segmento y los que son el
+          punto superior de un segmento. Ignoraremos el
+          caso de lineas horizontales por el momento.
+        </p>
+        <p>
+          En aquellos que son <b> punto superior</b>,
+          agregaremos al segmento del que forman parte,
+          al estado de la línea de barrido, y además,
+          calcularemos las intersecciones con los demás
+          segmentos en el estado.
         </p>
       </div>
 
       <div class="page">
         <p>
-          En aquellos que forman parte del inicio de un
-          segmento, agregaremos al segmento del que
-          forman parte, al estado de la línea de
-          barrido, y además, calcularemos las
-          intersecciones con los demás segmentos en el
-          estado.
+          En aquellos que son <b> punto inferior</b>,
+          solamente tendremos que eliminar a dicho
+          segmento del estado de la línea de barrido.
         </p>
         <p>
-          En aquellos que forman parte del final de un
-          segmento, solamente tendremos que eliminar a
-          dicho segmento del estado de la línea de
-          barrido.
+          La <ref ref_id="barrido_de_línea_interactivo_discreto"></ref>
+          muestra como serían los pasos discretos del
+          barrido de línea, donde en cada nuevo punto
+          de eventos que forma parte del inicio de un
+          segmento, se comprueba la intersección del
+          segmento agregado contra todos los segmentos
+          en el estado en ese momento(color verde).
+          Nótese como en los puntos de evento 2, 5 y 7
+          se encuentran intersecciones.
         </p>
         <figure id="barrido_de_línea_interactivo_discreto">
-          <div class="interactive" width="570" height="420" window-size="false"
+          <div class="interactive" width="500" height="450" window-size="false"
             src="./Interactivos/capitulo_3/barrido_de_línea_interactivo_discreto.html"></div>
           <figcaption>
             Ejemplo del barrido de línea, haciendo los
-            pasos discretos. Nótese como solo
-            necesitamos comparar entre sí, a los
-            segmentos que están siendo intersectados
-            por la línea de barrido (segmentos de color
-            verde).
+            pasos discretos.
           </figcaption>
         </figure>
-
-
-
-
       </div>
 
       <div class="page">
@@ -2383,7 +2388,6 @@
           intersectan a la línea de barrido pero no hay
           ninguna intersección.
         </p>
-        TODO: ejemplo de lineas verticales
         <figure id="ejemplo_lineas_verticales">
           <img src="./images/capitulo_03/lineas_verticales.svg" width="85%" height="85%">
           <figcaption>
@@ -2391,8 +2395,6 @@
             comparaciones sin que haya intersecciones.
           </figcaption>
         </figure>
-      </div>
-      <div class="page">
         <p>
           El problema con este algoritmo, es que,
           aunque evitamos comparar segmentos que está
@@ -2402,10 +2404,14 @@
           que están alejados en el eje $x$,
           mantendremos el orden de los segmentos que
           intersectan a la línea de barrido, por lo que
-          la nueva representación del estado, no solo
-          serán los segmentos, si no que además, estos
-          estarán ordenados.
-          <br>
+          agregaremos una propiedad al estado, este
+          será formado por los segmentos ordenados por
+          el componente en $x$ de intersección con la
+          línea de barrido.
+        </p>
+      </div>
+      <div class="page">
+        <p>
           Además, actualizaremos este orden en cada
           punto de evento ya mencionado, y
           adicionalmente, también en los lugares donde
@@ -2413,59 +2419,89 @@
           nuevo punto de evento.
         </p>
         <p>
-          Dicho esto, con esta modificación ahora
-          tenemos tres tipos de puntos de eventos, los
-          que son el inicio de un segmento, los que son
-          un final de un segmento y los que son una
-          intersección partes internas de segmentos.
+          Con esta modificación ahora tenemos tres
+          tipos de puntos de eventos, los que son el
+          <b> punto superior</b> de un segmento, los
+          que son el <b> punto inferior</b>
+          de un segmento y los que son una intersección
+          partes internas de segmentos.
           <br>
           A continuación describiremos las acciones que
           se realizarán para cada tipo de punto de
           eventos:
         </p>
-      </div>
-
-      <div class="page">
         <p>
-          En aquellos que forman parte del inicio de un
-          segmento, agregaremos en orden al nuevo
-          segmento del que forma parte y comprobamos si
-          hay intersección, entre el segmento agregado
-          y los dos segmentos que están antes y después
-          del nuevo segmento en el estado ordenado.
+          Caso 1:
+          <br>
+          El punto de evento es el punto superior de un
+          segmento. Agregaremos en orden al nuevo
+          segmento del que forma parte el punto de
+          evento y comprobamos si hay intersección,
+          entre el segmento agregado y los dos
+          segmentos que están antes y después del nuevo
+          segmento en el estado ordenado.
+          Por ejemplo, si $S_b$ es el segmento agregado y
+          $S_a , S_c$ son los segmentos que están
+          antes y después en el estado, una vez que $S_b$
+          fue insertado, comprobaremos intersecciones de
+          $S_a$ con $S_b$, y $S_b$ con $S_c$.
         </p>
-        TO DO: explicar mas a detalle usando sea $v$ e imágenes
-      </div>
-
-      <div class="page">
         <p>
-          En aquellos que forman parte del final de un
-          segmento, eliminamos al segmento del que
+          Caso 2:
+          <br>
+          El punto de eventos es el punto inferior de un
+          segmento. Eliminamos al segmento del que
           forma parte y comprobamos si no se
           intersectan los dos segmentos que estaban
           antes y después del segmento eliminado en el
           estado ordenado, pues ahora estos segmentos
-          son contiguos.
+          son vecinos.
+          Por ejemplo, si $S_b$ es el segmento eliminado y
+          $S_a , S_c$ son los segmentos que están antes
+          y después en el estado, una vez que $S_b$ fue
+          eliminado, comprobaremos intersecciones de
+          $S_a$ con $S_c$.
         </p>
-        TO DO: explicar mas a detalle usando sea $v$ e imágenes
       </div>
 
       <div class="page">
         <p>
-          En aquellos que forman parte una intersección
+          Caso 3:
+          <br>
+          El punto de eventos es una intersección
           interna de dos segmentos, cambiamos el orden
           de dichos segmentos, y comprobamos si
           intersectan con los segmentos que les
           preceden y proceden.
         </p>
-        TO DO: explicar mas a detalle usando sea $v$ e imágenes
-
+        <p>
+          La figura <ref ref_id="barrido_de_línea_interactivo_discreto"></ref>
+          muestra un ejemplo de la ejecución del
+          algoritmo, indicando en cual de los 3 casos
+          entra el punto de eventos que se ejecuta en
+          cada momento.
+        </p>
+        <figure id="barrido_de_línea_interactivo_discreto">
+          <div class="interactive" width="500" height="450" window-size="false"
+            src="./Interactivos/capitulo_3/ejemplo_algoritmo.html"></div>
+          <figcaption>
+            Ejemplo del barrido de línea mejorado.
+          </figcaption>
+        </figure>
       </div>
 
       <div class="page">
         <p>
-          Para mantener tanto los puntos de eventos
-          como los segmentos del estado ordenados,
+          Ahora que tenemos la idea general del
+          algoritmo, pasemos a describir el algoritmo
+          por pasos y calcular su complejidad.
+          <br>
+          Pero antes de esto, definamos las estructuras de
+          datos que requerimos para el algoritmo.
+        </p>
+        <p>
+          Para mantener ordenados tanto los puntos de
+          eventos como los segmentos del estado,
           haremos uso de árboles binarios de búsqueda
           balanceados.
         </p>
@@ -2516,6 +2552,20 @@
           anterior, nos permitirá insertar, consultar,
           y eliminar en tiempo logarítmico sobre el
           número de segmentos.
+        </p>
+        <h4><span class="bolded">Algoritmo</span></h4>
+        <p>
+          Inicialización
+          <br>
+          Para comenzar al algoritmo necesitamos
+          identificar los puntos de evento, como los
+          puntos de evento del caso 3, son calculados
+          al momento de correr el algoritmo, solo
+          identificaremos a los puntos de los casos 1 y
+          2. Por lo tanto crearemos a la cola de
+          eventos $C$ con dichos puntos, como $C$ es un
+          árbol binario de búsqueda balanceado este
+          proceso nos tomará $O(nlog())$
         </p>
       </div>
 

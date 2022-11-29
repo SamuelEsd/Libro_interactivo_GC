@@ -2385,11 +2385,138 @@
         </p>
         TODO: ejemplo de lineas verticales
         <figure id="ejemplo_lineas_verticales">
-          <img src="./images/capitulo_03/ejemplo_lineas_verticales.svg" width="85%" height="85%">
+          <img src="./images/capitulo_03/lineas_verticales.svg" width="85%" height="85%">
           <figcaption>
-            Ejemplo de intersecciones que requiere $O(n^2)$ comparaciones.
+            Ejemplo de segmentos que requieren $O(n^2)$
+            comparaciones sin que haya intersecciones.
           </figcaption>
         </figure>
+      </div>
+      <div class="page">
+        <p>
+          El problema con este algoritmo, es que,
+          aunque evitamos comparar segmentos que está
+          alejados en el eje $y$, no evita comparar a
+          los segmentos que están alejados en el eje
+          $x$. Para poder evitar comparar los segmentos
+          que están alejados en el eje $x$,
+          mantendremos el orden de los segmentos que
+          intersectan a la línea de barrido, por lo que
+          la nueva representación del estado, no solo
+          serán los segmentos, si no que además, estos
+          estarán ordenados.
+          <br>
+          Además, actualizaremos este orden en cada
+          punto de evento ya mencionado, y
+          adicionalmente, también en los lugares donde
+          los segmentos se intersectan, lo cual será un
+          nuevo punto de evento.
+        </p>
+        <p>
+          Dicho esto, con esta modificación ahora
+          tenemos tres tipos de puntos de eventos, los
+          que son el inicio de un segmento, los que son
+          un final de un segmento y los que son una
+          intersección partes internas de segmentos.
+          <br>
+          A continuación describiremos las acciones que
+          se realizarán para cada tipo de punto de
+          eventos:
+        </p>
+      </div>
+
+      <div class="page">
+        <p>
+          En aquellos que forman parte del inicio de un
+          segmento, agregaremos en orden al nuevo
+          segmento del que forma parte y comprobamos si
+          hay intersección, entre el segmento agregado
+          y los dos segmentos que están antes y después
+          del nuevo segmento en el estado ordenado.
+        </p>
+        TO DO: explicar mas a detalle usando sea $v$ e imágenes
+      </div>
+
+      <div class="page">
+        <p>
+          En aquellos que forman parte del final de un
+          segmento, eliminamos al segmento del que
+          forma parte y comprobamos si no se
+          intersectan los dos segmentos que estaban
+          antes y después del segmento eliminado en el
+          estado ordenado, pues ahora estos segmentos
+          son contiguos.
+        </p>
+        TO DO: explicar mas a detalle usando sea $v$ e imágenes
+      </div>
+
+      <div class="page">
+        <p>
+          En aquellos que forman parte una intersección
+          interna de dos segmentos, cambiamos el orden
+          de dichos segmentos, y comprobamos si
+          intersectan con los segmentos que les
+          preceden y proceden.
+        </p>
+        TO DO: explicar mas a detalle usando sea $v$ e imágenes
+
+      </div>
+
+      <div class="page">
+        <p>
+          Para mantener tanto los puntos de eventos
+          como los segmentos del estado ordenados,
+          haremos uso de árboles binarios de búsqueda
+          balanceados.
+        </p>
+        <p>
+          Llamaremos cola de eventos $C$ al árbol
+          binario de búsqueda balanceado que usaremos
+          para interactuar con los puntos de eventos.
+          En dicha estructura necesitamos definir un
+          orden para los puntos que almacenará, este lo
+          definiremos de la siguiente manera.
+        </p>
+        <p>
+          Sean $p$ y $q$ dos puntos de eventos diremos
+          que $p < q$ si $p_y> q_y$ o si $p_y = q_y$ y
+            $p_x < q_x$ donde $p_y$ es la componente en $y$ de $p$ y $p_x$ su componente en $x$. </p>
+              <p>
+                Gracias a que $C$ es un árbol de
+                búsqueda balanceado podemos insertar
+                nuevos puntos de evento, lo cual es
+                necesario en el caso en que notamos una
+                nueva intersección y queremos añadir
+                esta misma como nuevo punto de evento.
+                También nos permite evitar insertar
+                puntos de evento ya existentes, lo cual
+                es útil cuando existen segmentos que se
+                intersectan en los puntos extremos.
+                Para esto, cada punto de evento
+                presente en $C$ también contendrá todos
+                los segmentos a los que corresponda
+                dicho punto. Además podremos eliminar
+                los puntos ya procesados.
+                <br>
+                Todas estas operaciones tomarán un
+                tiempo logarítmico sobre el número de
+                puntos, gracias a esta estructura.
+              </p>
+      </div>
+      <div class="page">
+        <p>
+          Llamaremos Estado denotado como $E$ al árbol
+          binario de búsqueda balanceado que usaremos
+          para almacenar a la secuencia de segmentos
+          que intersecta la línea de barrido, los
+          cuales estarán ordenados de menor a mayor por
+          la componente en $x$ del punto donde
+          intersecta el segmento con la línea de
+          barrido. Esta estructura, al igual que la
+          anterior, nos permitirá insertar, consultar,
+          y eliminar en tiempo logarítmico sobre el
+          número de segmentos.
+        </p>
       </div>
 
       <div class="page">

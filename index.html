@@ -2400,7 +2400,10 @@
           aunque evitamos comparar segmentos que está
           alejados en el eje $y$, no evita comparar a
           los segmentos que están alejados en el eje
-          $x$. Para poder evitar comparar los segmentos
+          $x$.
+        </p>
+        <p>
+          Para poder evitar comparar los segmentos
           que están alejados en el eje $x$,
           mantendremos el orden de los segmentos que
           intersectan a la línea de barrido, por lo que
@@ -2419,22 +2422,47 @@
           nuevo punto de evento.
         </p>
         <p>
+          TODO: Ejemplo de barrido de linea discreto mostrando E en orden.
+
+        </p>
+        <p>
           Con esta modificación ahora tenemos tres
           tipos de puntos de eventos, los que son el
           <b> punto superior</b> de un segmento, los
           que son el <b> punto inferior</b>
-          de un segmento y los que son una intersección
-          partes internas de segmentos.
-          <br>
+          de un segmento y los que son una <b>intersección
+            partes internas de segmentos</b>.
+        </p>
+      </div>
+
+      <div class="page">
+        <p>
+          Cabe destacar que los puntos que son una
+          intersección de partes internas deben ser
+          calculados mientras se ejecuta el algoritmo,
+          es por esto, que debemos asegurar que sean
+          detectados antes de que la línea de barrido
+          pase por donde estos se encuentran. Para
+          lograrlo, cada que dos segmentos de recta se
+          vuelvan adyacentes a lo largo de la línea de
+          barrido, revisaremos si dichos segmentos se
+          intersectan en algún punto debajo de la línea
+          de barrido. Realizar esta comprobación nos
+          asegura detectar los puntos en el momento
+          correcto para la correcta ejecución del
+          algoritmo, sin embargo para motivos de estas
+          notas no se realizará la demostración.
+        </p>
+        <p>
           A continuación describiremos las acciones que
           se realizarán para cada tipo de punto de
           eventos:
         </p>
         <p>
-          Caso 1:
+          Caso 1: El punto de evento es el punto superior de un
+          segmento.
           <br>
-          El punto de evento es el punto superior de un
-          segmento. Agregaremos en orden al nuevo
+          Agregaremos en orden al nuevo
           segmento del que forma parte el punto de
           evento y comprobamos si hay intersección,
           entre el segmento agregado y los dos
@@ -2447,15 +2475,15 @@
           $S_a$ con $S_b$, y $S_b$ con $S_c$.
         </p>
         <p>
-          Caso 2:
+          Caso 2: El punto de eventos es el punto inferior de un
+          segmento
           <br>
-          El punto de eventos es el punto inferior de un
-          segmento. Eliminamos al segmento del que
+          Eliminamos al segmento del que
           forma parte y comprobamos si no se
           intersectan los dos segmentos que estaban
           antes y después del segmento eliminado en el
           estado ordenado, pues ahora estos segmentos
-          son vecinos.
+          son adyacentes.
           Por ejemplo, si $S_b$ es el segmento eliminado y
           $S_a , S_c$ son los segmentos que están antes
           y después en el estado, una vez que $S_b$ fue
@@ -2466,13 +2494,14 @@
 
       <div class="page">
         <p>
-          Caso 3:
+          Caso 3: Es una intersección interna de dos
+          segmentos.
           <br>
-          El punto de eventos es una intersección
-          interna de dos segmentos, cambiamos el orden
-          de dichos segmentos, y comprobamos si
-          intersectan con los segmentos que les
-          preceden y proceden.
+          Intercambiamos el orden de dichos segmentos,
+          y comprobamos si el segmento mas a la
+          izquierda intersecta con el segmento que le
+          precede y si el segmento mas a la derecha
+          intersecta con el segmento que le procede.
         </p>
         <p>
           La figura <ref ref_id="barrido_de_línea_interactivo_discreto"></ref>
@@ -2557,7 +2586,7 @@
         <p>
           Inicialización
           <br>
-          Para comenzar al algoritmo necesitamos
+          Para comenzar el algoritmo necesitamos
           identificar los puntos de evento, como los
           puntos de evento del caso 3, son calculados
           al momento de correr el algoritmo, solo
@@ -2565,16 +2594,90 @@
           2. Por lo tanto crearemos a la cola de
           eventos $C$ con dichos puntos, como $C$ es un
           árbol binario de búsqueda balanceado este
-          proceso nos tomará $O(nlog())$
+          proceso nos tomará $O(nlog(n))$.
+          De igual manera inicializaremos al Estado
+          $E$ vacío lo que nos toma $O(1)$.
+        </p>
+        <p>
+          Procesamiento de eventos
+          <br>
+          En este paso procesaremos cada punto de
+          evento en la cola de eventos $C$ hasta que no
+          haya más puntos. Como ya describimos
+          anteriormente hay 3 casos para procesar cada
+          punto, y en cada uno de ellos se actualizan
+          tanto al estado $E$ como a la cola de eventos
+          $C$.
+        </p>
+
+        <p>
+          Primero tomemos en cuenta la complejidad de
+          realizar una operación sobre $E$, esta
+          estructura puede llegar a tener $n$ elementos
+          en el peor de los casos (cuando a línea de
+          barrido intersecta a todos los segmentos al
+          mismo tiempo), dicho esto ya que $E$ es un
+          árbol binario de búsqueda balanceado,
+          realizar una operación sobre $E$ nos tomará
+          $O(log(n))$.
         </p>
       </div>
 
       <div class="page">
+        <p>
+          Ahora tomemos en cuenta la complejidad de
+          actualizar $C$, esta estructura puede llegar
+          a tener $2n + I$ elementos en el peor de los
+          casos (tomando en cuenta que no agregamos
+          eventos repetidos a $C$), donde $I$ es el
+          número total de intersecciones en $S$. Ya que
+          $C$ es un árbol binario de búsqueda
+          balanceado, realizar una operación sobre $C$
+          nos tomará $O(log(2n + I))$. Observemos que
+          $I \leq n^{2}$ entonces la complejidad puede
+          verse como:
+          $$ O(log(n^{2})) = O(2log(n)) = O(log(n))$$
+        </p>
+        <p>
+          Notemos que en cada punto de evento se agrega
+          o elimina un número constante de segmentos,
+          pues en el caso 1, se agrega un nuevo
+          segmento, en el caso 2 se elimina un segmento
+          de $E$ y en el caso 3 se cambia el orden de
+          dos segmentos, lo que podemos realizar
+          eliminando dichos segmentos y agregándolos de
+          nuevo. En cuanto a puntos de evento, se
+          agregan también un número constante de estos,
+          pues en cada caso, solo se agrega uno por
+          cada nueva intersección con algún segmento
+          adyacente a los segmentos que fueron
+          alterados.
+        </p>
+        <p>
+          Por lo tanto, se realizarán a lo más un número
+          constante de operaciones sobre $C$ y $E$, y
+          cada operación en dichas estructuras tiene
+          una complejidad de $O(log(n))$, la
+          complejidad del procesamiento de todos los
+          eventos será $$O((2n + I)log(n)) = O((n +
+          I)log(n)) = O(nlog(n) + Ilog(n))$$
+        </p>
+        <p>
+          Por lo tanto, tomando en cuenta las
+          complejidades de la inicialización
+          $O(nlog(n))$ y del procesamiento de todos los
+          puntos de evento $O(nlog(n) + Ilog(n))$,
+          podemos concluir que la complejidad del
+          algoritmo completo es $O(nlog(n) + Ilog(n))$.
+        </p>
+      </div>
 
-        <h4><span class="bolded">Algoritmo</span></h4>
-        TO DO: sweep line algorithm description and interactive resource.
-
+      <div class="page">
         <h2 id="cap3_lista_doblemente_ligada">Lista doblemente conexa de aristas</h2>
+
+      </div>
+
+      <div class="page">
         <h2 id="cap3_calculando_traslape">Calculando el traslape de dos subdivisiones</h2>
       </div>
 

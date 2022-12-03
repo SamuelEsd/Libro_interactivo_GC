@@ -2677,12 +2677,161 @@
       </div>
 
       <div class="page">
-        <h2 id="cap3_lista_doblemente_ligada">Lista doblemente conexa de aristas</h2>
+        <h2 id="cap3_lista_doblemente_ligada">Lista
+          doblemente conexa de aristas</h2>
+        <p>
+          En la sección anterior, resolvimos el
+          problema de encontrar las intersecciones
+          entre un conjunto de segmentos, lo cual nos
+          resulta útil en sistemas tipo GIS (sistema de
+          información geográfica), en especifico para
+          sobreponer dos mapas, pues podemos ver a cada
+          mapa como un conjunto de segmentos, y con
+          esto lograr encontrar las intersecciones de
+          ambos mapas.
+          <br>
+          Sin embargo, hay otras situaciones en las que
+          nos interesa poder sobreponer dos mapas, pero
+          donde estos mapas cuentan con más
+          información.
+          <br>
+          Un ejemplo son mapas como el
+          presente en la <ref ref_id="mapa_bioclimas"></ref>.
+        </p>
+        <figure id="mapa_bioclimas">
+          <img src="./images/capitulo_03/mapa_bioclimas.jpg" width="100%" height="100%">
+          <figcaption>Ejemplo de un mapa con subdivisiones de bioclimas.
+            (https://www.scielo.org.mx/img/revistas/igeo/n95//2448-7279-igeo-95-00004-gf3.jpg)</figcaption>
+        </figure>
+      </div>
 
+      <div class="page">
+        <p>
+          Como podemos ver en la <ref ref_id="mapa_bioclimas"></ref>,
+          dicho mapa cuenta con más información que
+          solo segmentos de rectas, ya que estos mapas
+          representan subdivisiones del plano en
+          regiones etiquetadas. Un ejemplo de esto es
+          el típico mapa de la republica mexicana donde
+          el mapa es una subdivisión del plano donde
+          las areas están etiquetadas por los estados
+          que conforman al país.
+        </p>
+        <p>
+          Ya que las subdivisiones son formas bastante
+          útiles de representar mapas, resulta
+          interesante buscar la forma de calcular la
+          intersección de dos subdivisiones.
+          <br>
+          Sin embargo, antes es necesario poder
+          representar a dichas subdivisiones, por lo
+          que este será el tema a tratar en la presente
+          sección.
+        </p>
+        <p>
+          Comencemos definiendo lo siguiente.
+        </p>
+        <p>
+          Subdivisión
+          <br>
+          Diremos que una subdivisión plana es una
+          estructura inducida por un conjunto de
+          segmentos de línea que solo pueden
+          intersectarse por extremos compartidos.
+        </p>
+        <figure id="mapa_bioclimas">
+          <img src="./images/capitulo_03/ejemplo_subdivision.svg" width="70%" height="70%">
+          <figcaption>Ejemplo de subdivisión.</figcaption>
+        </figure>
+      </div>
+
+      <div class="page">
+        <p>
+          Diremos que una subdivisión estará formada
+          por los siguientes elementos.
+        </p>
+        <p>
+          Vertices
+          <br>
+          Los vertices de una subdivisión
+          son los puntos extremos de los segmentos de
+          línea.
+        </p>
+        <p>
+          Aristas
+          <br>
+          Las aristas de una subdivisión
+          son los segmentos de línea, sin los puntos
+          extremos de los mismos.
+        </p>
+        <p>
+          Caras
+          <br>
+          Una cara de una subdivisión es un
+          subconjunto conexo maximal del plano, que no
+          contiene ni aristas ni vertices.
+        </p>
+        <figure id="barrido_de_línea_interactivo_discreto">
+          <div class="interactive" width="500" height="340" window-size="false"
+            src="./Interactivos/capitulo_3/ejemplo_punto_superior_elementos.html"></div>
+          <figcaption>
+            Ejemplo del barrido de línea mejorado.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="page">
+        <p>
+          Sea $v$ un vértice, $a$ una arista y $c$ una
+          cara, si $v$ está en un extremo de $a$
+          diremos que $v$ y $a$ son incidentes, si $v$
+          está en el perímetro de $c$ entonces $v$ y
+          $c$ son incidentes, de igual manera si $a$
+          está en el perímetro de $c$ entonces $a$ y
+          $c$ son incidentes.
+        </p>
+        <p>
+          En la <ref ref_id="ejemplo_subdivision_incidencia"></ref>
+          se pueden apreciar los siguientes ejemplos de
+          incidencias:
+
+        </p>
+        <p>
+          El vértice verde y la arista azul son incidentes.
+          <br>
+          El vértice verde y la cara morada son incidentes.
+          <br>
+          El la arista azul y la cara morada son incidentes.
+        </p>
+        <figure id="ejemplo_subdivision_incidencia">
+          <img src="./images/capitulo_03/ejemplo_subdivision_incidencia.svg" width="90%" height="90%">
+          <figcaption>
+            Ejemplo de subdivisión con un vértice en
+            verde, una arista en azul y una cara en
+            morado, todos ellos incidentes.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="page">
+        <p>
+          Habiendo definido esto, podemos comenzar a
+          describir la estructura de datos que usaremos para
+          representar una subdivisión.
+          <br>
+          Dicha estructura es llamada <b>lista de aristas doblemente conectadas</b>
+          o <b>DCEL</b> por sus siglas en inglés.
+        </p>
       </div>
 
       <div class="page">
         <h2 id="cap3_calculando_traslape">Calculando el traslape de dos subdivisiones</h2>
+        bibliografía
+        https://www.cs.tulane.edu/~carola/teaching/cmps3130-6130/spring15/slides/pointLocation.pdf
+        02/12/22
+        https://xlinux.nist.gov/dads/HTML/planarstrght.html
+        02/12/22
+
       </div>
 
 

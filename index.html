@@ -2801,7 +2801,7 @@
           <br>
           El vértice verde y la cara morada son incidentes.
           <br>
-          El la arista azul y la cara morada son incidentes.
+          La arista azul y la cara morada son incidentes.
         </p>
         <figure id="ejemplo_subdivision_incidencia">
           <img src="./images/capitulo_03/ejemplo_subdivision_incidencia.svg" width="90%" height="90%">
@@ -2816,16 +2816,248 @@
       <div class="page">
         <p>
           Habiendo definido esto, podemos comenzar a
-          describir la estructura de datos que usaremos para
-          representar una subdivisión.
+          describir la estructura de datos que usaremos
+          para representar una subdivisión.
           <br>
-          Dicha estructura es llamada <b>lista de aristas doblemente conectadas</b>
+          Dicha estructura es llamada <b>lista de
+            aristas doblemente conectadas</b>
           o <b>DCEL</b> por sus siglas en inglés.
+        </p>
+        <p>
+          Para representar una subdivisión, una lista
+          de aristas doblemente conectadas contendrá
+          información de cada vértice, arista y cara de
+          la subdivisión.
+        </p>
+        <p>
+          A cada arista le daremos una dirección, y así
+          podremos almacenar un apuntador de una arista
+          a su siguiente y un apuntador a su anterior,
+          esto nos ayudará a poder hacer un recorrido
+          al rededor de las caras de la subdivisión
+          tanto en sentido de las manecillas del reloj
+          como al contrario.
+        </p>
+        <figure id="ejemplo_apuntadores">
+          <img src="./images/capitulo_03/ejemplo_apuntadores.svg" width="90%" height="90%">
+          <figcaption>
+            Ejemplo de aristas cn apuntadores a la
+            siguiente arista al rededor de una cara.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="page">
+        <p>
+          Además, para evitar tener multiples aristas
+          siguientes para cada arista, dividiremos cada
+          arista en dos mitades yendo de extremo a
+          extremo pero en direcciones
+          opuestas, cada mitad será una <b>media-arista</b>,
+          las dos medias-aristas que surgen de una
+          misma arista serán llamadas <b>gemelas</b>,
+          dichas aristas tienen direcciones opuestas,
+          podemos llamar <b>origen</b> al vértice
+          de donde surgen una media-arista y
+          <b>destino</b> el vértice a donde apunta,
+          entonces dos aristas gemelas comparten los mismos
+          extremos pero lo que para una es el origen para
+          la otra es el destino y viceversa.
+          y así garantizar que cada arista
+          Por lo regular una arista tendrá
+          dos caras a las cuales es incidente, entonces
+          dicha división además nos permite que cada
+          media-arista guarde un solo apuntador a la
+          cara a la cual es incidente. Para asegurar un
+          orden en cuanto a las aristas, diremos que
+          la cara con la que una media-arista es incidente
+          está a la izquierda de dicha media-arista.
+        </p>
+        <figure id="ejemplo_apuntadores_medias_aristas">
+          <img src="./images/capitulo_03/ejemplo_apuntadores_medias_aristas.svg" width="90%" height="90%">
+          <figcaption>
+            Ejemplo de medias-aristas que apuntan a la
+            siguiente al rededor de una cara y solo son
+            incidentes a una sola cara.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="page">
+        <p>
+          De esta manera cada media-arista tiene una
+          sola media-arista siguiente, facilitando de
+          esta manera el recorrido a rededor de una
+          cara y añadiendo la posibilidad de calcular
+          el perímetro de una cara a partir de conocer
+          unicamente una media-arista.
+          <br>
+          Sin embargo en el caso en que una cara tenga
+          agujeros necesitaremos conocer al menos una
+          media-arista correspondiente a cada agujero
+          dentro de la cara, la siguiente <ref ref_id="ejemplo_cara_con_agujeros"></ref>
+          muestra una cara con agujeros, notemos como
+          además la dirección de las medias-aristas de
+          las subdivisiones dentro de las caras se
+          conserva, siendo las medias-aristas
+          incidentes por la izquierda con una cara.
+        </p>
+        <figure id="ejemplo_cara_con_agujeros">
+          <img src="./images/capitulo_03/ejemplo_cara_con_agujeros.svg" width="90%" height="90%">
+          <figcaption>
+            Ejemplo de cara con agujeros.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="page">
+        <p>
+          Con esta estructura para representar
+          medias-aristas podemos describir más
+          claramente como representar a todos los
+          vértices, aristas y caras de nuestra lista de
+          aristas doblemente conectadas a continuación:
+        </p>
+
+        <p>
+          Un vértice será formado por.
+        <ul>
+          <li>
+            Coordenadas: los valores de las coordenadas
+            de la posición del vértice.
+          </li>
+          <li>
+            Arista incidente: apuntador a la
+            media-arista que tiene como origen a este
+            vértice.
+          </li>
+        </ul>
+        </p>
+
+        <p>
+          Una media-arista será formada por.
+        <ul>
+          <li>
+            Origen: apuntador al vértice origen de la
+            media-arista.
+          </li>
+          <li>
+            Gemela: apuntador a la media-arista gemela
+            de esta media-arista.
+          </li>
+          <li>
+            Cara incidente: apuntador a la cara a la
+            que esta media-arista es incidente.
+          </li>
+          <li>
+            Siguiente: apuntador a la media-arista
+            siguiente en el perímetro de la cara
+            incidente de esta media-arista.
+          </li>
+          <li>
+            Anterior: apuntador a la media-arista
+            anterior en el perímetro de la cara
+            incidente de esta media-arista.
+          </li>
+        </ul>
+        </p>
+
+        <p>
+          Una cara será formada por.
+        <ul>
+          <li>
+            Componente externo: apuntador a alguna
+            media-arista que pertenece al perímetro de
+            la cara, esto es alguna media-arista que
+            sea incidente a la cara, pero que no
+            pertenezca a un agujero dentro de la cara.
+            Nótese que siempre hay una cara que no
+            tiene limites, en este caso el apuntador
+            irá a null.
+          </li>
+        </ul>
         </p>
       </div>
 
       <div class="page">
-        <h2 id="cap3_calculando_traslape">Calculando el traslape de dos subdivisiones</h2>
+        <ul>
+          <li>
+            Componentes internos: lista que para cada
+            agujero en la cara, contiene un apuntador a
+            una media-arista en dicho agujero, tal que
+            la media-arista es incidente a la cara.
+          </li>
+        </ul>
+      </div>
+
+      <div class="page">
+        <h2 id="cap3_calculando_traslape">Calculando el
+          traslape de dos subdivisiones</h2>
+        <p>
+          Ahora que conocemos sabemos como representar
+          subdivisiones usando la lista de aristas
+          doblemente conectadas, podemos proceder a
+          calcular el traslape de dos subdivisiones.
+          <br>
+          Para ello, primer definamos lo que es un traslape:
+        </p>
+        <p>
+          Sean $S1$ y $S2$ dos subdivisiones,
+          definiremos a la subdivision $T(S1,S2)$ como
+          el traslape de ambas donde existe una cara
+          $c$ en $T(S1,S2)$ si y solo si existen las
+          caras $c1$ en $S1$ y $c2$ en $S2$ tal que $c$
+          es un subconjunto maximal conexo de $c1 \cap
+          c2$.
+        </p>
+        TODO: Ejemplo de definición de traslape de dos
+        subdivisiones.
+      </div>
+
+      <div class="page">
+        <p>
+          Entonces definamos al problema de calcular el
+          traslape de dos subversiones como:
+        </p>
+        <p>
+          Dadas dos subdivisiones $S1$ y $S2$
+          representadas como lista de aristas
+          doblemente conectadas, calcular la lista de
+          aristas doblemente conectadas del traslape
+          $T(S1,S2)$. Además para cada cara en
+          $T(S1,S2)$ agregar las etiquetas de las caras
+          en $S1$ y $S2$ que la contienen.
+        </p>
+        <p>
+          Para comenzar con el problema, notemos que
+          para calcular $T(S1,S2)$, podemos seguir
+          utilizando las mismas medias-aristas de $S1$
+          y $S2$, excepto aquellas donde hay
+          intersecciones entre medias-aristas de
+          subdivisiones distintas.
+        </p>
+        <p>
+          Tomando esto en cuenta, podemos pensar al
+          algoritmo de la siguiente manera. Comenzamos
+          creando una nueva lista de aristas doblemente
+          conectadas y copiamos todas las
+          medias-aristas en $S1$ y $S2$ en ella. Lo que
+          nos dejará con una lista de aristas
+          doblemente conectadas mal formada. A
+          continuación modificamos la nueva lista de
+          aristas doblemente conectadas de ta forma que
+          se convierta en un traslape valido
+          $T(S1,S2)$, agregado las nuevas
+          intersecciones entre las $S1$ y $S2$, y
+          realizando las modificaciones necesarias para
+          conectar dichas intersecciones. Y para
+          finalizar, actualizamos la información de as
+          nuevas caras en $T(S1,S2)$.
+
+        </p>
+      </div>
+
+      <div class="page">
         bibliografía
         https://www.cs.tulane.edu/~carola/teaching/cmps3130-6130/spring15/slides/pointLocation.pdf
         02/12/22

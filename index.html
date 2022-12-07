@@ -2273,7 +2273,7 @@
         </p>
         <figure id="barrido_de_línea_interactivo">
           <div class="interactive" width="570" height="420" window-size="false"
-            src="./Interactivos/capitulo_3/barrido_de_línea_interactivo.html"></div>
+            src="./Interactivos/capitulo_3/descartesJS/barrido_de_línea_interactivo.html"></div>
           <figcaption>
             Ejemplo del barrido de línea, nótese como
             solo necesitamos comparar entre sí, a los
@@ -2367,7 +2367,7 @@
         </p>
         <figure id="barrido_de_línea_interactivo_discreto">
           <div class="interactive" width="500" height="450" window-size="false"
-            src="./Interactivos/capitulo_3/barrido_de_línea_interactivo_discreto.html"></div>
+            src="./Interactivos/capitulo_3/descartesJS/barrido_de_línea_interactivo_discreto.html"></div>
           <figcaption>
             Ejemplo del barrido de línea, haciendo los
             pasos discretos.
@@ -2423,10 +2423,10 @@
         </p>
         <figure id="barrido_de_línea_interactivo_discreto">
           <div class="interactive" width="500" height="450" window-size="false"
-            src="./Interactivos/capitulo_3/barrido_de_línea_interactivo_discreto_estados.html"></div>
+            src="./Interactivos/capitulo_3/descartesJS/barrido_de_línea_interactivo_discreto_estados.html"></div>
           <figcaption>
-            Ejemplo del barrido de línea, haciendo los
-            pasos discretos.
+            Ejemplo del barrido de línea con el estado
+            ordenado, haciendo los pasos discretos.
           </figcaption>
         </figure>
         <p>
@@ -2516,7 +2516,7 @@
         </p>
         <figure id="barrido_de_línea_interactivo_discreto">
           <div class="interactive" width="500" height="450" window-size="false"
-            src="./Interactivos/capitulo_3/ejemplo_algoritmo.html"></div>
+            src="./Interactivos/capitulo_3/descartesJS/ejemplo_algoritmo.html"></div>
           <figcaption>
             Ejemplo del barrido de línea mejorado.
           </figcaption>
@@ -2773,9 +2773,11 @@
         </p>
         <figure id="barrido_de_línea_interactivo_discreto">
           <div class="interactive" width="500" height="340" window-size="false"
-            src="./Interactivos/capitulo_3/ejemplo_punto_superior_elementos.html"></div>
+            src="./Interactivos/capitulo_3/descartesJS/ejemplo_punto_superior_elementos.html"></div>
           <figcaption>
-            Ejemplo del barrido de línea mejorado.
+            Ejemplo de los elementos que forman a una
+            subdivisión, al seleccionar cada opción se
+            muestran en color verde.
           </figcaption>
         </figure>
       </div>
@@ -3053,7 +3055,16 @@
           conectar dichas intersecciones. Y para
           finalizar, actualizamos la información de as
           nuevas caras en $T(S1,S2)$.
-
+        </p>
+        <p>
+          De estas 3 partes en que podemos dividir el
+          algoritmo, la que realmente resulta
+          interesante es la de obtener el traslape
+          teniendo las medias-aristas de $S1$ y $S2$.
+          Esto lo haremos detectando intersecciones con
+          un algoritmo basado en el de barrido de línea
+          que ya fue abordado al inicio de este
+          capítulo.
         </p>
       </div>
 

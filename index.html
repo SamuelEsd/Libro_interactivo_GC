@@ -1881,51 +1881,45 @@
           que representa al cierre convexo) o no lo
           está $ p_i \notin C$.
         </p>
-        <div class="step">
-          <h5><span class="bolded">$p_i \in C$</span></h5>
-          <p>
-            Si este es el caso, podemos simplemente
-            descartar a $p_i$.
-            <br>
-            ¿Cómo podemos comprobar que en efecto $p_i$
-            se encuentra en el cierre convexo actual?
-            <br>
-            Podemos usar el mismo procedimiento que
-            usamos en el <pageref ref_id="graham_step_3">paso 3 del algoritmo
-              de Graham</pageref>, para comprobar con cada
-            arista en el cierre convexo si el punto $p_i$
-            da vuelta derecha o no. Si tomando a cada una
-            de las aristas en el cierre convexo actual,
-            como la línea dirigida comprobamos que $p_i$
-            nunca da una vuelta derecha en alguna arista,
-            podemos decir que $p_i$ se encuentra dentro
-            del cierre convexo actual.
-            <br>
-            Este proceso se realiza para todas las
-            aristas del cierre convexo actual por lo que
-            tomaría una complejidad de $O(n)$.
-          </p>
-        </div>
-        <div class="step">
-          <h5><span class="bolded">$p_i \notin C$</span></h5>
-          <p>
-            Si este es el caso, (cosa que comprobaremos
-            revisando si alguna tripleta da vuelta
-            derecha, usando el criterio de vuelta
-            derecha e izquierda que usamos en el
-            algoritmo de Graham, usando dos puntos
-            consecutivos en el cierre convexo y al
-            punto $p_i$ como
-          </p>
-        </div>
+        <h5><span class="bolded">$p_i \in C$</span></h5>
+        <p>
+          Si este es el caso, podemos simplemente
+          descartar a $p_i$.
+          <br>
+          ¿Cómo podemos comprobar que en efecto $p_i$
+          se encuentra en el cierre convexo actual?
+          <br>
+          Podemos usar el mismo procedimiento que
+          usamos en el <pageref ref_id="graham_step_3">paso 3 del algoritmo
+            de Graham</pageref>, para comprobar con cada
+          arista en el cierre convexo si el punto $p_i$
+          da vuelta derecha o no. Si tomando a cada una
+          de las aristas en el cierre convexo actual,
+          como la línea dirigida comprobamos que $p_i$
+          nunca da una vuelta derecha en alguna arista,
+          podemos decir que $p_i$ se encuentra dentro
+          del cierre convexo actual.
+          <br>
+          Este proceso se realiza para todas las
+          aristas del cierre convexo actual por lo que
+          tomaría una complejidad de $O(n)$.
+        </p>
+        <h5><span class="bolded">$p_i \notin C$</span></h5>
+        <p>
+          Si este es el caso, (cosa que comprobaremos
+          revisando si alguna tripleta da vuelta
+          derecha, usando el criterio de vuelta
+          derecha e izquierda que usamos en el
+          algoritmo de Graham, usando dos puntos
+          consecutivos en el cierre convexo y al
+          punto $p_i$ como
+        </p>
       </div>
       <div class="page">
-        <div class="step">
-          <p>
-            tripleta), tenemos que añadir a $p_i$ al
-            cierre convexo.
-          </p>
-        </div>
+        <p>
+          tripleta), tenemos que añadir a $p_i$ al
+          cierre convexo.
+        </p>
         <p>
           Ahora lo que necesitamos es una forma de unir
           el cierre convexo actual con $p_i$. Si
@@ -1997,28 +1991,24 @@
         <h5><span class="bolded">Paso 1. Calcular el
             cierre convexo para los primeros 3
             puntos.</span></h5>
-        <div class="step">
-          <p>
-            Calcular el cierre convexo de los primeros 3
-            puntos en $S$ nos toma tiempo $ \ O(1) \ $
-            pues 3 es un número constante y el número de
-            operaciones para formar su cierre convexo son
-            solo las necesarias para unir a estos puntos.
-          </p>
-        </div>
+        <p>
+          Calcular el cierre convexo de los primeros 3
+          puntos en $S$ nos toma tiempo $ \ O(1) \ $
+          pues 3 es un número constante y el número de
+          operaciones para formar su cierre convexo son
+          solo las necesarias para unir a estos puntos.
+        </p>
         <h5><span class="bolded">Paso 2. Agregar un punto
             y calcular el cierre convexo resultante.</span></h5>
-        <div class="step">
-          <p>
-            La complejidad de agregar un punto nuevo como
-            hemos visto resulta ser $O(n)$, pues en el
-            peor de los casos recorremos todos los puntos
-            que hemos agregado hasta dicha iteración.
-            Este segundo paso será ejecutado para cada
-            nuevo punto agregado hasta que no falten
-            puntos por agregar.
-          </p>
-        </div>
+        <p>
+          La complejidad de agregar un punto nuevo como
+          hemos visto resulta ser $O(n)$, pues en el
+          peor de los casos recorremos todos los puntos
+          que hemos agregado hasta dicha iteración.
+          Este segundo paso será ejecutado para cada
+          nuevo punto agregado hasta que no falten
+          puntos por agregar.
+        </p>
         <p>
           Por lo tanto podemos concluir que la
           complejidad de ejecutar este algoritmo

@@ -1,15 +1,31 @@
 class DCEL {
   constructor(vertices = [], halfEdges = [], faces = []) {
-    console.log(vertices);
     this.vertices = new Map(
       vertices.map((vertex) => [vertex.getName(), vertex])
     );
-    console.log(halfEdges);
-    this.halfEdges = new Map(
-      halfEdges.map((halfEdge) => [halfEdge.getName(), halfEdge])
-    );
-    console.log(this.halfEdges);
+    this.halfEdges = halfEdges;
+    this.halfEdges.forEach((halfEdge, halfEdgeName) => {
+      let origin = this.vertices.get(halfEdge.getOrigin());
+      if (origin.getIncidentEdge() == null) {
+        origin.setIncidentEdge(halfEdgeName);
+      }
+    });
     this.faces = new Map(faces.map((face) => [face.getName(), face]));
+    this.activeVertex = 0;
+    this.activeHalfEdge = -1;
+    this.activeFace = -1;
+  }
+
+  getVertices() {
+    return this.vertices;
+  }
+
+  setActiveVertex(n) {
+    if (n >= 0 && n < this.vertices.size) {
+      this.activeVertex = n;
+      this.activeHalfEdge = -1;
+      this.activeFace = -1;
+    }
   }
 
   /**
@@ -20,12 +36,15 @@ class DCEL {
    * center of the point as Pi.
    * @param {Color} color - Color of the points to be drawn.
    */
-  drawPoints(color, point_size = POINT_SIZE) {
+  drawPoints(color = "green", selectedColor = "red", point_size = POINT_SIZE) {
     noStroke();
     this.vertices.forEach((vertex, vertexName) => {
       push();
       fill(255);
       stroke(color);
+      if (this.activeVertex == vertexName) {
+        stroke(selectedColor);
+      }
       strokeWeight(3);
       circle(vertex.getX(), vertex.getY(), point_size);
       if (vertex.getName() != null) {
@@ -51,19 +70,26 @@ class DCEL {
    * center of the point as Pi.
    * @param {Color} color - Color of the points to be drawn.
    */
-  drawHalfEdges(color, point_size = POINT_SIZE) {
+  drawHalfEdges(
+    color = "white",
+    selectedColor = "blue",
+    point_size = POINT_SIZE
+  ) {
     noStroke();
-    console.log(this.vertices);
     this.halfEdges.forEach((halfEdge, halfEdgeName) => {
-      console.log(halfEdge);
       let origin = this.vertices.get(halfEdge.getOrigin());
-      console.log(origin);
       let dest = this.vertices.get(halfEdge.getDestination());
       let o = createVector(origin.getX(), origin.getY());
       let d = createVector(dest.getX(), dest.getY());
-      console.log(o);
-      console.log(d);
-      drawArrowToRight(o, d, "white", 3);
+      if (
+        this.activeVertex >= 0 &&
+        halfEdgeName ==
+          this.vertices.get(this.activeVertex.toString()).getIncidentEdge()
+      ) {
+        drawArrowToRight(o, d, selectedColor, 3);
+      } else {
+        drawArrowToRight(o, d, color, 3);
+      }
     });
   }
 }
@@ -101,6 +127,17 @@ class Vertex {
   getY() {
     return this.y;
   }
+  /**
+   * Returns the incident edge of the vertex.
+   * @return {HalfEdge} the incident edge of the vertex.
+   */
+  getIncidentEdge() {
+    return this.incidentEdge;
+  }
+
+  setIncidentEdge(incidentEdge) {
+    this.incidentEdge = incidentEdge;
+  }
 }
 
 class HalfEdge {
@@ -128,6 +165,10 @@ class HalfEdge {
 
   setPrev(prev) {
     this.prev = prev;
+  }
+
+  setIncidentFace(face) {
+    this.incidentFace = face;
   }
   /**
    * Returns the name of the halfEdge.

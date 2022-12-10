@@ -2833,7 +2833,7 @@
         <figure id="ejemplo_apuntadores">
           <img src="./images/capitulo_03/ejemplo_apuntadores.svg" width="90%" height="90%">
           <figcaption>
-            Ejemplo de aristas cn apuntadores a la
+            Ejemplo de aristas con apuntadores a la
             siguiente arista al rededor de una cara.
           </figcaption>
         </figure>
@@ -2850,20 +2850,20 @@
           misma arista serán llamadas <b>gemelas</b>,
           dichas aristas tienen direcciones opuestas,
           podemos llamar <b>origen</b> al vértice
-          de donde surgen una media-arista y
+          de donde surge una media-arista y
           <b>destino</b> el vértice a donde apunta,
-          entonces dos aristas gemelas comparten los mismos
-          extremos pero lo que para una es el origen para
-          la otra es el destino y viceversa.
-          y así garantizar que cada arista
-          Por lo regular una arista tendrá
+          entonces dos aristas gemelas comparten los
+          mismos extremos pero lo que para una es el
+          origen para la otra es el destino y
+          viceversa. Por lo regular una arista tendrá
           dos caras a las cuales es incidente, entonces
           dicha división además nos permite que cada
-          media-arista guarde un solo apuntador a la
-          cara a la cual es incidente. Para asegurar un
-          orden en cuanto a las aristas, diremos que
-          la cara con la que una media-arista es incidente
-          está a la izquierda de dicha media-arista.
+          media-arista sea incidente a una sola cara y
+          así guarde un solo apuntador a dicha cara.
+          Para asegurar un orden en cuanto a las
+          aristas, diremos que la cara con la que una
+          media-arista es incidente está a la izquierda
+          de dicha media-arista.
         </p>
         <figure id="ejemplo_apuntadores_medias_aristas">
           <img src="./images/capitulo_03/ejemplo_apuntadores_medias_aristas.svg" width="90%" height="90%">
@@ -2919,9 +2919,9 @@
             de la posición del vértice.
           </li>
           <li>
-            Arista incidente: apuntador a la
-            media-arista que tiene como origen a este
-            vértice.
+            Arista incidente: apuntador a alguna
+            media-arista arbitraria que tenga como
+            origen a este vértice.
           </li>
         </ul>
         </p>
@@ -3042,7 +3042,7 @@
           nos dejará con una lista de aristas
           doblemente conectadas mal formada. A
           continuación modificamos la nueva lista de
-          aristas doblemente conectadas de ta forma que
+          aristas doblemente conectadas de tal forma que
           se convierta en un traslape valido
           $T(S1,S2)$, agregado las nuevas
           intersecciones entre las $S1$ y $S2$, y

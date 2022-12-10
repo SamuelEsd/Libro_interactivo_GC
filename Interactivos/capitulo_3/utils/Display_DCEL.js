@@ -1,6 +1,6 @@
 let dcel = new DCEL();
 let touched = false;
-let selectedPoint = -1;
+let selectedPoint = 0;
 
 function setup() {
   CUSTOM_WIDTH = windowWidth - 30;
@@ -19,30 +19,26 @@ function initializePoints(num_of_points) {
   );
   let vertices = getVerticesForDCEL(startingP, endingP);
   let halfEdges = getEdgesForDCEL(vertices);
-  console.log(halfEdges);
   dcel = new DCEL(vertices, halfEdges);
 }
 
-function touchMoved() {
-  touched = true;
-  for (i = 0; i < pointSet.points.length; i++) {
-    mouseVector = createVector(mouseX, mouseY);
-    if (touched && selectedPoint == -1) {
-      if (distance(pointSet.points[i], mouseVector) < POINT_SIZE) {
-        selectedPoint = i;
-        return;
-      }
+function mouseClicked() {
+  let points = dcel.getVertices();
+  console.log(points);
+  for (let [i, i_vertex] of points) {
+    let mouseVector = createVector(mouseX, mouseY);
+    let i_vector = createVector(i_vertex.getX(), i_vertex.getY());
+    if (distance(i_vector, mouseVector) < POINT_SIZE / 2) {
+      selectedPoint = i;
+      dcel.setActiveVertex(i);
+      return;
     }
   }
 }
 
-function touchEnded() {
-  touched = false;
-  selectedPoint = -1;
-}
-
 function draw() {
   background(0);
-  dcel.drawPoints("green", POINT_SIZE / 2);
-  dcel.drawHalfEdges("green", POINT_SIZE / 2);
+  console.log(selectedPoint);
+  dcel.drawPoints("green", "red", POINT_SIZE / 2);
+  dcel.drawHalfEdges("white", "blue", POINT_SIZE / 2);
 }

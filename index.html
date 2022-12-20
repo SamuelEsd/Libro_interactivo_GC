@@ -678,10 +678,10 @@
           $S$ en el plano, si vemos a cada punto de $S$
           como un clavo colocado en una superficie plana,
           una madera por ejemplo, y tomamos una liga para estirarla
-          al rededor de todos los clavos y la soltamos,
+          alrededor de todos los clavos y la soltamos,
           podemos ver al <span class="bolded">cierre convexo</span> de $S$
           como la región que queda encerrada por la
-          liga al rededor de todos los clavos.
+          liga alrededor de todos los clavos.
         </p>
         <p>
           La <pageref ref_id="cierre-convexo">
@@ -764,7 +764,7 @@
           inferior, podemos generar una combinación
           convexa aleatoria a partir de los tres puntos
           que forman al triángulo. En la parte superior
-          podemos apreciar como se define al punto $r$
+          podemos apreciar cómo se define al punto $r$
           siguiendo la definición de combinación
           convexa, tomando cada uno de los puntos que
           definen al triángulo ($p_1 = (1,5)$, $p_2 =
@@ -902,7 +902,7 @@
         <p>
           Ahora que sabemos que podemos representar al
           cierre convexo de un conjunto de puntos $S$
-          como un polígono, resulta esencial saber como
+          como un polígono, resulta esencial saber cómo
           representar a este polígono.
         </p>
         <p>
@@ -959,7 +959,7 @@
         </p>
         <p>
           Ahora que sabemos qué es un cierre convexo, y
-          además sabemos como describir el problema
+          además sabemos cómo describir el problema
           dada una cierta entrada para obtener una
           cierta salida, podemos empezar a indagar de
           que manera podremos solucionar estos
@@ -982,7 +982,7 @@
           no le resultaba practica, lo que lo llevó a
           describir un algoritmo con una complejidad de
           $O(n log n)$ en tiempo, el cual pasó a ser el
-          posiblemente el primer articulo publicado en el
+          posiblemente el primer artículo publicado en el
           campo de la geometría computacional en 1972.
         </p>
         <p>
@@ -1074,7 +1074,7 @@
           derecha, o si los 3 puntos son colineales.
           <br>
           Para verificar si la secuencia de los 3
-          puntos dan una vuelta izquierda, derecha o
+          puntos da una vuelta izquierda, derecha o
           son colineales, comprobaremos si el tercer
           punto de la secuencia está a la izquierda,
           derecha o en la <span class="bolded">línea
@@ -1124,7 +1124,7 @@
         </p>
         <p>
           En la <ref ref_id="graham_scan_algorithm"></ref> podemos ver un ejemplo de la
-          ejecución del algoritmo de Graham paso a paso
+          ejecución del algoritmo de Graham paso a paso.
         </p>
       </div>
       <div class="page">
@@ -1338,7 +1338,7 @@
         <p>
           ¿Se podría hacer algo mejor que eso usando la
           misma idea? <br>
-          Tal parece que sí, Jarvis en su articulo de
+          Tal parece que sí, Jarvis en su artículo de
           1973, mostró como se puede reducir la
           complejidad a $O(n^2)$ si tomamos en cuenta
           que una vez tenemos un par de puntos $p_a$ y
@@ -1413,7 +1413,7 @@
           Esto sería igual al análisis del primer paso
           del
           <pageref ref_id="graham_algorithm__complexity_page">algoritmo
-            de graham antes descrito</pageref>. Es decir,
+            de Graham antes descrito</pageref>. Es decir,
           tenemos una complejidad de $O(n)$.
         </p>
         <h5><span class="bolded">Paso 2. Ir agregando puntos a $conv(S)$ tomando el último punto en
@@ -1427,7 +1427,7 @@
           ángulos formados con los puntos en $S$.
           <br>
           Haciendo uso del producto cruz, dados dos
-          puntos podemos comparar cual de ellos es
+          puntos podemos comparar cuál de ellos es
           menor respecto al ángulo (en sentido
           contrario a las manecillas del reloj) que
           forma con nuestro último punto en $conv(S)$,
@@ -1451,7 +1451,7 @@
           es posible hacerla un poco más justa, ya que
           sabemos que no siempre se cumple que $S =
           conv(S)$, por lo que, si tomamos a $n$ como
-          el numero de puntos en $S$ y a $h$ el numero
+          el número de puntos en $S$ y a $h$ el número
           de puntos en $conv(S)$, podemos decir que
           el algoritmo tiene una complejidad de $O(nh)$
           pues la complejidad del paso 1 es $O(n)$ y
@@ -1484,9 +1484,9 @@
           <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/359423.359430">Franco Preparata y June Hong en
             1977</a>,
           utilizándolo no solo para el problema en 2
-          dimensiones, si no que también para 3
+          dimensiones, sino que también para 3
           dimensiones, lo cual hace de este enfoque aún
-          mas interesante.
+          más interesante.
         </p>
         <p>
           Este algoritmo, divide el problema inicial,
@@ -1506,7 +1506,7 @@
           la segunda mitad, posteriormente es necesario
           unir los cierres convexos resultantes de
           dichos subproblemas, sin embargo, realizar
-          dicha union de los subproblemas, de una forma
+          dicha unión de los subproblemas, de una forma
           optima, no resulta trivial.
         </p>
         <p>
@@ -1610,7 +1610,7 @@
           del subproblema izquierdo, y un punto en el
           cierre convexo del subproblema derecho,
           tomaremos como $T$, a la línea formada por el
-          punto mas a la derecha del cierre convexo
+          punto más a la derecha del cierre convexo
           izquierdo, y el punto más a la izquierda del
           cierre convexo derecho. Posteriormente,
           comenzaremos a hacer "descender" la tangente
@@ -1630,7 +1630,7 @@
           por el punto anterior a él $pd_{j-1}$ (el
           siguiente en sentido de las manecillas del
           reloj), siempre y cuando la línea nueva $T$
-          resultante esté mas abajo que la anterior
+          resultante esté más abajo que la anterior
           (para saber eso usamos el valor de
           intersección con la línea vertical), y
           seguiremos sustituyendo este punto hasta que
@@ -1652,7 +1652,7 @@
           contrario a las manecillas del reloj), y
           seguimos cambiando por el siguiente punto
           mientras la $T$ resultante se encuentre más
-          abajo que a anterior.
+          abajo que la anterior.
           <br>
           Una vez que ya no sea posible "descender" más
           sobre el cierre convexo izquierdo, repetimos
@@ -1712,7 +1712,7 @@
         <p>
           Ahora que conocemos la forma de unir dos
           cierres convexos de forma eficiente, podemos
-          describir el algoritmo completo, en lo siguientes pasos
+          describir el algoritmo completo, en los siguientes pasos
           que resultan suficientemente descriptivos.
         </p>
 
@@ -1787,7 +1787,7 @@
           Gracias al algoritmo ya mencionado para unir
           dos cierres convexos en tiempo $O(n)$ donde
           $n$ es la suma de los tamaños de los cierres
-          que combinaremos, podemos decir que que
+          que combinaremos, podemos decir que
           complejidad de este paso es lineal, i.e.
           $C(n)$ = $O(n)$.
         </p>
@@ -1798,7 +1798,7 @@
         </p>
         $T(n) = O(1) + 2T(n/n) + O(n)$
         <p>
-          Sin embargo, ya que el termino constante
+          Sin embargo, ya que el término constante
           resulta no tener mucho peso especialmente al
           incrementar el tamaño de $n$, podemos
           reescribir a $T(n)$ como :
@@ -1944,7 +1944,7 @@
           muestra un ejemplo de esto, en el cual las
           líneas rojas muestran la dirección de la
           vuelta que daría una arista dirigida al punto
-          $p$, esto es, de que lado yace el punto $p$
+          $p$, esto es, de qué lado yace el punto $p$
           con respecto a la flecha roja.
         </p>
         <figure id="cierre_convexo_union_punto">
@@ -2052,7 +2052,7 @@
           Después de ver distintos algoritmos que nos sirven para encontrar el cierre convexo, es natural
           preguntarnos, ¿podemos encontrar un algoritmo aún mejor en cuanto a complejidad en tiempo?
           <br>
-          La respuesta es sencilla es no, y en esta sección ahondaremos un poco más en como
+          La respuesta es sencilla es no, y en esta sección ahondaremos un poco más en cómo
           es que podemos estar seguros de esto.
         </p>
         <p>
@@ -2085,7 +2085,7 @@
           a tomar cada número y mapearlo a un punto
           sobre el eje $x$, y a su vez este punto
           trasladarlo verticalmente al punto sobre la
-          parabola unitaria que tiene la misma
+          parábola unitaria que tiene la misma
           coordenada en $x$, como se muestra en la <ref ref_id="lower_bound_1"></ref>. Como se puede
           apreciar en la <ref ref_id="lower_bound_2"></ref>, el orden en el
           que los puntos aparecen en el cierre convexo
@@ -2115,7 +2115,7 @@
       <div class="page">
         <p>
           Como podemos notar los puntos caen en una
-          parabola, por lo que después de ejecutar
+          parábola, por lo que después de ejecutar
           nuestro algoritmo para calcular el cierre
           convexo en tiempo $T(n)$, todos los puntos se
           encuentran en el resultado, posteriormente
@@ -2146,8 +2146,6 @@
       <div class="page">
         <h2 id="cap2_bib">Bibliografía</h2>
 
-        <bibref ref_id="CG_an_Introduction">Pag. 106</bibref>
-
         <bibitem id="CG_in_C">
           O'Rourke, Joseph. <b>Computational Geometry In C.
           </b> Cambridge University Press, February 15, 2001.
@@ -2163,6 +2161,7 @@
           Franco P. Preparata, Michael Ian Shamos. <b>
             Computational Geometry An Introduction </b>
           Springer-Verlag New York Inc, 1985
+          Añadir páginas? Pag. 106
         </bibitem>
 
         <bibitem id="CG_an_Introduction">
@@ -2187,7 +2186,7 @@
         <p>
           El problema que se abordará en este capítulo
           es la intersección de segmentos de rectas,
-          el cuál se describe a continuación.
+          el cual se describe a continuación.
         </p>
 
         <h4><span class="bolded">Definición del problema.</span></h4>
@@ -2223,7 +2222,7 @@
           si pensamos detenidamente, es lo mejor que
           podemos hacer en el peor de los casos, esto
           es, cuando todos los segmentos se intersectan
-          entre sí(como se muestra en la
+          entre sí (como se muestra en la
           <ref ref_id="intersecciones_cuadrático"></ref>),
           pues justamente estamos revisando
           todas las intersecciones que puede haber
@@ -2240,8 +2239,8 @@
           caso es poco común y resultaría bastante
           conveniente tener un algoritmo que sea más
           eficiente si el número de intersecciones es
-          menor, tal como lo que mencionamos en el
-          capítulo anterior un algoritmos sensible a la
+          menor, tal como lo mencionamos en el
+          capítulo anterior, un algoritmo sensible a la
           salida.
         </p>
       </div>
@@ -2319,15 +2318,15 @@
           actualizaremos el estado de la línea de
           barrido solamente en los puntos de evento.
           En adición a esto, calcularemos las posibles
-          intersecciones de igual manera, unicamente en
+          intersecciones de igual manera, únicamente en
           los puntos de evento.
         </p>
         <p>
-          Dicho esto es claro que tenemos dos tipos de
-          puntos de eventos, los que son el punto
-          superior de un segmento y los que son el
-          punto superior de un segmento. Ignoraremos el
-          caso de lineas horizontales por el momento.
+          Dicho esto, es claro que tenemos dos tipos de
+          puntos de evento, cuando el punto de evento es
+          el punto superior de un segmento y cuando es el
+          punto inferior de un segmento. Ignoraremos el
+          caso de líneas horizontales por el momento.
         </p>
         <p>
           En aquellos que son <b> punto superior</b>,
@@ -2346,12 +2345,12 @@
         </p>
         <p>
           La <ref ref_id="barrido_de_línea_interactivo_discreto"></ref>
-          muestra como serían los pasos discretos del
+          muestra cómo serían los pasos discretos del
           barrido de línea, donde en cada nuevo punto
           de eventos que forma parte del inicio de un
           segmento, se comprueba la intersección del
           segmento agregado contra todos los segmentos
-          en el estado en ese momento(color verde).
+          en el estado en ese momento (color verde).
           Nótese como en los puntos de evento 2, 5 y 7
           se encuentran intersecciones.
         </p>
@@ -2376,13 +2375,13 @@
           donde el estado de la línea de barrido tiene
           un punto donde todos los segmentos en $S$
           intersectan a la línea de barrido pero no hay
-          ninguna intersección.
+          ninguna intersección entre segmentos.
         </p>
         <figure id="ejemplo_lineas_verticales">
           <img src="./images/capitulo_03/lineas_verticales.svg" width="85%" height="85%">
           <figcaption>
             Ejemplo de segmentos que requieren $O(n^2)$
-            comparaciones sin que haya intersecciones.
+            comparaciones sin que haya intersecciones entre ellos.
           </figcaption>
         </figure>
         <p>
@@ -2425,7 +2424,7 @@
           <b> punto superior</b> de un segmento, los
           que son el <b> punto inferior</b>
           de un segmento y los que son una <b>intersección
-            partes internas de segmentos</b>.
+            de partes internas de segmentos</b>.
         </p>
       </div>
 
@@ -2443,9 +2442,8 @@
           intersectan en algún punto debajo de la línea
           de barrido. Realizar esta comprobación nos
           asegura detectar los puntos en el momento
-          correcto para la correcta ejecución del
-          algoritmo, sin embargo para motivos de estas
-          notas no se realizará la demostración.
+          adecuado para la correcta ejecución del
+          algoritmo.
         </p>
         <p>
           A continuación describiremos las acciones que
@@ -2492,15 +2490,15 @@
           segmentos.
           <br>
           Intercambiamos el orden de dichos segmentos,
-          y comprobamos si el segmento mas a la
+          y comprobamos si el segmento más a la
           izquierda intersecta con el segmento que le
-          precede y si el segmento mas a la derecha
+          precede y si el segmento más a la derecha
           intersecta con el segmento que le procede.
         </p>
         <p>
           La figura <ref ref_id="barrido_de_línea_interactivo_discreto"></ref>
           muestra un ejemplo de la ejecución del
-          algoritmo, indicando en cual de los 3 casos
+          algoritmo, indicando en cuál de los 3 casos
           entra el punto de eventos que se ejecuta en
           cada momento.
         </p>
@@ -2537,7 +2535,7 @@
           definiremos de la siguiente manera.
         </p>
         <p>
-          Sean $p$ y $q$ dos puntos de eventos diremos
+          Sean $p$ y $q$ dos puntos de eventos, diremos
           que $p < q$ si $p_y> q_y$ o si $p_y = q_y$ y
             $p_x < q_x$ donde $p_y$ es la componente en $y$ de $p$ y $p_x$ su componente en $x$. </p>
               <p>
@@ -2578,7 +2576,7 @@
         </p>
         <h4><span class="bolded">Algoritmo</span></h4>
         <p>
-          Inicialización
+          Inicialización:
           <br>
           Para comenzar el algoritmo necesitamos
           identificar los puntos de evento, como los
@@ -2593,7 +2591,7 @@
           $E$ vacío lo que nos toma $O(1)$.
         </p>
         <p>
-          Procesamiento de eventos
+          Procesamiento de eventos:
           <br>
           En este paso procesaremos cada punto de
           evento en la cola de eventos $C$ hasta que no
@@ -2657,7 +2655,7 @@
           I)log(n)) = O(nlog(n) + Ilog(n))$$
         </p>
         <p>
-          Por lo tanto, tomando en cuenta las
+          Tomando en cuenta las
           complejidades de la inicialización
           $O(nlog(n))$ y del procesamiento de todos los
           puntos de evento $O(nlog(n) + Ilog(n))$,
@@ -2674,15 +2672,15 @@
           problema de encontrar las intersecciones
           entre un conjunto de segmentos, lo cual nos
           resulta útil en sistemas tipo GIS (sistema de
-          información geográfica), en especifico para
+          información geográfica), en específico para
           sobreponer dos mapas, pues podemos ver a cada
           mapa como un conjunto de segmentos, y con
           esto lograr encontrar las intersecciones de
           ambos mapas.
           <br>
           Sin embargo, hay otras situaciones en las que
-          nos interesa poder sobreponer dos mapas, pero
-          donde estos mapas cuentan con más
+          nos interesa sobreponer dos mapas,
+          donde estos cuentan con más
           información.
           <br>
           Un ejemplo son mapas como el
@@ -2704,7 +2702,7 @@
           regiones etiquetadas. Un ejemplo de esto es
           el típico mapa de la republica mexicana donde
           el mapa es una subdivisión del plano donde
-          las areas están etiquetadas por los estados
+          las áreas están etiquetadas por los estados
           que conforman al país.
         </p>
         <p>
@@ -2713,8 +2711,8 @@
           interesante buscar la forma de calcular la
           intersección de dos subdivisiones.
           <br>
-          Sin embargo, antes es necesario poder
-          representar a dichas subdivisiones, por lo
+          Sin embargo, antes es necesario
+          representar dichas subdivisiones, por lo
           que este será el tema a tratar en la presente
           sección.
         </p>
@@ -2741,9 +2739,9 @@
           por los siguientes elementos.
         </p>
         <p>
-          Vertices
+          Vértices
           <br>
-          Los vertices de una subdivisión
+          Los vértices de una subdivisión
           son los puntos extremos de los segmentos de
           línea.
         </p>
@@ -2759,7 +2757,7 @@
           <br>
           Una cara de una subdivisión es un
           subconjunto conexo maximal del plano, que no
-          contiene ni aristas ni vertices.
+          contiene ni aristas ni vértices.
         </p>
         <figure id="barrido_de_línea_interactivo_discreto">
           <div class="interactive" width="500" height="340" window-size="false"
@@ -2826,7 +2824,7 @@
           podremos almacenar un apuntador de una arista
           a su siguiente y un apuntador a su anterior,
           esto nos ayudará a poder hacer un recorrido
-          al rededor de las caras de la subdivisión
+          alrededor de las caras de la subdivisión
           tanto en sentido de las manecillas del reloj
           como al contrario.
         </p>
@@ -2834,14 +2832,14 @@
           <img src="./images/capitulo_03/ejemplo_apuntadores.svg" width="90%" height="90%">
           <figcaption>
             Ejemplo de aristas con apuntadores a la
-            siguiente arista al rededor de una cara.
+            siguiente arista alrededor de una cara.
           </figcaption>
         </figure>
       </div>
 
       <div class="page">
         <p>
-          Además, para evitar tener multiples aristas
+          Además, para evitar tener múltiples aristas
           siguientes para cada arista, dividiremos cada
           arista en dos mitades yendo de extremo a
           extremo pero en direcciones
@@ -2869,7 +2867,7 @@
           <img src="./images/capitulo_03/ejemplo_apuntadores_medias_aristas.svg" width="90%" height="90%">
           <figcaption>
             Ejemplo de medias-aristas que apuntan a la
-            siguiente al rededor de una cara y solo son
+            siguiente alrededor de una cara y solo son
             incidentes a una sola cara.
           </figcaption>
         </figure>
@@ -2879,10 +2877,10 @@
         <p>
           De esta manera cada media-arista tiene una
           sola media-arista siguiente, facilitando de
-          esta manera el recorrido a rededor de una
+          esta manera el recorrido al rededor de una
           cara y añadiendo la posibilidad de calcular
           el perímetro de una cara a partir de conocer
-          unicamente una media-arista.
+          únicamente una media-arista.
           <br>
           Sin embargo en el caso en que una cara tenga
           agujeros necesitaremos conocer al menos una
@@ -2912,7 +2910,7 @@
         </p>
 
         <p>
-          Un vértice será formado por.
+          Un vértice será formado por:
         <ul>
           <li>
             Coordenadas: los valores de las coordenadas
@@ -2921,13 +2919,13 @@
           <li>
             Arista incidente: apuntador a alguna
             media-arista arbitraria que tenga como
-            origen a este vértice.
+            origen al vértice.
           </li>
         </ul>
         </p>
 
         <p>
-          Una media-arista será formada por.
+          Una media-arista será formada por:
         <ul>
           <li>
             Origen: apuntador al vértice origen de la
@@ -2964,7 +2962,7 @@
             sea incidente a la cara, pero que no
             pertenezca a un agujero dentro de la cara.
             Nótese que siempre hay una cara que no
-            tiene limites, en este caso el apuntador
+            tiene límites, en este caso el apuntador
             irá a null.
           </li>
         </ul>
@@ -2991,7 +2989,7 @@
         <h2 id="cap3_calculando_traslape">Calculando el
           traslape de dos subdivisiones</h2>
         <p>
-          Ahora que conocemos sabemos como representar
+          Ahora que sabemos cómo representar
           subdivisiones usando la lista de aristas
           doblemente conectadas, podemos proceder a
           calcular el traslape de dos subdivisiones.
@@ -3000,7 +2998,7 @@
         </p>
         <p>
           Sean $S1$ y $S2$ dos subdivisiones,
-          definiremos a la subdivision $T(S1,S2)$ como
+          definiremos a la subdivisión $T(S1,S2)$ como
           el traslape de ambas donde existe una cara
           $c$ en $T(S1,S2)$ si y solo si existen las
           caras $c1$ en $S1$ y $c2$ en $S2$ tal que $c$
@@ -3013,7 +3011,7 @@
 
       <div class="page">
         <p>
-          Entonces definamos al problema de calcular el
+          Entonces definamos el problema de calcular el
           traslape de dos subversiones como:
         </p>
         <p>
@@ -3048,7 +3046,7 @@
           intersecciones entre las $S1$ y $S2$, y
           realizando las modificaciones necesarias para
           conectar dichas intersecciones. Y para
-          finalizar, actualizamos la información de as
+          finalizar, actualizamos la información de las
           nuevas caras en $T(S1,S2)$.
         </p>
         <p>
@@ -3087,7 +3085,7 @@
         <p>
           Para comenzar con el problema de la
           triangulación de polígonos, antes tomaremos
-          en cuenta un problema racionado con ello.
+          en cuenta un problema relacionado con ello.
           <br>
           Dicho problema suele ser llamado el problema
           de la galería de arte, el cual describiremos
@@ -3096,25 +3094,25 @@
         <p>
           Supongamos que queremos resguardar las
           valiosas piezas de una galería de arte, y
-          para ello usaremos cámaras para vigilar
-          cada parte de la galería fácilmente, dichas
-          cámaras pueden rotar para abarcar un area
-          más grande, sin embargo nos interesaría
-          poder hacer uso de las menos cámaras
+          para ello usaremos cámaras para vigilar cada
+          parte de la galería fácilmente, dichas
+          cámaras pueden rotar para abarcar un área más
+          grande, sin embargo nos interesaría poder
+          hacer uso de la menor cantidad de cámaras
           posibles, ya que, todas estas serían
           transmitidas a un conjunto de pantallas que
           una persona se encargaría de vigilar, y
           resulta menos problemático vigilar solo una
-          cantidad reducida de pantallas. Sin
-          embargo, no podemos tener tan pocas cámaras
-          al punto que no podamos vigilar cada area
-          de la galería.
+          cantidad reducida de pantallas. Sin embargo,
+          no podemos tener tan pocas cámaras al punto
+          que no podamos vigilar cada área de la
+          galería.
           <br>
           Entonces, lo que queremos es
-          saber cual sería el menor número de cámaras
+          saber cuál sería el menor número de cámaras
           necesarias para vigilar toda la galería,
           además, dado que dependiendo de donde se
-          pone cada cámara puede vigilar una area
+          pone cada cámara puede vigilar una área
           distinta, también queremos saber, en que
           partes de la galería poner dichas cámaras.
         </p>
@@ -3135,15 +3133,15 @@
         <p>
           en 2 dimensiones y trabajar sobre este
           polígono, pues podemos ver a la galería como
-          un plano de la misma y sobre este buscar los
+          un plano arquitectónico de la misma y sobre este buscar los
           puntos donde poner las cámaras.
           <!-- https://thetourguy.com/travel-blog/france/paris/louvre/top-ten-things-to-see-at-the-louvre-museum/
           17/11/2022 imagen louvre -->
         <figure id="poligono_condiciones">
           <img src="./images/capitulo_04/Map_Great-Sphinx-of-Tanis_Louvre_The-Tour-Guy-750x420.jpg" width="90%"
             height="90%">
-          <figcaption>Ejemplo de un plano del
-            famoso museo louvre.
+          <figcaption>Ejemplo de un plano arquitectónico del
+            famoso museo Louvre.
             (https://thetourguy.com/travel-blog/france/paris/louvre/top-ten-things-to-see-at-the-louvre-museum/
             17/11/2022)</figcaption>
         </figure>
@@ -3155,8 +3153,8 @@
           museo Louvre, ya que nos limitaremos a
           trabajar con
           <span class="bolded">polígonos simples</span>
-          (que no hace intersección consigo mismo y no
-          tiene agujeros).
+          (que no tienen intersecciones consigo mismo y no
+          tienen agujeros).
         </p>
         <p>
           Ahora que tenemos una abstracción para las
@@ -3181,7 +3179,7 @@
             src="./Interactivos/capitulo_4/intuitive_idea_Camera.html"></div>
           <figcaption>Ejemplo de la idea de una cámara
             (punto) en una galería (polígono simple) y el
-            area que puede vigilar (area
+            área que puede vigilar (área
             blanca).</figcaption>
         </figure>
         <p>
@@ -3191,15 +3189,15 @@
           polígono simple?
         </p>
         <p>
-          Podemos hablar de este
+          Podemos hablar del
           número de cámaras en términos del número de
           aristas de nuestro polígono, sin embargo, no
-          nos podemos guiar unicamente por el número de
-          vertices ya que a pesar de que calcular el
+          nos podemos guiar únicamente por el número de
+          vértices ya que a pesar de que calcular el
           número de cámaras para polígonos convexos no
           implica mayor dificultad, ya que pueden ser
           vigilados en su totalidad por una sola
-          cámara, el número de vertices no nos dice
+          cámara, el número de vértices no nos dice
           mucho para cualquier polígono no convexo.
           <br>
           De hecho, el calcular el número mínimo
@@ -3224,7 +3222,7 @@
           piezas más pequeñas? Sabemos que los
           polígonos convexos solo requieren una cámara
           para ser vigilados por lo que nos resultaría
-          util trabajar con polígonos convexos, sin
+          útil trabajar con polígonos convexos, sin
           embargo, para hacer la descomposición aún más
           simple, descompondremos el polígono en
           triángulos.
@@ -3237,8 +3235,8 @@
         Es un segmento de línea recta abierto (no
         incluye los puntos extremos) que conecta dos
         vértices de un polígono $P$ tal que cada punto
-        este segmento yace completamente dentro del
-        interior de $P$ (el area sin incluir al
+        de este segmento yace completamente dentro del
+        interior de $P$ (el área sin incluir al
         perímetro de $P$).
         </p>
         <figure id="diagonales">
@@ -3280,7 +3278,7 @@
           como se puede apreciar en la <ref ref_id="triangulaciones_validas"></ref>,
           sin embargo, esto nos importa, dado que
           teniendo alguna triangulación, podemos
-          colocar una cámara en cada triangulo para
+          colocar una cámara en cada triángulo para
           poder resolver nuestro problema.
         </p>
         <p>
@@ -3288,22 +3286,22 @@
           siempre es posible encontrar alguna
           triangulación para cualquier polígono simple.
           La respuesta es sí, además, si el polígono
-          simple tiene $n$ vertices, el número de triángulos
-          que resultantes son $n - 2$.
+          simple tiene $n$ vértices, el número de triángulos
+          resultantes son $n - 2$.
         </p>
         <p>
         <div class="bolded">
           De todo polígono simple se puede obtener una
           triangulación, y cualquier triangulación de
-          un polígono simple de $n$ vertices consistirá
-          de $n - 2$ vertices.
+          un polígono simple de $n$ vértices consistirá
+          de $n - 2$ vértices.
         </div>
         </p>
         <div class="bolded">
-          Caso Base: $n = 3$ (triangulo)
+          Caso Base: $n = 3$ (triángulo)
         </div>
         <p>
-          En este caso el triangulo ya está triangulado por definición
+          En este caso el triángulo ya está triangulado por definición
           y para sus $n = 3$ lados, contiene $n - 2 = 3 - 2 = 1$ un triángulo.
         </p>
         <div class="bolded">
@@ -3319,7 +3317,7 @@
         </div>
         <p>
           Sea $P$, nuestro polígono simple de $k + 1$
-          vertices, tomemos al vértice $v$ más a la
+          vértices, tomemos al vértice $v$ más a la
           izquierda, esto es, el vértice con la menor
           coordenada en $x$, en caso de tener dos,
           tomaremos al que tenga la menor coordenada en
@@ -3331,7 +3329,7 @@
       <div class="page">
         <p>
           A continuación definimos como $u$ y $w$ los
-          vertices que comparten arista con $v$, y
+          vértices que comparten arista con $v$, y
           trazamos un segmento de recta de $u$ a $w$.
           <br>
           Esto nos deja con dos posibles casos,
@@ -3347,11 +3345,11 @@
         <p>
           Si $\overline{uw}$ es diagonal, podemos
           agregar esa diagonal y nos deja a un
-          triángulo y un polígono $k$ vertices, el cual
+          triángulo y un polígono $k$ vértices, el cual
           por hipótesis de inducción sabemos que tiene
           una triangulación con $k - 2$ triángulos,
           esto nos deja con $k - 1$ triángulos en
-          total, lo cual es justo el número de vertices
+          total, lo cual es justo el número de vértices
           menos dos, $n - 2 = (k + 1) - 2 = k - 1$.
         </p>
         <figure id="demostracion_caso_1">
@@ -3368,7 +3366,7 @@
           Si $\overline{uw}$ no es diagonal, significa
           que dentro del triángulo $uvw$ hay al menos
           un vértice de $P$, entonces debemos de buscar
-          entre dichos vertices, un vértice $\mu$ que
+          entre dichos vértices, un vértice $\mu$ que
           nos asegure que el segmento $\overline{v\mu}$
           es diagonal, el cual es el vértice dentro de
           $uvw$ que esté más lejos del segmento
@@ -3381,23 +3379,24 @@
         <p>
           Con $\overline{v\mu}$ como diagonal, podemos
           dividir el polígono en 2 polígonos, uno con
-          $m$ vertices y el otro con $ (k + 1) - m + 2$
-          vertices ($k + 1$ el tamaño original, $m$
+          $m$ vértices y el otro con $ (k + 1) - m + 2$
+          vértices ($k + 1$ el tamaño original, $m$
           tamaño del otro polígono, $2$ número de
-          vertices que comparten ambos polígonos).
+          vértices que comparten ambos polígonos).
           <br>
           Ahora bien, por hipótesis de inducción
-          sabemos que tiene ambos polinomios tienen un
-          triangulación con $m - 2$ y $ ((k + 1) - m +
-          2) - 2$ triángulos, respectivamente, los
-          cuales al sumarlos nos deja con $(k + 1) - 2
-          = k - 1$ lo cual es precisamente el número de
-          vertices de $P$ menos dos.
+          sabemos que ambos polinomios tienen una
+          triangulación que consiste de $m - 2$ y $ ((k
+          + 1) - m + 2) - 2$ triángulos,
+          respectivamente, los cuales al sumarlos nos
+          deja con $(k + 1) - 2 = k - 1$ lo cual es
+          precisamente el número de vértices de $P$
+          menos dos.
         </p>
         <figure id="demostracion_caso_1">
           <img src="./images/capitulo_04/Demostracin_caso2.svg" width="65%" height="65%">
           <figcaption>Ejemplo del caso dos, con un
-            polígono de $m$ vertices (verde) y un polígono de $ (k + 1) - m + 2$ vertices(azul)
+            polígono de $m$ vértices (verde) y un polígono de $ (k + 1) - m + 2$ vértices(azul)
             después de agregar la diagonal.
           </figcaption>
         </figure>
@@ -3405,16 +3404,16 @@
       <div class="page">
         <p>
           Habiendo demostrado lo anterior, ya podemos
-          resolver el problema, podemos calcular la
+          resolver el problema, calcular la
           triangulación del polígono $P$ y colocar una
-          cámara en cada triangulo lo que nos dejaría
+          cámara en cada triángulo lo que nos dejaría
           con $n - 2$ cámaras, sin embargo, esa es una
           gran cantidad de cámaras, así que conviene
           buscar una mejor forma de resolverlo.
         </p>
         <p>
           Una mejor forma de resolverlo sería colocar
-          las cámaras en vertices de nuestra
+          las cámaras en vértices de nuestra
           triangulación, en lugar de en cada triángulo,
           ya que un solo vértice puede vigilar varios
           triángulos y eso nos ahorraría muchas
@@ -3424,14 +3423,14 @@
           vértices?, para hacer esto podemos calcular
           una 3-coloración a la triangulación de
           nuestro polígono $P$. A continuación se
-          explica como calcular dicha coloración.
+          explica cómo calcular dicha coloración.
         </p>
         <p>
           Sea $P$ un polígono simple, para calcular la
           3-coloración de $T(P)$, colorearemos cada
           vértice de $T(P)$ con 3 colores distintos, de
           tal manera que ningún vértice esté conectado
-          con otro vértice del mismo color, a traves de
+          con otro vértice del mismo color, a través de
           una arista de $P$ o una diagonal de $T(P)$.
         </p>
         <figure id="demostracion_caso_1">
@@ -3455,15 +3454,15 @@
         <p>
           Al tener la 3-coloración de $T(P)$ para
           vigilar todo $P$ podemos simplemente colocar
-          una cámara en todos los vertices que
+          una cámara en todos los vértices que
           correspondan a un solo color, ya que por
-          construcción cada triangulo tendrá un vértice
+          construcción cada triángulo tendrá un vértice
           de cada color.
           <br>
           El color que escojamos no importa, pero sí
           importa el número de cámaras utilizadas,
           dicho esto, podemos escoger el color con
-          menor número de vertices y poner una cámara
+          menor número de vértices y poner una cámara
           en cada vértice de dicho color.
         </p>
         <p>
@@ -3489,7 +3488,7 @@
         <figure id="peine">
           <img src="./images/capitulo_04/Peine.svg" width="45%" height="45%">
           <figcaption>
-            Este polígono tiene 3 vertices
+            Este polígono tiene 3 vértices
             para cada "pico", y no es posible colocar
             menos de $ \lfloor n/3 \rfloor $, pues es
             necesario tener al menos una para cada
@@ -3518,7 +3517,7 @@
           tomando $O(n)$ para agregar cada diagonal,
           ya que requiere buscar el vértice más lejano a
           $\overline{uv}$. A su vez cada diagonal añadida
-          solo agregaría un triangulo por lo que este
+          solo agregaría un triángulo por lo que este
           proceso se tomaría también $O(n)$.
         </p>
         <p>
@@ -3554,10 +3553,10 @@
           respectivamente.
         </p>
         <p>
-          La <ref ref_id="poligonos_monotonos"></ref> 2
-          polígonos distintos los cuales podemos
-          verificar si son $x$-monótonos o
-          $y$-monótonos deslizando una linea vertical u
+          La <ref ref_id="poligonos_monotonos"></ref>
+          muestra 2 polígonos distintos los cuales
+          podemos verificar si son $x$-monótonos o
+          $y$-monótonos deslizando una línea vertical u
           horizontal a lo largo del polígono.
         </p>
 
@@ -3586,10 +3585,10 @@
         </p>
         <p>
           Para comenzar, notemos que cuando hacemos un
-          recorrido de arriba a abajo por los vertices
+          recorrido de arriba a abajo por los vértices
           de un polígono $y$-monótono, estos cumplen la
           propiedad de que las aristas que conectan a
-          los vertices nunca van de abajo a arriba,
+          los vértices nunca van de abajo a arriba,
           como se muestra en la Figura TODO. Propiedad
           de polígonos monótonos.
         </p>
@@ -3599,17 +3598,17 @@
       <div class="page">
         <p>
           Para poder lograr que dicha condición se
-          cumpla es útil saber cuales son los tipos de
+          cumpla es útil saber cuáles son los tipos de
           formas, que pueden tener las aristas que
-          conectan a los vertices en los polígonos. Es
+          conectan a los vértices en los polígonos. Es
           por ello que procederemos a clasificar a los
-          vertices pertenecientes a polígonos simples
+          vértices pertenecientes a polígonos simples
           de la siguiente manera.
         </p>
         <p>
           Diremos que un vértice $v$ es <b>vértice
             vuelta</b>
-          si los vertices $u$ y $w$ adyacentes a $v$
+          si los vértices $u$ y $w$ adyacentes a $v$
           tienen ambos coordenadas en $y$ mayores a la
           coordenada en $y$ de $v$ o de lo contrario
           tienen ambos coordenadas en $y$ menores a la
@@ -3619,7 +3618,7 @@
         <figure id="vertices_vuelta">
           <img src="./images/capitulo_04/Vertices_vuelta.svg" width="65%" height="65%">
           <figcaption>
-            Este polígono tiene 3 vertices
+            Este polígono tiene 3 vértices
             para cada "pico", y no es posible colocar
             menos de $ \lfloor n/3 \rfloor $, pues es
             necesario tener al menos una para cada
@@ -3628,8 +3627,8 @@
         </figure>
 
         <p>
-          Este tipo de vertices los podemos clasificar
-          en 4 distintos, vertices
+          Este tipo de vértices los podemos clasificar
+          en 4 distintos, vértices
           <b>principio</b>, <b>final</b>,
           <b>separación</b> y <b>unión</b>.
         </p>
@@ -3640,10 +3639,10 @@
             principio.</span></h4>
         <p>
           Diremos que un vértice $v$ es vértice
-          principio, si los vertices $u$ y $w$
+          principio, si los vértices $u$ y $w$
           adyacentes a $v$ tienen coordenadas en $y$
           menores a la coordenada en $y$ de $v$ y
-          además el angulo interior de $v$ es menor a
+          además el ángulo interior de $v$ es menor a
           $180^{\circ}$.
         </p>
         TODO:imagen
@@ -3652,10 +3651,10 @@
             separación.</span></h4>
         <p>
           Diremos que un vértice $v$ es vértice
-          principio, si los vertices $u$ y $w$
+          principio, si los vértices $u$ y $w$
           adyacentes a $v$ tienen coordenadas en $y$
           menores a la coordenada en $y$ de $v$ y
-          además el angulo interior de $v$ es mayor a
+          además el ángulo interior de $v$ es mayor a
           $180^{\circ}$.
         </p>
         TODO:imagen
@@ -3666,19 +3665,19 @@
             final.</span></h4>
         <p>
           Diremos que un vértice $v$ es vértice
-          principio, si los vertices $u$ y $w$
+          principio, si los vértices $u$ y $w$
           adyacentes a $v$ tienen coordenadas en $y$
           mayores a la coordenada en $y$ de $v$ y
-          además el angulo interior de $v$ es menor a
+          además el ángulo interior de $v$ es menor a
           $180^{\circ}$.
         </p>
         TODO:imagen
         <h4><span class="bolded">Vértice unión.</span></h4>
         <p>
           Diremos que un vértice $v$ es vértice
-          principio, si los vertices $u$ y $w$ adyacentes a $v$
+          principio, si los vértices $u$ y $w$ adyacentes a $v$
           tienen coordenadas en $y$ mayores a la
-          coordenada en $y$ de $v$ y además el angulo
+          coordenada en $y$ de $v$ y además el ángulo
           interior de $v$ es mayor a $180^{\circ}$.
         </p>
         TODO:imagen
@@ -3688,18 +3687,18 @@
         <p>
           Dadas estas definiciones, podemos decir que
           un polígono simple $P$ es $y$-monótono si no
-          contiene vertices separación ni vertices
+          contiene vértices separación ni vértices
           unión.
         </p>
         <p>
           Entonces podemos decir que nuestro algoritmo
           para transformar un polígono simple en un
           polígono $y$-monótono, tenemos que eliminar
-          todos los vertices separación y unión.
+          todos los vértices separación y unión.
           Para ello es necesario poder agregar
-          diagonales validas(que no se intersecten
+          diagonales válidas(que no se intersecten
           entre ellas, y que estén completamente
-          contenidas en $P$) a todos los vertices
+          contenidas en $P$) a todos los vértices
           separación y unión.
           <br>
 

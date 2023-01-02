@@ -1070,16 +1070,17 @@
           Tomando esta tripleta $ ( p_{k-1} , p_{k} ,
           p_{i} ) $, realizaremos una comprobación de
           si la secuencia de los tres puntos realiza
-          una vuelta hacia la izquierda, hacia la
-          derecha, o si los 3 puntos son colineales.
-          <br>
-          Para verificar si la secuencia de los 3
-          puntos da una vuelta izquierda, derecha o
-          son colineales, comprobaremos si el tercer
-          punto de la secuencia está a la izquierda,
-          derecha o en la <span class="bolded">línea
-            dirigida</span> formada por los primeros dos
-          puntos.
+          una <b>vuelta hacia la izquierda</b>,
+          <b>hacia la derecha</b> , o si los 3 puntos
+          son colineales.
+        </p>
+        <p>
+          Diremos que dada una tripleta de puntos,
+          estos dan una <b>vuelta izquierda</b>,
+          <b>vuelta derecha</b> o son colineales, si el
+          tercer punto de la tripleta está a la
+          izquierda, derecha o sobre la <span class="bolded">línea dirigida</span>
+          formada por los primeros dos puntos.
           <br>
           Diremos que una <span class="bolded">línea
             dirigida</span> es formada por una secuencia
@@ -1089,12 +1090,13 @@
           <bibref ref_id="CG_in_C">Pag. 29</bibref>
         </p>
         <p>
-          La siguiente Figura muestra un ejemplo de
-          la vuelta izquierda y la vuelta derecha.
+          La <ref ref_id="vueltas_izq_der"></ref> muestra un ejemplo de
+          la vuelta izquierda y la vuelta derecha, donde la ç
+          línea dirigida es mostrada en color verde.
         </p>
       </div>
       <div class="page">
-        <figure id="ordenar_puntos">
+        <figure id="vueltas_izq_der">
           <img src="./images/capitulo_02/Ejemplo_vueltas_1.jpg" width="80%" height="60%"
             alt="Ejemplo de la definición de vuelta derecha e izquierda.">
           <figcaption>Ejemplo de la definición de vuelta derecha e izquierda.</figcaption>
@@ -1197,11 +1199,12 @@
         <p>
           Esta forma de comparar podría tener algunos
           inconvenientes, por lo que hay formas
-          alternativas para comparar los puntos que
-          aprovechan el mismo calculo necesario para
-          calcular si 3 puntos dan una vuelta derecha o
-          izquierda, sin embargo, no ahondaremos en más
-          dichos detalles.
+          alternativas para comparar los puntos, que
+          aprovechan el mismo cálculo necesario para
+          determinar si dada una tripleta de puntos,
+          estos dan <pageref ref_id="graham_step_3">vuelta izquierda o
+            derecha</pageref>.
+
         <figure id="compare_points_by_angle">
           <img src="./images/capitulo_02/Ejemplo_comparar_angulos.svg" width="80%" height="60%" alt="Ejemplo de la
           comparación de dos puntos por sus ángulos.">
@@ -1211,33 +1214,34 @@
         </figure>
         </p>
         <p>
-          Entonces, asumiendo que la complejidad de la
-          comparación usada para el ordenamiento toma
-          tiempo constante, este paso nos resulta
-          en $O(nlogn)$.
+          De esta manera para ver si un punto $p_a$ es
+          menor a otro punto $p_b$ bastaría con saber
+          que si el punto interior es $p_i$, entonces
+          la tripleta $(p_i,p_a,p_b)$ da vuelta
+          izquierda o bien la tripleta $(p_i,p_b,p_a)$
+          da vuelta derecha.
         </p>
-
+        <p>
+          Esto se puede ver más claro en la <ref ref_id="compare_points_by_angle"></ref>
+          donde podemos apreciar que $p_2$ es menor a
+          $p_3$, pues la tripleta $(p_1,p_2,p_3)$ da
+          vuelta izquierda o bien la tripleta
+          $(p_1,p_3,p_2)$ da vuelta derecha.
+        </p>
+        <p>
+          Ahora veamos como podemos hacer este cálculo
+          en tiempo constante.
+        </p>
       </div>
       <div class="page">
-        <h5>
-          <span class="bolded">Paso 3. Recorrer los
-            puntos ordenados y agregar puntos al
-            $conv(S)$.</span>
-        </h5>
-        <p>
-          En este paso podemos observar que recorremos
-          la lista de puntos ordenados uno por uno,
-          verificando si forma una vuelta derecha o
-          izquierda, dicha comprobación puede ser
-          realizada de la siguiente manera.
-        </p>
         <p>
           Dada la tripleta de puntos $(a,b,c)$ podemos
-          calcular las pendientes de los segmentos
-          $A = \overline{a b}$ y $B = \overline{b c}$
+          calcular las pendientes de los segmentos $A =
+          \overline{a b}$ y $B = \overline{b c}$
           denotadas como:
         </p>
         $$ m_{A} = \frac{b_y - a_y}{b_x - a_x} $$
+
         $$ m_{B} = \frac{c_y - b_y}{c_x - b_x} $$
         <p>
           Si la $ m_{A} > m_{B} $ entonces tenemos una
@@ -1245,14 +1249,25 @@
             $ m_{A}=m_{B} $ entonces no hay vuelta, ya que los puntos son colineales. </p>
 
             <p>
-              En la figura <ref ref_id="comparacion_pendientes"></ref> podemos apreciar esta comparación,
-              la cual podemos calcular fácilmente como:
-              $$ (b_y - a_y) * (c_x b_x) - (c_y - b_y)*(b_x - a_x) $$
-              Formula que se deriva de restar $ m_{A} - m_{B}$ y cuyo resultado es
-              positivo cuando $ m_{A} > m_{B} $, negativo cuando $ m_{A} < m_{B} $ y 0 cuando $ m_{A}=m_{B} $ .</p>
+              En la figura <ref ref_id="comparacion_pendientes"></ref>
+              podemos apreciar esta comparación, la
+              cual podemos calcular fácilmente como:
+
+              $$ (b_y - a_y) * (c_x - b_x) - (c_y -
+              b_y)*(b_x - a_x) $$
+
+              Formula que se deriva de restar $ m_{A} -
+              m_{B}$ y cuyo resultado es positivo
+              cuando $ m_{A} >
+              m_{B} $ (vuelta derecha), negativo cuando
+              $ m_{A} < m_{B} $ (vuelta izquierda) y 0 cuando $ m_{A}=m_{B} $ (no hay vuelta) .</p>
                 <p>
-                  Por lo que gracias a esto podemos calcular de que tipo de vuelta se trata en tiempo constante.
+                  Estas operaciones nos toman tiempo
+                  constante, por lo que al usarla para
+                  el ordenamiento este paso nos resulta
+                  en $O(nlogn)$.
                 </p>
+
       </div>
 
       <div class="page">
@@ -1262,10 +1277,28 @@
           <figcaption>Ejemplo de comparación de pendientes para saber que tipo de vuelta dan los puntos.
           </figcaption>
         </figure>
+      </div>
 
+      <div class="page">
+        <h5>
+          <span class="bolded">Paso 3. Recorrer
+            los puntos ordenados y agregar puntos
+            al $conv(S)$.</span>
+        </h5>
         <p>
-          Además podemos observar que cada punto en
-          el
+          En este paso recorremos la lista de puntos
+          ordenados uno por uno, verificando si las
+          tripletas que resultan de tomar el nuevo
+          punto a procesar y los últimos dos agregados,
+          da una
+          <pageref ref_id="graham_step_3">
+            vuelta izquierda o derecha
+          </pageref>, dicha comprobación puede ser
+          realizada en tiempo constante, de la forma
+          que ya fue explicada en el punto anterior.
+        </p>
+        <p>
+          Además podemos observar que cada punto en el
           conjunto ordenado, es añadido y removido del
           conjunto de salida $conv(S)$ a lo más una
           vez, entonces, dicho recorrido sobre los

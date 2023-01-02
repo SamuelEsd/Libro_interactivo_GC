@@ -1063,9 +1063,9 @@
         <p>
           Una vez que es posible tomar los últimos dos
           puntos en $conv(S)$, formaremos una tripleta
-          con los últimos dos puntos dentro del $conv(S)$
-          que llamaremos $p_k$ y $p_{k-1}$ y el
-          siguiente punto a procesar $p_i$.
+          con los últimos dos puntos dentro del
+          $conv(S)$ que llamaremos $p_k$ y $p_{k-1}$ y
+          el siguiente punto a procesar $p_i$.
           <br>
           Tomando esta tripleta $ ( p_{k-1} , p_{k} ,
           p_{i} ) $, realizaremos una comprobación de
@@ -1090,16 +1090,18 @@
           <bibref ref_id="CG_in_C">Pag. 29</bibref>
         </p>
         <p>
-          La <ref ref_id="vueltas_izq_der"></ref> muestra un ejemplo de
-          la vuelta izquierda y la vuelta derecha, donde la ç
-          línea dirigida es mostrada en color verde.
+          La <ref ref_id="vueltas_izq_der"></ref>
+          muestra un ejemplo de la vuelta izquierda y
+          la vuelta derecha, donde la ç línea dirigida
+          es mostrada en color verde.
         </p>
       </div>
       <div class="page">
         <figure id="vueltas_izq_der">
-          <img src="./images/capitulo_02/Ejemplo_vueltas_1.jpg" width="80%" height="60%"
-            alt="Ejemplo de la definición de vuelta derecha e izquierda.">
-          <figcaption>Ejemplo de la definición de vuelta derecha e izquierda.</figcaption>
+          <img src="./images/capitulo_02/Ejemplo_vueltas_1.jpg" width="80%" height="60%" alt="Ejemplo de la
+          definición de vuelta derecha e izquierda.">
+          <figcaption>Ejemplo de la definición de
+            vuelta derecha e izquierda.</figcaption>
         </figure>
         <p>
           Una vez sabiendo si la tripleta de puntos dan
@@ -1125,8 +1127,9 @@
           inicio.
         </p>
         <p>
-          En la <ref ref_id="graham_scan_algorithm"></ref> podemos ver un ejemplo de la
-          ejecución del algoritmo de Graham paso a paso.
+          En la <ref ref_id="graham_scan_algorithm"></ref> podemos
+          ver un ejemplo de la ejecución del algoritmo
+          de Graham paso a paso.
         </p>
       </div>
       <div class="page">
@@ -1135,11 +1138,16 @@
           <div class="interactive" width="810" height="1050" window-size="false"
             src="./Interactivos/capitulo_2/graham_scan.html">
           </div>
-          <figcaption>Ejemplo de la ejecución del algoritmo de Graham.</figcaption>
+          <figcaption>Ejemplo de la ejecución del
+            algoritmo de Graham.</figcaption>
         </figure>
-        <!-- Fuentes: Discrete%20and%20computational%20geometry%20by%20Devadoss%20S.,%20ORourke%20J.%20(z-lib.org).pdf -->
-        <!-- Computational_Geometry_An_Introduction_by_Franco_P_Preparata,_Michael. -->
-        <!-- Computational%20Geometry%20in%20C%20by%20Joseph%20ORourke%20(z-lib.org).pdf -->
+        <!-- Fuentes:
+        Discrete%20and%20computational%20geometry%20by%20Devadoss%20S.,%20ORourke%20J.%20(z-lib.org).pdf
+        -->
+        <!-- Computational_Geometry_An_Introduction_by_Franco_P_Preparata,_Michael.
+        -->
+        <!-- Computational%20Geometry%20in%20C%20by%20Joseph%20ORourke%20(z-lib.org).pdf
+        -->
       </div>
 
       <div class="page" id="graham_algorithm__complexity_page">
@@ -1151,7 +1159,8 @@
           complejidad de cada uno para obtener la total
           del algoritmo.
         </p>
-        <h5><span class="bolded">Paso 1. Tomar el punto inferior.</span></h5>
+        <h5><span class="bolded">Paso 1. Tomar el punto
+            inferior.</span></h5>
         <p>
           Dado que lo único que nos interesa en este
           paso es obtener un punto en algún extremo del
@@ -1164,10 +1173,11 @@
           uno de los puntos en $S$ y llevar registro
           del que tiene el menor valor en el eje $y$,
           lo cual podemos hacer en una complejidad en
-          tiempo de $ \ O(n) \ $ donde $ \ n \ $ es el número
-          de puntos en $S$.
+          tiempo de $ \ O(n) \ $ donde $ \ n \ $ es el
+          número de puntos en $S$.
         </p>
-        <h5><span class="bolded">Paso 2. Ordenar los puntos con respecto al inferior.</span></h5>
+        <h5><span class="bolded">Paso 2. Ordenar los
+            puntos con respecto al inferior.</span></h5>
         <p>
           Para esta parte del algoritmo necesitamos
           ordenar todos los demás puntos en $S$ por el
@@ -1202,8 +1212,10 @@
           alternativas para comparar los puntos, que
           aprovechan el mismo cálculo necesario para
           determinar si dada una tripleta de puntos,
-          estos dan <pageref ref_id="graham_step_3">vuelta izquierda o
-            derecha</pageref>.
+          estos dan
+          <pageref ref_id="graham_step_3">
+            vuelta izquierda o derecha
+          </pageref>.
 
         <figure id="compare_points_by_angle">
           <img src="./images/capitulo_02/Ejemplo_comparar_angulos.svg" width="80%" height="60%" alt="Ejemplo de la
@@ -1235,23 +1247,31 @@
       </div>
       <div class="page">
         <p>
-          Dada la tripleta de puntos $(a,b,c)$ podemos
-          calcular las pendientes de los segmentos $A =
-          \overline{a b}$ y $B = \overline{b c}$
-          denotadas como:
+          Dada la tripleta de puntos $(a,b,c)$, para
+          determinar si dichos puntos dan
+          <pageref ref_id="graham_step_3">
+            vuelta izquierda o derecha
+          </pageref>
+          , podemos calcular las pendientes de
+          los segmentos $A = \overline{a b}$ y $B =
+          \overline{b c}$ denotadas como:
         </p>
         $$ m_{A} = \frac{b_y - a_y}{b_x - a_x} $$
 
         $$ m_{B} = \frac{c_y - b_y}{c_x - b_x} $$
         <p>
-          Si la $ m_{A} > m_{B} $ entonces tenemos una
-          vuelta derecha, si por el contrario $ m_{A} < m_{B} $ entonces tenemos una vuelta izquierda, y en el caso que
-            $ m_{A}=m_{B} $ entonces no hay vuelta, ya que los puntos son colineales. </p>
+          Si la $ m_{A} > m_{B} $ entonces la tripleta
+          $ (a,b,c) $ da vuelta derecha, si por el
+          contrario $ m_{A} < m_{B} $ entonces esta da vuelta izquierda, y en el caso que $ m_{A}=m_{B} $ entonces los
+            tres puntos en la tripleta tripleta son colineales. </p>
 
             <p>
-              En la figura <ref ref_id="comparacion_pendientes"></ref>
+              En la figura
+              <ref ref_id="comparacion_pendientes">
+
+              </ref>
               podemos apreciar esta comparación, la
-              cual podemos calcular fácilmente como:
+              cual podemos calcular la expresión:
 
               $$ (b_y - a_y) * (c_x - b_x) - (c_y -
               b_y)*(b_x - a_x) $$

@@ -2504,49 +2504,61 @@
           eventos:
         </p>
         <p>
-          Caso 1: El punto de evento es el punto superior de un
-          segmento.
-          <br>
-          Agregaremos en orden al nuevo
-          segmento del que forma parte el punto de
-          evento y comprobamos si hay intersección,
-          entre el segmento agregado y los dos
-          segmentos que están antes y después del nuevo
-          segmento en el estado ordenado.
-          Por ejemplo, si $S_b$ es el segmento agregado y
-          $S_a , S_c$ son los segmentos que están
-          antes y después en el estado, una vez que $S_b$
-          fue insertado, comprobaremos intersecciones de
-          $S_a$ con $S_b$, y $S_b$ con $S_c$.
+        <h4>
+          <span class="bolded">
+            Caso 1: El punto de evento es el punto superior de un
+            segmento.
+          </span>
+        </h4>
+        <br>
+        Agregaremos en orden al nuevo
+        segmento del que forma parte el punto de
+        evento y comprobamos si hay intersección,
+        entre el segmento agregado y los dos
+        segmentos que están antes y después del nuevo
+        segmento en el estado ordenado.
+        Por ejemplo, si $S_b$ es el segmento agregado y
+        $S_a , S_c$ son los segmentos que están
+        antes y después en el estado, una vez que $S_b$
+        fue insertado, comprobaremos intersecciones de
+        $S_a$ con $S_b$, y $S_b$ con $S_c$.
         </p>
         <p>
-          Caso 2: El punto de eventos es el punto inferior de un
-          segmento
-          <br>
-          Eliminamos al segmento del que
-          forma parte y comprobamos si no se
-          intersectan los dos segmentos que estaban
-          antes y después del segmento eliminado en el
-          estado ordenado, pues ahora estos segmentos
-          son adyacentes.
-          Por ejemplo, si $S_b$ es el segmento eliminado y
-          $S_a , S_c$ son los segmentos que están antes
-          y después en el estado, una vez que $S_b$ fue
-          eliminado, comprobaremos intersecciones de
-          $S_a$ con $S_c$.
+        <h4>
+          <span class="bolded">
+            Caso 2: El punto de eventos es el punto inferior de un
+            segmento
+          </span>
+        </h4>
+        <br>
+        Eliminamos al segmento del que
+        forma parte y comprobamos si no se
+        intersectan los dos segmentos que estaban
+        antes y después del segmento eliminado en el
+        estado ordenado, pues ahora estos segmentos
+        son adyacentes.
+        Por ejemplo, si $S_b$ es el segmento eliminado y
+        $S_a , S_c$ son los segmentos que están antes
+        y después en el estado, una vez que $S_b$ fue
+        eliminado, comprobaremos intersecciones de
+        $S_a$ con $S_c$.
         </p>
       </div>
 
       <div class="page">
         <p>
-          Caso 3: Es una intersección interna de dos
-          segmentos.
-          <br>
-          Intercambiamos el orden de dichos segmentos,
-          y comprobamos si el segmento más a la
-          izquierda intersecta con el segmento que le
-          precede y si el segmento más a la derecha
-          intersecta con el segmento que le procede.
+        <h4>
+          <span class="bolded">
+            Caso 3: Es una intersección interna de dos
+            segmentos.
+          </span>
+        </h4>
+        <br>
+        Intercambiamos el orden de dichos segmentos,
+        y comprobamos si el segmento más a la
+        izquierda intersecta con el segmento que le
+        precede y si el segmento más a la derecha
+        intersecta con el segmento que le procede.
         </p>
         <p>
           La figura <ref ref_id="barrido_de_línea_interactivo_discreto"></ref>
@@ -2556,7 +2568,7 @@
           cada momento.
         </p>
         <figure id="barrido_de_línea_interactivo_discreto">
-          <div class="interactive" width="500" height="450" window-size="false"
+          <div class="interactive" width="500" height="430" window-size="false"
             src="./Interactivos/capitulo_3/descartesJS/ejemplo_algoritmo.html"></div>
           <figcaption>
             Ejemplo del barrido de línea mejorado.
@@ -2629,7 +2641,7 @@
         </p>
         <h4><span class="bolded">Algoritmo</span></h4>
         <p>
-          Inicialización:
+          <span class="bolded">Inicialización:</span>
           <br>
           Para comenzar el algoritmo necesitamos
           identificar los puntos de evento, como los
@@ -2644,7 +2656,7 @@
           $E$ vacío lo que nos toma $O(1)$.
         </p>
         <p>
-          Procesamiento de eventos:
+          <span class="bolded">Procesamiento de eventos:</span>
           <br>
           En este paso procesaremos cada punto de
           evento en la cola de eventos $C$ hasta que no
@@ -2773,7 +2785,7 @@
           Comencemos definiendo lo siguiente.
         </p>
         <p>
-          Subdivisión
+          <span class="bolded">Subdivisión</span>
           <br>
           Diremos que una subdivisión plana es una
           estructura inducida por un conjunto de
@@ -2792,28 +2804,30 @@
           por los siguientes elementos.
         </p>
         <p>
-          Vértices
+          <span class="bolded">Vértices</span>
           <br>
           Los vértices de una subdivisión
           son los puntos extremos de los segmentos de
           línea.
         </p>
         <p>
-          Aristas
+          <span class="bolded">Aristas</span>
           <br>
           Las aristas de una subdivisión
           son los segmentos de línea, sin los puntos
           extremos de los mismos.
         </p>
         <p>
-          Caras
+          <span class="bolded">
+            Caras
+          </span>
           <br>
           Una cara de una subdivisión es un
           subconjunto conexo maximal del plano, que no
           contiene ni aristas ni vértices.
         </p>
         <figure id="barrido_de_línea_interactivo_discreto">
-          <div class="interactive" width="500" height="340" window-size="false"
+          <div class="interactive" width="500" height="330" window-size="false"
             src="./Interactivos/capitulo_3/descartesJS/ejemplo_punto_superior_elementos.html"></div>
           <figcaption>
             Ejemplo de los elementos que forman a una
@@ -2825,13 +2839,22 @@
 
       <div class="page">
         <p>
+          Dadas las definiciones de estos elementos,
+          definiremos cuando dos de estos son
+          incidentes:
+        </p>
+        <p>
           Sea $v$ un vértice, $a$ una arista y $c$ una
-          cara, si $v$ está en un extremo de $a$
-          diremos que $v$ y $a$ son incidentes, si $v$
-          está en el perímetro de $c$ entonces $v$ y
-          $c$ son incidentes, de igual manera si $a$
-          está en el perímetro de $c$ entonces $a$ y
-          $c$ son incidentes.
+          cara:
+          <br>
+          Si $v$ está en un extremo de $a$
+          diremos que $v$ y $a$ son incidentes.
+          <br>
+          Si $v$ está en el perímetro de $c$ entonces
+          $v$ y $c$ son incidentes.
+          <br>
+          Si $a$ está en el perímetro
+          de $c$ entonces $a$ y $c$ son incidentes.
         </p>
         <p>
           En la <ref ref_id="ejemplo_subdivision_incidencia"></ref>
@@ -2917,7 +2940,8 @@
           de dicha media-arista.
         </p>
         <figure id="ejemplo_apuntadores_medias_aristas">
-          <img src="./images/capitulo_03/ejemplo_apuntadores_medias_aristas.svg" width="90%" height="90%">
+          <div class="interactive" width="450" height="280" window-size="false"
+            src="./Interactivos/capitulo_3/Half_edge_example.html"></div>
           <figcaption>
             Ejemplo de medias-aristas que apuntan a la
             siguiente alrededor de una cara y solo son
@@ -2946,7 +2970,8 @@
           incidentes por la izquierda con una cara.
         </p>
         <figure id="ejemplo_cara_con_agujeros">
-          <img src="./images/capitulo_03/ejemplo_cara_con_agujeros.svg" width="90%" height="90%">
+          <div class="interactive" width="450" height="380" window-size="false"
+            src="./Interactivos/capitulo_3/Half_edge_hole_example.html"></div>
           <figcaption>
             Ejemplo de cara con agujeros.
           </figcaption>
@@ -3031,7 +3056,7 @@
             la media-arista es incidente a la cara.
           </li>
         </ul>
-        <figure id="cierre-convexo">
+        <figure id="DCEL">
           <div class="interactive" width="450" height="500" window-size="false"
             src="./Interactivos/capitulo_3/DCEL_example.html"></div>
           <figcaption>Ejemplo de una lista de aristas doblemente conectadas.</figcaption>

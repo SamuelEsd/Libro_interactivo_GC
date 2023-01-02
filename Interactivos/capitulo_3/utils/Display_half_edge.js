@@ -17,8 +17,8 @@ function initializePoints(num_of_points) {
     CUSTOM_WIDTH - WINDOW_BORDER,
     CUSTOM_HEIGHT - WINDOW_BORDER
   );
-  let vertices = getVerticesForFullDCEL(startingP, endingP);
-  let halfEdges = getEdgesForDCEL(vertices);
+  let vertices = getVerticesForDCELSimple(startingP, endingP);
+  let halfEdges = getEdgesForDCELSimple(vertices);
   dcel = new DCEL(vertices, halfEdges);
 }
 

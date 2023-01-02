@@ -17,8 +17,9 @@ function initializePoints(num_of_points) {
     CUSTOM_WIDTH - WINDOW_BORDER,
     CUSTOM_HEIGHT - WINDOW_BORDER
   );
-  let vertices = getVerticesForFullDCEL(startingP, endingP);
-  let halfEdges = getEdgesForDCEL(vertices);
+  console.log("initialize");
+  let vertices = getVerticesForDCEL_hole(startingP, endingP);
+  let halfEdges = getEdgesForDCEL_hole(vertices);
   dcel = new DCEL(vertices, halfEdges);
 }
 

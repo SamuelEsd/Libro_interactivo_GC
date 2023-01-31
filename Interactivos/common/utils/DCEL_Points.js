@@ -67,10 +67,21 @@ function getVerticesForDCELSimple(startingP, endingP) {
   // First graph with arrow shape
   let triangle = [
     [0, 0],
-    [10, 25],
-    [35, 10],
+    [10, 120],
+    [85, 10],
   ];
   let raw_vertices = triangle;
+
+  return getVerticesForDCEL(startingP, endingP, raw_vertices);
+}
+
+function getVerticesForDCELSingle(startingP, endingP) {
+  // First graph with arrow shape
+  let line = [
+    [15, 50],
+    [85, 80],
+  ];
+  let raw_vertices = line;
 
   return getVerticesForDCEL(startingP, endingP, raw_vertices);
 }
@@ -190,6 +201,27 @@ function getEdgesForDCELSimple(vertices) {
 
   setNextAndPrevConnections(triangle_cw_order, halfEdges, "1");
   setNextAndPrevConnections(triangle_ccw_order, halfEdges, "2");
+  console.log(halfEdges);
+
+  return halfEdges;
+}
+
+function getEdgesForDCELSingle(vertices) {
+  let halfEdges = [];
+  let triangle_connections = ["0", "1", "0"];
+
+  halfEdges = halfEdges.concat(
+    verticesConnections(triangle_connections, vertices)
+  );
+  halfEdges = new Map(
+    halfEdges.map((halfEdge) => [halfEdge.getName(), halfEdge])
+  );
+
+  let triangle_cw_order = ["0", "1", "0"];
+  let triangle_ccw_order = ["1", "0", "1"];
+
+  setNextAndPrevConnections(triangle_cw_order, halfEdges, "1");
+  setNextAndPrevConnections(triangle_ccw_order, halfEdges, "1");
   console.log(halfEdges);
 
   return halfEdges;

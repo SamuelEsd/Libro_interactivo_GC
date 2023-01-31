@@ -2890,12 +2890,103 @@
           o <b>DCEL</b> por sus siglas en inglés.
         </p>
         <p>
-          Para representar una subdivisión, una lista
-          de aristas doblemente conectadas contendrá
-          información de cada vértice, arista y cara de
-          la subdivisión.
+          Para representar una subdivisión, una DCEL
+          contendrá información de cada vértice, arista
+          y cara de la subdivisión, permitiendo de esta
+          forma tener información no solo de la
+          subdivisión, si no que también de las
+          regiones que abarca cada cara.
         </p>
         <p>
+          Además, nos interesa poder realizar
+          operaciones para navegar a través de la
+          estructura. Para lograr esto cada arista
+          estará dividida en dos mitades yendo de
+          extremo a extremo de la arista.
+          <br>
+          Cada mitad será una <b>media-arista</b>, las
+          dos medias-aristas que surgen de una misma
+          arista serán llamadas <b>gemelas</b>, dichas
+          aristas tendrán una dirección, la cual es
+          opuesta entre aristas gemelas.
+          <br>
+          Podemos llamar <b>origen</b> al vértice de
+          donde surge una media-arista y <b>destino</b>
+          el vértice a donde apunta, de esta manera dos
+          aristas gemelas compartirán los mismos
+          extremos pero lo que para una es el origen
+          para la otra es el destino y viceversa.
+        </p>
+        <figure id="ejemplo_apuntadores_medias_aristas">
+          <div class="interactive" width="70%" height="30%" window-size="false"
+            src="./Interactivos/capitulo_3/Single_Half_edge_example.html"></div>
+          <figcaption>
+            Ejemplo de medias-aristas formadas de una sola arista.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="page">
+        <p>
+          La dirección de cada media-arista resulta
+          importante ya que estas están colocadas de
+          tal forma que rodean las caras en orden
+          contrario a las manecillas del reloj.
+          Además para poder realizar la navegación al
+          rededor de dichas caras, cada media-arista almacena
+          un apuntador a la media-arista siguiente y a la anterior.
+
+        </p>
+        <!-- TO DO Agregar un selector para seleccionar cada
+        media-arista y mostrar la medias-aristas siguiente y
+        anterior a la media-arista seleccionada -->
+        <figure id="ejemplo_apuntadores_medias_aristas">
+          <div class="interactive" width="70%" height="30%" window-size="false"
+            src="./Interactivos/capitulo_3/Half_edge_example.html"></div>
+          <figcaption>
+            Ejemplo de medias-aristas que apuntan a la
+            siguiente alrededor de una cara y solo son
+            incidentes a una sola cara.
+          </figcaption>
+        </figure>
+
+        <p>
+
+          Esta forma de organizar las aristas nos permite navegar fácilmente al rededor de las
+          caras en la DCEL en sentido contrario a las manecillas del reloj, ya que cada arista guarda un apuntador a la
+          siguiente arista
+          Una operación que resulta importante a realizar con una
+          DCEL es navegar al rededor de las caras, para lograr esto
+          necesitamos ordenar las aristas de tal manera que
+          Por lo regular, en una subdivisión una arista
+          tiene dos caras a las cuales es
+          <ref_id>incidente</ref_id>, entonces
+          dividir una arista en dos mitades, nos
+          permite que cada media-arista sea incidente a
+          una sola cara y de esta manera podremos
+          guardar un solo apuntador a la cara incidente
+          para cada media arista.
+          <br>
+          Haciendo uso de esta única cara incidente,
+          podemos definir al siguiente y al anterior de
+          una media arista.
+
+          decir que dada una media-arista $e$, las
+          medias-aristas $n$ y $p$ son la media-arista siguiente y
+          anterior a la media-arista $e$ respectivamente, si
+          la cara adyacente a $e$, $n$ y $p$ es la
+          misma, y además $n$ tiene por origen al
+          destino de $e$ y a su vez $p$ tiene por destino al
+          origen de $e$.
+        </p>
+        EJEMPLO Interactivo con select
+
+        <p>Además al darle una
+          dirección a cada media-arista podremos
+          almacenar un apuntador de una arista a su
+          siguiente y un apuntador a su anterior
+
+
           A cada arista le daremos una dirección, y así
           podremos almacenar un apuntador de una arista
           a su siguiente y un apuntador a su anterior,
@@ -2904,50 +2995,6 @@
           tanto en sentido de las manecillas del reloj
           como al contrario.
         </p>
-        <figure id="ejemplo_apuntadores">
-          <img src="./images/capitulo_03/ejemplo_apuntadores.svg" width="90%" height="90%">
-          <figcaption>
-            Ejemplo de aristas con apuntadores a la
-            siguiente arista alrededor de una cara.
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="page">
-        <p>
-          Además, para evitar tener múltiples aristas
-          siguientes para cada arista, dividiremos cada
-          arista en dos mitades yendo de extremo a
-          extremo pero en direcciones
-          opuestas, cada mitad será una <b>media-arista</b>,
-          las dos medias-aristas que surgen de una
-          misma arista serán llamadas <b>gemelas</b>,
-          dichas aristas tienen direcciones opuestas,
-          podemos llamar <b>origen</b> al vértice
-          de donde surge una media-arista y
-          <b>destino</b> el vértice a donde apunta,
-          entonces dos aristas gemelas comparten los
-          mismos extremos pero lo que para una es el
-          origen para la otra es el destino y
-          viceversa. Por lo regular una arista tendrá
-          dos caras a las cuales es incidente, entonces
-          dicha división además nos permite que cada
-          media-arista sea incidente a una sola cara y
-          así guarde un solo apuntador a dicha cara.
-          Para asegurar un orden en cuanto a las
-          aristas, diremos que la cara con la que una
-          media-arista es incidente está a la izquierda
-          de dicha media-arista.
-        </p>
-        <figure id="ejemplo_apuntadores_medias_aristas">
-          <div class="interactive" width="450" height="280" window-size="false"
-            src="./Interactivos/capitulo_3/Half_edge_example.html"></div>
-          <figcaption>
-            Ejemplo de medias-aristas que apuntan a la
-            siguiente alrededor de una cara y solo son
-            incidentes a una sola cara.
-          </figcaption>
-        </figure>
       </div>
 
       <div class="page">

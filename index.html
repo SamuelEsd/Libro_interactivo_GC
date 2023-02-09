@@ -2931,11 +2931,14 @@
           La dirección de cada media-arista resulta
           importante ya que estas están colocadas de
           tal forma que rodean las caras en orden
-          contrario a las manecillas del reloj.
-          Además para poder realizar la navegación al
-          rededor de dichas caras, cada media-arista almacena
-          un apuntador a la media-arista siguiente y a la anterior.
-
+          contrario a las manecillas del reloj. Además
+          para poder realizar la navegación al rededor
+          de dichas caras, cada media-arista almacena
+          un apuntador a la media-arista siguiente y a
+          la anterior. Este orden que toman las
+          media-aristas también permite que cada
+          media-arista guarde un solo apuntador a la
+          cara a a que es incidente.
         </p>
         <!-- TO DO Agregar un selector para seleccionar cada
         media-arista y mostrar la medias-aristas siguiente y
@@ -2949,89 +2952,45 @@
             incidentes a una sola cara.
           </figcaption>
         </figure>
-
         <p>
-
-          Esta forma de organizar las aristas nos permite navegar fácilmente al rededor de las
-          caras en la DCEL en sentido contrario a las manecillas del reloj, ya que cada arista guarda un apuntador a la
-          siguiente arista
-          Una operación que resulta importante a realizar con una
-          DCEL es navegar al rededor de las caras, para lograr esto
-          necesitamos ordenar las aristas de tal manera que
-          Por lo regular, en una subdivisión una arista
-          tiene dos caras a las cuales es
-          <ref_id>incidente</ref_id>, entonces
-          dividir una arista en dos mitades, nos
-          permite que cada media-arista sea incidente a
-          una sola cara y de esta manera podremos
-          guardar un solo apuntador a la cara incidente
-          para cada media arista.
-          <br>
-          Haciendo uso de esta única cara incidente,
-          podemos definir al siguiente y al anterior de
-          una media arista.
-
-          decir que dada una media-arista $e$, las
-          medias-aristas $n$ y $p$ son la media-arista siguiente y
-          anterior a la media-arista $e$ respectivamente, si
-          la cara adyacente a $e$, $n$ y $p$ es la
-          misma, y además $n$ tiene por origen al
-          destino de $e$ y a su vez $p$ tiene por destino al
-          origen de $e$.
+          De esta manera cada media-arista tiene una
+          sola media-arista siguiente, añadiendo de
+          esta manera la posibilidad de calcular el
+          perímetro de una cara a partir de conocer
+          únicamente una media-arista.
         </p>
-        EJEMPLO Interactivo con select
-
-        <p>Además al darle una
-          dirección a cada media-arista podremos
-          almacenar un apuntador de una arista a su
-          siguiente y un apuntador a su anterior
-
-
-          A cada arista le daremos una dirección, y así
-          podremos almacenar un apuntador de una arista
-          a su siguiente y un apuntador a su anterior,
-          esto nos ayudará a poder hacer un recorrido
-          alrededor de las caras de la subdivisión
-          tanto en sentido de las manecillas del reloj
-          como al contrario.
+        <p>
+          Sin embargo en el caso en que una cara tenga
+          agujeros no nos basta con poder calcular el perímetro de la misma.
         </p>
       </div>
 
       <div class="page">
         <p>
-          De esta manera cada media-arista tiene una
-          sola media-arista siguiente, facilitando de
-          esta manera el recorrido al rededor de una
-          cara y añadiendo la posibilidad de calcular
-          el perímetro de una cara a partir de conocer
-          únicamente una media-arista.
+          Es por ello que cada cara debe almacenar, además de una
+          media-arista que forme parte del perímetro de la misma, una media-arista correspondiente a cada agujero
+          dentro de la cara.
           <br>
-          Sin embargo en el caso en que una cara tenga
-          agujeros necesitaremos conocer al menos una
-          media-arista correspondiente a cada agujero
-          dentro de la cara, la siguiente <ref ref_id="ejemplo_cara_con_agujeros"></ref>
+          La siguiente <ref ref_id="ejemplo_cara_con_agujeros"></ref>
           muestra una cara con agujeros, notemos como
-          además la dirección de las medias-aristas de
+          la dirección de las medias-aristas de
           las subdivisiones dentro de las caras se
-          conserva, siendo las medias-aristas
-          incidentes por la izquierda con una cara.
+          conserva.
         </p>
         <figure id="ejemplo_cara_con_agujeros">
           <div class="interactive" width="450" height="380" window-size="false"
             src="./Interactivos/capitulo_3/Half_edge_hole_example.html"></div>
           <figcaption>
-            Ejemplo de cara con agujeros.
+            TO DO: Ejemplo de cara con agujeros.
           </figcaption>
         </figure>
       </div>
 
       <div class="page">
         <p>
-          Con esta estructura para representar
-          medias-aristas podemos describir más
-          claramente como representar a todos los
-          vértices, aristas y caras de nuestra lista de
-          aristas doblemente conectadas a continuación:
+          Podemos describir más
+          específicamente como representar a todos los
+          vértices, media-aristas y caras de una DCEL a continuación:
         </p>
 
         <p>
@@ -3106,7 +3065,9 @@
         <figure id="DCEL">
           <div class="interactive" width="450" height="500" window-size="false"
             src="./Interactivos/capitulo_3/DCEL_example.html"></div>
-          <figcaption>Ejemplo de una lista de aristas doblemente conectadas.</figcaption>
+          <figcaption> TODO: ejemplo en el que se pueda mostrar los apuntadores de cada elemento (usar un dropdown para
+            seleccionar el elemento)
+            Ejemplo de una lista de aristas doblemente conectadas.</figcaption>
         </figure>
       </div>
 
@@ -3119,7 +3080,7 @@
           doblemente conectadas, podemos proceder a
           calcular el traslape de dos subdivisiones.
           <br>
-          Para ello, primer definamos lo que es un traslape:
+          Para ello, primero definamos lo que es un traslape:
         </p>
         <p>
           Sean $S1$ y $S2$ dos subdivisiones,
@@ -3132,6 +3093,15 @@
         </p>
         TODO: Ejemplo de definición de traslape de dos
         subdivisiones.
+        <figure id="barrido_de_línea_interactivo_discreto">
+          <div class="interactive" width="500" height="330" window-size="false"
+            src="./Interactivos/capitulo_3/descartesJS/ejemplo_traslape_dos_subdivisiones.html"></div>
+          <figcaption>
+            Ejemplo de los elementos que forman a una
+            subdivisión, al seleccionar cada opción se
+            muestran en color verde.
+          </figcaption>
+        </figure>
       </div>
 
       <div class="page">
